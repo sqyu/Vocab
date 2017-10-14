@@ -2,7 +2,7 @@ This is the program I wrote many years ago to help myself memorize GRE vocabular
 
 The menu supports English, Chinese (simplified and traditional) and Japanese. Korean and French will be available in the future.
 
-The program is fully functioning and has many functions one would or would not expect, but the code might need to be cleaned up a bit since it was written before I took my algorithm class...
+The program is fully functioning and has many functions one would or would not expect, but the code might need to be cleaned up a bit since it was written before I took my algorithm class... (I know Vocab.py should be split into multiple files but I did not have time to make that change)
 
 I made modifications to it earlier in 2017 for compatibility with Japanese Kanken (Kanji Test) Level 2 words and Korean vocabulary (including a function that automatically scrapes the phonetic Hangul from wiktionary, as the Korean orthography and pronunciataions are already inconsistent due to liaison)...
 
