@@ -1,0 +1,2 @@
+chooseLanguage: 請選擇閣下的語言，香港繁體請輸入「zh-hk」。RETURN请输入您的提示语言，简体中文请输入"zh-cn"。RETURN言語を選んでください。日本語の場合は「ja」をご入力ください。
+greetings: Welcome to the Vocabulary program!RETURN欢迎使用背单词程序！RETURN歡迎使用背單詞程式！RETURNVocabへようこそ！

@@ -1,0 +1,124 @@
+abase: ≠abate
+abate: ≠abase
+acclaim: acclamation
+accolade: ≠acolyte
+adjudicate: NOT 任命
+agape: ALSO 張大嘴 NOT 驚訝
+apprehensive: ALSO 敏銳的
+arcane: ≠archaic
+archaic: ≠arcane
+arduous: ≠assiduous
+assiduous: ≠arduous
+bask: 曬太陽
+beholden: ≠behold
+behoove: ALSO 理應，有必要
+beset: ALSO 鑲嵌
+bluff: ALSO 虛張聲勢 & 懸崖峭壁
+bolster: ≠boulder
+bruit: ≠bruise
+cacophony: >--< canorous
+calamity: ≠calumny
+callous: ≠callow
+callow: ≠callous
+caprice: 記: 戴著帽子吃飯
+careen: ALSO 傾斜
+cavort: 記: 被cow（威脅）嚇到了
+cellular: 蜂窩(數據網)
+clandestine: ≠clairvoyance
+clarion: ≠carrion
+clot: ≠cloy
+complementary: ≠complimentary
+conjure: ALSO 召喚 & 變魔術
+constrict: ≠restrict
+covert: >--< overt
+craven: ≠craving
+defray: ≠fray NOT 殺死 (≠slay)
+demote: ≠emote
+demur: ≠demure
+depose: ≠dispose
+desiccate: ≠inspissate
+detain: ≠disdain ≠distain ≠stain
+diatribe: ≈≈harangue ≠homily ≠lampoon
+din: ≠dint
+disdain: ≠detain ≠distain ≠stain
+dispose: ≠depose
+distain: ≠detain ≠disdain ≠stain
+drab: ≠drub
+drivel: ≠dishevel
+drudgery: ≠begrudge ≠grudge
+emaciate: 記: e (否定) + 맜있다 → 不好吃就使消瘦 ≠effeminate ≠emasculate ≠macerate
+exalt: ≠exaltation ≠exult
+exult: ≠exalt ≈≈exaltation
+felony: ≠felon
+fitful: 間歇的
+flinch: 記: 往後退一inch
+gawky: ≠gaudy
+groove: ALSO 溝，習慣
+grudge: ≠begrudge drudgery
+hanker: ≠hunker
+harangue: ≈≈diatribe ≠homily ≠lampoon
+heckle: ALSO 詰問
+heresy: ≠hearsay 記: 不是道hear途說
+hew: ≠hue
+homily: ≠diatribe ≠harangue ≠lampoon
+importune: ≠implore
+lachrymose: ≠lugubrious
+lampoon: ≠diatribe ≠harangue ≠homily
+ludicrous: ≠lucrative
+lugubrious: ≠lachrymose
+macerate: ≠emaciate
+mendacious: NOT 做作的
+meretricious: ≠meticulous
+meticulous: ≠meretricious
+mirth: 記: 沒事
+misgiving: NOT 誤解
+mutter: 記: 媽的
+oaf: 記: loaf麵包都不會吃的傻子
+outgrowth: NOT noun of outgrow
+overt: >--< covert
+pacify: NOT 和談
+palatial: 記: palace
+palliate: NOT 撫慰
+palpitation: 動悸
+pastiche: ≠postiche
+peck: >--< speck
+perquisite: ≠requisite
+piquant: ≠pique
+pique: ≠piquant
+plump: ≠gulp ≠pulp
+poach: ALSO 偷獵，竊取
+prepossessing: 記: 預先possess人心
+proffer: 記: offer
+prologue: ≠prorogue
+punctilious: NOT 挑剔的
+quotidian: 記: quotidien (Français) ≠quondam
+reproof: ≠reprove
+reprove: ≠reproof
+ribald: 記: 日波
+rife: ≠rive
+rive: ≠rife
+ruse: 記: 拿rose
+sequester: ≠sequestrate
+skittish: ≠skit NOT 諷刺的
+speck: >--< peck
+stoic: ≠stolid
+stolid: ≠stoic
+tacit: ALSO 心照不宣的 記: 다시 의미
+tarnish: ALSO使失去光澤
+testy: ≠zesty
+trudge: ==跋涉
+veritable: NOT 可證實的
+verse: ≠verve
+viable: ALSO 能活下去的
+vicarious: ALSO 感同身受的
+vilify: ≠vitiate
+vitiate: ≠vilify
+voluble: ≠voluminous
+voluminous: ≠voluble
+waddle: 記: 歪倒
+wag: waggish
+wholesome: ≠fulsome ≠winsome
+windbag: NOT 冗長
+winsome: ≠fulsome ≠wholesome
+yoke: NOT yolk
+zesty: ≠testy

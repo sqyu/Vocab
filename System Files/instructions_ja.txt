@@ -1,0 +1,120 @@
+addComments: REPLACEのコメントを入力するか、エンターを押してコメントを削除してください。
+addCommentsQuitted: 戻りました。新しい単語を入力するか、REPLACE1をREPLACE2のコメントにするためにはREPLACE1をもう一度入力してください。
+addOrCancelSchedule: 「SCA」を入力してスケジュールを追加するか、「SCC」でスケジュールをキャンセルしてください。
+allForRandom50Words: 「ランダムREPLACE語」モードにすべての単語（Y）または難しい単語だけ（N）を追加しますか？
+antonym: 対義語
+book1: 本を選んでください。
+book2: REPLACE1の場合は「REPLACE2」を入力してください。
+bookLF1: 仏語１
+bookPLR: 紅宝書
+bookTM: 三千
+bye: バイバイ！
+changesSaved: 変更を保存しました。
+chooseDifficultNewOrExtend: 難しい単語をリセット（Y）するか、難しい単語を追加（N）しますか？
+chooseDifficultNewlyAddedWords: 新たに追加した難しい単語：
+chooseDifficultNowList: 新しい難しい単語リスト：
+chooseFromAbove: 上にあげた選択肢(1 - REPLACE)からひとつ選んでください。
+chooseList: リストを選んでください。
+chooseListNotExists: 次のリストからもう一度一つ選んてください。
+chooseMoreLists: 数字を入力してもう一つのリストを追加するか、「N」を入力して追加を終了してください。
+chooseMoreListsNotExists: 次のリストからもう一度一つ選ぶか、「N」を入力して追加を終了してください。
+chooseMoreListsWrong: 数字を入力するか、「N」を入力して追加を終了してください。
+chooseOneWord1: 
+chooseOneWord2: を含む単語：
+chooseRandom50Words: ご希望のランダム単語数を入力してください。
+chooseRecord: 数字の1からREPLACEまでひとつ選んでください。
+chooseRecord2: 1を入力してこの記録を選んでください。
+comments: コメント：SPACE
+confirmOrAbandon: 「Y」で確認するか、「N」で破棄してください。
+congratulations: 大変よくできました！
+correct: 正解！
+date: MM/DD/YYYYのフォーマットで日付を入力してください。今日の場合は「T」や「TODAY」を、昨日の場合は「Y」または「YESTERDAY」を入力してください。
+dateAlreadyExists: 日付はすでに存在します。
+dateDoesNotExist: 日付が見つかりません。
+dateNotValid: 日付が正しくありません。
+derivation: 語源・派生語
+difficultWordList: 難しい単語：
+difficultWordsInput: 他に記録したい単語をスペースで区切って入力してください。
+enterANumber: 数字を入力してください。
+enterAPositiveNumber: 自然数を入力してください。
+enterYOrN: 「Y」または「N」を入力してください。
+findAWordChooseList: 単語を検索するリストを自分で選ぶには「Y」を押してください。すべてのリストから単語を検索するにはリターンキーを押してください（デフォルト）。
+findAWordMeaningsIn: REPLACEでの意味：
+guillemetLeft: 『
+guillemetRight: 』
+letters: 文字
+markedWordSuccessfully: REPLACEを難しい単語のリストに追加しました。
+markedWordUnsuccessfully: 警告： REPLACEはこのリストの単語ではありません。
+meaning: 意味REPLACE：SPACE
+moreOptions: 次のオプションから一つ選んでください：「C」コメントを追加する　「D」：難しい単語リストを変える・追加する　「SC」：今日のスケジュールを見る　「SI」：類似する・混同しやすい語　「R」：本からランダムにREPLACE単語を選ぶ　「quit」：メインメニューに戻る
+moreThanMANYResults: MANY件以上の検索結果があります。もっと長い単語を入力するか、リターンキーを押してすべての検査結果を見ることができます。
+noScheduleAvailable: スケジュールファイルが見つかりませんでした。「Record」フォルダにある「Schedule.txt」ファイルを次のフォマットで編集してください（一日に一行）：RETURN1/1:SPACE勉強する必要のあるリスト 或 01/01:SPACE勉強する必要のあるリスト
+noScheduleTodayAvailable: 今日のスケジュールが見つかりませんでした。
+noWordsToStudy: このリストに勉強できる単語はありません。もう一度記録を選んでください。
+notInBook: は本REPLACEのうちにありません。
+notInBooks: は本REPLACEのうちにありません。
+notInList: はリストREPLACEのうちにありません。
+notInLists: はリストREPLACEのうちにありません。
+paraAllForRandom50Words: 「ランダムREPLACE語」モード
+paraLanguage: 言語
+paraRandom: 単語の順番のランダム化
+paraRandom50Words: 「ランダムREPLACE語」モードのランダム単語数
+paraRecord: 難しい単語の記録
+paraShowComments: いつもコメントをディスプレイする
+paraTimeZone: タイムゾーン
+paraTimeZoneRecord: 難しい単語の記録のタイムゾーン
+paraTimeZoneSchedule: スケジュールのタイムゾーン
+paraTimeZoneTime: 時間の記録のタイムゾーン
+paraTimeZoneUnify: すべてのタイムゾーンを統合する
+promptAddComments: コメントを追加・削除したい単語を入力してください。
+promptChooseRecord: 次の記録からひとつ選んでください：
+promptFindAWordLong: 単語の全部や一部、または日本語の意味やその一部を入力して検索するか、「quit」を入力してモジュールを終了してください。検索結果を最適化するため、キーワードの前に「bg」を追加してそのキーワードで始まる単語や、「nd」でそのキーワードで終わる単語や、「ct」でそのキーワードを含む単語（そのキーワード自身が単語である場合）を検索できます。
+promptFindAWordShort: 単語の全部や一部、または日本語の意味やその一部を入力して検索するか、「quit」を入力してモジュールを終了してください。
+promptRandom50Words: 「ランダムREPLACE語」モードです。次のオプションから一つ選んでください：「L」：勉強　「R」：暗記　「V」：ワードリストを読む　「S」：新しいREPLACE語を選ぶ　「quit」：メインメニューに戻る
+promptReadRecord: 記録モードです。次のオプションから一つ選んでください：「L」：勉強　「R」：暗記　「V」：ワードリストを読む　「quit」：メインメニューに戻る
+promptSetParameters: 次の数字から一つ選んでください：
+promptSimilarWords: 類似する・混同しやすい単語を勉強したい単語を入力してください。「R」で単語をランダムに選ぶことや、「QUIT」でセッションを終了することができます。
+promptSimilarWords2: REPLACEの混同語を勉強します。次のオプションから一つ選んでください：「C」他の単語を勉強　「CR」ランダムに単語を替える　「L」：勉強　「R」：暗記　「V」：ワードリストを読む　「quit」：勉強を終了
+promptStudy: 次のオプションから一つ選んでください：「L」：勉強　「R」：暗記　「F」：単語を検索　「V」：ワードリストを読む　「RR」：記録を読み込む　「M」：その他のオプション　「S」：環境設定　「quit」：勉強を終了
+quotationMarkLeft: 「
+quotationMarkRight: 」
+random: 単語の順番をランダムにしますか？「Y」または「N」を入力してください。
+random50WordsShuffleDone: 新しいREPLACE語をランダムに選びました。
+record: 記録しますか？「Y」または「N」を入力してください。
+reenter: もう一度入力してください。
+reviewRecite: 難しい単語を復習します。いつでも「quit」を入力して終了できます。
+scheduleEnterDate: MM/DDのフォーマットで日付を入力するか、「VIEW」ですべてのスケジュールを見ます。
+scheduleEnterTask: タスクを入力してください。
+setTimeZone: 上記のタイムゾーンから（1−REPLACE）をひとつ選んでください。
+setYorN: 「Y」：「いつでもYesにします」　「N」：「いつでもNoにします
+setYorNorA: 「Y」：「いつでもYesにします」　「N」：「いつでもNoにします」　「A」：「毎回聞きます」
+similarFileNotExists: 混同語のファイルが見つかりません。
+similarWordsNotFound: REPLACEの混同語が見つかりません。
+startDescribeList: いつでも「quit」でモジュールを終了できます。今ディスプレイされた単語を記録するには「mark」を入力してください。コメントを追加するには「cm」を入力してください。リターンキーを押したら次の単語へと続きます。
+startRecite: 語彙の暗記を始めます。モジュールを終了するには「quit」を入力してください。
+startRecite2: いつでも「quit」でモジュールを終了できます。発音が出る前にワードリストを見る場合は「hint」を入力してください。
+synonym: 同義語
+timeZoneAlaska: アラスカ (アラスカ時間) UTC-09:00/UTC-08:00
+timeZoneArizona: アリゾナ UTC-07:00
+timeZoneChicago: シカゴ (アメリカ中部時間) UTC-06:00/UTC-05:00
+timeZoneHawaii: ハワイ (ハワイ・アリューシャン標準時) UTC-10:00
+timeZoneLondon: ロンドン (グリニッジ標準時/英国夏時間) UTC+0/UTC+01:00
+timeZoneLosAngeles: ロサンゼルス (アメリカ太平洋時間) UTC-08:00/UTC-07:00
+timeZoneMountain: アメリカ山岳部時間 UTC-07:00/UTC-06:00
+timeZoneNewYork: ニューヨーク (アメリカ東部時間) UTC-05:00/UTC-04:00
+timeZoneParis: パリ (中央ヨーロッパ時間) UTC+01:00/UTC+02:00
+timeZonePerth: パース (オーストラリア西部標準時) UTC+08:00
+timeZoneSeoul: ソウル (韓国標準時) UTC+09:00
+timeZoneShanghai: 上海 (中国標準時) UTC+08:00
+timeZoneSingapore: シンガポール (シンガポール標準時) UTC+08:00
+timeZoneSydney: シドニー (オーストラリア東部標準時/夏時間) UTC+10:00/UTC+11:00
+timeZoneTokyo: 東京 (日本標準時) UTC+09:00
+timeZoneUTC: UTC (協定世界時) UTC+0
+tryAgain: もう一度試してください。
+warning: 警告
+wordsInTotal: 合計
+wordsInTotal2: 語。
+wrongBook: 次の本からもう一度選んでください：REPLACE。
+wrongDate: この日付の記録が見つかりませんでした。MM/DD/YYYYのフォーマットでもう一度日付を入力してください。
+wrongDifficultWordsInput: はリストにありません。もう一度単語を入力するか、「AB」で破棄してください。
+wrongWord: この単語が見つかりませんでした。もう一度単語を入力して検索するか、「quit」を入力してモジュールを終了してください。

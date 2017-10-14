@@ -1,0 +1,7 @@
+AllForRandom50Words: N
+Language: zh-hk
+Random: Y
+Random50Words: 50
+Record: A
+ShowComments: Y
+TimeZone: US/Eastern ** US/Eastern ** Asia/Tokyo

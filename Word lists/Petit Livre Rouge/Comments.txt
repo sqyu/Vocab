@@ -1,0 +1,333 @@
+abase: ≠abate
+abate: ≠abase
+accolade: ≠acolyte
+agape: ALSO 急切盼望的
+ague: ≠ail
+ail: ≠ague
+amnesia: ≠insomnia
+amnesty: 記: amnesia
+anguish: ≠angular
+anneal: 使退火==使變強
+aquiline: ≠equine
+arcane: ≠archaic
+archaic: ≠arcane
+ardent: ≠arduous
+arduous: ≠assiduous
+arrest: ALSO 使不活躍 & 吸引(某人)注意力
+assiduous: ≠arduous
+bamboozle: NOT 藏
+bargain: ALSO 協議
+begrudge: ≠drudgery grudge
+behold: ≠beholden
+beholden: ≠behold
+behoove: ALSO 對⋯有利
+beset: 攻擊
+bicker: ≠dicker 記: 逼格，瞎逼逼
+bluff: ALSO 直截了當的 & 欺騙
+bolster: ≠boulder
+bouffant: ≠buffoon
+boulder: ≠bolster
+braise: ≠bruise
+brat: ≠bray ≠fray
+bray: ≠brat ≠fray
+bruise: ≠braise ≠bruit
+bruit: ≠bruise
+buffoon: ≠bouffant
+burrow: ≠harrow
+cacophony: >--< canorous
+calamity: ≠calumny
+callous: ≠callow
+callow: ≠callous
+canorous: >--< cacophony
+caprice: 記: 戴著帽子吃飯
+capricious: caprice
+careen: ALSO 蹣跚 & 狂奔
+carrion: ≠clarion
+cavort: 記: 渴望他
+chafe: ≠chaff ≠chaffing
+chandelier: 記: シャンデリア
+chasten: ≠chastise
+chastise: ≠chasten
+cherubic: [tʃ] NOT [ʃ]
+clairvoyance: ==千里眼 ≠clandestine
+clandestine: ≠clairvoyance
+cleft: cleave
+clot: ≠cloy
+cloy: ≠clot
+coffer: ≠coffin
+comestible: ≠combustible
+compile: compilation
+compulsion: ≠compunction
+conjure: ALSO 懇求
+consequential: ALSO 重要的
+constrict: ≠restrict
+covert: >--< overt
+cower: 記: 被cow（威脅）嚇到了
+crabbed: 記: 像螃蟹喜歡夾人
+craven: ≠craving
+deaden: NOT 使死
+deduct: 記: 保險的deductible
+defray: ≠fray NOT 殺死 (≠slay)
+demented: de+ment+ed
+demote: ≠emote
+demur: ≠demure
+demure: ≠demur
+den: 記: MDen
+depose: ≠dispose
+deprivation: ≠destitution
+desiccate: ≠inspissate
+despotic: ≠crackpot
+despotism: ≠crackpot
+detraction: ≠distraction
+diatribe: ≈≈harangue ≠homily ≠lampoon
+dicker: ≠bicker
+dint: ≠din
+disburse: 記: disimburse沒了im (否定)
+disdain: ≠detain ≠distain ≠stain
+dishevel: ≠drivel
+dispense: ≠dispose
+dispose: ≠depose
+distain: ≠detain ≠disdain ≠stain
+double-cross: ≠star-crossed
+drab: ≠drub
+drivel: ≠dishevel
+drub: ≠drab
+drudgery: ≠begrudge ≠grudge
+duplicitous: NOT 可疑的
+duress: ≠don
+effeminate: ≠emasculate
+eidetic: ≠epideictic
+emaciate: 記: e (否定) + 맜있다 → 不好吃就使消瘦 ≠effeminate ≠emasculate ≠macerate
+emasculate: ≠effeminate
+embolden: em + bold (大膽) + en
+emote: ≠demote
+epideictic: ≠eidetic
+equine: ≠aquiline
+ersatz: 記: 二傻子
+espy: ≠espionage
+evacuate: NOT 挖掘
+exalt: ≠exaltation ≠exult
+exaltation: ≠exalt ≈≈exult 記: 被稱讚到高興
+exceptionable: NOT 可挑剔的
+expatiate: ≠expatriate
+expatriate: ≠expatiate
+expound: ≠impound
+exult: ≠exalt ≈≈exaltation
+feisty: 記: "fighsty"
+felon: ≠felony
+flair: 記: flair是的fair
+flinch: 記: 往後退一inch
+fondle: NOT 溺愛
+fray: ≠brat ≠bray
+friable: NOT 軟
+fringe: ≠cringe
+fulsome: ≠wholesome ≠winsome
+gander: 記: 連gender都分不清
+gaudy: ≠gawky
+gawky: ≠gaudy
+gimmick: NOT 譏笑
+gingerly: 記: 老薑比較謹慎
+glow: ≠glower
+gorge: ALSO 狼吞虎嚥
+grasping: ≠gripping
+grievous: NOT 抱怨的 (grievance)
+gripe: ≠gripping
+groove: ALSO 享受
+grudge: ≠begrudge ≠drudgery
+guffaw: 記: 哥fall了大家哄笑
+gulp: ≠pulp plump
+hanker: ≠hunker
+harangue: ≈≈diatribe ≠homily ≠lampoon
+harry: 記: harrass
+hearsay: ≠heresy 記: 道hear途說
+heckle: ALSO 起鬨，使難堪
+hector: ≠heckle
+heresy: ≠hearsay 記: 不是道hear途說
+hew: ≠hue
+hue: ≠hew
+hunker: ≠hanker
+illiberal: 主要不是指文盲
+implore: ≠importune
+importune: ≠implore
+impound: ≠expound
+induce: induction
+induct: ≠induction
+inspissate: ≠desiccate
+intact: NOTHING TO DO WITH tact
+interlard: ≠lard
+jab: gab
+jar: ≠jug NOT 用陶罐等燉
+kennel: 記: ken（犬）nel
+lachrymose: ≠lugubrious
+lair: 記: 用hair搭成的
+lampoon: ≠diatribe ≠harangue ≠homily
+lard: ≠interlard
+lark: 記: 在park玩耍
+loaf: 記: 吃麵包虛度光陰
+lucubrate: ≠lubricate
+lumber: ≠slumber
+lunge: ≈≈plunge
+lust: ≠luster
+lusty: NOT lust+y
+macerate: ≠emaciate
+madrigal: ≠magenta
+magenta: ≠madrigal
+martial: 記: martial arts
+mash: 記: mashed potato
+mendacious: NOT 做作的
+mendacity: NOT 做作
+minnow: ≠winnow 記: min（小）魚
+mirth: 記: 沒事
+miserly: /maɪ/ NOT /mɪ/
+misgiving: NOT 誤解
+mortification: NOT 死亡
+muggy: 記: 像被mug罩著
+munch: 記: 用力咀嚼lunch
+muster: 記: master召集
+mutter: 記: 媽的
+niggle: 記: 你夠
+obverse: 記: ob+reverse反反變正
+occult: 記: occlude 使閉塞
+offend: NOT JUST 自衛
+ogle: 記: 哦夠
+olfactory: ≠refectory
+osmosis: ≠osseous
+outgrowth: NOT noun of outgrow
+overriding: 記: 騎到上面去 ≠override
+overt: >--< covert
+pacify: NOT 和談
+palatial: 記: palace
+palliate: NOT 撫慰
+pan: 記: 像紅太狼拿pan砸灰太狼
+pander: 記: 迎合panda
+pane: ≠pang
+pang: ≠pane
+pastiche: ≠postiche
+peak: 記: 登上山頂(peak)後憔悴
+peaky: 記: 登上山頂(peak)後變得虛弱的
+peck: >--< speck
+perishing: 記: 冷到死 NOT 死亡的
+perky: 記: 恢復精神(perk)後變得得意洋洋
+perquisite: ≠requisite
+pestilent: ≠pestilential
+pestilential: ≠petilent
+piquant: ≠pique
+pique: ≠piquant
+piteous: 記: pity
+pittance: 記: pity你才給的錢
+placard: 記: 用card佈告 NOT 撫慰
+plank: ≠prank
+plump: ≠gulp ≠pulp
+plunge: ≈≈lunge
+poach: ALSO 水煮
+postiche: ≠pastiche
+potshot: ≠crackpot
+pouch: ≠poach
+prance: 記: 法國人昂首闊步
+prank: ≠plank
+prepossessing: 記: 預先possess人心
+prevision: ≠provision
+proffer: 記: offer
+progenitor: <-->progeny
+progeny: <-->progenitor 記: proge你
+prologue: ≠prorogue
+prorogue: ≠prologue
+provenance: 記: 來自那個province
+pullet: ≠pullulate
+pullulate: ≠pullet 記: pullet（母雞）繁殖
+pulp: ≠gulp ≠plump
+punctilious: NOT 挑剔的
+pushy: 強引な
+putative: NOT 強加的
+quondam: 記: 以前的quantum theory ≠quotidian
+quotidian: 記: quotidien (Français) ≠quondam
+rabid: 記: 狂犬追兔子
+rankle: 記: 扭到腳很怨恨
+refectory: ≠olfactory
+rejoin: 記: 想要重新加入，先回答
+remand: 記: re（回）mand（command）:要求召回重新做
+reparation: NOT 維修
+reproof: ≠reprove
+retaliate: ≠tantalize
+ribald: 記: 日波
+rife: ≠rive
+rive: ≠rife
+rollicking: ≠slick
+rout: 記: rule out
+rove: 記: drove
+ruse: 記: 拿rose
+sangfroid: NOT 冷血
+secretive: NOT 秘密的
+self-deprecation: == 自貶
+sequester: ≠sequestrate
+sequestrate: ≠sequester
+seraphic: ≠cerebral
+sere: ≠sear
+sever: 記: 分離斷裂了就變成severe的問題了
+shilly-shally: 記: silly Sally
+shoddy: 記: 少啲（缺斤少兩）
+shrewd: 記: 書的
+shudder: ≠shrug 記: shrug聳肩時戰慄發抖
+simile: NOT 暗喻
+simper: 記: simple, naïve
+singe: 記: 燒焦了還唱
+skittish: ≠skit NOT 諷刺的
+slack: 記: lack精神（冇嚟精神） 
+slant: 記: 石爛
+sleight: 記: 八(eight)面玲瓏
+slew: YES 大量 ⊇slue
+slick: ≠rollicking
+slink: 記: 從link（連城廣場）slide過去⇒溜走
+sliver: 記: 把silver切成長條細片
+slot: 記: time slot
+slue: ⊆slew「旋轉」意 NOT大量
+slug: 記: 猛擊seaslug
+slumber: ≠lumber
+smarmy: NOT 骯髒的
+snappish: ≠snappy 記: 沒睡nap脾氣暴躁的
+snappy: ≠snappish 記: 睡了nap過後生機勃勃的
+snipe: 記: sniper
+snitch: 記: 告密和偷都是sin
+sober: ≠somber
+soil: 記: 把人弄到土裏
+somber: ≠sober
+sorcery: 記: 資源豐富 NOT 足智多謀
+spatter: NOT 打架
+speck: >--< peck
+specter: ≠spectator
+spectral: 意1: specter
+spiel: ≠spell
+stain: ≠detain ≠disdain ≠distain
+stalwart: ≠thwart
+stint: ≠tint
+stoic: ≠stolid
+stolid: ≠stoic
+strait: ALSO 痛苦
+subdued: NOT 被鎮壓的
+sundry: ≠sunlit
+sunlit: ≠sundry
+surly: NOT 目中無人
+tacit: ALSO 暗示的
+tact: NOTHING TO DO WITH intact
+tactile: 能觸知的
+tantalize: ≠retaliate
+tarnish: ALSO 玷污
+taunt: ALSO 挑釁
+taut: ≠tout
+testy: ≠zesty
+threadlike: ≠threadbare
+touchy: ≠touching
+tout: ≠taut
+tricky: NOT JUST 棘手的
+unliterary: NOT 文盲的
+verse: ≠verve
+vertebrate: ≠reverberate
+vicarious: ALSO 感同身受的
+vilify: ≠vitiate
+vitiate: ≠vilify
+voluble: ≠voluminous
+voluminous: ≠voluble
+waddle: 記: 歪倒
+wholesome: ≠fulsome ≠winsome
+winnow: ≠minnow
+zesty: ≠testy

@@ -1,0 +1,120 @@
+addComments: 请输入REPLACE的注释，或按回车删除其注释。
+addCommentsQuitted: 已返回。请输入另一个单词，或请再次输入REPLACE1如果REPLACE2的注释是REPLACE1。
+addOrCancelSchedule: 输入"SCA"添加新计划，输入"SCC"取消计划。
+allForRandom50Words: "随机REPLACE词"模式中添加所有单词(Y)或仅难詞(N)？
+antonym: 反义词
+book1: 请选择课本。
+book2: REPLACE1请输入"REPLACE2"。
+bookLF1: 法语1
+bookPLR: 红宝书
+bookTM: 要你命三千
+bye: 再见！
+changesSaved: 变更已保存。
+chooseDifficultNewOrExtend: 您想重新选择难词(Y)，还是添加新难词(N)？
+chooseDifficultNewlyAddedWords: 新添加的难词：
+chooseDifficultNowList: 新的难词列表：
+chooseFromAbove: 请从以上选项(1 - REPLACE)中选择一个。
+chooseList: 请选择单词表编号。
+chooseListNotExists: 请从下列中重新选择一个单词表编号。
+chooseMoreLists: 请输入一个数字以添加另一个列表，或"N"结束添加。
+chooseMoreListsNotExists: 请从下列中重新选择一个单词表编号，或输入"N"结束添加。
+chooseMoreListsWrong: 请输入一个数字，或输入"N"结束添加。
+chooseOneWord1: 含有
+chooseOneWord2: 的单词：
+chooseRandom50Words: 请输入您想要的随机词数。
+chooseRecord: 请从数字1至REPLACE中选择一个。
+chooseRecord2: 请输入1以选择该记录。
+comments: 注释：SPACE
+confirmOrAbandon: 请输入"Y"确认，或"N"放弃。
+congratulations: 恭喜！
+correct: 正确！
+date: 请按照MM/DD/YYYY格式输入日期。今天请输入"T"或"TODAY"，昨天请输入"Y"或"YESTERDAY"。
+dateAlreadyExists: 日期已存在。
+dateDoesNotExist: 日期不存在。
+dateNotValid: 日期输入有误。
+derivation: 语源・派生词
+difficultWordList: 难词列表：
+difficultWordsInput: 请输入您想要记录但未被记录的单词，用空格分隔。
+enterANumber: 请输入一个数字。
+enterAPositiveNumber: 请输入一个正整数。
+enterYOrN: 请输入"Y"或"N"。
+findAWordChooseList: 您可以输入"Y"以选择您想要搜索单词的词表，或按回车默认搜索所有词表。
+findAWordMeaningsIn: 在REPLACE中的意思：
+guillemetLeft: 《
+guillemetRight: 》
+letters: 个字母
+markedWordSuccessfully: 已成功将REPLACE加入难词列表。
+markedWordUnsuccessfully: 警告： REPLACE不在此词表中。
+meaning: 意思REPLACE：SPACE
+moreOptions: 输入"C"添加注释，输入"D"修改/添加难词列表，或输入"SC"取得今天的计划，或输入"SI"学习近似/易混词，或输入"R"随机从一本书中选择REPLACE个单词，或输入"quit"返回主菜单。
+moreThanMANYResults: 多于MANY项搜索结果，请重新输入长一点的单词，或按回车取得所有搜索结果。
+noScheduleAvailable: 没有找到计划文件。请编辑"Record"文件夹中的"Schedule.txt"文件并以以下格式录入（一天一行）：RETURN1/1:SPACE需学习的词表 或 01/01:SPACE需学习的词表
+noScheduleTodayAvailable: 没有找到今天的计划。
+noWordsToStudy: 此表中没有可供学习的单词。请重新选择一个记录。
+notInBook: 不在书REPLACE当中。
+notInBooks: 不在书REPLACE当中。
+notInList: 不在词表REPLACE当中。
+notInLists: 不在词表REPLACE当中。
+paraAllForRandom50Words: "随机REPLACE词"模式
+paraLanguage: 语言
+paraRandom: 打乱词表
+paraRandom50Words: "随机REPLACE词"模式中随机单词数
+paraRecord: 记录生词
+paraShowComments: 总是显示注释
+paraTimeZone: 时区
+paraTimeZoneRecord: 难词列表记录的时区
+paraTimeZoneSchedule: "今日计划"的时区
+paraTimeZoneTime: 时间记录的时区
+paraTimeZoneUnify: 统一所有时区
+promptAddComments: 请输入您想要添加或删除注释的单词。
+promptChooseRecord: 请从下列记录中选择一个：
+promptFindAWordLong: 请输入一个单词或其一部分，或其全部或一部分简体中文意思。输入"quit"退出。为优化搜索结果，您可以在前面添加"bg"以搜索以该关键词开头的单词，"nd"搜索以该关键词结尾的单词，或"ct"搜索包含该关键词的单词（适用于关键词本身是一个单词的情況）。
+promptFindAWordShort: 请输入一个单词或其一部分，或其全部或一部分简体中文意思。输入"quit"退出。
+promptRandom50Words: "随机REPLACE词"模式。请输入"L"学习，输入"R"背词，输入"V"浏览单词表，输入"S"重选REPLACE个单词，或输入"quit"返回主菜单。
+promptReadRecord: 读取记录模式。请输入"L"学习，输入"R"背词，输入"V"浏览单词表，或输入"quit"返回主菜单。
+promptSetParameters: 请从下列数字中选择一个：
+promptSimilarWords: 请输入您想要学习其近似/易混词的单词。输入"R"随机选择单词，或输入"QUIT"退出。
+promptSimilarWords2: 现在开始学习REPLACE的易混词。请输入"C"换词，输入"CR"随机换词，输入"L"学习，输入"R"背词，输入"V"浏览单词表，或输入"quit"退出。
+promptStudy: 请输入"L"学习，输入"R"背词，输入"F"搜寻一个单词，输入"V"浏览单词表，输入"RR"读取记录，输入"M"取得更多选项，输入"S"更改设置，或输入"quit"退出。
+quotationMarkLeft: "
+quotationMarkRight: "
+random: 是否随机顺序？请输入"Y"或"N"。
+random50WordsShuffleDone: 已重新随机选择REPLACE个单词。
+record: 是否记录？请输入"Y"或"N"。
+reenter: 请重新输入。
+reviewRecite: 现在开始复习难词，您可以随时输入"quit"退出。
+scheduleEnterDate: 请按MM/DD格式输入日期，或输入"VIEW"查看所有计划。
+scheduleEnterTask: 请输入当日任务。
+setTimeZone: 请从以上时区（1 - REPLACE）中选择一个。
+setYorN: 輸入"Y"代表"永远是"，或"N"代表"永远不"。
+setYorNorA: 输入"Y"代表"永远是", "N"代表"永远不", 或"A"代表"永远询问"。
+similarFileNotExists: 找不到易混词文件。
+similarWordsNotFound: 找不到REPLACE的易混词。
+startDescribeList: 您可以随时输入"quit"退出，输入"mark"记录刚才所显示的单词，或输入任何其它键以继续。
+startRecite: 现在开始记忆单词。如欲结束，请输入"quit"。
+startRecite2: 您可以随时输入"quit"以退出此环节，也可以在发音出现之前输入"hint"以取得本单词列表。
+synonym: 同义词
+timeZoneAlaska: 阿拉斯加 (阿拉斯加时间) UTC-09:00/UTC-08:00
+timeZoneArizona: 亚利桑那 UTC-07:00
+timeZoneChicago: 芝加哥 (中部时间) UTC-06:00/UTC-05:00
+timeZoneHawaii: 夏威夷 (夏威夷-阿留申时间) UTC-10:00
+timeZoneLondon: 伦敦 (格林尼治标准时间/英国夏令时) UTC+0/UTC+01:00
+timeZoneLosAngeles: 洛杉矶 (太平洋时间) UTC-08:00/UTC-07:00
+timeZoneMountain: 北美山区时间 UTC-07:00/UTC-06:00
+timeZoneNewYork: 纽约 (东部时间) UTC-05:00/UTC-04:00
+timeZoneParis: 巴黎 (欧洲中部时间) UTC+01:00/UTC+02:00
+timeZonePerth: 珀斯 (澳洲西部标准时间/夏令时间) UTC+08:00
+timeZoneSeoul: 首尔 (韩国标准时) UTC+09:00
+timeZoneShanghai: 上海 (北京时间) UTC+08:00
+timeZoneSingapore: 新加坡 (新加坡标准时间) UTC+08:00
+timeZoneSydney: 悉尼 (澳洲东部标准/夏令时间) UTC+10:00/UTC+11:00
+timeZoneTokyo: 东京 (日本标准时) UTC+09:00
+timeZoneUTC: UTC (世界协调时间) UTC+0
+tryAgain: 请再试一次。
+warning: 警告
+wordsInTotal: 共
+wordsInTotal2: 个单词。
+wrongBook: 请重新选择课本。现在有：REPLACE。
+wrongDate: 找不到此日期相关的记录。请重新按照MM/DD/YYYY格式输入日期。
+wrongDifficultWordsInput: 不在列表中。请重新输入单词，或输入"AB"放弃。
+wrongWord: 找不到此单词。请重新输入一个单词，或输入"quit”退出。

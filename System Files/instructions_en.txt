@@ -1,0 +1,120 @@
+addComments: Now enter the comments for word REPLACE. To remove its comments, press enter.
+addCommentsQuitted: Quited. Enter another word, or enter "REPLACE1" again if the comment of "REPLACE2" is meant to be "REPLACE1".
+addOrCancelSchedule: To add a schedule, enter "SCA". To cancel a schedule, enter "SCC".
+allForRandom50Words: Include all words (Y) or only difficult words (N) in "Random REPLACE Words"?
+antonym: Antonyms
+book1: Please select the book. 
+book2: For REPLACE1 please enter "REPLACE2".
+bookLF1: Le Français 1
+bookPLR: Petit Livre Rouge
+bookTM: Trois Mille
+bye: See you!
+changesSaved: Changes saved.
+chooseDifficultNewOrExtend: Do you want to re-select all difficult words (Y), or extend the list (N)?
+chooseDifficultNewlyAddedWords: Newly added words:
+chooseDifficultNowList: Now the difficult word list is:
+chooseFromAbove: Please choose from the options above (1 - REPLACE).
+chooseList: Please enter the list number.
+chooseListNotExists: Please re-enter a list number from the following.
+chooseMoreLists: Please enter a list number to add another list, or "N" to finish adding.
+chooseMoreListsNotExists: Please re-enter a list number from the following, or enter "N" to finish adding.
+chooseMoreListsWrong: Please enter a number, or enter "N" to finish adding.
+chooseOneWord1: Words containing
+chooseOneWord2: :
+chooseRandom50Words: Please enter the number of random words you want to have.
+chooseRecord: Please enter a number from 1 to REPLACE.
+chooseRecord2: Please enter 1 to choose the only record.
+comments: Comments:SPACE
+confirmOrAbandon: Enter "Y" to confirm, or "N" to abandon.
+congratulations: Congratulations!
+correct: Correct!
+date: Please enter the date MM/DD/YYYY. For today please enter "T" or "TODAY"; for yesterday please enter "Y" or "YESTERDAY".
+dateAlreadyExists: Date already exists.
+dateDoesNotExist: Date does not exist.
+dateNotValid: Date not valid.
+derivation: Derivations
+difficultWordList: Difficult word list:
+difficultWordsInput: Please enter the words you wish to be but were not marked, separated by space.
+enterANumber: Please enter a number.
+enterAPositiveNumber: Please enter a positive number.
+enterYOrN: Enter Y or N.
+findAWordChooseList: You can enter "Y" to choose the lists in which you wish to search words. Press enter to proceed to search from all lists by default.
+findAWordMeaningsIn: Meanings in REPLACE:
+guillemetLeft: «
+guillemetRight: »
+letters: letters
+markedWordSuccessfully: REPLACE added to the difficult word list successfully.
+markedWordUnsuccessfully: Warning:SPACEREPLACE not in the list.
+meaning: MeaningREPLACE:SPACE
+moreOptions: To add comments, enter "C"; to change or add difficult word list, enter "D"; to view today's schedule, enter "SC"; to study similar words, enter "SI"; to randomly choose REPLACE words from one book, enter "R"; to quit, enter "quit".
+moreThanMANYResults: More than MANY results. Please enter a longer keyword, or press enter to show all results.
+noScheduleAvailable: No schedule available. Please edit "Schedule.txt" in "Record" folder and add entries in the format as follows (one line for one day):RETURN1/1:SPACELISTS TO STUDY or 01/01:SPACELISTS TO STUDY
+noScheduleTodayAvailable: Schedule for today not found.
+noWordsToStudy: No words to study in this list. Please re-select one record.
+notInBook: not in book REPLACE.
+notInBooks: not in books REPLACE.
+notInList: not in list REPLACE.
+notInLists: not in lists REPLACE.
+paraAllForRandom50Words: "Random REPLACE Words" Mode:
+paraLanguage: language
+paraRandom: shuffle the word list
+paraRandom50Words: Number of random words in "Random REPLACE Words" mode.
+paraRecord: record difficult words
+paraShowComments: always show comments
+paraTimeZone: time zone
+paraTimeZoneRecord: time zone for difficult word list records
+paraTimeZoneSchedule: time zone for schedules
+paraTimeZoneTime: time zone for time records
+paraTimeZoneUnify: unify all time zones
+promptAddComments: Enter the word you want to comment on, or whose comment you want to remove.
+promptChooseRecord: Please enter the number to choose one record from the following.
+promptFindAWordLong: Please enter a word fully or partially, or its Chinese/Japanese meaning fully or partially. Enter "quit" to quit. To optimize the results, you may add "bg" to the front to search the word beginning with the keyword, "nd" to search the word ending with the keyword, or "ct" to search the word containing the keyword (applicable to the case where the keyword itself is a word).
+promptFindAWordShort: Please enter a word fully or partially, or its Chinese/Japanese meaning fully or partially. Enter "quit" to quit.
+promptRandom50Words: Now in the "random REPLACE words" mode. Please enter "L" for "learn", "R" for "recite", "V" for "view list", "S" for "shuffle the words (rechoose REPLACE words)", or "quit" to return to the main menu.
+promptReadRecord: Now in the "read from record" mode. Please enter "L" for "learn", "R" for "recite", "V" for "view list", or "quit" to return to the main menu.
+promptSetParameters: Please choose a number from the following:
+promptSimilarWords: Please enter the word whose similar or easy-to-confuse words you want to study. Enter "R" to randomly choose a word, or "QUIT" to quit.
+promptSimilarWords2: Now studying the similar words for REPLACE. Please enter "C" for "change another word", "CR" for "change a random word", "L" for "learn", "R" for "recite", "V" for "view list", or "quit".
+promptStudy: Please enter "L" for "learn", "R" for "recite", "F" for "find a word", "V" for "view list", "RR" for "read from record", "M" to view more options, "S" to set parameters, or "quit".
+quotationMarkLeft: "
+quotationMarkRight: "
+random: Random? (Y/N)
+random50WordsShuffleDone: Randomly chosen REPLACE new words.
+record: Record? (Y/N)
+reenter: Please re-enter.
+reviewRecite: Now start reviewing difficult words. You can enter "QUIT" any time.
+scheduleEnterDate: Please enter the date in the format MM/DD, or enter "VIEW" to show all entries.
+scheduleEnterTask: Enter the task.
+setTimeZone: Please choose one from the time zones above (1 - REPLACE).
+setYorN: Enter "Y" for "always Yes", or "N" for "always No".
+setYorNorA: Enter "Y" for "always Yes", "N" for "always No", or "A" for "always ask".
+similarFileNotExists: Similar words file does not exist.
+similarWordsNotFound: No similar words for REPLACE found.
+startDescribeList: Enter "quit" to quit, "mark" to mark the word just fully shown, "cm" to add comments, or anything else to continue.
+startRecite: Now start vocabulary recitation. Enter "quit" any time to quit.
+startRecite2: You may enter "quit" any time to quit this module, or enter "hint" before the pronunciation is shown to show the full list of vocabulary.
+synonym: Synonyms
+timeZoneAlaska: Alaska (Alaska Time) UTC-09:00/UTC-08:00
+timeZoneArizona: Arizona UTC-07:00
+timeZoneChicago: Chicago (Central Time) UTC-06:00/UTC-05:00
+timeZoneHawaii: Hawaii (Hawaii–Aleutian Time) UTC-10:00
+timeZoneLondon: London (Greenwich Mean Time/British Summer Time) UTC+0/UTC+01:00
+timeZoneLosAngeles: Los Angeles (Pacific Time) UTC-08:00/UTC-07:00
+timeZoneMountain: North American Mountain Time UTC-07:00/UTC-06:00
+timeZoneNewYork: New York (Eastern Time) UTC-05:00/UTC-04:00
+timeZoneParis: Paris (Central European Time) UTC+01:00/UTC+02:00
+timeZonePerth: Perth (Australian Western Standard Time) UTC+08:00
+timeZoneSeoul: Seoul (Korea Standard Time) UTC+09:00
+timeZoneShanghai: Shanghai (China Standard Time) UTC+08:00
+timeZoneSingapore: Singapore (Singapore Standard Time/Waktu Piawai Singapura) UTC+08:00
+timeZoneSydney: Sydney (Australian Eastern Standard/Daylight Time) UTC+10:00/UTC+11:00
+timeZoneTokyo: Tokyo (Japan Standard Time) UTC+09:00
+timeZoneUTC: UTC (Coordinated Universal Time) UTC+0
+tryAgain: Try again.
+warning: Warning
+wordsInTotal: 
+wordsInTotal2: words in total.
+wrongBook: Please re-select the book. Now available:SPACEREPLACE.
+wrongDate: Date not found. Please re-enter the date MM/DD/YYYY.
+wrongDifficultWordsInput: not in the list. Please re-enter the word, or enter "AB" to abandon.
+wrongWord: Word not found. Please re-enter a word, or enter "quit" to quit this module.
