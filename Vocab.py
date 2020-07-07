@@ -7,16 +7,7 @@ import os
 import random
 import time
 import pytz
-
-os.chdir(os.path.dirname(os.path.abspath(__file__))) # Change current working directory to where this file is located
-record_path = 'Record'
-sys_path = 'System Files'
-wordLists_path = 'Word lists'
-
-acronym = {"Petit Livre Rouge": "PLR", "Trois Mille": "TM", "Le Français 1": "LF1"}
-findAcronym = {"PLR": "Petit Livre Rouge", "TM": "Trois Mille", "LF1": "Le Français 1"}
-listNumber = {"zh-hk": {"Petit Livre Rouge": list(range(1,43)), "Trois Mille": list(range(1,32)), "Le Français 1": list(range(1,2))}, "zh-cn": {"Petit Livre Rouge": list(range(1,43)), "Trois Mille": list(range(1,32)), "Le Français 1": list(range(1,2))}, "ja": {"Petit Livre Rouge": [3, 5, 11, 12, 13], "Le Français 1": list(range(1,2))}}
-lang = ""
+import Vars
 
 def quitOrInput(i):
 	if i.upper() == "EXIT":
@@ -35,12 +26,12 @@ def chooseLanguage(current = None):
 		The current language code
 	"""
 	langs = ["zh-hk", "zh-cn", "ja"]
-	lang = input("\n" + instructions_All["chooseLanguage"] + "\n").lower()
-	while not lang in langs:
-		if current and lang.upper() == "QUIT":
+	Vars.lang = input("\n" + Vars.instructions_All["chooseLanguage"] + "\n").lower()
+	while not Vars.lang in langs:
+		if current and Vars.lang.upper() == "QUIT":
 			return current
-		lang = input("\n" + instructions_All["chooseLanguage"] + "\n").lower()
-	return lang
+		Vars.lang = input("\n" + Vars.instructions_All["chooseLanguage"] + "\n").lower()
+	return Vars.lang
 
 def chooseYorN(current = None):
 	"""
@@ -53,11 +44,11 @@ def chooseYorN(current = None):
 		The current setting
 	"""
 	choose = ["Y", "N"]
-	user_input = input(instructions["setYorN"]).upper()
+	user_input = input(Vars.instructions["setYorN"]).upper()
 	while not user_input in choose:
 		if current and user_input == "QUIT":
 			return current
-		user_input = input(instructions["setYorN"]).upper()
+		user_input = input(Vars.instructions["setYorN"]).upper()
 	return user_input
 
 def chooseYorNorA(current = None):
@@ -71,11 +62,11 @@ def chooseYorNorA(current = None):
 		The current setting
 	"""
 	choose = ["Y", "N", "A"]
-	user_input = input(instructions["setYorNorA"]).upper()
+	user_input = input(Vars.instructions["setYorNorA"]).upper()
 	while not user_input in choose:
 		if current and user_input == "QUIT":
 			return current
-		user_input = input(instructions["setYorNorA"]).upper()
+		user_input = input(Vars.instructions["setYorNorA"]).upper()
 	return user_input
 
 def chooseOneTimeZone(current = None): # Choose one time zone, returns one time zone
@@ -88,15 +79,13 @@ def chooseOneTimeZone(current = None): # Choose one time zone, returns one time 
 	   current: string, must be in tznames below
 	   The current time zone
 	"""
-	tzs = ["Hawaii", "Alaska", "LosAngeles", "Arizona", "Mountain", "Chicago", "NewYork", "UTC", "London", "Paris", "Shanghai", "Singapore", "Perth", "Tokyo", "Seoul", "Sydney"]
-	tznames = ["US/Hawaii", "US/Alaska", "US/Pacific", "US/Arizona", "US/Mountain", "US/Central", "US/Eastern", "utc", "Europe/London", "Europe/Paris", "Asia/Shanghai", "Asia/Singapore", "Australia/Perth", "Asia/Tokyo", "Asia/Seoul", "Australia/Sydney"]
 	choose = ""
-	print("\n" + "".join(["{0:>2}. {1}".format(str(index + 1), instructions["timeZone" + tz]) for index, tz in enumerate(tzs)]))
-	while (not isInt(choose)) or (not int(choose) in range(1, len(tzs) + 1)):
+	print("\n" + "".join(["{0:>2}. {1}".format(str(index + 1), Vars.instructions["timeZone" + tz]) for index, tz in enumerate(Vars.tzs)])) # Print all possible time zones
+	while (not isInt(choose)) or (not int(choose) in range(1, len(Vars.tzs) + 1)):
 		if current and choose == "QUIT":
-			return current, True
-		choose = input(instructions["setTimeZone"].replace("REPLACE", str(len(tzs)))).upper()
-	return tznames[int(choose) - 1], False
+			return current, True # Do not change settings
+		choose = input(Vars.instructions["setTimeZone"].replace("REPLACE", str(len(Vars.tzs)))).upper()
+	return Vars.tznames[int(choose) - 1], False
 
 def chooseTimeZone(current): # Choose one time zone in the three options, returns all three time zones
 	"""
@@ -108,16 +97,16 @@ def chooseTimeZone(current): # Choose one time zone in the three options, return
 		current: the string composed of three time zone strings joined by " ** "
 		The current time zones
 	"""
-	print("\n" + instructions["promptSetParameters"])
-	print("1. {0}".format(instructions["paraTimeZoneRecord"]))
-	print("2. {0}".format(instructions["paraTimeZoneSchedule"]))
-	print("3. {0}".format(instructions["paraTimeZoneTime"]))
-	print("4. {0}".format(instructions["paraTimeZoneUnify"]))
+	print("\n" + Vars.instructions["promptSetParameters"])
+	print("1. {0}".format(Vars.instructions["paraTimeZoneRecord"]))
+	print("2. {0}".format(Vars.instructions["paraTimeZoneSchedule"]))
+	print("3. {0}".format(Vars.instructions["paraTimeZoneTime"]))
+	print("4. {0}".format(Vars.instructions["paraTimeZoneUnify"]))
 	choose = input().upper()
 	while (not isInt(choose)) or (not int(choose) in range(1, 5)):
 		if choose == "QUIT":
 			return current
-		choose = input(instructions["chooseFromAbove"].replace("REPLACE", "4")).upper()
+		choose = input(Vars.instructions["chooseFromAbove"].replace("REPLACE", "4")).upper()
 	current = current.split(" ** ")
 	choose = int(choose) - 1
 	if choose in range(0,3):
@@ -142,72 +131,70 @@ def chooseRandom50Words(current):
 		current: string "zh-hk", "zh-cn", or "ja"
 		The current language code
 	"""
-	num = input("\n" + instructions["chooseRandom50Words"] + "\n")
+	num = input("\n" + Vars.instructions["chooseRandom50Words"] + "\n")
 	while not (isInt(num) and int(num) >= 1) :
 		if num.upper() == "QUIT":
 			return current
 		if not isInt(num):
-			num = input("\n" + instructions["enterANumber"] + "\n")
+			num = input("\n" + Vars.instructions["enterANumber"] + "\n")
 		else: # int(num) >= 1
-			num = input("\n" + instructions["enterAPositiveNumber"] + "\n")
+			num = input("\n" + Vars.instructions["enterAPositiveNumber"] + "\n")
 	return num
 					
 def getAllInstructions():
 	"""
 		getAllInstructions()
-		Returns the instructions needed to be shown before letting the user chooses system language
+		Returns the Vars.instructions needed to be shown before letting the user chooses system language
 	"""
-	instructions_All = {}
-	f = open(os.path.join(sys_path, 'Instructions_all.txt'))
+	Vars.instructions_All = {}
+	f = open(os.path.join(Vars.sys_path, 'Instructions_all.txt'))
 	for s in f:
 		s = s.split(": ")
 		if len(s) == 1:
 			s.append("") # If instruction is empty (possible because it might be non-empty for some other languages)
-		instructions_All[s[0]] = s[1].replace("RETURN", "\n").replace("SPACE", " ") # With '\n'
+		Vars.instructions_All[s[0]] = s[1].replace("RETURN", "\n").replace("SPACE", " ") # With '\n'
 	f.close()
-	return instructions_All
+	return Vars.instructions_All
 
 def getInstructions(lang):
 	"""
 		getInstructions(lang):
-		Returns the instructions in the chosen language
+		Returns the Vars.instructions in the chosen language
 		
 		Paramters
 		_________
 		lang : string "zh-hk", "zh-cn", or "ja"
 		Language code
 	"""
-	instructions = {}
+	Vars.instructions = {}
 	if lang == "zh-hk":
-		f = open(os.path.join(sys_path, 'Instructions_hant.txt'))
+		f = open(os.path.join(Vars.sys_path, 'Instructions_hant.txt'))
 	elif lang == "zh-cn":
-		f = open(os.path.join(sys_path, 'Instructions_hans.txt'))
+		f = open(os.path.join(Vars.sys_path, 'Instructions_hans.txt'))
 	elif lang == "ja":
-		f = open(os.path.join(sys_path, 'Instructions_ja.txt'))
+		f = open(os.path.join(Vars.sys_path, 'Instructions_ja.txt'))
 	else:
 		assert()
 	for s in f:
 		s = s.split(": ")
 		if len(s) == 1:
 			s.append("") # If instruction is empty (possible because it might be non-empty for some other languages)
-		instructions[s[0]] = s[1].replace("RETURN", "\n").replace("SPACE", " ") # With '\n'
+		Vars.instructions[s[0]] = s[1].replace("RETURN", "\n").replace("SPACE", " ") # With '\n'
 	f.close()
-	return instructions
+	return Vars.instructions
 
 def setParameters():
 	"""
 		setParameters()
 		Returns the system parameters set by user, or set by default if first time of use.
 	"""
-	par = os.path.join(sys_path, 'Parameters.txt')
-	parameters = {}
-	global instructions
-	global availableBooks
+	par = os.path.join(Vars.sys_path, 'Parameters.txt')
+	Vars.parameters = {}
 	if not os.path.exists(par):
-		print("\n" + instructions_All["greetings"])
-		lang = chooseLanguage()
-		availableBooks = list(listNumber[lang])
-		instructions = getInstructions(lang)
+		print("\n" + Vars.instructions_All["greetings"])
+		Vars.lang = chooseLanguage()
+		Vars.availableBooks = list(Vars.listNumber[Vars.lang])
+		Vars.instructions = getInstructions(Vars.lang)
 		allForRandom50Words = "A"
 		comments = "Y"
 		rand = "A"
@@ -216,16 +203,16 @@ def setParameters():
 		timeZoneQuitted = True
 		while timeZoneQuitted:
 			timeZone, timeZoneQuitted = chooseOneTimeZone()
-		parameters["AllForRandom50Words"] = allForRandom50Words
-		parameters["Language"] = lang
-		parameters["Random"] = rand
-		parameters["Random50Words"] = random50Words
-		parameters["Record"] = record
-		parameters["ShowComments"] = comments
-		parameters["TimeZone"] = " ** ".join([timeZone] * 3)
+		Vars.parameters["AllForRandom50Words"] = allForRandom50Words
+		Vars.parameters["Language"] = Vars.lang
+		Vars.parameters["Random"] = rand
+		Vars.parameters["Random50Words"] = random50Words
+		Vars.parameters["Record"] = record
+		Vars.parameters["ShowComments"] = comments
+		Vars.parameters["TimeZone"] = " ** ".join([timeZone] * 3)
 		f = open(par, 'w')
-		for para in sorted(parameters):
-			f.write(para + ": " + parameters[para] + "\n")
+		for para in sorted(Vars.parameters):
+			f.write(para + ": " + Vars.parameters[para] + "\n")
 		f.close()
 	else:
 		f = open(par)
@@ -233,26 +220,23 @@ def setParameters():
 			s = s.split(": ")
 			if len(s) == 1:
 				s.append("")
-			parameters[s[0]] = s[1].rstrip("\n")
+			Vars.parameters[s[0]] = s[1].rstrip("\n")
 		f.close()
-		instructions = getInstructions(parameters["Language"])
-		availableBooks = list(listNumber[parameters["Language"]])
-	return parameters
+		Vars.instructions = getInstructions(Vars.parameters["Language"])
+		Vars.availableBooks = list(Vars.listNumber[Vars.parameters["Language"]])
+	return Vars.parameters
 
 def initialization():
 	"""
 		initialization()
-		Initializes the program: set the parameters, defines global variable "lang", and makes "Record" directory
+		Initializes the program: set the parameters, defines global variable "Vars.lang", and makes "Record" directory
 	"""
-	global parameters
-	global lang
-	global instructions_All
-	instructions_All = getAllInstructions() # Top
-	parameters = setParameters()
-	lang = parameters["Language"]
-	#instructions = getInstructions(parameters["Language"])
-	if not os.path.exists(record_path):
-		os.makedirs(record_path)
+	Vars.instructions_All = getAllInstructions() # Top
+	Vars.parameters = setParameters()
+	Vars.lang = Vars.parameters["Language"]
+	#Vars.instructions = getInstructions(Vars.parameters["Language"])
+	if not os.path.exists(Vars.record_path):
+		os.makedirs(Vars.record_path)
 	return
 
 def isInt(s):
@@ -290,19 +274,19 @@ def chooseBook(booksToChoose = None):
 		The list of books to choose from. If None, then choose from all available books.
 	"""
 	if booksToChoose == None:
-		booksToChoose = availableBooks
+		booksToChoose = Vars.availableBooks
 	if len(booksToChoose) == 1: # If there is only one book
 		return booksToChoose[0]
 	else:
-		print(instructions["book1"].rstrip("\n"))
+		print(Vars.instructions["book1"].rstrip("\n"))
 		for book in sorted(booksToChoose):
-			print(instructions["book2"].replace("REPLACE1", instructions["book" + acronym[book]].rstrip("\n")).replace("REPLACE2", acronym[book]).rstrip("\n"))
+			print(Vars.instructions["book2"].replace("REPLACE1", Vars.instructions["book" + Vars.acronym[book]].rstrip("\n")).replace("REPLACE2", Vars.acronym[book]).rstrip("\n"))
 		book = input("\n").upper() # Select book
-		while not book in findAcronym: # Book not found
+		while not book in Vars.findAcronym: # Book not found
 			if book == 'QUIT':
 				return
-			book = input(instructions["wrongBook"].replace("REPLACE", "".join([instructions["guillemetLeft"].rstrip("\n") + b + instructions["guillemetRight"].rstrip("\n") for b in [instructions["book" + acronym[bo]].rstrip("\n") for bo in sorted(booksToChoose)]]))).upper()
-	return findAcronym[book]
+			book = input(Vars.instructions["wrongBook"].replace("REPLACE", "".join([Vars.instructions["guillemetLeft"].rstrip("\n") + b + Vars.instructions["guillemetRight"].rstrip("\n") for b in [Vars.instructions["book" + Vars.acronym[bo]].rstrip("\n") for bo in sorted(booksToChoose)]]))).upper()
+	return Vars.findAcronym[book]
 
 def chooseList(book, all, firstList): # all: Whether load the full list or list of selected words only; theBook: the book chosen
 	"""
@@ -321,14 +305,14 @@ def chooseList(book, all, firstList): # all: Whether load the full list or list 
 		firstList: bool
 		The current list is the first list added or not
 	"""
-	if len(listNumber[lang][book]) == 1: # If there is only one list in the book
-		theList = listNumber[lang][book][0] # Option to choose "select" or "all" not available
+	if len(Vars.listNumber[Vars.lang][book]) == 1: # If there is only one list in the book
+		theList = Vars.listNumber[Vars.lang][book][0] # Option to choose "select" or "all" not available
 		return theList, all
 	else:
 		if firstList:
-			theList = input(instructions["chooseList"]).upper() # Select list
+			theList = input(Vars.instructions["chooseList"]).upper() # Select list
 		else:
-			theList = input(instructions["chooseMoreLists"]).upper()
+			theList = input(Vars.instructions["chooseMoreLists"]).upper()
 		while True: # If the user did not enter a number
 			if not isInt(theList):
 				if theList == 'QUIT':
@@ -346,16 +330,16 @@ def chooseList(book, all, firstList): # all: Whether load the full list or list 
 					return "NO MORE"
 				else:
 					if firstList:
-						theList = input(instructions["enterANumber"]).upper()
+						theList = input(Vars.instructions["enterANumber"]).upper()
 					else:
-						theList = input(instructions["chooseMoreListsWrong"]).upper()
+						theList = input(Vars.instructions["chooseMoreListsWrong"]).upper()
 			if isInt(theList):
 				theList = int(theList)
-				if not theList in listNumber[lang][book]:
+				if not theList in Vars.listNumber[Vars.lang][book]:
 					if firstList:
-						theList = input(instructions["chooseListNotExists"] + "{0}\n".format(listNumber[lang][book])).upper()
+						theList = input(Vars.instructions["chooseListNotExists"] + "{0}\n".format(Vars.listNumber[Vars.lang][book])).upper()
 					else:
-						theList = input(instructions["chooseMoreListsNotExists"] + "{0}\n".format(listNumber[lang][book])).upper()
+						theList = input(Vars.instructions["chooseMoreListsNotExists"] + "{0}\n".format(Vars.listNumber[Vars.lang][book])).upper()
 				else:
 					return int(theList), all
 	return
@@ -377,7 +361,7 @@ def addWordsFromLists(allWordsFromLists, book, lists): # Helper function of chec
 		The lists from which all words will be loaded
 	"""
 	for enumerateList in lists:
-		f = open(os.path.join(wordLists_path, book, 'lists', str(enumerateList) + ' ' + lang + '.txt'))
+		f = open(os.path.join(Vars.wordLists_path, book, 'lists', str(enumerateList) + ' ' + Vars.lang + '.txt'))
 		for s in f:
 			s = s.rstrip("\n").split(" ** ")[0]
 			if not isInt(s) and s != "":
@@ -404,19 +388,19 @@ def checkAllWordsInLists(wordList, book, lists): # Check if all words in the rec
 	passed = True
 	if isinstance(book, list): # For "similar words" mode only
 		for books in book:
-			addWordsFromLists(allWordsFromLists, books, listNumber[lang][books])
+			addWordsFromLists(allWordsFromLists, books, Vars.listNumber[Vars.lang][books])
 	else:
 		addWordsFromLists(allWordsFromLists, book, lists)
 	for word in wordList: # Check if all the words are in the lists
 		if not word in allWordsFromLists:
 			if len(lists) == 1:
-				print(instructions["warning"].rstrip('\n') + ": " + word + instructions["notInList"].replace("REPLACE", str(lists[0])))
-			elif (not isinstance(book, list)) and sorted(lists) == sorted(listNumber[lang][book]):
-				print(instructions["warning"].rstrip('\n') + ": " + word + instructions["notInBook"].replace("REPLACE", instructions["guillemetLeft"].rstrip("\n") + instructions["book" + acronym[book]].rstrip("\n") + instructions["guillemetRight"].rstrip("\n")))
+				print(Vars.instructions["warning"].rstrip('\n') + ": " + word + Vars.instructions["notInList"].replace("REPLACE", str(lists[0])))
+			elif (not isinstance(book, list)) and sorted(lists) == sorted(Vars.listNumber[Vars.lang][book]):
+				print(Vars.instructions["warning"].rstrip('\n') + ": " + word + Vars.instructions["notInBook"].replace("REPLACE", Vars.instructions["guillemetLeft"].rstrip("\n") + Vars.instructions["book" + Vars.acronym[book]].rstrip("\n") + Vars.instructions["guillemetRight"].rstrip("\n")))
 			elif isinstance(book, list):
-				print(instructions["warning"].rstrip('\n') + ": " + word + instructions["notInBooks"].replace("REPLACE", " & ".join([instructions["guillemetLeft"].rstrip("\n") + instructions["book" + acronym[book]].rstrip("\n") + instructions["guillemetRight"].rstrip("\n") for book in availableBooks]).rstrip("\n")))
+				print(Vars.instructions["warning"].rstrip('\n') + ": " + word + Vars.instructions["notInBooks"].replace("REPLACE", " & ".join([Vars.instructions["guillemetLeft"].rstrip("\n") + Vars.instructions["book" + Vars.acronym[book]].rstrip("\n") + Vars.instructions["guillemetRight"].rstrip("\n") for book in Vars.availableBooks]).rstrip("\n")))
 			else:
-				print(instructions["warning"].rstrip('\n') + ": " + word + instructions["notInLists"].replace("REPLACE", " & ".join(map(str, lists))))
+				print(Vars.instructions["warning"].rstrip('\n') + ": " + word + Vars.instructions["notInLists"].replace("REPLACE", " & ".join(map(str, lists))))
 			wordList.pop(wordList.index(word))
 			passed = False
 	return passed
@@ -460,18 +444,18 @@ def loadWords(all, book, comments, Dictionary, mode, theList, wordList):
 		mode: 1, 2, or 3
 		Mode 1: regular; Mode 2: read from record; Mode 3: read all words
 		
-		theList: integer, within the range of listNumber[lang][book]
+		theList: integer, within the range of Vars.listNumber[Vars.lang][book]
 		The list number
 		
 		wordList: lists of strings (words)
 		The list of words loaded
 		
 	"""
-	bookList = os.path.join(wordLists_path, book, 'Lists', str(theList) + ' ' + lang + '.txt') # Directory of word list
+	bookList = os.path.join(Vars.wordLists_path, book, 'Lists', str(theList) + ' ' + Vars.lang + '.txt') # Directory of word list
 	f = open(bookList) # Read Only
-	difficultWordFile = os.path.join(wordLists_path, book, 'Difficult Words', str(theList) + '.txt')
+	difficultWordFile = os.path.join(Vars.wordLists_path, book, 'Difficult Words', str(theList) + '.txt')
 	if mode != 2 and not all and (not os.path.exists(difficultWordFile)): # If normal mode and difficult word lists do not exist, read all words
-		print(instructions["noDifficultWordList"].rstrip('\n').replace("LIST", str(theList)).replace("BOOK", instructions["book" + acronym[book]].rstrip('\n')))
+		print(Vars.instructions["noDifficultWordList"].rstrip('\n').replace("LIST", str(theList)).replace("BOOK", Vars.instructions["book" + Vars.acronym[book]].rstrip('\n')))
 		all = True
 	if mode == 2:
 		currentWordList = wordList
@@ -522,14 +506,14 @@ def loadComments(book):
 		The book chosen
 	"""
 	comments = {}
-	if os.path.exists(os.path.join(wordLists_path, book, 'Comments.txt')):
-		g = open(os.path.join(wordLists_path, book, 'Comments.txt'))
+	if os.path.exists(os.path.join(Vars.wordLists_path, book, 'Comments.txt')):
+		g = open(os.path.join(Vars.wordLists_path, book, 'Comments.txt'))
 		for s in g:
 			if len(s.split(": ")) >= 2:
 				ss = s.split(": ")
 				comments[ss[0]] = ": ".join(ss[1:len(ss)]).rstrip("\n")
 		g.close()
-		if not checkAllWordsInLists(list(comments), book, listNumber[lang][book]):
+		if not checkAllWordsInLists(list(comments), book, Vars.listNumber[Vars.lang][book]):
 			print("------ Sanity check for comments.------\n") # Will never happen if comments entered through addComments()
 	return comments
 
@@ -554,10 +538,10 @@ def updateComments(update, book):
 					comments.pop(w)
 			else:
 				comments[w] = update[w]
-		g = open(os.path.join(wordLists_path, book, 'Comments 2.txt'), 'w')
+		g = open(os.path.join(Vars.wordLists_path, book, 'Comments 2.txt'), 'w')
 		g.write("\n".join(["{0}: {1}".format(w, comments[w]) for w in sorted(comments)]))
 		g.close()
-		os.rename(os.path.join(wordLists_path, book, 'Comments 2.txt'), os.path.join(wordLists_path, book, 'Comments.txt'))
+		os.rename(os.path.join(Vars.wordLists_path, book, 'Comments 2.txt'), os.path.join(Vars.wordLists_path, book, 'Comments.txt'))
 	except:
 		print("Error occurred.\n")
 
@@ -608,7 +592,7 @@ def createDictionary(Dictionary, readFromRecord = None, allLists = None, default
 			theList = int(theList)
 			lists.append(theList)
 			alls.append(all)
-			if len(listNumber[lang][book]) == 1:
+			if len(Vars.listNumber[Vars.lang][book]) == 1:
 				break
 			firstList = False
 	if mode == 2:
@@ -622,15 +606,15 @@ def createDictionary(Dictionary, readFromRecord = None, allLists = None, default
 		checkAllWordsInLists(wordList, book, lists)
 		alls = [False] * len(lists)
 	if mode == 3:
-		assert(allLists in availableBooks)
+		assert(allLists in Vars.availableBooks)
 		book = allLists
-		lists = sorted(map(int, listNumber[lang][book]))
+		lists = sorted(map(int, Vars.listNumber[Vars.lang][book]))
 		alls = [defaultAll] * len(lists) # Not necessarily include all words even if all lists are loaded
 	if isinstance(book, list):
 		for books in book:
 			comments = loadComments(books)
 			Dictionary[books] = {}
-			for theList in listNumber[lang][books]:
+			for theList in Vars.listNumber[Vars.lang][books]:
 				loadWords(False, books, comments, Dictionary[books], mode, theList, wordList)
 	else:
 		comments = loadComments(book)
@@ -661,14 +645,14 @@ def writeTime(begin, timeBegan = None, mode = None, names = None):
 	assert((begin and timeBegan == None) or (not begin and timeBegan != None))
 	assert((begin and mode == None) or (not begin and mode != None))
 	assert((begin and names == None) or (not begin and names != None))
-	tz = pytz.timezone(parameters["TimeZone"].split(" ** ")[2])
+	tz = pytz.timezone(Vars.parameters["TimeZone"].split(" ** ")[2])
 	timeNow = datetime.datetime.now(tz.localize(datetime.datetime.now()).tzinfo)
 	timeNowYM = timeNow.strftime("%Y-%m")
 	timeNowFULL = timeNow.strftime("%m/%d/%Y %H:%M:%S %Z")
-	if not os.path.exists(os.path.join(record_path, 'Time')):
-		os.makedirs(os.path.join(record_path, 'Time'))
-	if not os.path.exists(os.path.join(record_path, 'Time', 'Time ' + timeNowYM + '.txt')):
-		f = open(os.path.join(record_path, 'Time', 'Time ' + timeNowYM + '.txt'), 'w')
+	if not os.path.exists(os.path.join(Vars.record_path, 'Time')):
+		os.makedirs(os.path.join(Vars.record_path, 'Time'))
+	if not os.path.exists(os.path.join(Vars.record_path, 'Time', 'Time ' + timeNowYM + '.txt')):
+		f = open(os.path.join(Vars.record_path, 'Time', 'Time ' + timeNowYM + '.txt'), 'w')
 		if begin:
 			f.write(timeNowFULL)
 			f.close()
@@ -676,8 +660,8 @@ def writeTime(begin, timeBegan = None, mode = None, names = None):
 		else:
 			f.close()
 			return
-	g = open(os.path.join(record_path, 'Time', 'Time ' + timeNowYM + '.tmp'), 'w')
-	f = open(os.path.join(record_path, 'Time', 'Time ' + timeNowYM + '.txt'), 'r')
+	g = open(os.path.join(Vars.record_path, 'Time', 'Time ' + timeNowYM + '.tmp'), 'w')
+	f = open(os.path.join(Vars.record_path, 'Time', 'Time ' + timeNowYM + '.txt'), 'r')
 	try:
 		if begin:
 			freadlines = f.readlines()
@@ -690,13 +674,13 @@ def writeTime(begin, timeBegan = None, mode = None, names = None):
 			g.write(timeNowFULL)
 		if not begin: # If end
 			if len(names) == 2 and isinstance(names[1], str) and "random " in names[1] and " words" in names[1] and isInt(names[1].replace("random ", "").replace(" words", "")): # Random 50 words
-				book = acronym[names[0]] + " "
+				book = Vars.acronym[names[0]] + " "
 				lists = names[1]
 			elif len(names) == 1 and "similar words to " in names[0]: # Similar words
 				book = ""
 				lists = names[0]
 			elif mode != "words found: ":
-				book = acronym[names[0]] + " " # Replace the full name of the book by its acronym
+				book = Vars.acronym[names[0]] + " " # Replace the full name of the book by its Vars.acronym
 				lists = concatenateListNames(names[1:len(names)])
 			for s in f:
 				if timeBegan in s:
@@ -712,7 +696,7 @@ def writeTime(begin, timeBegan = None, mode = None, names = None):
 						g.write(s)
 		f.close()
 		g.close()
-		os.rename(os.path.join(record_path, 'Time', 'Time ' + timeNowYM + '.tmp'), os.path.join(record_path, 'Time', 'Time ' + timeNowYM + '.txt'))
+		os.rename(os.path.join(Vars.record_path, 'Time', 'Time ' + timeNowYM + '.tmp'), os.path.join(Vars.record_path, 'Time', 'Time ' + timeNowYM + '.txt'))
 		if begin:
 			return timeNowFULL
 	except:
@@ -754,17 +738,17 @@ def describeWord(word, Word, learnMode, number = None):
 		elif (set(s) == set("MARK")) | (s[0:3] == "MAR") | (s == "MAK") | (s == 'M') | (s == 'MM'):
 			s = "MARK"
 		#elif s == "CM": ## Actually adding comments before meanings are shown are useless in practice, so commented out
-		#	s = "COMMENTS" + raw_input(instructions["addComments"].replace("REPLACE", word)).rstrip("\n")
+		#	s = "COMMENTS" + raw_input(Vars.instructions["addComments"].replace("REPLACE", word)).rstrip("\n")
 		#	print()
 		else:
 			s = s.lower()
 	if Word.numOfMeanings == 1:
-		print(instructions["meaning"].rstrip('\n').replace("REPLACE", "") + Word.meanings[0])
+		print(Vars.instructions["meaning"].rstrip('\n').replace("REPLACE", "") + Word.meanings[0])
 	else:
 		for i in range(0, Word.numOfMeanings):
-			print(instructions["meaning"].rstrip('\n').replace("REPLACE", " {0}".format(i+1)) + Word.meanings[i])
-	if parameters["ShowComments"] == "Y" and Word.comments != "":
-		print(instructions["comments"].rstrip('\n') + Word.comments)
+			print(Vars.instructions["meaning"].rstrip('\n').replace("REPLACE", " {0}".format(i+1)) + Word.meanings[i])
+	if Vars.parameters["ShowComments"] == "Y" and Word.comments != "":
+		print(Vars.instructions["comments"].rstrip('\n') + Word.comments)
 	print(''.center(80, '*'))
 	print()
 	if learnMode == True:
@@ -789,12 +773,12 @@ def writeRecord(difficultWords, mode, names):
 		"similar words to WORD" if "similar word mode", book name and "random XX words" if "random 50 words" mode, the list that consists of the name of the book followed by the list numbers otherwise
 	"""
 	assert (mode == 'learn') | (mode == 'recite') | (mode == 'view')
-	tz = pytz.timezone(parameters["TimeZone"].split(" ** ")[0])
+	tz = pytz.timezone(Vars.parameters["TimeZone"].split(" ** ")[0])
 	timeNow = datetime.datetime.now(tz.localize(datetime.datetime.now()).tzinfo)
 	if "similar words to " in names[0]:
-		pathToRecord = os.path.join(record_path, 'Others', timeNow.strftime("%Y-%m"))
+		pathToRecord = os.path.join(Vars.record_path, 'Others', timeNow.strftime("%Y-%m"))
 	else:
-		pathToRecord = os.path.join(record_path, names[0], timeNow.strftime("%Y-%m"))
+		pathToRecord = os.path.join(Vars.record_path, names[0], timeNow.strftime("%Y-%m"))
 	if not os.path.exists(pathToRecord):
 		os.makedirs(pathToRecord)
 	if "similar words to " in names[0]:
@@ -861,7 +845,7 @@ def describeList(Dictionary, wordListAndNames, learnMode, rand, record, readFrom
 		learnOrView = "learn"
 	else:
 		learnOrView = "view"
-	print(instructions["startDescribeList"])
+	print(Vars.instructions["startDescribeList"])
 	timeBegan = writeTime(begin = True)
 	for word in wordList:
 		i += 1
@@ -876,7 +860,7 @@ def describeList(Dictionary, wordListAndNames, learnMode, rand, record, readFrom
 					difficultWords.append(previousWord)
 			elif s == "CM":
 				if previousWord in Dictionary: # If not in "similar words" mode
-					comments[previousWord] = input(instructions["addComments"].replace("REPLACE", previousWord)).rstrip("\n")
+					comments[previousWord] = input(Vars.instructions["addComments"].replace("REPLACE", previousWord)).rstrip("\n")
 					print()
 			elif s.upper() != s.lower():
 				s = s.lower().split(" ")
@@ -884,9 +868,9 @@ def describeList(Dictionary, wordListAndNames, learnMode, rand, record, readFrom
 					if w != "" and w != " ":
 						if w in wordList:
 							difficultWords.append(w)
-							print(instructions["markedWordSuccessfully"].replace("REPLACE", w))
+							print(Vars.instructions["markedWordSuccessfully"].replace("REPLACE", w))
 						else:
-							print(instructions["markedWordUnsuccessfully"].replace("REPLACE", w))
+							print(Vars.instructions["markedWordUnsuccessfully"].replace("REPLACE", w))
 		if not word in Dictionary: # If Dictionary has sub-dictionaries, in "silimar words" mode
 			Words = [Dictionary[dic][word] for dic in sorted(Dictionary) if word in Dictionary[dic]]
 			if len(Words) > 1:
@@ -895,7 +879,7 @@ def describeList(Dictionary, wordListAndNames, learnMode, rand, record, readFrom
 			Words = [Dictionary[word]]
 		for index, Word in enumerate(Words):
 			if len(Words) > 1:
-				print(instructions["findAWordMeaningsIn"].replace("REPLACE", instructions["book" + acronym[WordsDics[index]]].rstrip("\n")))
+				print(Vars.instructions["findAWordMeaningsIn"].replace("REPLACE", Vars.instructions["book" + Vars.acronym[WordsDics[index]]].rstrip("\n")))
 			desc = describeWord(word, Word, learnMode, [i, numberofwords]) ## "QUIT" for quit, "MARK" for mark, "" for nothing
 			if desc == "QUIT":
 				quit = True
@@ -911,9 +895,9 @@ def describeList(Dictionary, wordListAndNames, learnMode, rand, record, readFrom
 					if w != "" and w != " ":
 						if w in wordList:
 							difficultWords.append(w)
-							print(instructions["markedWordSuccessfully"].replace("REPLACE", w))
+							print(Vars.instructions["markedWordSuccessfully"].replace("REPLACE", w))
 						else:
-							print(instructions["markedWordUnsuccessfully"].replace("REPLACE", w))
+							print(Vars.instructions["markedWordUnsuccessfully"].replace("REPLACE", w))
 		if quit:
 			break
 		previousWord = word
@@ -923,10 +907,10 @@ def describeList(Dictionary, wordListAndNames, learnMode, rand, record, readFrom
 			difficultWords.append(previousWord) # Last word
 		elif s == "CM":
 			if word in Dictionary: # If not in "similar words" mode
-				comments[word] = input(instructions["addComments"].replace("REPLACE", word)).rstrip("\n")
+				comments[word] = input(Vars.instructions["addComments"].replace("REPLACE", word)).rstrip("\n")
 				print()
 	if record:
-		difficultWordsInput = input(instructions["difficultWordsInput"]).lower().replace("  ", " ").lstrip(" ").rstrip(" ")
+		difficultWordsInput = input(Vars.instructions["difficultWordsInput"]).lower().replace("  ", " ").lstrip(" ").rstrip(" ")
 		if difficultWordsInput == "quit":
 			difficultWordsInput = ""
 		if difficultWordsInput != "":
@@ -934,7 +918,7 @@ def describeList(Dictionary, wordListAndNames, learnMode, rand, record, readFrom
 			abandoned = []
 			for i, word in enumerate(difficultWordsInput):
 				while not word in wordList:
-					reword = input(word + instructions["wrongDifficultWordsInput"]).lower()
+					reword = input(word + Vars.instructions["wrongDifficultWordsInput"]).lower()
 					if reword != "ab":
 						difficultWordsInput[i] = reword
 						word = reword
@@ -953,9 +937,9 @@ def describeList(Dictionary, wordListAndNames, learnMode, rand, record, readFrom
 		for i, word in enumerate(difficultWords):
 			difficultWords[i] = word
 		difficultWords = sorted(set(difficultWords))
-		print(instructions["difficultWordList"], difficultWords, ", " + instructions["wordsInTotal"].rstrip('\n') + str(len(difficultWords)) + instructions["wordsInTotal2"])
+		print(Vars.instructions["difficultWordList"], difficultWords, ", " + Vars.instructions["wordsInTotal"].rstrip('\n') + str(len(difficultWords)) + Vars.instructions["wordsInTotal2"])
 		if quit == False:
-			if input(instructions["reviewRecite"]).upper() != "QUIT":
+			if input(Vars.instructions["reviewRecite"]).upper() != "QUIT":
 				lenDifficultWords = len(difficultWords)
 				for index, word in enumerate(difficultWords):
 					if not word in Dictionary: # If Dictionary has sub-dictionaries, under "silimar words" mode
@@ -966,7 +950,7 @@ def describeList(Dictionary, wordListAndNames, learnMode, rand, record, readFrom
 						Words = [Dictionary[word]]
 					for index2, Word in enumerate(Words):
 						if len(Words) > 1:
-							print(instructions["findAWordMeaningsIn"].replace("REPLACE", instructions["book" + acronym[WordsDics[index2]]].rstrip("\n")))
+							print(Vars.instructions["findAWordMeaningsIn"].replace("REPLACE", Vars.instructions["book" + Vars.acronym[WordsDics[index2]]].rstrip("\n")))
 						describeWord(word, Word, False, [index + 1, lenDifficultWords])
 					if input().upper() == "QUIT":
 						break
@@ -1009,24 +993,24 @@ def randomAndRecord():
 		randomAndRecord():
 		Returns two bools: true for the first one if random, and true for the second one if record. Or returns None if "quit" entered
 	"""
-	if parameters["Random"] != "A":
-		r = parameters["Random"]
+	if Vars.parameters["Random"] != "A":
+		r = Vars.parameters["Random"]
 	else:
-		r = input(instructions["random"]).upper()
+		r = input(Vars.instructions["random"]).upper()
 	while (r != 'Y') & (r != 'N') & (r != 'QUIT'):
-		r = input(instructions["enterYOrN"]).upper()
+		r = input(Vars.instructions["enterYOrN"]).upper()
 	if r == 'Y':
 		random = True
 	elif r == 'N':
 		random = False
 	else:
 		return
-	if parameters["Record"] != "A":
-		r = parameters["Record"]
+	if Vars.parameters["Record"] != "A":
+		r = Vars.parameters["Record"]
 	else:
-		r = input(instructions["record"]).upper()
+		r = input(Vars.instructions["record"]).upper()
 	while (r != 'Y') & (r != 'N') & (r != 'QUIT'):
-		r = input(instructions["enterYOrN"]).upper()
+		r = input(Vars.instructions["enterYOrN"]).upper()
 	if r == 'Y':
 		record = True
 	elif r == 'N':
@@ -1064,8 +1048,8 @@ def recite(Dictionary, rnr, wordListAndNames, readFromRecord = False):
 	quit = False
 	numberofwords = len(wordList)
 	j = 0
-	print(instructions["startRecite"])
-	print(instructions["startRecite2"])
+	print(Vars.instructions["startRecite"])
+	print(Vars.instructions["startRecite2"])
 	print()
 	if rand:
 		random.shuffle(wordList)
@@ -1076,12 +1060,12 @@ def recite(Dictionary, rnr, wordListAndNames, readFromRecord = False):
 	for word in wordList:
 		j += 1
 		print("{0}/{1}".format(j, numberofwords))
-		#print("{0}/{1}\t {2} {3}".format(j, numberofwords, len(word), instructions["letters"]))
+		#print("{0}/{1}\t {2} {3}".format(j, numberofwords, len(word), Vars.instructions["letters"]))
 		if Dictionary[word].numOfMeanings == 1:
-			print(instructions["meaning"].rstrip('\n').replace("REPLACE", "") + Dictionary[word].meanings[0])
+			print(Vars.instructions["meaning"].rstrip('\n').replace("REPLACE", "") + Dictionary[word].meanings[0])
 		else:
 			for i in range(0, Dictionary[word].numOfMeanings):
-				print(instructions["meaning"].rstrip('\n').replace("REPLACE", " {0}".format(i+1)) + Dictionary[word].meanings[i])
+				print(Vars.instructions["meaning"].rstrip('\n').replace("REPLACE", " {0}".format(i+1)) + Dictionary[word].meanings[i])
 		print()
 		user_input = input()
 		if user_input.upper() == "QUIT":
@@ -1097,43 +1081,43 @@ def recite(Dictionary, rnr, wordListAndNames, readFromRecord = False):
 				user_input = input()
 				continue
 			elif user_input.upper() == "NUMBER":
-				print("{0} {1}".format(len(word.replace("-", "")), instructions["letters"]))
+				print("{0} {1}".format(len(word.replace("-", "")), Vars.instructions["letters"]))
 				user_input = input()
 				continue
 			wrongtimes += 1
-			print(instructions["tryAgain"])
+			print(Vars.instructions["tryAgain"])
 			if wrongtimes < MaxTimes:
 				user_input = input()
 		if wrongtimes == MaxTimes:
 			difficultWords.append(word)
 			print(Dictionary[word].IPA) # Show IPA first
-			user_input = input(instructions["tryAgain"] + "\n")
+			user_input = input(Vars.instructions["tryAgain"] + "\n")
 			if user_input.replace("é","e").replace("ï","i") != word.replace("é","e").replace("ï","i"): # If still incorrect, show descriptions
 				describeWord(word, Dictionary[word], False)
-				user_input = input(instructions["tryAgain"] + "\n")
+				user_input = input(Vars.instructions["tryAgain"] + "\n")
 			while user_input.replace("é","e").replace("ï","i") != word.replace("é","e").replace("ï","i"): # Enter until correct
 				if user_input.upper() == "QUIT":
 					quit = True
 					break
-				print(instructions["tryAgain"] + "\n")
+				print(Vars.instructions["tryAgain"] + "\n")
 				user_input = input()
 		if quit:
 			break
-		print(instructions["correct"])
+		print(Vars.instructions["correct"])
 	if difficultWords: # If there is any difficult word
 		for i, word in enumerate(difficultWords):
 			difficultWords[i] = word
 		difficultWords = sorted(set(difficultWords))
-		print(instructions["difficultWordList"], difficultWords, ", " + instructions["wordsInTotal"].rstrip('\n') + str(len(difficultWords)) + instructions["wordsInTotal2"])
+		print(Vars.instructions["difficultWordList"], difficultWords, ", " + Vars.instructions["wordsInTotal"].rstrip('\n') + str(len(difficultWords)) + Vars.instructions["wordsInTotal2"])
 		if quit == False:
-			if input(instructions["reviewRecite"]).upper() != "QUIT":
+			if input(Vars.instructions["reviewRecite"]).upper() != "QUIT":
 				lenDifficultWords = len(difficultWords)
 				for index, word in enumerate(difficultWords):
 					describeWord(word, Dictionary[word], False, [index + 1, lenDifficultWords])
 					if input().upper() == "QUIT":
 						break
 	elif quit == False:
-		print(instructions["congratulations"])
+		print(Vars.instructions["congratulations"])
 	if record and quit == False:
 		writeRecord(difficultWords, "recite", name)
 	writeTime(begin = False, timeBegan = timeBegan, mode = "recite mode " + readFromRecord * "(from record) ", names = name)
@@ -1171,7 +1155,7 @@ def learnAndView(learnMode, rnr, Dictionary = None, wordListAndNames = None, rea
 		if wordListAndNames == None:
 			return
 	if Dictionary == {}:
-		print(instructions["noWordsToStudy"])
+		print(Vars.instructions["noWordsToStudy"])
 		return
 	if learnMode:
 		describeList(Dictionary, wordListAndNames, True, random, record, readFromRecord = readFromRecord)
@@ -1186,7 +1170,7 @@ def findAWord():
 	"""
 	wordList = []
 	books = []
-	pre = input(instructions["findAWordChooseList"]).upper()
+	pre = input(Vars.instructions["findAWordChooseList"]).upper()
 	firstTime = True
 	if pre == "QUIT":
 		return
@@ -1198,9 +1182,9 @@ def findAWord():
 		wordList = wordListAndNames[0]
 		books.append(wordListAndNames[1][0])
 	else:
-		dics = [{} for i in range(0,len(availableBooks))] # Cannot use [{}] * len(availableBooks) which would create pointers pointing to the same dic
+		dics = [{} for i in range(0, len(Vars.availableBooks))] # Cannot use [{}] * len(Vars.availableBooks) which would create pointers pointing to the same dic
 		for index, dic in enumerate(dics):
-			wordListAndNames = createDictionary(dic, allLists = availableBooks[index])
+			wordListAndNames = createDictionary(dic, allLists = Vars.availableBooks[index])
 			wordList += wordListAndNames[0]
 			books.append(wordListAndNames[1][0])
 	wordList = sorted(list(set(wordList)))
@@ -1210,16 +1194,16 @@ def findAWord():
 	timeBegan = writeTime(begin = True)
 	while True:
 		if firstTime:
-			word = input(instructions["promptFindAWordLong"] + "\n").lower().split(" ")[0]
+			word = input(Vars.instructions["promptFindAWordLong"] + "\n").lower().split(" ")[0]
 			firstTime = False
 		else:
-			word = input(instructions["promptFindAWordShort"]).lower().split(" ")[0]
+			word = input(Vars.instructions["promptFindAWordShort"]).lower().split(" ")[0]
 		while not word in wordList:
 			if word == "quit":
 				writeTime(begin = False, timeBegan = timeBegan, mode = "words found: ", names = wordsFound)
 				return
 			if word == "":
-				word = input(instructions["promptFindAWordShort"]).lower().split(" ")[0]
+				word = input(Vars.instructions["promptFindAWordShort"]).lower().split(" ")[0]
 			else:
 				tmp = ""
 				if word[0:2] == "bg" or word[0:2] == "ct" or word[0:2] == "nd":
@@ -1237,17 +1221,17 @@ def findAWord():
 				wordsContaining = sorted(list(set(wordsContaining)))
 				if len(wordsContaining) > maxWordsContaining:
 					word_copy = word
-					word = input(instructions["moreThanMANYResults"].replace("MANY",str(maxWordsContaining))).lower().split(" ")[0]
+					word = input(Vars.instructions["moreThanMANYResults"].replace("MANY",str(maxWordsContaining))).lower().split(" ")[0]
 					if word == "":
-						print(instructions["chooseOneWord1"].rstrip("\n") + " " + word_copy + " " + instructions["chooseOneWord2"] + "\n".join(sorted(wordsContaining)) + "\n")
+						print(Vars.instructions["chooseOneWord1"].rstrip("\n") + " " + word_copy + " " + Vars.instructions["chooseOneWord2"] + "\n".join(sorted(wordsContaining)) + "\n")
 						word = input().lower().split(" ")[0] # Far more efficient than input("\n".join(sorted(wordsContaining)))
 				elif len(wordsContaining) > 1:
-					print("\n" + instructions["chooseOneWord1"].rstrip("\n") + " " + word + " " + instructions["chooseOneWord2"] + "\n".join(sorted(wordsContaining)) + "\n")
+					print("\n" + Vars.instructions["chooseOneWord1"].rstrip("\n") + " " + word + " " + Vars.instructions["chooseOneWord2"] + "\n".join(sorted(wordsContaining)) + "\n")
 					word = input().lower().split(" ")[0]
 				elif len(wordsContaining) == 1:
 					word = wordsContaining[0]
 				else:
-					word = input(instructions["wrongWord"]).lower().split(" ")[0]
+					word = input(Vars.instructions["wrongWord"]).lower().split(" ")[0]
 				wordsContaining = [] # Clear words
 		if word in wordList: # If not quitted
 			wordsFound.append(word)
@@ -1258,7 +1242,7 @@ def findAWord():
 					inDics.append(index)
 			print(''.center(80, '*') + "\n")
 			for dicIndex in inDics:
-				print(instructions["findAWordMeaningsIn"].replace("REPLACE", instructions["book" + acronym[books[dicIndex]]].rstrip("\n")))
+				print(Vars.instructions["findAWordMeaningsIn"].replace("REPLACE", Vars.instructions["book" + Vars.acronym[books[dicIndex]]].rstrip("\n")))
 				describeWord(word, dics[dicIndex][word], False)
 	return
 
@@ -1272,7 +1256,7 @@ def chooseRecord(lists):
 		lists: list
 		List of record names
 	"""
-	print(instructions["promptChooseRecord"])
+	print(Vars.instructions["promptChooseRecord"])
 	for number, item in enumerate(lists):
 		print("{0}: {1}\n".format(number + 1, item))
 	item = input().upper()
@@ -1285,9 +1269,9 @@ def chooseRecord(lists):
 				item = lists[item - 1]
 				break
 		if len(lists) > 1:
-			item = input(instructions["chooseRecord"].replace("REPLACE", str(len(lists)))).upper()
+			item = input(Vars.instructions["chooseRecord"].replace("REPLACE", str(len(lists)))).upper()
 		else:
-			item = input(instructions["chooseRecord2"]).upper()
+			item = input(Vars.instructions["chooseRecord2"]).upper()
 	return item
 
 def readFromRecord():
@@ -1296,17 +1280,17 @@ def readFromRecord():
 		Chooses a record and studies.
 	"""
 	booksInRecord = []
-	for books in availableBooks:
-		if os.path.exists(os.path.join(record_path, books)):
+	for books in Vars.availableBooks:
+		if os.path.exists(os.path.join(Vars.record_path, books)):
 			booksInRecord.append(books)
 	book = chooseBook(booksInRecord)
 	if book == None:
 		return
 	recordsWithDate = []
-	tz = pytz.timezone(parameters["TimeZone"].split(" ** ")[0])
-	date = input(instructions["date"]).upper()
+	tz = pytz.timezone(Vars.parameters["TimeZone"].split(" ** ")[0])
+	date = input(Vars.instructions["date"]).upper()
 	while True:
-		path = os.path.join(record_path, book)
+		path = os.path.join(Vars.record_path, book)
 		if date == "QUIT":
 			return
 		if date == "T" or date == "TODAY":
@@ -1317,16 +1301,16 @@ def readFromRecord():
 			continue
 		date = str.split(date, "/")
 		if len(date) != 3:
-			date = input(instructions["date"]).upper()
+			date = input(Vars.instructions["date"]).upper()
 			continue # If not three elements (YYYY/MM/DD)
 		try:
 			date = list(map(int, date))
 		except ValueError:
-			date = input(instructions["date"]).upper()
+			date = input(Vars.instructions["date"]).upper()
 			continue # If input not convertible to int
 		path = os.path.join(path, str(date[2]) + "-" + str(date[0]).zfill(2))
 		if not os.path.exists(path):
-			date = input(instructions["wrongDate"]).upper()
+			date = input(Vars.instructions["wrongDate"]).upper()
 			continue
 		# If passed all preliminary tests
 		date = str(date[0]).zfill(2) + "-" + str(date[1]).zfill(2)
@@ -1336,7 +1320,7 @@ def readFromRecord():
 		if recordsWithDate != []:
 			break
 		else:
-			date = input(instructions["wrongDate"]).upper()
+			date = input(Vars.instructions["wrongDate"]).upper()
 	if len(recordsWithDate) == 1:
 		record = recordsWithDate[0]
 	record = chooseRecord(recordsWithDate)
@@ -1348,7 +1332,7 @@ def readFromRecord():
 		assert(len(theLists) == 2)
 		theLists = list(range(theLists[0], theLists[1] + 1))
 	elif "random" in record: # Random 50 words mode
-		theLists = listNumber[lang][book]
+		theLists = Vars.listNumber[Vars.lang][book]
 	else:
 		theLists = sorted([int(s.replace("L","")) for s in record.split(" ") if "L" in s])
 	record = os.path.join(path, record)
@@ -1357,12 +1341,12 @@ def readFromRecord():
 	for word in f:
 		wordList.append(word.rstrip('\n'))
 	f.close()
-	prompt = "\n" + instructions["promptReadRecord"]
+	prompt = "\n" + Vars.instructions["promptReadRecord"]
 	wordListAndNames = [wordList, [book] + theLists]
 	Dictionary = {}
 	createDictionary(Dictionary, readFromRecord = wordListAndNames, defaultAll = False)
 	if Dictionary == {}:
-		print(instructions["noWordsToStudy"])
+		print(Vars.instructions["noWordsToStudy"])
 		return True
 	while True:
 		s = input(prompt).upper()
@@ -1390,8 +1374,8 @@ def viewSchedule():
 		viewSchedule():
 		Views the schedule.
 	"""
-	sch = os.path.join(record_path, 'Schedule.txt')
-	tz = pytz.timezone(parameters["TimeZone"].split(" ** ")[1])
+	sch = os.path.join(Vars.record_path, 'Schedule.txt')
+	tz = pytz.timezone(Vars.parameters["TimeZone"].split(" ** ")[1])
 	timeNow = datetime.datetime.now(tz.localize(datetime.datetime.now()).tzinfo)
 	found = False
 	try:
@@ -1401,11 +1385,11 @@ def viewSchedule():
 				print(s.replace("SPACE", " "))
 				found = True
 		if not found:
-			print(instructions["noScheduleTodayAvailable"])
+			print(Vars.instructions["noScheduleTodayAvailable"])
 	except IOError:
-		print(instructions["noScheduleAvailable"])
+		print(Vars.instructions["noScheduleAvailable"])
 		open(sch, 'w').close()
-	print(instructions["addOrCancelSchedule"])
+	print(Vars.instructions["addOrCancelSchedule"])
 	return
 
 def sortDate(dateList):
@@ -1437,58 +1421,58 @@ def addOrCancelSchedule(action):
 		Adds a schedule if action == "A", and cancels a schedule if action == "C"
 	"""
 	assert action == "A" or action == "C"
-	f = open(os.path.join(record_path, 'Schedule.txt'))
+	f = open(os.path.join(Vars.record_path, 'Schedule.txt'))
 	dates = {1: list(range(1,32)), 2: list(range(1,30)), 3: list(range(1,32)), 4: list(range(1,31)), 5: list(range(1,32)), 6: list(range(1,31)), 7: list(range(1,32)), 8: list(range(1,32)), 9: list(range(1,31)), 10: list(range(1,32)), 11: list(range(1,31)), 12: list(range(1,32))}
 	sch = {}
 	for s in f:
 		if len(s.split(": ")) == 2:
 			sch[s.split(": ")[0]] = s.split(": ")[1].rstrip("\n")
-	user_input = input(instructions["scheduleEnterDate"]).upper()
+	user_input = input(Vars.instructions["scheduleEnterDate"]).upper()
 	while True:
 		if user_input == "QUIT":
 			f.close()
 			return
 		elif user_input == "VIEW":
 			if len(sch) == 0:
-				print(instructions["noScheduleAvailable"])
+				print(Vars.instructions["noScheduleAvailable"])
 			for d in sortDate(list(sch)):
 				print(d + ": " + sch[d].replace("SPACE", " "))
-			user_input = input(instructions["scheduleEnterDate"]).upper()
+			user_input = input(Vars.instructions["scheduleEnterDate"]).upper()
 		elif not isInt(user_input.split("/")[0]) or not isInt(user_input.split("/")[1]):
-			user_input = input(instructions["scheduleEnterDate"]).upper()
+			user_input = input(Vars.instructions["scheduleEnterDate"]).upper()
 			continue
 		elif (not int(user_input.split("/")[0]) in range(1,13)) or (not int(user_input.split("/")[1]) in dates[int(user_input.split("/")[0])]):
-			user_input = input(instructions["dateNotValid"]).upper()
+			user_input = input(Vars.instructions["dateNotValid"]).upper()
 		elif action == "A" and user_input in sch:
-			user_input = input(instructions["dateAlreadyExists"]).upper()
+			user_input = input(Vars.instructions["dateAlreadyExists"]).upper()
 		elif action == "C" and not user_input in sch:
-			user_input = input(instructions["dateDoesNotExist"]).upper()
+			user_input = input(Vars.instructions["dateDoesNotExist"]).upper()
 		else:
 			break
-	g = open(os.path.join(record_path, 'Schedule 0.txt'), 'w')
+	g = open(os.path.join(Vars.record_path, 'Schedule 0.txt'), 'w')
 	if action == "A":
-		user_input2 = input(instructions["scheduleEnterTask"])
+		user_input2 = input(Vars.instructions["scheduleEnterTask"])
 		sch[user_input] = user_input2.replace(": ", ":SPACE")
 		for d in sortDate(list(sch)):
 			g.write(d + ": " + sch[d] + "\n")
 		f.close()
 		g.close()
-		os.rename(os.path.join(record_path, 'Schedule 0.txt'), os.path.join(record_path, 'Schedule.txt'))
+		os.rename(os.path.join(Vars.record_path, 'Schedule 0.txt'), os.path.join(Vars.record_path, 'Schedule.txt'))
 	if action == "C":
-		cf = input(user_input + ": " + sch[user_input].replace("SPACE", " ") + "\n" + instructions["confirmOrAbandon"]).upper()
+		cf = input(user_input + ": " + sch[user_input].replace("SPACE", " ") + "\n" + Vars.instructions["confirmOrAbandon"]).upper()
 		while cf != "Y" and cf != "N":
-			cf = input(instructions["enterYOrN"]).upper()
+			cf = input(Vars.instructions["enterYOrN"]).upper()
 		if cf == "Y":
 			sch.pop(user_input)
 			for d in sortDate(list(sch)):
 				g.write(d + ": " + sch[d] + "\n")
 			g.close()
 			f.close()
-			os.rename(os.path.join(record_path, 'Schedule 0.txt'), os.path.join(record_path, 'Schedule.txt'))
+			os.rename(os.path.join(Vars.record_path, 'Schedule 0.txt'), os.path.join(Vars.record_path, 'Schedule.txt'))
 		else:
 			g.close()
 			f.close()
-			os.remove(os.path.join(record_path, 'Schedule 0.txt'))
+			os.remove(os.path.join(Vars.record_path, 'Schedule 0.txt'))
 	return
 
 def allWordsOrDifficultWordListForRandom50Words():
@@ -1496,12 +1480,12 @@ def allWordsOrDifficultWordListForRandom50Words():
 		allWordsOrDifficultWordListForRandom50Words():
 		Sets parameter "AllForRandom50Words"
 	"""
-	if parameters["AllForRandom50Words"] != "A":
-		r = parameters["AllForRandom50Words"]
+	if Vars.parameters["AllForRandom50Words"] != "A":
+		r = Vars.parameters["AllForRandom50Words"]
 	else:
-		r = input(instructions["allForRandom50Words"].replace("REPLACE", parameters["Random50Words"])).upper()
+		r = input(Vars.instructions["allForRandom50Words"].replace("REPLACE", Vars.parameters["Random50Words"])).upper()
 	while (r != 'Y') & (r != 'N') & (r != 'QUIT'):
-		r = input(instructions["enterYOrN"]).upper()
+		r = input(Vars.instructions["enterYOrN"]).upper()
 	if r == 'Y':
 		return True
 	elif r == 'N':
@@ -1514,7 +1498,7 @@ def random50Words():
 		random50Words():
 		Studies 50 (changeable) words randomly from one book chosen.
 	"""
-	NUMBER = int(parameters["Random50Words"])
+	NUMBER = int(Vars.parameters["Random50Words"])
 	book = chooseBook()
 	if book == None:
 		return
@@ -1527,7 +1511,7 @@ def random50Words():
 	names = [book, "random " + str(NUMBER) + " words"]
 	random.shuffle(wordList)
 	random.shuffle(wordList)
-	prompt = "\n" + instructions["promptRandom50Words"].replace("REPLACE", parameters["Random50Words"])
+	prompt = "\n" + Vars.instructions["promptRandom50Words"].replace("REPLACE", Vars.parameters["Random50Words"])
 	while True:
 		s = input(prompt).upper()
 		if (s == "L") | (s == "LEARN"):
@@ -1548,7 +1532,7 @@ def random50Words():
 		elif (s == "S") | (s == "SHUFFLE"):
 			random.shuffle(wordList)
 			random.shuffle(wordList)
-			print(instructions["random50WordsShuffleDone"].replace("REPLACE", parameters["Random50Words"]))
+			print(Vars.instructions["random50WordsShuffleDone"].replace("REPLACE", Vars.parameters["Random50Words"]))
 		elif (s == "QUIT"):
 			return
 	return
@@ -1558,12 +1542,12 @@ def similarWords():
 		similarWords():
 		Studies similar words.
 	"""
-	prompt1 = instructions["promptSimilarWords"]
-	prompt2 = instructions["promptSimilarWords2"]
+	prompt1 = Vars.instructions["promptSimilarWords"]
+	prompt2 = Vars.instructions["promptSimilarWords2"]
 	try:
-		f = open(os.path.join(wordLists_path, 'Similar.txt'))
+		f = open(os.path.join(Vars.wordLists_path, 'Similar.txt'))
 	except IOError:
-		print(instructions["similarFileNotExists"])
+		print(Vars.instructions["similarFileNotExists"])
 		return
 	word = ""
 	while True:
@@ -1587,14 +1571,14 @@ def similarWords():
 				if word in s.rstrip("\n").split(" "):
 					found += s.rstrip("\n").split(" ")
 			if found == []:
-				print(instructions["similarWordsNotFound"].replace("REPLACE", word))
+				print(Vars.instructions["similarWordsNotFound"].replace("REPLACE", word))
 			else:
 				Dictionary = {}
-				wordListAndNames = [found, [availableBooks, None]]
+				wordListAndNames = [found, [Vars.availableBooks, None]]
 				createDictionary(Dictionary, readFromRecord = wordListAndNames)
 				name = ["similar words to {0}".format(word)]
 				while True:
-					s = input("\n" + instructions["promptSimilarWords2"].replace("REPLACE", word)).upper()
+					s = input("\n" + Vars.instructions["promptSimilarWords2"].replace("REPLACE", word)).upper()
 					if (s == "A"):
 						f.seek(0)
 						print("\n".join(f.readlines()))
@@ -1631,16 +1615,16 @@ def chooseOneList(book):
 		book: string, must be in the available books in the language.
 		The book chosen.
 	"""
-	list = input(instructions["chooseList"])
+	list = input(Vars.instructions["chooseList"])
 	while True: # Choose one list only, so cannot use chooseList()
 		if list.upper() == "QUIT":
 			return
 		elif not isInt(list):
-			list = input(instructions["enterANumber"])
+			list = input(Vars.instructions["enterANumber"])
 			continue
-		elif not int(list) in listNumber[lang][book]:
-			print(instructions["chooseListNotExists"].rstrip("\n"))
-			print(listNumber[lang][book])
+		elif not int(list) in Vars.listNumber[Vars.lang][book]:
+			print(Vars.instructions["chooseListNotExists"].rstrip("\n"))
+			print(Vars.listNumber[Vars.lang][book])
 			list = input()
 			continue
 		return int(list)
@@ -1665,7 +1649,7 @@ def extend(book, theList, current):
 	all = []
 	add = []
 	i = 0
-	f = open(os.path.join(wordLists_path, book, 'Lists', str(theList) + ' ' + lang + '.txt'))
+	f = open(os.path.join(Vars.wordLists_path, book, 'Lists', str(theList) + ' ' + Vars.lang + '.txt'))
 	for s in f:
 		if (s != '\n') and (not isInt(s.rstrip('\n'))):
 			i += 1
@@ -1690,7 +1674,7 @@ def extend(book, theList, current):
 						new.append(word)
 					elif user_input.upper() != user_input.lower():
 						add += user_input.lower().split(" ")
-	add2 = input(instructions["difficultWordsInput"]).lower().replace("  "," ").replace("  "," ").split(" ")
+	add2 = input(Vars.instructions["difficultWordsInput"]).lower().replace("  "," ").replace("  "," ").split(" ")
 	if add2 != [""] and add2 != ["quit"]:
 		add += add2
 	add = list(set(add))
@@ -1698,11 +1682,11 @@ def extend(book, theList, current):
 		if w in all:
 			new.append(w)
 		else:
-			w2 = input(w + instructions["wrongDifficultWordsInput"])
+			w2 = input(w + Vars.instructions["wrongDifficultWordsInput"])
 			while not w2 in all:
 				if w2.upper() == "AB":
 					break
-				w2 = input(w + instructions["wrongDifficultWordsInput"])
+				w2 = input(w + Vars.instructions["wrongDifficultWordsInput"])
 			if w2 in all:
 				new.append(w2)
 	new = sorted(list(set(new)))
@@ -1719,15 +1703,15 @@ def chooseDifficultWordList():
 	theList = chooseOneList(book)
 	if theList == None:
 		return
-	difficultWordListPath = os.path.join(wordLists_path, book, 'Difficult Words', str(theList) + '.txt')
+	difficultWordListPath = os.path.join(Vars.wordLists_path, book, 'Difficult Words', str(theList) + '.txt')
 	if not os.path.exists(difficultWordListPath):
 		newOrExt = "Y"
 	else:
-		newOrExt = input(instructions["chooseDifficultNewOrExtend"]).upper()
+		newOrExt = input(Vars.instructions["chooseDifficultNewOrExtend"]).upper()
 		while newOrExt != "Y" and newOrExt != "N":
 			if newOrExt == "QUIT":
 				return
-			newOrExt = input(instructions["chooseDifficultNewOrExtend"]).upper()
+			newOrExt = input(Vars.instructions["chooseDifficultNewOrExtend"]).upper()
 	if newOrExt == "N":
 		f = open(difficultWordListPath)
 		current = f.readline().rstrip("\n").split(" || ")
@@ -1739,16 +1723,16 @@ def chooseDifficultWordList():
 		return
 	else:
 		new, together = newAndTogether
-	print("\n" + instructions["chooseDifficultNewlyAddedWords"].rstrip("\n"))
+	print("\n" + Vars.instructions["chooseDifficultNewlyAddedWords"].rstrip("\n"))
 	print(new)
-	print("\n" + instructions["chooseDifficultNowList"].rstrip("\n"))
+	print("\n" + Vars.instructions["chooseDifficultNowList"].rstrip("\n"))
 	print(together)
-	save = input("\n" + instructions["confirmOrAbandon"]).upper()
+	save = input("\n" + Vars.instructions["confirmOrAbandon"]).upper()
 	while save != "Y" and save != "N":
 		if save == "QUIT":
 			return
 		else:
-			save = input("\n" + instructions["confirmOrAbandon"]).upper()
+			save = input("\n" + Vars.instructions["confirmOrAbandon"]).upper()
 	if save == "Y":
 		f = open(difficultWordListPath, 'w')
 		f.write(together)
@@ -1764,29 +1748,29 @@ def addComments():
 	if book == None:
 		return
 	allWordsFromBook = []
-	addWordsFromLists(allWordsFromBook, book, listNumber[lang][book])
+	addWordsFromLists(allWordsFromBook, book, Vars.listNumber[Vars.lang][book])
 	comments = {}
-	s = input(instructions["promptAddComments"]).lower()
+	s = input(Vars.instructions["promptAddComments"]).lower()
 	while s != "quit":
 		if s == "":
-			s = input(instructions["promptAddComments"]).lower().replace(" ", "")
+			s = input(Vars.instructions["promptAddComments"]).lower().replace(" ", "")
 			continue
 		elif not s in allWordsFromBook:
-			print(s + instructions["notInBook"].rstrip("\n").replace("REPLACE", instructions["guillemetLeft"].rstrip("\n") + instructions["book" + acronym[book]].rstrip("\n") + instructions["guillemetRight"].rstrip("\n")) + instructions["reenter"].rstrip("\n"))
+			print(s + Vars.instructions["notInBook"].rstrip("\n").replace("REPLACE", Vars.instructions["guillemetLeft"].rstrip("\n") + Vars.instructions["book" + Vars.acronym[book]].rstrip("\n") + Vars.instructions["guillemetRight"].rstrip("\n")) + Vars.instructions["reenter"].rstrip("\n"))
 			s = input("").lower().lower().replace(" ", "")
 			continue
 		else:
-			c = input(instructions["addComments"].replace("REPLACE", s))
+			c = input(Vars.instructions["addComments"].replace("REPLACE", s))
 			if c.upper() == "QUIT":
-				s2 = input(instructions["addCommentsQuitted"].replace("REPLACE1", c).replace("REPLACE2", s))
+				s2 = input(Vars.instructions["addCommentsQuitted"].replace("REPLACE1", c).replace("REPLACE2", s))
 				if s2.upper() == "QUIT":
 					comments[s] = s2
-					s = input(instructions["promptAddComments"]).lower()
+					s = input(Vars.instructions["promptAddComments"]).lower()
 				else:
 					s = s2.lower()
 				continue
 			comments[s] = c
-			s = input(instructions["promptAddComments"]).lower()
+			s = input(Vars.instructions["promptAddComments"]).lower()
 	updateComments(comments, book)
 	return
 
@@ -1795,7 +1779,7 @@ def moreOptions():
 		moreOptions():
 		Provides more options besides those shown in the main menu.
 	"""
-	prompt = "\n" + instructions["moreOptions"].replace("REPLACE", parameters["Random50Words"])
+	prompt = "\n" + Vars.instructions["moreOptions"].replace("REPLACE", Vars.parameters["Random50Words"])
 	while True:
 		s = quitOrInput(input(prompt)).upper()
 		if (s == "C") | (s == "COMMENT") | (s == "COMMENTS"):
@@ -1821,49 +1805,46 @@ def changeParameters():
 		changeParameters():
 		Changes one system parameter.
 	"""
-	global instructions
-	global parameters
-	global lang
-	instructions["paraAllForRandom50Words"] = instructions["paraAllForRandom50Words"].replace("REPLACE", parameters["Random50Words"])
-	instructions["paraRandom50Words"] = instructions["paraRandom50Words"].replace("REPLACE", parameters["Random50Words"])
-	prompt = "\n" + instructions["promptSetParameters"] + "".join([str(index + 1) + ". " + instructions["para" + par] + "\n" for index, par in enumerate(sorted(parameters))])
+	Vars.instructions["paraAllForRandom50Words"] = Vars.instructions["paraAllForRandom50Words"].replace("REPLACE", Vars.parameters["Random50Words"])
+	Vars.instructions["paraRandom50Words"] = Vars.instructions["paraRandom50Words"].replace("REPLACE", Vars.parameters["Random50Words"])
+	prompt = "\n" + Vars.instructions["promptSetParameters"] + "".join([str(index + 1) + ". " + Vars.instructions["para" + par] + "\n" for index, par in enumerate(sorted(Vars.parameters))])
 	choose = quitOrInput(input(prompt)).upper()
 	if choose == "QUIT":
 		return
-	while not (isInt(choose) and int(choose) >= 1 and int(choose) <= len(parameters)):
+	while not (isInt(choose) and int(choose) >= 1 and int(choose) <= len(Vars.parameters)):
 		choose = quitOrInput(input(prompt)).upper()
 		if choose == "QUIT":
 			return
-	choose = sorted(parameters)[int(choose) - 1]
+	choose = sorted(Vars.parameters)[int(choose) - 1]
 	if choose == "AllForRandom50Words":
-		setChoose = chooseYorNorA(parameters["AllForRandom50Words"])
+		setChoose = chooseYorNorA(Vars.parameters["AllForRandom50Words"])
 	elif choose == "Language":
-		setChoose = chooseLanguage(parameters["Language"])
+		setChoose = chooseLanguage(Vars.parameters["Language"])
 	elif choose == "Random":
-		setChoose = chooseYorNorA(parameters["Random"])
+		setChoose = chooseYorNorA(Vars.parameters["Random"])
 	elif choose == "Random50Words":
-		setChoose = chooseRandom50Words(parameters["Random50Words"])
+		setChoose = chooseRandom50Words(Vars.parameters["Random50Words"])
 	elif choose == "Record":
-		setChoose = chooseYorNorA(parameters["Record"])
+		setChoose = chooseYorNorA(Vars.parameters["Record"])
 	elif choose == "ShowComments":
-		setChoose = chooseYorN(parameters["ShowComments"])
+		setChoose = chooseYorN(Vars.parameters["ShowComments"])
 	elif choose == "TimeZone":
-		setChoose = chooseTimeZone(parameters["TimeZone"])
+		setChoose = chooseTimeZone(Vars.parameters["TimeZone"])
 	else:
 		assert()
-	f = open(os.path.join(sys_path, 'Parameters.txt'))
-	g = open(os.path.join(sys_path, 'Parameters 2.txt'), 'w')
+	f = open(os.path.join(Vars.sys_path, 'Parameters.txt'))
+	g = open(os.path.join(Vars.sys_path, 'Parameters 2.txt'), 'w')
 	for s in f:
 		if s.split(": ")[0] == choose:
 			s = choose + ": " + setChoose + "\n"
 		g.write(s)
 	f.close()
 	g.close()
-	os.rename(os.path.join(sys_path, 'Parameters 2.txt'), os.path.join(sys_path, 'Parameters.txt'))
-	parameters = setParameters()
-	lang = parameters["Language"]
-	instructions = getInstructions(lang)
-	print(instructions["changesSaved"])
+	os.rename(os.path.join(Vars.sys_path, 'Parameters 2.txt'), os.path.join(Vars.sys_path, 'Parameters.txt'))
+	Vars.parameters = setParameters()
+	Vars.lang = Vars.parameters["Language"]
+	Vars.instructions = getInstructions(Vars.lang)
+	print(Vars.instructions["changesSaved"])
 	return
 
 def study():
@@ -1871,8 +1852,7 @@ def study():
 		study():
 		Studies.
 	"""
-	global instructions
-	prompt = "\n" + instructions["promptStudy"]
+	prompt = "\n" + Vars.instructions["promptStudy"]
 	while True:
 		s = quitOrInput(input(prompt)).upper()
 		if (s == "L") | (s == "LEARN"):
@@ -1903,11 +1883,14 @@ def study():
 			moreOptions()
 		elif (s == "S") | (s == "SP") | (s == "SET") | (s == "SET PARAMETERS"):
 			changeParameters()
-			prompt = instructions["promptStudy"]
+			prompt = Vars.instructions["promptStudy"]
 		elif (s == "QUIT"):
-			print(instructions["bye"])
+			print(Vars.instructions["bye"])
 			return
 	return
 
-initialization()
-study()
+
+if __name__ == "__main__":
+	os.chdir(os.path.dirname(os.path.abspath(__file__))) # Change current working directory to where this file is located
+	initialization()
+	study()
