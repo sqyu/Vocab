@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from __future__ import print_function
+
 import datetime
 import string
 import os
@@ -12,7 +12,7 @@ os.chdir(os.path.dirname(os.path.abspath(__file__))) # Change current working di
 
 acronym = {"Petit Livre Rouge": "PLR", "Trois Mille": "TM", "Le Français 1": "LF1"}
 findAcronym = {"PLR": "Petit Livre Rouge", "TM": "Trois Mille", "LF1": "Le Français 1"}
-listNumber = {"zh-hk": {"Petit Livre Rouge": range(1,43), "Trois Mille": range(1,32), "Le Français 1": range(1,2)}, "zh-cn": {"Petit Livre Rouge": range(1,43), "Trois Mille": range(1,32), "Le Français 1": range(1,2)}, "ja": {"Petit Livre Rouge": [3, 5, 11, 12, 13], "Le Français 1": range(1,2)}}
+listNumber = {"zh-hk": {"Petit Livre Rouge": list(range(1,43)), "Trois Mille": list(range(1,32)), "Le Français 1": list(range(1,2))}, "zh-cn": {"Petit Livre Rouge": list(range(1,43)), "Trois Mille": list(range(1,32)), "Le Français 1": list(range(1,2))}, "ja": {"Petit Livre Rouge": [3, 5, 11, 12, 13], "Le Français 1": list(range(1,2))}}
 lang = ""
 
 def quitOrInput(i):
@@ -32,11 +32,11 @@ def chooseLanguage(current = None):
         The current language code
     """
     langs = ["zh-hk", "zh-cn", "ja"]
-    lang = raw_input("\n" + instructions_All["chooseLanguage"] + "\n").lower()
+    lang = input("\n" + instructions_All["chooseLanguage"] + "\n").lower()
     while not lang in langs:
         if current and lang.upper() == "QUIT":
             return current
-        lang = raw_input("\n" + instructions_All["chooseLanguage"] + "\n").lower()
+        lang = input("\n" + instructions_All["chooseLanguage"] + "\n").lower()
     return lang
 
 def chooseYorN(current = None):
@@ -50,11 +50,11 @@ def chooseYorN(current = None):
         The current setting
     """
     choose = ["Y", "N"]
-    input = raw_input(instructions["setYorN"]).upper()
+    input = input(instructions["setYorN"]).upper()
     while not input in choose:
         if current and input == "QUIT":
             return current
-        input = raw_input(instructions["setYorN"]).upper()
+        input = input(instructions["setYorN"]).upper()
     return input
 
 def chooseYorNorA(current = None):
@@ -68,11 +68,11 @@ def chooseYorNorA(current = None):
         The current setting
     """
     choose = ["Y", "N", "A"]
-    input = raw_input(instructions["setYorNorA"]).upper()
+    input = input(instructions["setYorNorA"]).upper()
     while not input in choose:
         if current and input == "QUIT":
             return current
-        input = raw_input(instructions["setYorNorA"]).upper()
+        input = input(instructions["setYorNorA"]).upper()
     return input
 
 def chooseOneTimeZone(current = None): # Choose one time zone, returns one time zone
@@ -92,7 +92,7 @@ def chooseOneTimeZone(current = None): # Choose one time zone, returns one time 
     while (not isInt(choose)) or (not int(choose) in range(1, len(tzs) + 1)):
         if current and choose == "QUIT":
             return current, True
-        choose = raw_input(instructions["setTimeZone"].replace("REPLACE", str(len(tzs)))).upper()
+        choose = input(instructions["setTimeZone"].replace("REPLACE", str(len(tzs)))).upper()
     return tznames[int(choose) - 1], False
 
 def chooseTimeZone(current): # Choose one time zone in the three options, returns all three time zones
@@ -110,11 +110,11 @@ def chooseTimeZone(current): # Choose one time zone in the three options, return
     print("2. {0}".format(instructions["paraTimeZoneSchedule"]))
     print("3. {0}".format(instructions["paraTimeZoneTime"]))
     print("4. {0}".format(instructions["paraTimeZoneUnify"]))
-    choose = raw_input().upper()
+    choose = input().upper()
     while (not isInt(choose)) or (not int(choose) in range(1, 5)):
         if choose == "QUIT":
             return current
-        choose = raw_input(instructions["chooseFromAbove"].replace("REPLACE", "4")).upper()
+        choose = input(instructions["chooseFromAbove"].replace("REPLACE", "4")).upper()
     current = current.split(" ** ")
     choose = int(choose) - 1
     if choose in range(0,3):
@@ -139,14 +139,14 @@ def chooseRandom50Words(current):
         current: string "zh-hk", "zh-cn", or "ja"
         The current language code
     """
-    num = raw_input("\n" + instructions["chooseRandom50Words"] + "\n")
+    num = input("\n" + instructions["chooseRandom50Words"] + "\n")
     while not (isInt(num) and int(num) >= 1) :
         if num.upper() == "QUIT":
             return current
         if not isInt(num):
-            num = raw_input("\n" + instructions["enterANumber"] + "\n")
+            num = input("\n" + instructions["enterANumber"] + "\n")
         else: # int(num) >= 1
-            num = raw_input("\n" + instructions["enterAPositiveNumber"] + "\n")
+            num = input("\n" + instructions["enterAPositiveNumber"] + "\n")
     return num
                     
 def getAllInstructions():
@@ -274,7 +274,7 @@ class Word:
     """
     def __init__(self, s):
         self.IPA = s[0] # IPA
-        self.meanings = string.split(s[1].rstrip('\n'), " %% ")
+        self.meanings = str.split(s[1].rstrip('\n'), " %% ")
         self.numOfMeanings = len(self.meanings)
         self.comments = s[2]
 
@@ -294,11 +294,11 @@ def chooseBook(booksToChoose = None):
         print(instructions["book1"].rstrip("\n"))
         for book in sorted(booksToChoose):
             print(instructions["book2"].replace("REPLACE1", instructions["book" + acronym[book]].rstrip("\n")).replace("REPLACE2", acronym[book]).rstrip("\n"))
-        book = raw_input("\n").upper() # Select book
+        book = input("\n").upper() # Select book
         while not book in findAcronym: # Book not found
             if book == 'QUIT':
                 return
-            book = raw_input(instructions["wrongBook"].replace("REPLACE", "".join([instructions["guillemetLeft"].rstrip("\n") + b + instructions["guillemetRight"].rstrip("\n") for b in [instructions["book" + acronym[bo]].rstrip("\n") for bo in sorted(booksToChoose)]]))).upper()
+            book = input(instructions["wrongBook"].replace("REPLACE", "".join([instructions["guillemetLeft"].rstrip("\n") + b + instructions["guillemetRight"].rstrip("\n") for b in [instructions["book" + acronym[bo]].rstrip("\n") for bo in sorted(booksToChoose)]]))).upper()
     return findAcronym[book]
 
 def chooseList(book, all, firstList): # all: Whether load the full list or list of selected words only; theBook: the book chosen
@@ -323,9 +323,9 @@ def chooseList(book, all, firstList): # all: Whether load the full list or list 
         return theList, all
     else:
         if firstList:
-            theList = raw_input(instructions["chooseList"]).upper() # Select list
+            theList = input(instructions["chooseList"]).upper() # Select list
         else:
-            theList = raw_input(instructions["chooseMoreLists"]).upper()
+            theList = input(instructions["chooseMoreLists"]).upper()
         while True: # If the user did not enter a number
             if not isInt(theList):
                 if theList == 'QUIT':
@@ -343,16 +343,16 @@ def chooseList(book, all, firstList): # all: Whether load the full list or list 
                     return "NO MORE"
                 else:
                     if firstList:
-                        theList = raw_input(instructions["enterANumber"]).upper()
+                        theList = input(instructions["enterANumber"]).upper()
                     else:
-                        theList = raw_input(instructions["chooseMoreListsWrong"]).upper()
+                        theList = input(instructions["chooseMoreListsWrong"]).upper()
             if isInt(theList):
                 theList = int(theList)
                 if not theList in listNumber[lang][book]:
                     if firstList:
-                        theList = raw_input(instructions["chooseListNotExists"] + "{0}\n".format(listNumber[lang][book])).upper()
+                        theList = input(instructions["chooseListNotExists"] + "{0}\n".format(listNumber[lang][book])).upper()
                     else:
-                        theList = raw_input(instructions["chooseMoreListsNotExists"] + "{0}\n".format(listNumber[lang][book])).upper()
+                        theList = input(instructions["chooseMoreListsNotExists"] + "{0}\n".format(listNumber[lang][book])).upper()
                 else:
                     return int(theList), all
     return
@@ -429,7 +429,7 @@ def concatenateListNames(names):
         A list of integer list numbers
     """
     lists = sorted(names)
-    if lists == range(min(lists), max(lists) + 1) and max(lists) - min(lists) >= 2:
+    if lists == list(range(min(lists), max(lists) + 1)) and max(lists) - min(lists) >= 2:
         lists = "L" + str(min(lists)) + " -- L" + str(max(lists))
     else:
         lists = " & ".join(["L" + str(n) for n in lists])
@@ -466,10 +466,14 @@ def loadWords(all, book, comments, Dictionary, mode, theList, wordList):
     """
     bookList = os.getcwd() + '/Word lists/' + book + '/Lists/' + str(theList) + ' ' + lang + '.txt' # Directory of word list
     f = open(bookList) # Read Only
+    difficultWordFile = os.getcwd() + '/Word lists/' + book + '/Difficult Words/' + str(theList) + '.txt'
+    if mode != 2 and not all and (not os.path.exists(difficultWordFile)): # If normal mode and difficult word lists do not exist, read all words
+        print(instructions["noDifficultWordList"].rstrip('\n').replace("LIST", str(theList)).replace("BOOK", instructions["book" + acronym[book]].rstrip('\n')))
+        all = True
     if mode == 2:
         currentWordList = wordList
-    elif mode != 2 and not all: # If normal mode
-        g = open(os.getcwd() + '/Word lists/' + book + '/Difficult Words/' + str(theList) + '.txt')
+    elif mode != 2 and not all: # If normal mode but not reading all words
+        g = open(difficultWordFile)
         currentWordList = g.readline().rstrip('\n').split(" || ") # Read the difficult word list # Far more efficient to use currentWordList to store the difficult word list for only the current list
         g.close()
         checkAllWordsInLists(currentWordList, book, [theList]) # Only need to check the difficult word list for the current list
@@ -522,7 +526,7 @@ def loadComments(book):
                 ss = s.split(": ")
                 comments[ss[0]] = ": ".join(ss[1:len(ss)]).rstrip("\n")
         g.close()
-        if not checkAllWordsInLists(list(comments), book, listNumber["zh-hk"][book]):
+        if not checkAllWordsInLists(list(comments), book, listNumber[lang][book]):
             print("------ Sanity check for comments.------\n") # Will never happen if comments entered through addComments()
     return comments
 
@@ -741,7 +745,7 @@ def describeWord(word, Word, learnMode, number = None):
         print(word)
     print(Word.IPA)
     if learnMode == True:
-        s = raw_input().upper()
+        s = input().upper()
         if s == "QUIT":
             return "QUIT"
         elif (set(s) == set("MARK")) | (s[0:3] == "MAR") | (s == "MAK") | (s == 'M') | (s == 'MM'):
@@ -858,7 +862,7 @@ def describeList(Dictionary, wordListAndNames, learnMode, rand, record, readFrom
     timeBegan = writeTime(begin = True)
     for word in wordList:
         i += 1
-        s = raw_input().upper()
+        s = input().upper()
         if s != "":
             print()
             if s == "QUIT":
@@ -869,7 +873,7 @@ def describeList(Dictionary, wordListAndNames, learnMode, rand, record, readFrom
                     difficultWords.append(previousWord)
             elif s == "CM":
                 if previousWord in Dictionary: # If not in "similar words" mode
-                    comments[previousWord] = raw_input(instructions["addComments"].replace("REPLACE", previousWord)).rstrip("\n")
+                    comments[previousWord] = input(instructions["addComments"].replace("REPLACE", previousWord)).rstrip("\n")
                     print()
             elif s.upper() != s.lower():
                 s = s.lower().split(" ")
@@ -911,15 +915,15 @@ def describeList(Dictionary, wordListAndNames, learnMode, rand, record, readFrom
             break
         previousWord = word
     if quit == False: # If quitted, no need to input
-        s = raw_input().upper() # Last input after list finished
+        s = input().upper() # Last input after list finished
         if (set(s) == set("MARK")) | (s[0:3] == "MAR") | (s == "MAK") | (s == 'M') | (s == 'MM'):
             difficultWords.append(previousWord) # Last word
         elif s == "CM":
             if word in Dictionary: # If not in "similar words" mode
-                comments[word] = raw_input(instructions["addComments"].replace("REPLACE", word)).rstrip("\n")
+                comments[word] = input(instructions["addComments"].replace("REPLACE", word)).rstrip("\n")
                 print()
     if record:
-        difficultWordsInput = raw_input(instructions["difficultWordsInput"]).lower().replace("  ", " ").lstrip(" ").rstrip(" ")
+        difficultWordsInput = input(instructions["difficultWordsInput"]).lower().replace("  ", " ").lstrip(" ").rstrip(" ")
         if difficultWordsInput == "quit":
             difficultWordsInput = ""
         if difficultWordsInput != "":
@@ -927,7 +931,7 @@ def describeList(Dictionary, wordListAndNames, learnMode, rand, record, readFrom
             abandoned = []
             for i, word in enumerate(difficultWordsInput):
                 while not word in wordList:
-                    reword = raw_input(word + instructions["wrongDifficultWordsInput"]).lower()
+                    reword = input(word + instructions["wrongDifficultWordsInput"]).lower()
                     if reword != "ab":
                         difficultWordsInput[i] = reword
                         word = reword
@@ -948,7 +952,7 @@ def describeList(Dictionary, wordListAndNames, learnMode, rand, record, readFrom
         difficultWords = sorted(set(difficultWords))
         print(instructions["difficultWordList"], difficultWords, ", " + instructions["wordsInTotal"].rstrip('\n') + str(len(difficultWords)) + instructions["wordsInTotal2"])
         if quit == False:
-            if raw_input(instructions["reviewRecite"]).upper() != "QUIT":
+            if input(instructions["reviewRecite"]).upper() != "QUIT":
                 lenDifficultWords = len(difficultWords)
                 for index, word in enumerate(difficultWords):
                     if not word in Dictionary: # If Dictionary has sub-dictionaries, under "silimar words" mode
@@ -961,7 +965,7 @@ def describeList(Dictionary, wordListAndNames, learnMode, rand, record, readFrom
                         if len(Words) > 1:
                             print(instructions["findAWordMeaningsIn"].replace("REPLACE", instructions["book" + acronym[WordsDics[index2]]].rstrip("\n")))
                         describeWord(word, Word, False, [index + 1, lenDifficultWords])
-                    if raw_input().upper() == "QUIT":
+                    if input().upper() == "QUIT":
                         break
     writeTime(begin = False, timeBegan = timeBegan, mode = learnOrView + " mode " + readFromRecord * "(from record) ", names = name)
     if comments != {}:
@@ -983,16 +987,16 @@ def formatList(wordList):
     wordList = sorted(set(wordList))
     if sum(map(len, wordList)) + 6 * len(wordList) + 0 <= screenWidth:
         return "|" + "||".join(["  {0}  ".format(word) for word in wordList]) + "|\n"
-    maxNumber = (screenWidth + 0)/(min(map(len, wordList)) + 6)
-    minNumber = (screenWidth + 0)/(max(map(len, wordList)) + 6)
+    maxNumber = (screenWidth + 0)/(min(list(map(len, wordList))) + 6)
+    minNumber = (screenWidth + 0)/(max(list(map(len, wordList))) + 6)
     numberPerLine = minNumber
     for i in range(minNumber, maxNumber + 1):
-        lengths = [max(map(len, [wordList[i * k + j] for k in range(0, (numberOfWordList - 1 - j)/i + 1)])) for j in range(0, i)]
+        lengths = [max(list(map(len, [wordList[i * k + j] for k in range(0, (numberOfWordList - 1 - j)/i + 1)]))) for j in range(0, i)]
         if sum(lengths) + 6 * len(lengths) + 0 <= screenWidth:
             numberPerLine = i
         else:
             break
-    lengths = [max(map(len, [wordList[numberPerLine * k + j] for k in range(0, (numberOfWordList - 1 - j)/numberPerLine + 1)])) for j in range(0, numberPerLine)]
+    lengths = [max(list(map(len, [wordList[numberPerLine * k + j] for k in range(0, (numberOfWordList - 1 - j)/numberPerLine + 1)]))) for j in range(0, numberPerLine)]
     listOfList = [["{0:^{1}}".format(wordList[numberPerLine * k + j], lengths[j] + 4) for k in range(0, (numberOfWordList - 1 - j)/numberPerLine + 1)] for j in range(0, numberPerLine)]
     listOfList = "\n" + "\n\n".join(["|" + "||".join([listOfList[k][j] for k in range(0, min(numberPerLine, numberOfWordList - j * numberPerLine))]) + "|" for j in range(0, (numberOfWordList - 1)/numberPerLine + 1)]) + "|" * (numberOfWordList % numberPerLine != 0) + "\n"
     return listOfList
@@ -1005,9 +1009,9 @@ def randomAndRecord():
     if parameters["Random"] != "A":
         r = parameters["Random"]
     else:
-        r = raw_input(instructions["random"]).upper()
+        r = input(instructions["random"]).upper()
     while (r != 'Y') & (r != 'N') & (r != 'QUIT'):
-        r = raw_input(instructions["enterYOrN"]).upper()
+        r = input(instructions["enterYOrN"]).upper()
     if r == 'Y':
         random = True
     elif r == 'N':
@@ -1017,9 +1021,9 @@ def randomAndRecord():
     if parameters["Record"] != "A":
         r = parameters["Record"]
     else:
-        r = raw_input(instructions["record"]).upper()
+        r = input(instructions["record"]).upper()
     while (r != 'Y') & (r != 'N') & (r != 'QUIT'):
-        r = raw_input(instructions["enterYOrN"]).upper()
+        r = input(instructions["enterYOrN"]).upper()
     if r == 'Y':
         record = True
     elif r == 'N':
@@ -1076,7 +1080,7 @@ def recite(Dictionary, rnr, wordListAndNames, readFromRecord = False):
             for i in range(0, Dictionary[word].numOfMeanings):
                 print(instructions["meaning"].rstrip('\n').replace("REPLACE", " {0}".format(i+1)) + Dictionary[word].meanings[i])
         print()
-        input = raw_input()
+        input = input()
         if input.upper() == "QUIT":
             quit = True
             break
@@ -1087,29 +1091,29 @@ def recite(Dictionary, rnr, wordListAndNames, readFromRecord = False):
                 break
             elif input.upper() == "HINT":
                 print(printList)
-                input = raw_input()
+                input = input()
                 continue
             elif input.upper() == "NUMBER":
                 print("{0} {1}".format(len(word.replace("-", "")), instructions["letters"]))
-                input = raw_input()
+                input = input()
                 continue
             wrongtimes += 1
             print(instructions["tryAgain"])
             if wrongtimes < MaxTimes:
-                input = raw_input()
+                input = input()
         if wrongtimes == MaxTimes:
             difficultWords.append(word)
             print(Dictionary[word].IPA) # Show IPA first
-            input = raw_input(instructions["tryAgain"] + "\n")
+            input = input(instructions["tryAgain"] + "\n")
             if input.replace("é","e").replace("ï","i") != word.replace("é","e").replace("ï","i"): # If still incorrect, show descriptions
                 describeWord(word, Dictionary[word], False)
-                input = raw_input(instructions["tryAgain"] + "\n")
+                input = input(instructions["tryAgain"] + "\n")
             while input.replace("é","e").replace("ï","i") != word.replace("é","e").replace("ï","i"): # Enter until correct
                 if input.upper() == "QUIT":
                     quit = True
                     break
                 print(instructions["tryAgain"] + "\n")
-                input = raw_input()
+                input = input()
         if quit:
             break
         print(instructions["correct"])
@@ -1119,11 +1123,11 @@ def recite(Dictionary, rnr, wordListAndNames, readFromRecord = False):
         difficultWords = sorted(set(difficultWords))
         print(instructions["difficultWordList"], difficultWords, ", " + instructions["wordsInTotal"].rstrip('\n') + str(len(difficultWords)) + instructions["wordsInTotal2"])
         if quit == False:
-            if raw_input(instructions["reviewRecite"]).upper() != "QUIT":
+            if input(instructions["reviewRecite"]).upper() != "QUIT":
                 lenDifficultWords = len(difficultWords)
                 for index, word in enumerate(difficultWords):
                     describeWord(word, Dictionary[word], False, [index + 1, lenDifficultWords])
-                    if raw_input().upper() == "QUIT":
+                    if input().upper() == "QUIT":
                         break
     elif quit == False:
         print(instructions["congratulations"])
@@ -1179,7 +1183,7 @@ def findAWord():
     """
     wordList = []
     books = []
-    pre = raw_input(instructions["findAWordChooseList"]).upper()
+    pre = input(instructions["findAWordChooseList"]).upper()
     firstTime = True
     if pre == "QUIT":
         return
@@ -1203,16 +1207,16 @@ def findAWord():
     timeBegan = writeTime(begin = True)
     while True:
         if firstTime:
-            word = raw_input(instructions["promptFindAWordLong"] + "\n").lower().split(" ")[0]
+            word = input(instructions["promptFindAWordLong"] + "\n").lower().split(" ")[0]
             firstTime = False
         else:
-            word = raw_input(instructions["promptFindAWordShort"]).lower().split(" ")[0]
+            word = input(instructions["promptFindAWordShort"]).lower().split(" ")[0]
         while not word in wordList:
             if word == "quit":
                 writeTime(begin = False, timeBegan = timeBegan, mode = "words found: ", names = wordsFound)
                 return
             if word == "":
-                word = raw_input(instructions["promptFindAWordShort"]).lower().split(" ")[0]
+                word = input(instructions["promptFindAWordShort"]).lower().split(" ")[0]
             else:
                 tmp = ""
                 if word[0:2] == "bg" or word[0:2] == "ct" or word[0:2] == "nd":
@@ -1230,17 +1234,17 @@ def findAWord():
                 wordsContaining = sorted(list(set(wordsContaining)))
                 if len(wordsContaining) > maxWordsContaining:
                     word_copy = word
-                    word = raw_input(instructions["moreThanMANYResults"].replace("MANY",str(maxWordsContaining))).lower().split(" ")[0]
+                    word = input(instructions["moreThanMANYResults"].replace("MANY",str(maxWordsContaining))).lower().split(" ")[0]
                     if word == "":
                         print(instructions["chooseOneWord1"].rstrip("\n") + " " + word_copy + " " + instructions["chooseOneWord2"] + "\n".join(sorted(wordsContaining)) + "\n")
-                        word = raw_input().lower().split(" ")[0] # Far more efficient than raw_input("\n".join(sorted(wordsContaining)))
+                        word = input().lower().split(" ")[0] # Far more efficient than raw_input("\n".join(sorted(wordsContaining)))
                 elif len(wordsContaining) > 1:
                     print("\n" + instructions["chooseOneWord1"].rstrip("\n") + " " + word + " " + instructions["chooseOneWord2"] + "\n".join(sorted(wordsContaining)) + "\n")
-                    word = raw_input().lower().split(" ")[0]
+                    word = input().lower().split(" ")[0]
                 elif len(wordsContaining) == 1:
                     word = wordsContaining[0]
                 else:
-                    word = raw_input(instructions["wrongWord"]).lower().split(" ")[0]
+                    word = input(instructions["wrongWord"]).lower().split(" ")[0]
                 wordsContaining = [] # Clear words
         if word in wordList: # If not quitted
             wordsFound.append(word)
@@ -1268,7 +1272,7 @@ def chooseRecord(lists):
     print(instructions["promptChooseRecord"])
     for number, item in enumerate(lists):
         print("{0}: {1}\n".format(number + 1, item))
-    item = raw_input().upper()
+    item = input().upper()
     while True:
         if item == "QUIT":
             return None
@@ -1278,9 +1282,9 @@ def chooseRecord(lists):
                 item = lists[item - 1]
                 break
         if len(lists) > 1:
-            item = raw_input(instructions["chooseRecord"].replace("REPLACE", str(len(lists)))).upper()
+            item = input(instructions["chooseRecord"].replace("REPLACE", str(len(lists)))).upper()
         else:
-            item = raw_input(instructions["chooseRecord2"]).upper()
+            item = input(instructions["chooseRecord2"]).upper()
     return item
 
 def readFromRecord():
@@ -1298,7 +1302,7 @@ def readFromRecord():
         return
     recordsWithDate = []
     tz = pytz.timezone(parameters["TimeZone"].split(" ** ")[0])
-    date = raw_input(instructions["date"]).upper()
+    date = input(instructions["date"]).upper()
     while True:
         path = path0 + book + '/'
         if date == "QUIT":
@@ -1309,18 +1313,18 @@ def readFromRecord():
         if date == "Y" or date == "YESTERDAY":
             date = (datetime.datetime.now(tz.localize(datetime.datetime.now()).tzinfo) - datetime.timedelta(1)).strftime("%m/%d/%Y")
             continue
-        date = string.split(date, "/")
+        date = str.split(date, "/")
         if len(date) != 3:
-            date = raw_input(instructions["date"]).upper()
+            date = input(instructions["date"]).upper()
             continue # If not three elements (YYYY/MM/DD)
         try:
-            date = map(int, date)
+            date = list(map(int, date))
         except ValueError:
-            date = raw_input(instructions["date"]).upper()
+            date = input(instructions["date"]).upper()
             continue # If input not convertible to int
         path = path + str(date[2]) + "-" + str(date[0]).zfill(2) + "/"
         if not os.path.exists(path):
-            date = raw_input(instructions["wrongDate"]).upper()
+            date = input(instructions["wrongDate"]).upper()
             continue
         # If passed all preliminary tests
         date = str(date[0]).zfill(2) + "-" + str(date[1]).zfill(2)
@@ -1330,7 +1334,7 @@ def readFromRecord():
         if recordsWithDate != []:
             break
         else:
-            date = raw_input(instructions["wrongDate"]).upper()
+            date = input(instructions["wrongDate"]).upper()
     if len(recordsWithDate) == 1:
         record = recordsWithDate[0]
     record = chooseRecord(recordsWithDate)
@@ -1340,7 +1344,7 @@ def readFromRecord():
         assert(not "&" in record)
         theLists = sorted([int(s.replace("L","")) for s in record.split(" ") if "L" in s])
         assert(len(theLists) == 2)
-        theLists = range(theLists[0], theLists[1] + 1)
+        theLists = list(range(theLists[0], theLists[1] + 1))
     elif "random" in record: # Random 50 words mode
         theLists = listNumber[lang][book]
     else:
@@ -1359,7 +1363,7 @@ def readFromRecord():
         print(instructions["noWordsToStudy"])
         return True
     while True:
-        s = raw_input(prompt).upper()
+        s = input(prompt).upper()
         if (s == "L") | (s == "LEARN"):
             rnr = randomAndRecord()
             if rnr is None:
@@ -1432,12 +1436,12 @@ def addOrCancelSchedule(action):
     """
     assert action == "A" or action == "C"
     f = open(os.getcwd() + "/Record/Schedule.txt")
-    dates = {1: range(1,32), 2: range(1,30), 3: range(1,32), 4: range(1,31), 5: range(1,32), 6: range(1,31), 7: range(1,32), 8: range(1,32), 9: range(1,31), 10: range(1,32), 11: range(1,31), 12: range(1,32)}
+    dates = {1: list(range(1,32)), 2: list(range(1,30)), 3: list(range(1,32)), 4: list(range(1,31)), 5: list(range(1,32)), 6: list(range(1,31)), 7: list(range(1,32)), 8: list(range(1,32)), 9: list(range(1,31)), 10: list(range(1,32)), 11: list(range(1,31)), 12: list(range(1,32))}
     sch = {}
     for s in f:
         if len(s.split(": ")) == 2:
             sch[s.split(": ")[0]] = s.split(": ")[1].rstrip("\n")
-    input = raw_input(instructions["scheduleEnterDate"]).upper()
+    input = input(instructions["scheduleEnterDate"]).upper()
     while True:
         if input == "QUIT":
             f.close()
@@ -1445,21 +1449,21 @@ def addOrCancelSchedule(action):
         elif input == "VIEW":
             for d in sortDate(list(sch)):
                 print(d + ": " + sch[d].replace("SPACE", " "))
-            input = raw_input(instructions["scheduleEnterDate"]).upper()
+            input = input(instructions["scheduleEnterDate"]).upper()
         elif not isInt(input.split("/")[0]) or not isInt(input.split("/")[1]):
-            input = raw_input(instructions["scheduleEnterDate"]).upper()
+            input = input(instructions["scheduleEnterDate"]).upper()
             continue
         elif (not int(input.split("/")[0]) in range(1,13)) or (not int(input.split("/")[1]) in dates[int(input.split("/")[0])]):
-            input = raw_input(instructions["dateNotValid"]).upper()
+            input = input(instructions["dateNotValid"]).upper()
         elif action == "A" and input in sch:
-            input = raw_input(instructions["dateAlreadyExists"]).upper()
+            input = input(instructions["dateAlreadyExists"]).upper()
         elif action == "C" and not input in sch:
-            input = raw_input(instructions["dateDoesNotExist"]).upper()
+            input = input(instructions["dateDoesNotExist"]).upper()
         else:
             break
     g = open(os.getcwd() + "/Record/Schedule 0.txt", 'w')
     if action == "A":
-        input2 = raw_input(instructions["scheduleEnterTask"])
+        input2 = input(instructions["scheduleEnterTask"])
         sch[input] = input2.replace(": ", ":SPACE")
         for d in sortDate(list(sch)):
             g.write(d + ": " + sch[d] + "\n")
@@ -1467,9 +1471,9 @@ def addOrCancelSchedule(action):
         g.close()
         os.rename(os.getcwd() + "/Record/Schedule 0.txt", os.getcwd() + "/Record/Schedule.txt")
     if action == "C":
-        cf = raw_input(input + ": " + sch[input].replace("SPACE", " ") + "\n" + instructions["confirmOrAbandon"]).upper()
+        cf = input(input + ": " + sch[input].replace("SPACE", " ") + "\n" + instructions["confirmOrAbandon"]).upper()
         while cf != "Y" and cf != "N":
-            cf = raw_input(instructions["enterYOrN"]).upper()
+            cf = input(instructions["enterYOrN"]).upper()
         if cf == "Y":
             sch.pop(input)
             for d in sortDate(list(sch)):
@@ -1491,9 +1495,9 @@ def allWordsOrDifficultWordListForRandom50Words():
     if parameters["AllForRandom50Words"] != "A":
         r = parameters["AllForRandom50Words"]
     else:
-        r = raw_input(instructions["allForRandom50Words"].replace("REPLACE", parameters["Random50Words"])).upper()
+        r = input(instructions["allForRandom50Words"].replace("REPLACE", parameters["Random50Words"])).upper()
     while (r != 'Y') & (r != 'N') & (r != 'QUIT'):
-        r = raw_input(instructions["enterYOrN"]).upper()
+        r = input(instructions["enterYOrN"]).upper()
     if r == 'Y':
         return True
     elif r == 'N':
@@ -1521,7 +1525,7 @@ def random50Words():
     random.shuffle(wordList)
     prompt = "\n" + instructions["promptRandom50Words"].replace("REPLACE", parameters["Random50Words"])
     while True:
-        s = raw_input(prompt).upper()
+        s = input(prompt).upper()
         if (s == "L") | (s == "LEARN"):
             rnr = randomAndRecord()
             if rnr is None:
@@ -1561,7 +1565,7 @@ def similarWords():
     while True:
         f.seek(0)
         if word != "r": # For CHANGE RANDOM
-            word = raw_input(prompt1).lower()
+            word = input(prompt1).lower()
         if word == "quit":
             return
         elif word == "a":
@@ -1586,7 +1590,7 @@ def similarWords():
                 createDictionary(Dictionary, readFromRecord = wordListAndNames)
                 name = ["similar words to {0}".format(word)]
                 while True:
-                    s = raw_input("\n" + instructions["promptSimilarWords2"].replace("REPLACE", word)).upper()
+                    s = input("\n" + instructions["promptSimilarWords2"].replace("REPLACE", word)).upper()
                     if (s == "A"):
                         f.seek(0)
                         print("\n".join(f.readlines()))
@@ -1623,17 +1627,17 @@ def chooseOneList(book):
         book: string, must be in the available books in the language.
         The book chosen.
     """
-    list = raw_input(instructions["chooseList"])
+    list = input(instructions["chooseList"])
     while True: # Choose one list only, so cannot use chooseList()
         if list.upper() == "QUIT":
             return
         elif not isInt(list):
-            list = raw_input(instructions["enterANumber"])
+            list = input(instructions["enterANumber"])
             continue
         elif not int(list) in listNumber[lang][book]:
             print(instructions["chooseListNotExists"].rstrip("\n"))
             print(listNumber[lang][book])
-            list = raw_input()
+            list = input()
             continue
         return int(list)
 
@@ -1673,7 +1677,7 @@ def extend(book, theList, current):
                 s[2] = "\n".join(s[2])
                 s = "\n".join(s)
                 print(s)
-                input = raw_input()
+                input = input()
                 if input != "":
                     print()
                     if input.upper() == "QUIT":
@@ -1682,7 +1686,7 @@ def extend(book, theList, current):
                         new.append(word)
                     elif input.upper() != input.lower():
                         add += input.lower().split(" ")
-    add2 = raw_input(instructions["difficultWordsInput"]).lower().replace("  "," ").replace("  "," ").split(" ")
+    add2 = input(instructions["difficultWordsInput"]).lower().replace("  "," ").replace("  "," ").split(" ")
     if add2 != [""] and add2 != ["quit"]:
         add += add2
     add = list(set(add))
@@ -1690,11 +1694,11 @@ def extend(book, theList, current):
         if w in all:
             new.append(w)
         else:
-            w2 = raw_input(w + instructions["wrongDifficultWordsInput"])
+            w2 = input(w + instructions["wrongDifficultWordsInput"])
             while not w2 in all:
                 if w2.upper() == "AB":
                     break
-                w2 = raw_input(w + instructions["wrongDifficultWordsInput"])
+                w2 = input(w + instructions["wrongDifficultWordsInput"])
             if w2 in all:
                 new.append(w2)
     new = sorted(list(set(new)))
@@ -1714,11 +1718,11 @@ def chooseDifficultWordList():
     if not os.path.exists(os.getcwd() + '/Word lists/' + book + '/Difficult Words/' + str(theList) + '.txt'):
         newOrExt = "Y"
     else:
-        newOrExt = raw_input(instructions["chooseDifficultNewOrExtend"]).upper()
+        newOrExt = input(instructions["chooseDifficultNewOrExtend"]).upper()
         while newOrExt != "Y" and newOrExt != "N":
             if newOrExt == "QUIT":
                 return
-            newOrExt = raw_input(instructions["chooseDifficultNewOrExtend"]).upper()
+            newOrExt = input(instructions["chooseDifficultNewOrExtend"]).upper()
     if newOrExt == "N":
         f = open(os.getcwd() + '/Word lists/' + book + '/Difficult Words/' + str(theList) + '.txt')
         current = f.readline().rstrip("\n").split(" || ")
@@ -1734,12 +1738,12 @@ def chooseDifficultWordList():
     print(new)
     print("\n" + instructions["chooseDifficultNowList"].rstrip("\n"))
     print(together)
-    save = raw_input("\n" + instructions["confirmOrAbandon"]).upper()
+    save = input("\n" + instructions["confirmOrAbandon"]).upper()
     while save != "Y" and save != "N":
         if save == "QUIT":
             return
         else:
-            save = raw_input("\n" + instructions["confirmOrAbandon"]).upper()
+            save = input("\n" + instructions["confirmOrAbandon"]).upper()
     if save == "Y":
         f = open(os.getcwd() + '/Word lists/' + book + '/Difficult Words/' + str(theList) + '.txt', 'w')
         f.write(together)
@@ -1755,29 +1759,29 @@ def addComments():
     if book == None:
         return
     allWordsFromBook = []
-    addWordsFromLists(allWordsFromBook, book, listNumber["zh-hk"][book])
+    addWordsFromLists(allWordsFromBook, book, listNumber[lang][book])
     comments = {}
-    s = raw_input(instructions["promptAddComments"]).lower()
+    s = input(instructions["promptAddComments"]).lower()
     while s != "quit":
         if s == "":
-            s = raw_input(instructions["promptAddComments"]).lower().replace(" ", "")
+            s = input(instructions["promptAddComments"]).lower().replace(" ", "")
             continue
         elif not s in allWordsFromBook:
             print(s + instructions["notInBook"].rstrip("\n").replace("REPLACE", instructions["guillemetLeft"].rstrip("\n") + instructions["book" + acronym[book]].rstrip("\n") + instructions["guillemetRight"].rstrip("\n")) + instructions["reenter"].rstrip("\n"))
-            s = raw_input("").lower().lower().replace(" ", "")
+            s = input("").lower().lower().replace(" ", "")
             continue
         else:
-            c = raw_input(instructions["addComments"].replace("REPLACE", s))
+            c = input(instructions["addComments"].replace("REPLACE", s))
             if c.upper() == "QUIT":
-                s2 = raw_input(instructions["addCommentsQuitted"].replace("REPLACE1", c).replace("REPLACE2", s))
+                s2 = input(instructions["addCommentsQuitted"].replace("REPLACE1", c).replace("REPLACE2", s))
                 if s2.upper() == "QUIT":
                     comments[s] = s2
-                    s = raw_input(instructions["promptAddComments"]).lower()
+                    s = input(instructions["promptAddComments"]).lower()
                 else:
                     s = s2.lower()
                 continue
             comments[s] = c
-            s = raw_input(instructions["promptAddComments"]).lower()
+            s = input(instructions["promptAddComments"]).lower()
     updateComments(comments, book)
     return
 
@@ -1788,7 +1792,7 @@ def moreOptions():
     """
     prompt = "\n" + instructions["moreOptions"].replace("REPLACE", parameters["Random50Words"])
     while True:
-        s = quitOrInput(raw_input(prompt)).upper()
+        s = quitOrInput(input(prompt)).upper()
         if (s == "C") | (s == "COMMENT") | (s == "COMMENTS"):
             addComments()
         elif (s == "D") | (s == "DIFFICULT") | (s == "DIFFICULT WORD LIST"):
@@ -1818,11 +1822,11 @@ def changeParameters():
     instructions["paraAllForRandom50Words"] = instructions["paraAllForRandom50Words"].replace("REPLACE", parameters["Random50Words"])
     instructions["paraRandom50Words"] = instructions["paraRandom50Words"].replace("REPLACE", parameters["Random50Words"])
     prompt = "\n" + instructions["promptSetParameters"] + "".join([str(index + 1) + ". " + instructions["para" + par] + "\n" for index, par in enumerate(sorted(parameters))])
-    choose = quitOrInput(raw_input(prompt)).upper()
+    choose = quitOrInput(input(prompt)).upper()
     if choose == "QUIT":
         return
     while not (isInt(choose) and int(choose) >= 1 and int(choose) <= len(parameters)):
-        choose = quitOrInput(raw_input(prompt)).upper()
+        choose = quitOrInput(input(prompt)).upper()
         if choose == "QUIT":
             return
     choose = sorted(parameters)[int(choose) - 1]
@@ -1865,7 +1869,7 @@ def study():
     global instructions
     prompt = "\n" + instructions["promptStudy"]
     while True:
-        s = quitOrInput(raw_input(prompt)).upper()
+        s = quitOrInput(input(prompt)).upper()
         if (s == "L") | (s == "LEARN"):
             rnr = randomAndRecord()
             if rnr is None:

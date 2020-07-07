@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from __future__ import print_function
+
 import os
 import codecs
 import collections
@@ -178,7 +178,7 @@ def formatPOS(i):
         g = codecs.open(pathToVocab + 'Word lists/Petit Livre Rouge/' + str(i) + file, 'w', 'utf-16')
         pos = ["n.","v.","adj.","adverb."]
         for s in f:
-            s = s.rstrip('\n').rstrip('\r').replace('&','/').replace(u'；',';').replace('  ',' ')
+            s = s.rstrip('\n').rstrip('\r').replace('&','/').replace('；',';').replace('  ',' ')
             if (s == '') | isInt(s):
                 g.write(s + '\n')
                 continue
@@ -214,14 +214,14 @@ def formatPOS(i):
             for j in range(1, len(posins)):
                 if " " + posins[j] in meanings:
                     meanings = meanings.replace(" " + posins[j], posins[j])
-                if not u"；" + posins[j] in meanings:
+                if not "；" + posins[j] in meanings:
                     meanings = meanings.replace(posins[j], ";" + posins[j])
                 previousmeaning = meanings.split(";" + posins[j])[0].rstrip(";") # The meaning with the previous pos # strip ";" because for example in list 22 "vest" has "；" right before next pos
                 meanings = meanings.replace(previousmeaning, "") # Remove the appended meaning from meanings
                 meanings = meanings.lstrip(" ").lstrip(";")
-                if u"/" in previousmeaning:
+                if "/" in previousmeaning:
                     previousmeaning = previousmeaning.replace("/", meanings.split(";")[0].replace(posins[j], "").rstrip('\n'))
-                if u"&" in previousmeaning:
+                if "&" in previousmeaning:
                     previousmeaning = previousmeaning.replace("&", meanings.split(";")[0].replace(posins[j], "").rstrip('\n'))
                 meaningsbypos.append(previousmeaning) # Append the meaning with the previous pos to meaningsbypos
             meaningsbypos.append(meanings)
@@ -292,28 +292,28 @@ def addIPA(i, c = 'PLR'):
             s = s.rstrip('\n').split(" **")
             if ((not fileExists) or (len(s) == 1) or (not "[" in s[len(s)-1])) and (not noMoreIPA):
                 print('\n' + s[0] + '\t\t' + str(current) + '/' + str(len(dictionary)) + '\n' + dictionary[s[0]]) # raw_input() does not support utf-16 # Cannot use format
-                ipa = raw_input()
+                ipa = input()
                 while(ipa == ""):
-                    ipa = raw_input("Re-enter the pronunciation for {0}.\n".format(s[0])) # If entered nothing
+                    ipa = input("Re-enter the pronunciation for {0}.\n".format(s[0])) # If entered nothing
                 if (ipa.upper() == "MISS") or (ipa.upper() == "PREVIOUS"):
-                    previousWordipa = raw_input("Please re-enter the IPA for the last word {0}.\n".format(previousWord))
+                    previousWordipa = input("Please re-enter the IPA for the last word {0}.\n".format(previousWord))
                     if previousWordipa.upper() != "QUIT":
                         mispronounced[previousWord] = previousWordipa
                     else:
                         print("Abandoned.\n")
-                    ipa = raw_input("\nNow enter the IPA for {0}.\n".format(s[0]))
+                    ipa = input("\nNow enter the IPA for {0}.\n".format(s[0]))
                 # 
                 if ipa.upper() == "WRONG":
-                    wrongWord = raw_input("Please enter the word for which you want to correct the pronunciation.\n")
+                    wrongWord = input("Please enter the word for which you want to correct the pronunciation.\n")
                     if wrongWord.upper() == "QUIT":
                         print("Abandoned.\n")
                     else:
-                        wrongWordipa = raw_input("Now enter the IPA for {0}.\n".format(wrongWord))
+                        wrongWordipa = input("Now enter the IPA for {0}.\n".format(wrongWord))
                         if wrongWordipa.upper() == "QUIT":
                             print("Abandoned.\n")
                         else:
                             mispronounced[wrongWord] = wrongWordipa
-                    ipa = raw_input("\nNow enter the IPA for {0}.\n".format(s[0]))
+                    ipa = input("\nNow enter the IPA for {0}.\n".format(s[0]))
                 if ipa.upper() == "QUIT":
                     noMoreIPA = True # Quit entering IPA, but print the word list afterwards
                     g.write(s[0] + '\n') # Print current word without IPA
@@ -321,7 +321,7 @@ def addIPA(i, c = 'PLR'):
                 # This also covers the case where quitted after re-entering
                 if ipa == previousIPA: # If the pronunciation entered is the same as the previous one, which is likely a mistake
                     print("WARNING: Same pronunciation {0} entered as the previous one. Press enter to confirm, or enter the correct pronunciation.\n".format(ipa))
-                    s2 = raw_input()
+                    s2 = input()
                     if s2.upper() == "QUIT":
                         noMoreIPA = True
                         g.write(s[0] + '\n')
@@ -345,7 +345,7 @@ def addIPA(i, c = 'PLR'):
         print('\n')
         for misword in mispronounced:
             while not misword in dictionary:
-                reword = raw_input("{0} not in the list. Please re-enter the word. Or enter \"ab\" to abandon.\n".format(misword))
+                reword = input("{0} not in the list. Please re-enter the word. Or enter \"ab\" to abandon.\n".format(misword))
                 if reword.upper() != "AB":
                     mispronounced[reword] = mispronounced[misword]
                     if misword != reword:
@@ -468,24 +468,24 @@ def input3000helper(s, meaning = None):
     while True:
         if ((meaning == None) and (i == 1)) or (i > 1):
             print("\nEnter the {0}st/th meaning for {1}. Or press enter to end this word.\n".format(i, s))
-            meaning = raw_input()
+            meaning = input()
         elif (meaning == "") and (i > 1):
             print(''.center(80, '*'))
             break
         elif meaning.upper() == "QUIT":
             quit = True
             break
-        description = raw_input("Enter the description.\n")
+        description = input("Enter the description.\n")
         if description.upper() == "QUIT":
             quit = True
             break
-        synonym = raw_input("Enter the synonyms.\n").lstrip(" ").rstrip(" ").replace(" ", ",")
+        synonym = input("Enter the synonyms.\n").lstrip(" ").rstrip(" ").replace(" ", ",")
         if synonym == "":
             synonym = "N/A"
         elif synonym.upper() == "QUIT":
             quit = True
             break
-        antonym = raw_input("Enter the antonyms.\n")
+        antonym = input("Enter the antonyms.\n")
         if antonym == "":
             antonym = "N/A"
         elif antonym.upper() == "QUIT":
@@ -529,7 +529,7 @@ def input3000():
         elif len(s) == 1:
             s = s[0].rstrip('\n')
             print(s + "   Please enter the first meaning.\n")
-            meaning1 = raw_input()
+            meaning1 = input()
             if meaning1.upper() == "DELETE":
                 continue
             elif meaning1.upper() == "QUIT":
@@ -537,7 +537,7 @@ def input3000():
                 quit = True
                 continue
             elif meaning1.upper() == "ADD":
-                s2 = raw_input("Please enter the word to be added.\n")
+                s2 = input("Please enter the word to be added.\n")
                 if s2.upper() != "QUIT":
                     g.write(input3000helper(s2))
                 g.write(input3000helper(s))
@@ -630,7 +630,7 @@ def extend(i):
                 s[2] = "\n".join(s[2])
                 s = "\n".join(s)
                 print(s)
-                input = raw_input()
+                input = input()
                 if input != "":
                     print()
                     if "MM" in input and len(input) > 2:
@@ -639,7 +639,7 @@ def extend(i):
                         newList.append(word)
                     elif input.upper() == "QUIT":
                         break
-    add2 = raw_input("Enter all words you want to add, separated by spaces.\n").replace("  "," ").replace("  "," ").split(" ")
+    add2 = input("Enter all words you want to add, separated by spaces.\n").replace("  "," ").replace("  "," ").split(" ")
     if add2 != [""]:
         add += add2
     add = list(set(add))
@@ -647,11 +647,11 @@ def extend(i):
         if w in allWords:
             newList.append(w)
         else:
-            w2 = raw_input(w + " not in the list. Please re-enter.\n")
+            w2 = input(w + " not in the list. Please re-enter.\n")
             while not w2 in allWords:
                 if w2.upper() == "QUIT":
                     break
-                w2 = raw_input(w + " not in the list. Please re-enter.\n")
+                w2 = input(w + " not in the list. Please re-enter.\n")
             if w2 in allWords:
                 newList.append(w2)
     newList = sorted(list(set(newList)))
@@ -690,24 +690,24 @@ def instructions():
                     print(i)
                     assert()
     while True:
-        input = raw_input("To add or remove a new instruction, enter the name of the instruction. To see all instructions, enter \"SEE\".\n")
+        input = input("To add or remove a new instruction, enter the name of the instruction. To see all instructions, enter \"SEE\".\n")
         if input.upper() == "QUIT":
             break
         elif input.upper() == "SEE":
-            number = raw_input("1. English\n2. Simplified Chinese\n3. Traditional Chinese\n4. Japanese\n")
+            number = input("1. English\n2. Simplified Chinese\n3. Traditional Chinese\n4. Japanese\n")
             while (not isInt(number)) or (not int(number) in range(1,len(reads) + 1)):
                 if number.upper() == "QUIT":
                     continue
-                number = raw_input("1. English\n2. Simplified Chinese\n3. Traditional Chinese\n4. Japanese\n")
+                number = input("1. English\n2. Simplified Chinese\n3. Traditional Chinese\n4. Japanese\n")
             number = int(number)
             for key in sorted(inss[number - 1]):
                 print(key + ": " + inss[number - 1][key] + "\n")
         elif input.upper() == "RENAME":
-            input = raw_input("Enter the key you want to rename.\n")
+            input = input("Enter the key you want to rename.\n")
             if not input in ins_en:
                 print("Key not found.\n")
             else:
-                rename = raw_input("Enter the new key you want to rename it to.\n")
+                rename = input("Enter the new key you want to rename it to.\n")
                 for ins in inss:
                     ins[rename] = ins[input]
                     ins.pop(input)
@@ -719,10 +719,10 @@ def instructions():
             print(ins_ja.pop(input) + "\n")
         elif (not input in ins_en) and (not input in ins_cn) and (not input in ins_hk) and (not input in ins_ja):
             print("Now enter the instructions for " + input + ":\n")
-            ins_en[input] = raw_input("English:\n")
-            ins_cn[input] = raw_input("\nSimplified Chinese:\n")
-            ins_hk[input] = raw_input("\nTraditional Chinese:\n")
-            ins_ja[input] = raw_input("\nJapanese:\n")
+            ins_en[input] = input("English:\n")
+            ins_cn[input] = input("\nSimplified Chinese:\n")
+            ins_hk[input] = input("\nTraditional Chinese:\n")
+            ins_ja[input] = input("\nJapanese:\n")
     for i in range(0,len(reads)):
         for key in sorted(inss[i]):
             writes[i].write(key + ": " + inss[i][key].replace(": ", ":SPACE") + "\n")
@@ -780,7 +780,7 @@ def pr(i): # proofread
                 else:
                     s = s.rstrip("\n").split(" ** ")
                     assert(len(s) == 3)
-                    input = raw_input("\n" + "\n".join(s) + "\n")
+                    input = input("\n" + "\n".join(s) + "\n")
                     if input.upper() == "":
                         g.write(formatChinese(s[0], " %% ".join(s[2:len(s)]), noInput = True))
                     elif input.upper() == "QUIT" or input.upper() == "Q":
