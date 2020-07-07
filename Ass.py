@@ -291,7 +291,7 @@ def addIPA(i, c = 'PLR'):
 			current += 1
 			s = s.rstrip('\n').split(" **")
 			if ((not fileExists) or (len(s) == 1) or (not "[" in s[len(s)-1])) and (not noMoreIPA):
-				print('\n' + s[0] + '\t\t' + str(current) + '/' + str(len(dictionary)) + '\n' + dictionary[s[0]]) # raw_input() does not support utf-16 # Cannot use format
+				print('\n' + s[0] + '\t\t' + str(current) + '/' + str(len(dictionary)) + '\n' + dictionary[s[0]]) # input() does not support utf-16 # Cannot use format
 				ipa = input()
 				while(ipa == ""):
 					ipa = input("Re-enter the pronunciation for {0}.\n".format(s[0])) # If entered nothing
@@ -630,14 +630,14 @@ def extend(i):
 				s[2] = "\n".join(s[2])
 				s = "\n".join(s)
 				print(s)
-				input = input()
-				if input != "":
+				my_input = input()
+				if my_input != "":
 					print()
-					if "MM" in input and len(input) > 2:
-						add.append(input[2:len(input)])
-					elif input.upper()[0] in ["M", ",", "N", "J", "K"] or input == "MM":
+					if "MM" in my_input and len(my_input) > 2:
+						add.append(my_input[2:len(my_input)])
+					elif my_input.upper()[0] in ["M", ",", "N", "J", "K"] or my_input == "MM":
 						newList.append(word)
-					elif input.upper() == "QUIT":
+					elif my_input.upper() == "QUIT":
 						break
 	add2 = input("Enter all words you want to add, separated by spaces.\n").replace("  "," ").replace("  "," ").split(" ")
 	if add2 != [""]:
@@ -690,10 +690,10 @@ def instructions():
 					print(i)
 					assert()
 	while True:
-		input = input("To add or remove a new instruction, enter the name of the instruction. To see all instructions, enter \"SEE\".\n")
-		if input.upper() == "QUIT":
+		my_input = input("To add or remove a new instruction, enter the name of the instruction. To see all instructions, enter \"SEE\".\n")
+		if my_input.upper() == "QUIT":
 			break
-		elif input.upper() == "SEE":
+		elif my_input.upper() == "SEE":
 			number = input("1. English\n2. Simplified Chinese\n3. Traditional Chinese\n4. Japanese\n")
 			while (not isInt(number)) or (not int(number) in range(1,len(reads) + 1)):
 				if number.upper() == "QUIT":
@@ -702,27 +702,27 @@ def instructions():
 			number = int(number)
 			for key in sorted(inss[number - 1]):
 				print(key + ": " + inss[number - 1][key] + "\n")
-		elif input.upper() == "RENAME":
-			input = input("Enter the key you want to rename.\n")
-			if not input in ins_en:
+		elif my_input.upper() == "RENAME":
+			my_input = input("Enter the key you want to rename.\n")
+			if not my_input in ins_en:
 				print("Key not found.\n")
 			else:
 				rename = input("Enter the new key you want to rename it to.\n")
 				for ins in inss:
-					ins[rename] = ins[input]
-					ins.pop(input)
-		elif input in ins_en and input in ins_cn and input in ins_hk and input in ins_ja:
-			print(input + ":\n")
-			print(ins_en.pop(input) + "\n")
-			print(ins_cn.pop(input) + "\n")
-			print(ins_hk.pop(input) + "\n")
-			print(ins_ja.pop(input) + "\n")
-		elif (not input in ins_en) and (not input in ins_cn) and (not input in ins_hk) and (not input in ins_ja):
-			print("Now enter the instructions for " + input + ":\n")
-			ins_en[input] = input("English:\n")
-			ins_cn[input] = input("\nSimplified Chinese:\n")
-			ins_hk[input] = input("\nTraditional Chinese:\n")
-			ins_ja[input] = input("\nJapanese:\n")
+					ins[rename] = ins[my_input]
+					ins.pop(my_input)
+		elif my_input in ins_en and my_input in ins_cn and my_input in ins_hk and my_input in ins_ja:
+			print(my_input + ":\n")
+			print(ins_en.pop(my_input) + "\n")
+			print(ins_cn.pop(my_input) + "\n")
+			print(ins_hk.pop(my_input) + "\n")
+			print(ins_ja.pop(my_input) + "\n")
+		elif (not my_input in ins_en) and (not my_input in ins_cn) and (not my_input in ins_hk) and (not my_input in ins_ja):
+			print("Now enter the instructions for " + my_input + ":\n")
+			ins_en[my_input] = input("English:\n")
+			ins_cn[my_input] = input("\nSimplified Chinese:\n")
+			ins_hk[my_input] = input("\nTraditional Chinese:\n")
+			ins_ja[my_input] = input("\nJapanese:\n")
 	for i in range(0,len(reads)):
 		for key in sorted(inss[i]):
 			writes[i].write(key + ": " + inss[i][key].replace(": ", ":SPACE") + "\n")
@@ -735,15 +735,15 @@ def instructions():
 	return
 
 
-def formatChinese(word, input, noInput = False):
-	if "NO" in input:
-		output = input.replace("NO", "").replace("（", "(").replace("）", ")").replace("……", "…").replace("···", "…").replace("...", "…").replace(",", "，") + "\n" # No transformation, just add the typed meaning literally
-	if "%" in input or "." in input or noInput:
+def formatChinese(word, my_input, noInput = False):
+	if "NO" in my_input:
+		output = my_input.replace("NO", "").replace("（", "(").replace("）", ")").replace("……", "…").replace("···", "…").replace("...", "…").replace(",", "，") + "\n" # No transformation, just add the typed meaning literally
+	if "%" in my_input or "." in my_input or noInput:
 		if noInput == False:
 			print("\nDID YOU FORGET TO ADD \"NO\"?\n")
-		output = input.replace("NO", "").replace("（", "(").replace("）", ")").replace("……", "…").replace("···", "…").replace("...", "…").replace(",", "，") + "\n" # No transformation, just add the typed meaning literally
+		output = my_input.replace("NO", "").replace("（", "(").replace("）", ")").replace("……", "…").replace("···", "…").replace("...", "…").replace(",", "，") + "\n" # No transformation, just add the typed meaning literally
 	else:
-		output = input.replace("  ", " ").replace(" ", " %% ").replace("n", "n. ").replace("v", "v. ").replace("v. i", "v. ").replace("v. t", "v. ").replace("a", "adj. ").replace("adj. dj", "adj. ").replace("adj. dv. ", "adv. ").replace("p", "prep. ").replace("c", "conj. ").replace("in. t", "int. ").replace("（", "(").replace("）", ")").replace("···", "…").replace("……", "…").replace("...", "…").replace(" /", "/").replace("shi", "使").replace(",", "，") + "\n"
+		output = my_input.replace("  ", " ").replace(" ", " %% ").replace("n", "n. ").replace("v", "v. ").replace("v. i", "v. ").replace("v. t", "v. ").replace("a", "adj. ").replace("adj. dj", "adj. ").replace("adj. dv. ", "adv. ").replace("p", "prep. ").replace("c", "conj. ").replace("in. t", "int. ").replace("（", "(").replace("）", ")").replace("···", "…").replace("……", "…").replace("...", "…").replace(" /", "/").replace("shi", "使").replace(",", "，") + "\n"
 	for m in output.split(" %% "):
 		m = m.rstrip("\n")
 		if (not "n" in m) and (not "v" in m) and (not "ad" in m) and (not "prep" in m) and (not "conj" in m) and (not "int" in m):
@@ -780,14 +780,14 @@ def pr(i): # proofread
 				else:
 					s = s.rstrip("\n").split(" ** ")
 					assert(len(s) == 3)
-					input = input("\n" + "\n".join(s) + "\n")
-					if input.upper() == "":
+					my_input = input("\n" + "\n".join(s) + "\n")
+					if my_input.upper() == "":
 						g.write(formatChinese(s[0], " %% ".join(s[2:len(s)]), noInput = True))
-					elif input.upper() == "QUIT" or input.upper() == "Q":
+					elif my_input.upper() == "QUIT" or my_input.upper() == "Q":
 						quitted = True
 						g.write(" ** ".join(s) + "STARTED\n")
 						continue
-					elif input.upper() == "MISS" or input.upper() == "MIS" or input.upper() == "MI" or input.upper() == "M":
+					elif my_input.upper() == "MISS" or my_input.upper() == "MIS" or my_input.upper() == "MI" or my_input.upper() == "M":
 						g.write(" ** ".join(s) + "\n") # Current word
 						for ss in f:
 							g.write(ss)
@@ -807,7 +807,7 @@ def pr(i): # proofread
 						pr(i)
 						break
 					else:
-						g.write(formatChinese(s[0],input))
+						g.write(formatChinese(s[0], my_input))
 					previousWord = s[0]
 		f.close()
 		g.close()

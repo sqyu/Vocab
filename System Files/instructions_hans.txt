@@ -49,7 +49,7 @@ meaning: 意思REPLACE：SPACE
 moreOptions: 输入"C"添加注释，输入"D"修改/添加难词列表，或输入"SC"取得今天的计划，或输入"SI"学习近似/易混词，或输入"R"随机从一本书中选择REPLACE个单词，或输入"quit"返回主菜单。
 moreThanMANYResults: 多于MANY项搜索结果，请重新输入长一点的单词，或按回车取得所有搜索结果。
 noDifficultWordList: BOOK的第LIST词表的难词列表不存在，读取所有单词中。
-noScheduleAvailable: 没有找到计划文件。请编辑"Record"文件夹中的"Schedule.txt"文件并以以下格式录入（一天一行）：RETURN1/1:SPACE需学习的词表 或 01/01:SPACE需学习的词表
+noScheduleAvailable: 没有找到计划文件。请在主程序"更多菜单"下(M → SCA)添加计划，或编辑"Record"文件夹中的"Schedule.txt"文件并以以下格式录入（一天一行）：RETURN1/1:SPACE需学习的词表 或 01/01:SPACE需学习的词表
 noScheduleTodayAvailable: 没有找到今天的计划。
 noWordsToStudy: 此表中没有可供学习的单词。请重新选择一个记录。
 notInBook: 不在书REPLACE当中。

@@ -49,7 +49,7 @@ meaning: MeaningREPLACE:SPACE
 moreOptions: To add comments, enter "C"; to change or add difficult word list, enter "D"; to view today's schedule, enter "SC"; to study similar words, enter "SI"; to randomly choose REPLACE words from one book, enter "R"; to quit, enter "quit".
 moreThanMANYResults: More than MANY results. Please enter a longer keyword, or press enter to show all results.
 noDifficultWordList: Difficult word list does not exist for list LIST of book BOOK. Reading all words. 
-noScheduleAvailable: No schedule available. Please edit "Schedule.txt" in "Record" folder and add entries in the format as follows (one line for one day):RETURN1/1:SPACELISTS TO STUDY or 01/01:SPACELISTS TO STUDY
+noScheduleAvailable: No schedule available. Please add your schedule in the main program under More Options (M → SCA), or edit "Schedule.txt" in "Record" folder and add entries in the format as follows (one line for one day):RETURN1/1:SPACELISTS TO STUDY or 01/01:SPACELISTS TO STUDY
 noScheduleTodayAvailable: Schedule for today not found.
 noWordsToStudy: No words to study in this list. Please re-select one record.
 notInBook: not in book REPLACE.

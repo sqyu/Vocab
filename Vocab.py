@@ -9,6 +9,9 @@ import time
 import pytz
 
 os.chdir(os.path.dirname(os.path.abspath(__file__))) # Change current working directory to where this file is located
+record_path = 'Record'
+sys_path = 'System Files'
+wordLists_path = 'Word lists'
 
 acronym = {"Petit Livre Rouge": "PLR", "Trois Mille": "TM", "Le Français 1": "LF1"}
 findAcronym = {"PLR": "Petit Livre Rouge", "TM": "Trois Mille", "LF1": "Le Français 1"}
@@ -50,12 +53,12 @@ def chooseYorN(current = None):
 		The current setting
 	"""
 	choose = ["Y", "N"]
-	input = input(instructions["setYorN"]).upper()
-	while not input in choose:
-		if current and input == "QUIT":
+	user_input = input(instructions["setYorN"]).upper()
+	while not user_input in choose:
+		if current and user_input == "QUIT":
 			return current
-		input = input(instructions["setYorN"]).upper()
-	return input
+		user_input = input(instructions["setYorN"]).upper()
+	return user_input
 
 def chooseYorNorA(current = None):
 	"""
@@ -68,12 +71,12 @@ def chooseYorNorA(current = None):
 		The current setting
 	"""
 	choose = ["Y", "N", "A"]
-	input = input(instructions["setYorNorA"]).upper()
-	while not input in choose:
-		if current and input == "QUIT":
+	user_input = input(instructions["setYorNorA"]).upper()
+	while not user_input in choose:
+		if current and user_input == "QUIT":
 			return current
-		input = input(instructions["setYorNorA"]).upper()
-	return input
+		user_input = input(instructions["setYorNorA"]).upper()
+	return user_input
 
 def chooseOneTimeZone(current = None): # Choose one time zone, returns one time zone
 	"""
@@ -155,7 +158,7 @@ def getAllInstructions():
 		Returns the instructions needed to be shown before letting the user chooses system language
 	"""
 	instructions_All = {}
-	f = open(os.getcwd() + '/System Files/Instructions_all.txt')
+	f = open(os.path.join(sys_path, 'Instructions_all.txt'))
 	for s in f:
 		s = s.split(": ")
 		if len(s) == 1:
@@ -176,11 +179,11 @@ def getInstructions(lang):
 	"""
 	instructions = {}
 	if lang == "zh-hk":
-		f = open(os.getcwd() + '/System Files/Instructions_hant.txt')
+		f = open(os.path.join(sys_path, 'Instructions_hant.txt'))
 	elif lang == "zh-cn":
-		f = open(os.getcwd() + '/System Files/Instructions_hans.txt')
+		f = open(os.path.join(sys_path, 'Instructions_hans.txt'))
 	elif lang == "ja":
-		f = open(os.getcwd() + '/System Files/Instructions_ja.txt')
+		f = open(os.path.join(sys_path, 'Instructions_ja.txt'))
 	else:
 		assert()
 	for s in f:
@@ -196,7 +199,7 @@ def setParameters():
 		setParameters()
 		Returns the system parameters set by user, or set by default if first time of use.
 	"""
-	par = os.getcwd() + "/System Files/Parameters.txt"
+	par = os.path.join(sys_path, 'Parameters.txt')
 	parameters = {}
 	global instructions
 	global availableBooks
@@ -248,8 +251,8 @@ def initialization():
 	parameters = setParameters()
 	lang = parameters["Language"]
 	#instructions = getInstructions(parameters["Language"])
-	if not os.path.exists(os.getcwd() + "/Record/"):
-		os.makedirs(os.getcwd() + "/Record/")
+	if not os.path.exists(record_path):
+		os.makedirs(record_path)
 	return
 
 def isInt(s):
@@ -374,7 +377,7 @@ def addWordsFromLists(allWordsFromLists, book, lists): # Helper function of chec
 		The lists from which all words will be loaded
 	"""
 	for enumerateList in lists:
-		f = open(os.getcwd() + '/Word lists/' + book + '/lists/' + str(enumerateList) + ' ' + lang + '.txt')
+		f = open(os.path.join(wordLists_path, book, 'lists', str(enumerateList) + ' ' + lang + '.txt'))
 		for s in f:
 			s = s.rstrip("\n").split(" ** ")[0]
 			if not isInt(s) and s != "":
@@ -464,9 +467,9 @@ def loadWords(all, book, comments, Dictionary, mode, theList, wordList):
 		The list of words loaded
 		
 	"""
-	bookList = os.getcwd() + '/Word lists/' + book + '/Lists/' + str(theList) + ' ' + lang + '.txt' # Directory of word list
+	bookList = os.path.join(wordLists_path, book, 'Lists', str(theList) + ' ' + lang + '.txt') # Directory of word list
 	f = open(bookList) # Read Only
-	difficultWordFile = os.getcwd() + '/Word lists/' + book + '/Difficult Words/' + str(theList) + '.txt'
+	difficultWordFile = os.path.join(wordLists_path, book, 'Difficult Words', str(theList) + '.txt')
 	if mode != 2 and not all and (not os.path.exists(difficultWordFile)): # If normal mode and difficult word lists do not exist, read all words
 		print(instructions["noDifficultWordList"].rstrip('\n').replace("LIST", str(theList)).replace("BOOK", instructions["book" + acronym[book]].rstrip('\n')))
 		all = True
@@ -519,8 +522,8 @@ def loadComments(book):
 		The book chosen
 	"""
 	comments = {}
-	if os.path.exists(os.getcwd() + '/Word lists/' + book + '/Comments.txt'):
-		g = open(os.getcwd() + '/Word lists/' + book + '/Comments.txt')
+	if os.path.exists(os.path.join(wordLists_path, book, 'Comments.txt')):
+		g = open(os.path.join(wordLists_path, book, 'Comments.txt'))
 		for s in g:
 			if len(s.split(": ")) >= 2:
 				ss = s.split(": ")
@@ -551,10 +554,10 @@ def updateComments(update, book):
 					comments.pop(w)
 			else:
 				comments[w] = update[w]
-		g = open(os.getcwd() + '/Word lists/' + book + '/Comments 2.txt', 'w')
+		g = open(os.path.join(wordLists_path, book, 'Comments 2.txt'), 'w')
 		g.write("\n".join(["{0}: {1}".format(w, comments[w]) for w in sorted(comments)]))
 		g.close()
-		os.rename(os.getcwd() + '/Word lists/' + book + '/Comments 2.txt', os.getcwd() + '/Word lists/' + book + '/Comments.txt')
+		os.rename(os.path.join(wordLists_path, book, 'Comments 2.txt'), os.path.join(wordLists_path, book, 'Comments.txt'))
 	except:
 		print("Error occurred.\n")
 
@@ -662,10 +665,10 @@ def writeTime(begin, timeBegan = None, mode = None, names = None):
 	timeNow = datetime.datetime.now(tz.localize(datetime.datetime.now()).tzinfo)
 	timeNowYM = timeNow.strftime("%Y-%m")
 	timeNowFULL = timeNow.strftime("%m/%d/%Y %H:%M:%S %Z")
-	if not os.path.exists(os.getcwd() + '/Record/Time/'):
-		os.makedirs(os.getcwd() + '/Record/Time/')
-	if not os.path.exists(os.getcwd() + '/Record/Time/Time ' + timeNowYM + '.txt'):
-		f = open(os.getcwd() + '/Record/Time/Time ' + timeNowYM + '.txt', 'w')
+	if not os.path.exists(os.path.join(record_path, 'Time')):
+		os.makedirs(os.path.join(record_path, 'Time'))
+	if not os.path.exists(os.path.join(record_path, 'Time', 'Time ' + timeNowYM + '.txt')):
+		f = open(os.path.join(record_path, 'Time', 'Time ' + timeNowYM + '.txt'), 'w')
 		if begin:
 			f.write(timeNowFULL)
 			f.close()
@@ -673,8 +676,8 @@ def writeTime(begin, timeBegan = None, mode = None, names = None):
 		else:
 			f.close()
 			return
-	g = open(os.getcwd() + '/Record/Time/Time ' + timeNowYM + '.tmp', 'w')
-	f = open(os.getcwd() + '/Record/Time/Time ' + timeNowYM + '.txt', 'r')
+	g = open(os.path.join(record_path, 'Time', 'Time ' + timeNowYM + '.tmp'), 'w')
+	f = open(os.path.join(record_path, 'Time', 'Time ' + timeNowYM + '.txt'), 'r')
 	try:
 		if begin:
 			freadlines = f.readlines()
@@ -709,7 +712,7 @@ def writeTime(begin, timeBegan = None, mode = None, names = None):
 						g.write(s)
 		f.close()
 		g.close()
-		os.rename(os.getcwd() + '/Record/Time/Time ' + timeNowYM + '.tmp', os.getcwd() + '/Record/Time/Time ' + timeNowYM + '.txt')
+		os.rename(os.path.join(record_path, 'Time', 'Time ' + timeNowYM + '.tmp'), os.path.join(record_path, 'Time', 'Time ' + timeNowYM + '.txt'))
 		if begin:
 			return timeNowFULL
 	except:
@@ -789,9 +792,9 @@ def writeRecord(difficultWords, mode, names):
 	tz = pytz.timezone(parameters["TimeZone"].split(" ** ")[0])
 	timeNow = datetime.datetime.now(tz.localize(datetime.datetime.now()).tzinfo)
 	if "similar words to " in names[0]:
-		pathToRecord = os.getcwd() + '/Record/Others/' + timeNow.strftime("%Y-%m")
+		pathToRecord = os.path.join(record_path, 'Others', timeNow.strftime("%Y-%m"))
 	else:
-		pathToRecord = os.getcwd() + '/Record/' + names[0] + '/' + timeNow.strftime("%Y-%m")
+		pathToRecord = os.path.join(record_path, names[0], timeNow.strftime("%Y-%m"))
 	if not os.path.exists(pathToRecord):
 		os.makedirs(pathToRecord)
 	if "similar words to " in names[0]:
@@ -1080,40 +1083,40 @@ def recite(Dictionary, rnr, wordListAndNames, readFromRecord = False):
 			for i in range(0, Dictionary[word].numOfMeanings):
 				print(instructions["meaning"].rstrip('\n').replace("REPLACE", " {0}".format(i+1)) + Dictionary[word].meanings[i])
 		print()
-		input = input()
-		if input.upper() == "QUIT":
+		user_input = input()
+		if user_input.upper() == "QUIT":
 			quit = True
 			break
 		wrongtimes = 0
-		while (input.replace("é","e").replace("ï","i") != word.replace("é","e").replace("ï","i")) & (wrongtimes < MaxTimes): # Try again until being wrong for MaxTimes times
-			if input.upper() == "QUIT":
+		while (user_input.replace("é","e").replace("ï","i") != word.replace("é","e").replace("ï","i")) & (wrongtimes < MaxTimes): # Try again until being wrong for MaxTimes times
+			if user_input.upper() == "QUIT":
 				quit = True
 				break
-			elif input.upper() == "HINT":
+			elif user_input.upper() == "HINT":
 				print(printList)
-				input = input()
+				user_input = input()
 				continue
-			elif input.upper() == "NUMBER":
+			elif user_input.upper() == "NUMBER":
 				print("{0} {1}".format(len(word.replace("-", "")), instructions["letters"]))
-				input = input()
+				user_input = input()
 				continue
 			wrongtimes += 1
 			print(instructions["tryAgain"])
 			if wrongtimes < MaxTimes:
-				input = input()
+				user_input = input()
 		if wrongtimes == MaxTimes:
 			difficultWords.append(word)
 			print(Dictionary[word].IPA) # Show IPA first
-			input = input(instructions["tryAgain"] + "\n")
-			if input.replace("é","e").replace("ï","i") != word.replace("é","e").replace("ï","i"): # If still incorrect, show descriptions
+			user_input = input(instructions["tryAgain"] + "\n")
+			if user_input.replace("é","e").replace("ï","i") != word.replace("é","e").replace("ï","i"): # If still incorrect, show descriptions
 				describeWord(word, Dictionary[word], False)
-				input = input(instructions["tryAgain"] + "\n")
-			while input.replace("é","e").replace("ï","i") != word.replace("é","e").replace("ï","i"): # Enter until correct
-				if input.upper() == "QUIT":
+				user_input = input(instructions["tryAgain"] + "\n")
+			while user_input.replace("é","e").replace("ï","i") != word.replace("é","e").replace("ï","i"): # Enter until correct
+				if user_input.upper() == "QUIT":
 					quit = True
 					break
 				print(instructions["tryAgain"] + "\n")
-				input = input()
+				user_input = input()
 		if quit:
 			break
 		print(instructions["correct"])
@@ -1237,7 +1240,7 @@ def findAWord():
 					word = input(instructions["moreThanMANYResults"].replace("MANY",str(maxWordsContaining))).lower().split(" ")[0]
 					if word == "":
 						print(instructions["chooseOneWord1"].rstrip("\n") + " " + word_copy + " " + instructions["chooseOneWord2"] + "\n".join(sorted(wordsContaining)) + "\n")
-						word = input().lower().split(" ")[0] # Far more efficient than raw_input("\n".join(sorted(wordsContaining)))
+						word = input().lower().split(" ")[0] # Far more efficient than input("\n".join(sorted(wordsContaining)))
 				elif len(wordsContaining) > 1:
 					print("\n" + instructions["chooseOneWord1"].rstrip("\n") + " " + word + " " + instructions["chooseOneWord2"] + "\n".join(sorted(wordsContaining)) + "\n")
 					word = input().lower().split(" ")[0]
@@ -1293,9 +1296,8 @@ def readFromRecord():
 		Chooses a record and studies.
 	"""
 	booksInRecord = []
-	path0 = os.getcwd() + '/Record/'
 	for books in availableBooks:
-		if os.path.exists(path0 + books + '/'):
+		if os.path.exists(os.path.join(record_path, books)):
 			booksInRecord.append(books)
 	book = chooseBook(booksInRecord)
 	if book == None:
@@ -1304,7 +1306,7 @@ def readFromRecord():
 	tz = pytz.timezone(parameters["TimeZone"].split(" ** ")[0])
 	date = input(instructions["date"]).upper()
 	while True:
-		path = path0 + book + '/'
+		path = os.path.join(record_path, book)
 		if date == "QUIT":
 			return
 		if date == "T" or date == "TODAY":
@@ -1322,7 +1324,7 @@ def readFromRecord():
 		except ValueError:
 			date = input(instructions["date"]).upper()
 			continue # If input not convertible to int
-		path = path + str(date[2]) + "-" + str(date[0]).zfill(2) + "/"
+		path = os.path.join(path, str(date[2]) + "-" + str(date[0]).zfill(2))
 		if not os.path.exists(path):
 			date = input(instructions["wrongDate"]).upper()
 			continue
@@ -1349,7 +1351,7 @@ def readFromRecord():
 		theLists = listNumber[lang][book]
 	else:
 		theLists = sorted([int(s.replace("L","")) for s in record.split(" ") if "L" in s])
-	record = path + record
+	record = os.path.join(path, record)
 	f = open(record)
 	wordList = []
 	for word in f:
@@ -1388,7 +1390,7 @@ def viewSchedule():
 		viewSchedule():
 		Views the schedule.
 	"""
-	sch = os.getcwd() + "/Record/Schedule.txt"
+	sch = os.path.join(record_path, 'Schedule.txt')
 	tz = pytz.timezone(parameters["TimeZone"].split(" ** ")[1])
 	timeNow = datetime.datetime.now(tz.localize(datetime.datetime.now()).tzinfo)
 	found = False
@@ -1435,56 +1437,58 @@ def addOrCancelSchedule(action):
 		Adds a schedule if action == "A", and cancels a schedule if action == "C"
 	"""
 	assert action == "A" or action == "C"
-	f = open(os.getcwd() + "/Record/Schedule.txt")
+	f = open(os.path.join(record_path, 'Schedule.txt'))
 	dates = {1: list(range(1,32)), 2: list(range(1,30)), 3: list(range(1,32)), 4: list(range(1,31)), 5: list(range(1,32)), 6: list(range(1,31)), 7: list(range(1,32)), 8: list(range(1,32)), 9: list(range(1,31)), 10: list(range(1,32)), 11: list(range(1,31)), 12: list(range(1,32))}
 	sch = {}
 	for s in f:
 		if len(s.split(": ")) == 2:
 			sch[s.split(": ")[0]] = s.split(": ")[1].rstrip("\n")
-	input = input(instructions["scheduleEnterDate"]).upper()
+	user_input = input(instructions["scheduleEnterDate"]).upper()
 	while True:
-		if input == "QUIT":
+		if user_input == "QUIT":
 			f.close()
 			return
-		elif input == "VIEW":
+		elif user_input == "VIEW":
+			if len(sch) == 0:
+				print(instructions["noScheduleAvailable"])
 			for d in sortDate(list(sch)):
 				print(d + ": " + sch[d].replace("SPACE", " "))
-			input = input(instructions["scheduleEnterDate"]).upper()
-		elif not isInt(input.split("/")[0]) or not isInt(input.split("/")[1]):
-			input = input(instructions["scheduleEnterDate"]).upper()
+			user_input = input(instructions["scheduleEnterDate"]).upper()
+		elif not isInt(user_input.split("/")[0]) or not isInt(user_input.split("/")[1]):
+			user_input = input(instructions["scheduleEnterDate"]).upper()
 			continue
-		elif (not int(input.split("/")[0]) in range(1,13)) or (not int(input.split("/")[1]) in dates[int(input.split("/")[0])]):
-			input = input(instructions["dateNotValid"]).upper()
-		elif action == "A" and input in sch:
-			input = input(instructions["dateAlreadyExists"]).upper()
-		elif action == "C" and not input in sch:
-			input = input(instructions["dateDoesNotExist"]).upper()
+		elif (not int(user_input.split("/")[0]) in range(1,13)) or (not int(user_input.split("/")[1]) in dates[int(user_input.split("/")[0])]):
+			user_input = input(instructions["dateNotValid"]).upper()
+		elif action == "A" and user_input in sch:
+			user_input = input(instructions["dateAlreadyExists"]).upper()
+		elif action == "C" and not user_input in sch:
+			user_input = input(instructions["dateDoesNotExist"]).upper()
 		else:
 			break
-	g = open(os.getcwd() + "/Record/Schedule 0.txt", 'w')
+	g = open(os.path.join(record_path, 'Schedule 0.txt'), 'w')
 	if action == "A":
-		input2 = input(instructions["scheduleEnterTask"])
-		sch[input] = input2.replace(": ", ":SPACE")
+		user_input2 = input(instructions["scheduleEnterTask"])
+		sch[user_input] = user_input2.replace(": ", ":SPACE")
 		for d in sortDate(list(sch)):
 			g.write(d + ": " + sch[d] + "\n")
 		f.close()
 		g.close()
-		os.rename(os.getcwd() + "/Record/Schedule 0.txt", os.getcwd() + "/Record/Schedule.txt")
+		os.rename(os.path.join(record_path, 'Schedule 0.txt'), os.path.join(record_path, 'Schedule.txt'))
 	if action == "C":
-		cf = input(input + ": " + sch[input].replace("SPACE", " ") + "\n" + instructions["confirmOrAbandon"]).upper()
+		cf = input(user_input + ": " + sch[user_input].replace("SPACE", " ") + "\n" + instructions["confirmOrAbandon"]).upper()
 		while cf != "Y" and cf != "N":
 			cf = input(instructions["enterYOrN"]).upper()
 		if cf == "Y":
-			sch.pop(input)
+			sch.pop(user_input)
 			for d in sortDate(list(sch)):
 				g.write(d + ": " + sch[d] + "\n")
 			g.close()
 			f.close()
-			os.rename(os.getcwd() + "/Record/Schedule 0.txt", os.getcwd() + "/Record/Schedule.txt")
+			os.rename(os.path.join(record_path, 'Schedule 0.txt'), os.path.join(record_path, 'Schedule.txt'))
 		else:
 			g.close()
 			f.close()
-			os.remove(os.getcwd() + "/Record/Schedule 0.txt")
+			os.remove(os.path.join(record_path, 'Schedule 0.txt'))
 	return
 
 def allWordsOrDifficultWordListForRandom50Words():
@@ -1557,7 +1561,7 @@ def similarWords():
 	prompt1 = instructions["promptSimilarWords"]
 	prompt2 = instructions["promptSimilarWords2"]
 	try:
-		f = open(os.getcwd() + "/Word lists/Similar.txt")
+		f = open(os.path.join(wordLists_path, 'Similar.txt'))
 	except IOError:
 		print(instructions["similarFileNotExists"])
 		return
@@ -1661,7 +1665,7 @@ def extend(book, theList, current):
 	all = []
 	add = []
 	i = 0
-	f = open(os.getcwd() + '/Word lists/' + book + '/Lists/' + str(theList) + ' ' + lang + '.txt')
+	f = open(os.path.join(wordLists_path, book, 'Lists', str(theList) + ' ' + lang + '.txt'))
 	for s in f:
 		if (s != '\n') and (not isInt(s.rstrip('\n'))):
 			i += 1
@@ -1677,15 +1681,15 @@ def extend(book, theList, current):
 				s[2] = "\n".join(s[2])
 				s = "\n".join(s)
 				print(s)
-				input = input()
-				if input != "":
+				user_input = input()
+				if user_input != "":
 					print()
-					if input.upper() == "QUIT":
+					if user_input.upper() == "QUIT":
 						return
-					elif input.upper()[0] in ["M", ",", "N", "J", "K"] or input == "MM":
+					elif user_input.upper()[0] in ["M", ",", "N", "J", "K"] or user_input == "MM":
 						new.append(word)
-					elif input.upper() != input.lower():
-						add += input.lower().split(" ")
+					elif user_input.upper() != user_input.lower():
+						add += user_input.lower().split(" ")
 	add2 = input(instructions["difficultWordsInput"]).lower().replace("  "," ").replace("  "," ").split(" ")
 	if add2 != [""] and add2 != ["quit"]:
 		add += add2
@@ -1715,7 +1719,8 @@ def chooseDifficultWordList():
 	theList = chooseOneList(book)
 	if theList == None:
 		return
-	if not os.path.exists(os.getcwd() + '/Word lists/' + book + '/Difficult Words/' + str(theList) + '.txt'):
+	difficultWordListPath = os.path.join(wordLists_path, book, 'Difficult Words', str(theList) + '.txt')
+	if not os.path.exists(difficultWordListPath):
 		newOrExt = "Y"
 	else:
 		newOrExt = input(instructions["chooseDifficultNewOrExtend"]).upper()
@@ -1724,7 +1729,7 @@ def chooseDifficultWordList():
 				return
 			newOrExt = input(instructions["chooseDifficultNewOrExtend"]).upper()
 	if newOrExt == "N":
-		f = open(os.getcwd() + '/Word lists/' + book + '/Difficult Words/' + str(theList) + '.txt')
+		f = open(difficultWordListPath)
 		current = f.readline().rstrip("\n").split(" || ")
 		f.close()
 	else:
@@ -1745,7 +1750,7 @@ def chooseDifficultWordList():
 		else:
 			save = input("\n" + instructions["confirmOrAbandon"]).upper()
 	if save == "Y":
-		f = open(os.getcwd() + '/Word lists/' + book + '/Difficult Words/' + str(theList) + '.txt', 'w')
+		f = open(difficultWordListPath, 'w')
 		f.write(together)
 		f.close()
 	return
@@ -1846,15 +1851,15 @@ def changeParameters():
 		setChoose = chooseTimeZone(parameters["TimeZone"])
 	else:
 		assert()
-	f = open(os.getcwd() + "/System Files/Parameters.txt")
-	g = open(os.getcwd() + "/System Files/Parameters 2.txt", 'w')
+	f = open(os.path.join(sys_path, 'Parameters.txt'))
+	g = open(os.path.join(sys_path, 'Parameters 2.txt'), 'w')
 	for s in f:
 		if s.split(": ")[0] == choose:
 			s = choose + ": " + setChoose + "\n"
 		g.write(s)
 	f.close()
 	g.close()
-	os.rename(os.getcwd() + "/System Files/Parameters 2.txt", os.getcwd() + "/System Files/Parameters.txt")
+	os.rename(os.path.join(sys_path, 'Parameters 2.txt'), os.path.join(sys_path, 'Parameters.txt'))
 	parameters = setParameters()
 	lang = parameters["Language"]
 	instructions = getInstructions(lang)
