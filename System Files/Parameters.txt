@@ -1,5 +1,5 @@
 AllForRandom50Words: N
-Language: ja
+Language: zh-hk
 Random: Y
 Random50Words: 50
 Record: A
