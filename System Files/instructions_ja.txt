@@ -6,6 +6,7 @@ antonym: 対義語
 book1: 本を選んでください。
 book2: REPLACE1の場合は「REPLACE2」を入力してください。
 bookLF1: 仏語１
+bookHJNHG: 標準日本語
 bookPLR: 紅宝書
 bookTM: 三千
 bye: バイバイ！
@@ -48,8 +49,8 @@ markedWordUnsuccessfully: 警告： REPLACEはこのリストの単語ではあ�
 meaning: 意味REPLACE：SPACE
 moreOptions: 次のオプションから一つ選んでください：「C」コメントを追加する　「D」：難しい単語リストを変える・追加する　「SC」：今日のスケジュールを見る　「SI」：類似する・混同しやすい語　「R」：本からランダムにREPLACE単語を選ぶ　「quit」：メインメニューに戻る
 moreThanMANYResults: MANY件以上の検索結果があります。もっと長い単語を入力するか、リターンキーを押してすべての検査結果を見ることができます。
-noDifficultWordList: BOOKの第LIST課の難しい単語リストが見つからないため、すべての単語を読み込みます。
-noScheduleAvailable: スケジュールファイルが見つかりませんでした。メインプログラムの「他のオプション」(M → SCA)でスケジュールを追加するや、「Record」フォルダにある「Schedule.txt」ファイルを次のフォマットで編集してください（一日に一行）：RETURN1/1:SPACE勉強する必要のあるリスト 或 01/01:SPACE勉強する必要のあるリスト
+noDifficultWordList: BOOKの第LIST課の難しい単語リストが見つからないため、すべての単語を読み込みます。今後このリストにあるすべての単語を学ばないようには、(メインメニュー → M → SCA)で難しい単語リストを作成してください。
+noScheduleAvailable: スケジュールファイルが見つかりませんでした。メインプログラムの「他のオプション」(メインメニュー → M → SCA)でスケジュールを追加するや、「Record」フォルダにある「Schedule.txt」ファイルを次のフォマットで編集してください（一日に一行）：RETURN1/1:SPACE勉強する必要のあるリスト 或 01/01:SPACE勉強する必要のあるリスト
 noScheduleTodayAvailable: 今日のスケジュールが見つかりませんでした。
 noWordsToStudy: このリストに勉強できる単語はありません。もう一度記録を選んでください。
 notInBook: は本REPLACEのうちにありません。
