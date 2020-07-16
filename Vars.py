@@ -14,3 +14,20 @@ availableBooks = []
 
 tzs = ["Hawaii", "Alaska", "LosAngeles", "Arizona", "Mountain", "Chicago", "NewYork", "UTC", "London", "Paris", "Shanghai", "Singapore", "Perth", "Tokyo", "Seoul", "Sydney"]
 tznames = ["US/Hawaii", "US/Alaska", "US/Pacific", "US/Arizona", "US/Mountain", "US/Central", "US/Eastern", "utc", "Europe/London", "Europe/Paris", "Asia/Shanghai", "Asia/Singapore", "Australia/Perth", "Asia/Tokyo", "Asia/Seoul", "Australia/Sydney"]
+
+def getInst(key, rep=None):
+	s = instructions[key].rstrip("\n")
+	if rep is not None:
+		if type(rep) == str:
+			s = s.replace("REPLACE", rep)
+		else:
+			for pair in rep:
+				s = s.replace(pair[0], pair[1])
+	return s
+
+def printInst(key, rep=None, add=""):
+	print(getInst(key, rep) + add)
+
+def inpInst(key, rep=None, add=""):
+	printInst(key, rep=rep, add="")
+	return input()

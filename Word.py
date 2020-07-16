@@ -58,7 +58,7 @@ def describeWord(word, Word_obj, learnMode, number = None):
 		print(word) # Only prints out the word without the numbers
 	print(Word_obj.IPA) # Prints out the IPA
 	if learnMode == True: # If prints meanings after user inputs something
-		s = quitOrInput(input()).upper()
+		s = quitOrInput(None).upper()
 		if markWordorNot(s):
 			s = "MARK" # Mark the word
 		else:

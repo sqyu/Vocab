@@ -2,6 +2,7 @@ import os
 
 from Help_funs import isInt, QuitException, quitOrInput
 import Vars
+from Vars import getInst, printInst, inpInst
 
 def chooseYorNorA(A_allowed, current = None):
 	"""
@@ -16,12 +17,12 @@ def chooseYorNorA(A_allowed, current = None):
 	choose = ["Y", "N", "A"] if A_allowed else ["Y", "N"]
 	if current is not None and current not in choose:
 		raise Exception("In chooseYorNorA: Argument 'current' must be None or one of the allowed inputs.")
-	inst = Vars.instructions["setYorNorA"] if A_allowed else Vars.instructions["setYorN"]
-	user_input = input(inst).upper()
+	inst = getInst("setYorNorA") if A_allowed else getInst("setYorN")
+	user_input = input(inst + "\n").upper()
 	while not user_input in choose:
 		if current and user_input == "QUIT":
 			return current
-		user_input = input(inst).upper()
+		user_input = input(inst + "\n").upper()
 	return user_input
 
 def chooseLanguage(current = None):
@@ -53,11 +54,11 @@ def chooseOneTimeZone(current = None): # Choose one time zone, returns one time 
 	   The current time zone
 	"""
 	choose = ""
-	print("\n" + "".join(["{0:>2}. {1}".format(str(index + 1), Vars.instructions["timeZone" + tz]) for index, tz in enumerate(Vars.tzs)])) # Print all possible time zones
+	print("\n" + "\n".join(["{0:>2}. {1}".format(str(index + 1), getInst("timeZone" + tz)) for index, tz in enumerate(Vars.tzs)])) # Print all possible time zones
 	while (not isInt(choose)) or (not int(choose) in range(1, len(Vars.tzs) + 1)):
 		if current and choose == "QUIT":
 			return current, True # Do not change settings
-		choose = input(Vars.instructions["setTimeZone"].replace("REPLACE", str(len(Vars.tzs)))).upper()
+		choose = inpInst("setTimeZone", rep=str(len(Vars.tzs))).upper()
 	return Vars.tznames[int(choose) - 1], False
 
 def chooseTimeZone(current): # Choose one time zone in the three options, returns all three time zones
@@ -70,16 +71,16 @@ def chooseTimeZone(current): # Choose one time zone in the three options, return
 		current: the string composed of three time zone strings joined by " ** "
 		The current time zones
 	"""
-	print("\n" + Vars.instructions["promptSetParameters"])
-	print("1. {0}".format(Vars.instructions["paraTimeZoneRecord"]))
-	print("2. {0}".format(Vars.instructions["paraTimeZoneSchedule"]))
-	print("3. {0}".format(Vars.instructions["paraTimeZoneTime"]))
-	print("4. {0}".format(Vars.instructions["paraTimeZoneUnify"]))
+	print("\n" + getInst("promptSetParameters"))
+	print("1. {0}".format(getInst("paraTimeZoneRecord")))
+	print("2. {0}".format(getInst("paraTimeZoneSchedule")))
+	print("3. {0}".format(getInst("paraTimeZoneTime")))
+	print("4. {0}".format(getInst("paraTimeZoneUnify")))
 	choose = input().upper()
 	while (not isInt(choose)) or (not int(choose) in range(1, 5)):
 		if choose == "QUIT":
 			return current
-		choose = input(Vars.instructions["chooseFromAbove"].replace("REPLACE", "4")).upper()
+		choose = inpInst("chooseFromAbove", rep="4").upper()
 	current = current.split(" ** ")
 	choose = int(choose) - 1
 	if choose in range(0,3):
@@ -103,14 +104,16 @@ def chooseRandom50Words(current):
 		__________
 		current: An integer, the current setting.
 	"""
-	num = input("\n" + Vars.instructions["chooseRandom50Words"] + "\n")
+	print()
+	num = inpInst("chooseRandom50Words")
 	while not (isInt(num) and int(num) >= 1) :
 		if num.upper() == "QUIT":
 			return current
+		print()
 		if not isInt(num):
-			num = input("\n" + Vars.instructions["enterANumber"] + "\n")
+			num = inpInst("enterANumber")
 		else: # int(num) >= 1
-			num = input("\n" + Vars.instructions["enterAPositiveNumber"] + "\n")
+			num = inpInst("enterAPositiveNumber")
 	return num
 					
 def setParameters():
@@ -124,7 +127,7 @@ def setParameters():
 		print("\n" + Vars.instructions_All["greetings"])
 		Vars.lang = chooseLanguage()
 		Vars.availableBooks = list(Vars.listNumber[Vars.lang])
-		Vars.instructions = getInstructions(Vars.lang)
+		Vars.instructions = getInstructionsLang(Vars.lang)
 		timeZoneQuitted = True
 		while timeZoneQuitted:
 			timeZone, timeZoneQuitted = chooseOneTimeZone()
@@ -147,7 +150,7 @@ def setParameters():
 				s.append("")
 			Vars.parameters[s[0]] = s[1].rstrip("\n")
 		f.close()
-		Vars.instructions = getInstructions(Vars.parameters["Language"])
+		Vars.instructions = getInstructionsLang(Vars.parameters["Language"])
 		Vars.availableBooks = list(Vars.listNumber[Vars.parameters["Language"]])
 	return Vars.parameters
 
@@ -156,16 +159,16 @@ def changeParameters():
 		changeParameters():
 		Changes one system parameter.
 	"""
-	Vars.instructions["paraAllForRandom50Words"] = Vars.instructions["paraAllForRandom50Words"].replace("REPLACE", Vars.parameters["Random50Words"])
-	Vars.instructions["paraRandom50Words"] = Vars.instructions["paraRandom50Words"].replace("REPLACE", Vars.parameters["Random50Words"])
-	prompt = "\n" + Vars.instructions["promptSetParameters"] + "".join([str(index + 1) + ". " + Vars.instructions["para" + par] + "\n" for index, par in enumerate(sorted(Vars.parameters))])
+	Vars.instructions["paraAllForRandom50Words"] = getInst("paraAllForRandom50Words", rep=Vars.parameters["Random50Words"])
+	Vars.instructions["paraRandom50Words"] = getInst("paraRandom50Words", rep= Vars.parameters["Random50Words"])
+	prompt = "\n" + getInst("promptSetParameters") + "\n" + "\n".join([str(index + 1) + ". " + getInst("para" + par) + "\n" for index, par in enumerate(sorted(Vars.parameters))])
 	try:
-		choose = quitOrInput(input(prompt)).upper()
+		choose = quitOrInput(prompt).upper()
 	except QuitException:
 		return
 	while not (isInt(choose) and int(choose) >= 1 and int(choose) <= len(Vars.parameters)):
 		try:
-			choose = quitOrInput(input(prompt)).upper()
+			choose = quitOrInput(prompt).upper()
 		except QuitException:
 			return
 	choose = sorted(Vars.parameters)[int(choose) - 1]
@@ -196,8 +199,8 @@ def changeParameters():
 	os.rename(os.path.join(Vars.sys_path, 'Parameters 2.txt'), os.path.join(Vars.sys_path, 'Parameters.txt'))
 	Vars.parameters = setParameters()
 	Vars.lang = Vars.parameters["Language"]
-	Vars.instructions = getInstructions(Vars.lang)
-	print(Vars.instructions["changesSaved"])
+	Vars.instructions = getInstructionsLang(Vars.lang)
+	printInst("changesSaved")
 	return
 
 def getAllInstructions():
@@ -215,9 +218,9 @@ def getAllInstructions():
 	f.close()
 	return Vars.instructions_All
 
-def getInstructions(lang):
+def getInstructionsLang(lang):
 	"""
-		getInstructions(lang):
+		getInstructionsLang(lang):
 		Returns the Vars.instructions in the chosen language
 		
 		Paramters
@@ -250,7 +253,7 @@ def initialization():
 	Vars.instructions_All = getAllInstructions() # Top
 	Vars.parameters = setParameters()
 	Vars.lang = Vars.parameters["Language"]
-	#Vars.instructions = getInstructions(Vars.parameters["Language"])
+	#Vars.instructions = getInstructionsLang(Vars.parameters["Language"])
 	if not os.path.exists(Vars.record_path):
 		os.makedirs(Vars.record_path)
 	return

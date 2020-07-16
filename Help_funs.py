@@ -1,13 +1,16 @@
 class QuitException(Exception):
 	pass
 
-def quitOrInput(i):
-	if i.upper() == "EXIT":
+def quitOrInput(prompt):
+	if prompt:
+		print(prompt)
+	s = input()
+	if s.upper() == "EXIT":
 		quit()
-	elif i.upper() == "QUIT":
+	elif s.upper() == "QUIT":
 		raise QuitException
 	else:
-		return i
+		return s
 		
 def isInt(s):
 	"""
@@ -41,4 +44,3 @@ def sortDate(dateList):
 				dateList[index1] = dateList[index2]
 				dateList[index2] = d
 	return dateList
-
