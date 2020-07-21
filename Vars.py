@@ -1,11 +1,17 @@
+import Help_funs
+
 record_path = 'Record'
 sys_path = 'System Files'
 wordLists_path = 'Word lists'
 
+langs = ["zh-hk", "zh-cn", "ja", "en"]
+
 acronym = {"Petit Livre Rouge": "PLR", "Trois Mille": "TM", "Le Français 1": "LF1", "Hyojun Nihongo": "HJNHG"}
 findAcronym = {value: key for key, value in acronym.items()}
 
-listNumber = {"zh-hk": {"Petit Livre Rouge": list(range(1,43)), "Trois Mille": list(range(1,32)), "Le Français 1": list(range(1,2)), "Hyojun Nihongo": list(range(1,2))}, "zh-cn": {"Petit Livre Rouge": list(range(1,43)), "Trois Mille": list(range(1,32)), "Le Français 1": list(range(1,2))}, "ja": {"Petit Livre Rouge": [3, 5, 11, 12, 13], "Le Français 1": list(range(1,2))}}
+listNumber = {"zh-hk": {"Petit Livre Rouge": list(range(1,43)), "Trois Mille": list(range(1,32)), "Le Français 1": list(range(1,2)), "Hyojun Nihongo": list(range(1,2))}, "zh-cn": {"Petit Livre Rouge": list(range(1,43)), "Trois Mille": list(range(1,32)), "Le Français 1": list(range(1,2))}, "ja": {"Petit Livre Rouge": [3, 5, 11, 12, 13], "Le Français 1": list(range(1,2))}, "en": {}}
+
+conjNumber = {}
 lang = ""
 parameters = {}
 instructions = {}
@@ -28,6 +34,10 @@ def getInst(key, rep=None):
 def printInst(key, rep=None, add=""):
 	print(getInst(key, rep) + add)
 
-def inpInst(key, rep=None, add=""):
-	printInst(key, rep=rep, add="")
-	return input()
+def inpInst(key, rep=None, add="", handleQuit=True):
+	if handleQuit:
+		return Help_funs.quitOrInput(getInst(key, rep) + add)
+	else:
+		printInst(key, rep=rep, add="")
+		return input()
+		

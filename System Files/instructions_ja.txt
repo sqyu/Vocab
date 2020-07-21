@@ -15,7 +15,7 @@ chooseDifficultNewOrExtend: 難しい単語をリセット（Y）するか、難
 chooseDifficultNewlyAddedWords: 新たに追加した難しい単語：
 chooseDifficultNowList: 新しい難しい単語リスト：
 chooseFromAbove: 上にあげた選択肢(1 - REPLACE)からひとつ選んでください。
-chooseList: リストを選んでください。
+chooseList: リストを選んでください。番号+「S」(例: 13S)で難しい単語だけや、番号+「A」(例: 13A)ですべての単語を読み込むこともできます。
 chooseListNotExists: 次のリストからもう一度一つ選んてください。
 chooseMoreLists: 数字を入力してもう一つのリストを追加するか、「N」を入力して追加を終了してください。
 chooseMoreListsNotExists: 次のリストからもう一度一つ選ぶか、「N」を入力して追加を終了してください。
@@ -25,9 +25,11 @@ chooseOneWord2: を含む単語：
 chooseRandom50Words: ご希望のランダム単語数を入力してください。
 chooseRecord: 数字の1からREPLACEまでひとつ選んでください。
 chooseRecord2: 1を入力してこの記録を選んでください。
+chooseTense: REPLACEから時制を（カンマで区切って）選ぶか、A/ALLを入力してください。
 comments: コメント：SPACE
 confirmOrAbandon: 「Y」で確認するか、「N」で破棄してください。
 congratulations: 大変よくできました！
+conjInPersonForTense: REPLACE1時制REPLACE2人称の活用を入力してください。
 correct: 正解！
 date: MM/DD/YYYYのフォーマットで日付を入力してください。今日の場合は「T」や「TODAY」を、昨日の場合は「Y」または「YESTERDAY」を入力してください。
 dateAlreadyExists: 日付はすでに存在します。
@@ -43,15 +45,17 @@ findAWordChooseList: 単語を検索するリストを自分で選ぶには「Y�
 findAWordMeaningsIn: REPLACEでの意味：
 guillemetLeft: 『
 guillemetRight: 』
+infinitive: 不定詞：SPACE
 letters: 文字
 markedWordSuccessfully: REPLACEを難しい単語のリストに追加しました。
 markedWordUnsuccessfully: 警告： REPLACEはこのリストの単語ではありません。
 meaning: 意味REPLACE：SPACE
-moreOptions: 次のオプションから一つ選んでください：「C」コメントを追加する　「D」：難しい単語リストを変える・追加する　「SC」：今日のスケジュールを見る　「SI」：類似する・混同しやすい語　「R」：本からランダムにREPLACE単語を選ぶ　「quit」：メインメニューに戻る
-moreThanMANYResults: MANY件以上の検索結果があります。もっと長い単語を入力するか、リターンキーを押してすべての検査結果を見ることができます。
+moreOptions: 次のオプションから一つ選んでください：「C」コメントを追加する　「D」：難しい単語リストを変える・追加する　「SC」：今日のスケジュールを見る　「SI」：類似する・混同しやすい語　「R」：本からランダムにREPLACE単語を選ぶ　「RC」：動詞活用を暗記する　「quit」：メインメニューに戻る
+moreThanMANYResults: REPLACE件以上の検索結果があります。もっと長い単語を入力するか、リターンキーを押してすべての検査結果を見ることができます。
 noDifficultWordList: BOOKの第LIST課の難しい単語リストが見つからないため、すべての単語を読み込みます。今後このリストにあるすべての単語を学ばないようには、(メインメニュー → M → SCA)で難しい単語リストを作成してください。
 noScheduleAvailable: スケジュールファイルが見つかりませんでした。メインプログラムの「他のオプション」(メインメニュー → M → SCA)でスケジュールを追加するや、「Record」フォルダにある「Schedule.txt」ファイルを次のフォマットで編集してください（一日に一行）：RETURN1/1:SPACE勉強する必要のあるリスト 或 01/01:SPACE勉強する必要のあるリスト
 noScheduleTodayAvailable: 今日のスケジュールが見つかりませんでした。
+noTense: 時制が見つからないため、終了しました。
 noWordsToStudy: このリストに勉強できる単語はありません。もう一度記録を選んでください。
 notInBook: は本REPLACEのうちにありません。
 notInBooks: は本REPLACEのうちにありません。
@@ -95,6 +99,7 @@ similarWordsNotFound: REPLACEの混同語が見つかりません。
 startDescribeList: いつでも「quit」でモジュールを終了できます。今ディスプレイされた単語を記録するには「mark」を入力してください。コメントを追加するには「cm」を入力してください。リターンキーを押したら次の単語へと続きます。
 startRecite: 語彙の暗記を始めます。モジュールを終了するには「quit」を入力してください。
 startRecite2: いつでも「quit」でモジュールを終了できます。発音が出る前にワードリストを見る場合は「hint」を入力してください。
+startReciteConj: 動詞活用の暗記を始めます。モジュールを終了するには「quit」を入力してください。
 synonym: 同義語
 timeZoneAlaska: アラスカ (アラスカ時間) UTC-09:00/UTC-08:00
 timeZoneArizona: アリゾナ UTC-07:00
@@ -114,6 +119,7 @@ timeZoneTokyo: 東京 (日本標準時) UTC+09:00
 timeZoneUTC: UTC (協定世界時) UTC+0
 tryAgain: もう一度試してください。
 warning: 警告
+word: 単語
 wordsInTotal: 合計
 wordsInTotal2: 語。
 wrongBook: 次の本からもう一度選んでください：REPLACE。

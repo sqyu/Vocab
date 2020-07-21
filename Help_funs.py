@@ -1,7 +1,9 @@
+import unidecode
+
 class QuitException(Exception):
 	pass
 
-def quitOrInput(prompt):
+def quitOrInput(prompt=None):
 	if prompt:
 		print(prompt)
 	s = input()
@@ -44,3 +46,17 @@ def sortDate(dateList):
 				dateList[index1] = dateList[index2]
 				dateList[index2] = d
 	return dateList
+
+def unique_everseen(seq, key=lambda x:x):
+	seen = set()
+	seen_add = seen.add
+	return [x for x in seq if not (key(x) in seen or seen_add(key(x)))]
+
+def comp_answers(inp, word):
+	return unidecode.unidecode(inp).lower() == unidecode.unidecode(word).lower()
+
+def shuffle_if_random(l, rand):
+	return random.sample(l, len(l)) if rand else l
+
+def comp_conj_answers(inp, words):
+	return any([comp_answers(inp, form) for form in words])

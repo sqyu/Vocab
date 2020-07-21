@@ -1,5 +1,6 @@
 from Help_funs import isInt, QuitException, quitOrInput
 import Vars
+from Vars import getInst, printInst, inpInst
 
 class Word:
 	"""

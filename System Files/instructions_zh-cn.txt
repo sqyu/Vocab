@@ -15,7 +15,7 @@ chooseDifficultNewOrExtend: 您想重新选择难词(Y)，还是添加新难词(
 chooseDifficultNewlyAddedWords: 新添加的难词：
 chooseDifficultNowList: 新的难词列表：
 chooseFromAbove: 请从以上选项(1 - REPLACE)中选择一个。
-chooseList: 请选择单词表编号。
+chooseList: 请选择单词表编号。编号+S可强制只读取难词（如"13S"），编号+A可强制读取所有词（如"13A"）。
 chooseListNotExists: 请从下列中重新选择一个单词表编号。
 chooseMoreLists: 请输入一个数字以添加另一个列表，或"N"结束添加。
 chooseMoreListsNotExists: 请从下列中重新选择一个单词表编号，或输入"N"结束添加。
@@ -25,9 +25,11 @@ chooseOneWord2: 的单词：
 chooseRandom50Words: 请输入您想要的随机词数。
 chooseRecord: 请从数字1至REPLACE中选择一个。
 chooseRecord2: 请输入1以选择该记录。
+chooseTense: 请从REPLACE中选择时态（以逗号分隔），或输入A/ALL。
 comments: 注释：SPACE
 confirmOrAbandon: 请输入"Y"确认，或"N"放弃。
 congratulations: 恭喜！
+conjInPersonForTense: 请输入REPLACE2人称的REPLACE1形。
 correct: 正确！
 date: 请按照MM/DD/YYYY格式输入日期。今天请输入"T"或"TODAY"，昨天请输入"Y"或"YESTERDAY"。
 dateAlreadyExists: 日期已存在。
@@ -43,13 +45,15 @@ findAWordChooseList: 您可以输入"Y"以选择您想要搜索单词的词表�
 findAWordMeaningsIn: 在REPLACE中的意思：
 guillemetLeft: 《
 guillemetRight: 》
+infinitive: 不定式：SPACE
 letters: 个字母
 markedWordSuccessfully: 已成功将REPLACE加入难词列表。
 markedWordUnsuccessfully: 警告： REPLACE不在此词表中。
 meaning: 意思REPLACE：SPACE
-moreOptions: 输入"C"添加注释，输入"D"修改/添加难词列表，或输入"SC"取得今天的计划，或输入"SI"学习近似/易混词，或输入"R"随机从一本书中选择REPLACE个单词，或输入"quit"返回主菜单。
-moreThanMANYResults: 多于MANY项搜索结果，请重新输入长一点的单词，或按回车取得所有搜索结果。
+moreOptions: 输入"C"添加注释，输入"D"修改/添加难词列表，或输入"SC"取得今天的计划，或输入"SI"学习近似/易混词，或输入"R"随机从一本书中选择REPLACE个单词，或输入"RC"背诵动词变位，或输入"quit"返回主菜单。
+moreThanMANYResults: 多于REPLACE项搜索结果，请重新输入长一点的单词，或按回车取得所有搜索结果。
 noDifficultWordList: BOOK的第LIST词表的难词列表不存在，读取所有单词中。如果您将来不想再学习本课中所有单词，请在更多菜单中添加难词表（主菜单 → M → D）。
+noTense: 找不到该时态，已停止。
 noScheduleAvailable: 没有找到计划文件。请在主程序"更多菜单"下(M → SCA)添加计划，或编辑"Record"文件夹中的"Schedule.txt"文件并以以下格式录入（一天一行）：RETURN1/1:SPACE需学习的词表 或 01/01:SPACE需学习的词表
 noScheduleTodayAvailable: 没有找到今天的计划。
 noWordsToStudy: 此表中没有可供学习的单词。请重新选择一个记录。
@@ -95,6 +99,7 @@ similarWordsNotFound: 找不到REPLACE的易混词。
 startDescribeList: 您可以随时输入"quit"退出，输入"mark"记录刚才所显示的单词，或输入任何其它键以继续。
 startRecite: 现在开始记忆单词。如欲结束，请输入"quit"。
 startRecite2: 您可以随时输入"quit"以退出此环节，也可以在发音出现之前输入"hint"以取得本单词列表。
+startReciteConj: 现在开始记忆动词变位。如欲结束，请输入"quit"。
 synonym: 同义词
 timeZoneAlaska: 阿拉斯加 (阿拉斯加时间) UTC-09:00/UTC-08:00
 timeZoneArizona: 亚利桑那 UTC-07:00
@@ -114,6 +119,7 @@ timeZoneTokyo: 东京 (日本标准时) UTC+09:00
 timeZoneUTC: UTC (世界协调时间) UTC+0
 tryAgain: 请再试一次。
 warning: 警告
+word: 单词
 wordsInTotal: 共
 wordsInTotal2: 个单词。
 wrongBook: 请重新选择课本。现在有：REPLACE。

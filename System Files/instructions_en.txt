@@ -15,7 +15,7 @@ chooseDifficultNewOrExtend: Do you want to re-select all difficult words (Y), or
 chooseDifficultNewlyAddedWords: Newly added words:
 chooseDifficultNowList: Now the difficult word list is:
 chooseFromAbove: Please choose from the options above (1 - REPLACE).
-chooseList: Please enter the list number.
+chooseList: Please enter the list number. You may enter list number + "S" (e.g. "13S") to force loading difficult words only, or list number + "A" (e.g. "13A") to force loading all words in the list.
 chooseListNotExists: Please re-enter a list number from the following.
 chooseMoreLists: Please enter a list number to add another list, or "N" to finish adding.
 chooseMoreListsNotExists: Please re-enter a list number from the following, or enter "N" to finish adding.
@@ -25,9 +25,12 @@ chooseOneWord2: :
 chooseRandom50Words: Please enter the number of random words you want to have.
 chooseRecord: Please enter a number from 1 to REPLACE.
 chooseRecord2: Please enter 1 to choose the only record.
+chooseTense: Please choose the tenses from REPLACE to practice (separated by comma), or enter A/ALL.
+comments: Comments:SPACE
 comments: Comments:SPACE
 confirmOrAbandon: Enter "Y" to confirm, or "N" to abandon.
 congratulations: Congratulations!
+conjInPersonForTense: Conjugate in REPLACE1 for REPLACE2.
 correct: Correct!
 date: Please enter the date MM/DD/YYYY. For today please enter "T" or "TODAY"; for yesterday please enter "Y" or "YESTERDAY".
 dateAlreadyExists: Date already exists.
@@ -43,15 +46,17 @@ findAWordChooseList: You can enter "Y" to choose the lists in which you wish to 
 findAWordMeaningsIn: Meanings in REPLACE:
 guillemetLeft: «
 guillemetRight: »
+infinitive: Infinitive:SPACE
 letters: letters
 markedWordSuccessfully: REPLACE added to the difficult word list successfully.
 markedWordUnsuccessfully: Warning:SPACEREPLACE not in the list.
 meaning: MeaningREPLACE:SPACE
-moreOptions: To add comments, enter "C"; to change or add difficult word list, enter "D"; to view today's schedule, enter "SC"; to study similar words, enter "SI"; to randomly choose REPLACE words from one book, enter "R"; to quit, enter "quit".
-moreThanMANYResults: More than MANY results. Please enter a longer keyword, or press enter to show all results.
+moreOptions: To add comments, enter "C"; to change or add difficult word list, enter "D"; to view today's schedule, enter "SC"; to study similar words, enter "SI"; to randomly choose REPLACE words from one book, enter "R"; to recite verb conjugations, enter "RC"; to quit, enter "quit".
+moreThanMANYResults: More than REPLACE results. Please enter a longer keyword, or press enter to show all results.
 noDifficultWordList: Difficult word list does not exist for list LIST of book BOOK. Reading all words. If you do not wish to see all words from this word list again, please go to More Options to create a difficult word list (main menu → M → D).
 noScheduleAvailable: No schedule available. Please add your schedule in the main program under More Options (main menu → M → SCA), or edit "Schedule.txt" in "Record" folder and add entries in the format as follows (one line for one day):RETURN1/1:SPACELISTS TO STUDY or 01/01:SPACELISTS TO STUDY
 noScheduleTodayAvailable: Schedule for today not found.
+noTense: No tenses found for conjugations. Stopped.
 noWordsToStudy: No words to study in this list. Please re-select one record.
 notInBook: not in book REPLACE.
 notInBooks: not in books REPLACE.
@@ -94,7 +99,8 @@ similarFileNotExists: Similar words file does not exist.
 similarWordsNotFound: No similar words for REPLACE found.
 startDescribeList: Enter "quit" to quit, "mark" to mark the word just fully shown, "cm" to add comments, or anything else to continue.
 startRecite: Now start vocabulary recitation. Enter "quit" any time to quit.
-startRecite2: You may enter "quit" any time to quit this module, or enter "hint" before the pronunciation is shown to show the full list of vocabulary.
+startRecite2: You may enter "quit" any time to quit this module, or enter "hint" before the 
+startReciteConj: Now start conjugation recitation. Enter "quit" any time to quit.pronunciation is shown to show the full list of vocabulary.
 synonym: Synonyms
 timeZoneAlaska: Alaska (Alaska Time) UTC-09:00/UTC-08:00
 timeZoneArizona: Arizona UTC-07:00
@@ -114,6 +120,7 @@ timeZoneTokyo: Tokyo (Japan Standard Time) UTC+09:00
 timeZoneUTC: UTC (Coordinated Universal Time) UTC+0
 tryAgain: Try again.
 warning: Warning
+word: WordSPACE
 wordsInTotal: 
 wordsInTotal2: words in total.
 wrongBook: Please re-select the book. Now available:SPACEREPLACE.

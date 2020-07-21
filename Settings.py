@@ -4,44 +4,27 @@ from Help_funs import isInt, QuitException, quitOrInput
 import Vars
 from Vars import getInst, printInst, inpInst
 
-def chooseYorNorA(A_allowed, current = None):
+def chooseOrReturnCurrent(valid_list, instruction, lower, current = None):
 	"""
-		choosesetYorN(current = None):
-		Returns "Y" or "N", or "A" if A_allowed is True
+		chooseOrReturnCurrent(valid_list, instruction, lower, current = None):
+		Returns an input from valid_list.
 		
 		Parameters
 		__________
-		A_allowed: If True, input "A" is also allowed
-		current: string "Y" or "N", or "A" if A_allowed is True; the current setting
+		valid_list: list, List of available options
+		instruction: str, Prompt.
+		lower: True or False, if change input to lower case
+		current: None or one option from valid_list, the current setting
 	"""
-	choose = ["Y", "N", "A"] if A_allowed else ["Y", "N"]
-	if current is not None and current not in choose:
-		raise Exception("In chooseYorNorA: Argument 'current' must be None or one of the allowed inputs.")
-	inst = getInst("setYorNorA") if A_allowed else getInst("setYorN")
-	user_input = input(inst + "\n").upper()
-	while not user_input in choose:
-		if current and user_input == "QUIT":
+	if current is not None and current not in valid_list:
+		raise Exception("In chooseOrReturnCurrent: Argument 'current' must be None or one of the allowed inputs in valid_list.")
+	trans = lambda x:(x.lower() if lower else x.upper())
+	inp = trans(input("\n" + instruction + "\n"))
+	while not inp in valid_list:
+		if current and inp.upper() == "QUIT":
 			return current
-		user_input = input(inst + "\n").upper()
-	return user_input
-
-def chooseLanguage(current = None):
-	"""
-		chooseLanguage(current = None):
-		Returns language code "zh-hk", "zh-cn", or "ja"
-		
-		Parameters
-		__________
-		current: string "zh-hk", "zh-cn", or "ja"
-		The current language code
-	"""
-	langs = ["zh-hk", "zh-cn", "ja"]
-	Vars.lang = input("\n" + Vars.instructions_All["chooseLanguage"] + "\n").lower()
-	while not Vars.lang in langs:
-		if current and Vars.lang.upper() == "QUIT":
-			return current
-		Vars.lang = input("\n" + Vars.instructions_All["chooseLanguage"] + "\n").lower()
-	return Vars.lang
+		inp = trans(input("\n" + instruction + "\n"))
+	return inp
 
 def chooseOneTimeZone(current = None): # Choose one time zone, returns one time zone
 	"""
@@ -127,30 +110,17 @@ def setParameters():
 		print("\n" + Vars.instructions_All["greetings"])
 		Vars.lang = chooseLanguage()
 		Vars.availableBooks = list(Vars.listNumber[Vars.lang])
-		Vars.instructions = getInstructionsLang(Vars.lang)
+		Vars.instructions = readSystemFile(Vars.lang)
 		timeZoneQuitted = True
 		while timeZoneQuitted:
 			timeZone, timeZoneQuitted = chooseOneTimeZone()
-		Vars.parameters["AllForRandom50Words"] = "A"
-		Vars.parameters["Language"] = Vars.lang
-		Vars.parameters["Random"] = "A"
-		Vars.parameters["Random50Words"] = "50"
-		Vars.parameters["Record"] = "A"
-		Vars.parameters["ShowComments"] = "Y"
-		Vars.parameters["TimeZone"] = " ** ".join([timeZone] * 3)
-		f = open(par, 'w')
-		for para in sorted(Vars.parameters):
-			f.write(para + ": " + Vars.parameters[para] + "\n")
-		f.close()
+		Vars.parameters = {"AllForRandom50Words": "A",
+		"Language": Vars.lang, "Random": "A", "Random50Words": "50", "Record": "A",
+		"ShowComments": "Y", "TimeZone": " ** ".join([timeZone] * 3)}
+		open(par, 'w').write("\n".join([s[0]+": "+s[1] for s in sorted(Vars.parameters.items())]))
 	else:
-		f = open(par)
-		for s in f:
-			s = s.split(": ")
-			if len(s) == 1:
-				s.append("")
-			Vars.parameters[s[0]] = s[1].rstrip("\n")
-		f.close()
-		Vars.instructions = getInstructionsLang(Vars.parameters["Language"])
+		Vars.parameters = readSystemFile("parameters")
+		Vars.instructions = readSystemFile(Vars.parameters["Language"])
 		Vars.availableBooks = list(Vars.listNumber[Vars.parameters["Language"]])
 	return Vars.parameters
 
@@ -172,18 +142,14 @@ def changeParameters():
 		except QuitException:
 			return
 	choose = sorted(Vars.parameters)[int(choose) - 1]
-	if choose == "AllForRandom50Words":
-		setChoose = chooseYorNorA(True, Vars.parameters["AllForRandom50Words"])
+	if choose in ["AllForRandom50Words", "Random", "Record"]:
+		setChoose = chooseOrReturnCurrent(["Y", "N", "A"], getInst("setYorNorA"), False, Vars.parameters[choose])
 	elif choose == "Language":
-		setChoose = chooseLanguage(Vars.parameters["Language"])
-	elif choose == "Random":
-		setChoose = chooseYorNorA(True, Vars.parameters["Random"])
+		setChoose = chooseOrReturnCurrent(Vars.langs, Vars.instructions_All["chooseLanguage"], True, Vars.parameters["Language"])
 	elif choose == "Random50Words":
 		setChoose = chooseRandom50Words(Vars.parameters["Random50Words"])
-	elif choose == "Record":
-		setChoose = chooseYorNorA(True, Vars.parameters["Record"])
 	elif choose == "ShowComments":
-		setChoose = chooseYorNorA(False, Vars.parameters["ShowComments"])
+		setChoose = chooseOrReturnCurrent(["Y", "N"], getInst("setYorN"), False, Vars.parameters["ShowComments"])
 	elif choose == "TimeZone":
 		setChoose = chooseTimeZone(Vars.parameters["TimeZone"])
 	else:
@@ -199,61 +165,41 @@ def changeParameters():
 	os.rename(os.path.join(Vars.sys_path, 'Parameters 2.txt'), os.path.join(Vars.sys_path, 'Parameters.txt'))
 	Vars.parameters = setParameters()
 	Vars.lang = Vars.parameters["Language"]
-	Vars.instructions = getInstructionsLang(Vars.lang)
+	Vars.instructions = readSystemFile(Vars.lang)
 	printInst("changesSaved")
 	return
-
-def getAllInstructions():
+	
+def readSystemFile(mode):
 	"""
-		getAllInstructions()
-		Returns the Vars.instructions needed to be shown before letting the user chooses system language
-	"""
-	Vars.instructions_All = {}
-	f = open(os.path.join(Vars.sys_path, 'Instructions_all.txt'))
-	for s in f:
-		s = s.split(": ")
-		if len(s) == 1:
-			s.append("") # If instruction is empty (possible because it might be non-empty for some other languages)
-		Vars.instructions_All[s[0]] = s[1].replace("RETURN", "\n").replace("SPACE", " ") # With '\n'
-	f.close()
-	return Vars.instructions_All
-
-def getInstructionsLang(lang):
-	"""
-		getInstructionsLang(lang):
-		Returns the Vars.instructions in the chosen language
+		readSystemFile(mode):
+		Returns the instructions in the chosen language
 		
 		Paramters
 		_________
-		lang : string "zh-hk", "zh-cn", or "ja"
+		mode : string "zh-hk", "zh-cn", "ja", "all", "parameters"
 		Language code
 	"""
-	Vars.instructions = {}
-	if lang == "zh-hk":
-		f = open(os.path.join(Vars.sys_path, 'Instructions_hant.txt'))
-	elif lang == "zh-cn":
-		f = open(os.path.join(Vars.sys_path, 'Instructions_hans.txt'))
-	elif lang == "ja":
-		f = open(os.path.join(Vars.sys_path, 'Instructions_ja.txt'))
+	if mode == "parameters":
+		file = "Parameters.txt"
+	elif mode == "all" or mode in Vars.langs:
+		file = "Instructions_%s.txt" % mode
 	else:
-		assert()
-	for s in f:
-		s = s.split(": ")
-		if len(s) == 1:
-			s.append("") # If instruction is empty (possible because it might be non-empty for some other languages)
-		Vars.instructions[s[0]] = s[1].replace("RETURN", "\n").replace("SPACE", " ") # With '\n'
+		raise Exception("In readSystemFile(), mode most be 'all', 'parameters', or one of the languages from Vars.langs. Given %s." % mode)
+	f = open(os.path.join(Vars.sys_path, file))
+	Vars.instructions = {sp[0]: sp[1].strip().replace("RETURN", "\n").replace("SPACE", " ") for sp in (s.split(": ") for s in f.readlines())} ## Keep in mind that some instructions are empty
 	f.close()
 	return Vars.instructions
+	
 
 def initialization():
 	"""
 		initialization()
 		Initializes the program: set the parameters, defines global variable "Vars.lang", and makes "Record" directory
 	"""
-	Vars.instructions_All = getAllInstructions() # Top
+	Vars.instructions_All = readSystemFile("all") # Top
 	Vars.parameters = setParameters()
 	Vars.lang = Vars.parameters["Language"]
-	#Vars.instructions = getInstructionsLang(Vars.parameters["Language"])
+	#Vars.instructions = readSystemFile(Vars.parameters["Language"])
 	if not os.path.exists(Vars.record_path):
 		os.makedirs(Vars.record_path)
 	return
