@@ -5,6 +5,9 @@ allForRandom50Words: Include all words (Y) or only difficult words (N) in "Rando
 antonym: Antonyms
 book1: Please select the book. 
 book2: For REPLACE1 please enter "REPLACE2".
+bookDE: Duolingo German
+bookF: Français
+bookIELTS: IELTS
 bookLF1: Le Français 1
 bookHJNHG: Hyojun Nihongo
 bookPLR: Petit Livre Rouge
@@ -20,6 +23,7 @@ chooseListNotExists: Please re-enter a list number from the following.
 chooseMoreLists: Please enter a list number to add another list, or "N" to finish adding.
 chooseMoreListsNotExists: Please re-enter a list number from the following, or enter "N" to finish adding.
 chooseMoreListsWrong: Please enter a number, or enter "N" to finish adding.
+chooseOneList: Please enter the list number.
 chooseOneWord1: Words containing
 chooseOneWord2: :
 chooseRandom50Words: Please enter the number of random words you want to have.
@@ -27,18 +31,18 @@ chooseRecord: Please enter a number from 1 to REPLACE.
 chooseRecord2: Please enter 1 to choose the only record.
 chooseTense: Please choose the tenses from REPLACE to practice (separated by comma), or enter A/ALL.
 comments: Comments:SPACE
-comments: Comments:SPACE
 confirmOrAbandon: Enter "Y" to confirm, or "N" to abandon.
 congratulations: Congratulations!
 conjInPersonForTense: Conjugate in REPLACE1 for REPLACE2.
 correct: Correct!
+createDifficultWords: Start creating difficult word list. To select a word, enter "M" or "MARK" after it shows up.
 date: Please enter the date MM/DD/YYYY. For today please enter "T" or "TODAY"; for yesterday please enter "Y" or "YESTERDAY".
 dateAlreadyExists: Date already exists.
 dateDoesNotExist: Date does not exist.
 dateNotValid: Date not valid.
 derivation: Derivations
 difficultWordList: Difficult word list:
-difficultWordsInput: Please enter the words you wish to be but were not marked, separated by space.
+difficultWordsInput: Please enter the words you wish to be but were not marked, separated by ||.
 enterANumber: Please enter a number.
 enterAPositiveNumber: Please enter a positive number.
 enterYOrN: Enter Y or N.
@@ -99,7 +103,7 @@ similarFileNotExists: Similar words file does not exist.
 similarWordsNotFound: No similar words for REPLACE found.
 startDescribeList: Enter "quit" to quit, "mark" to mark the word just fully shown, "cm" to add comments, or anything else to continue.
 startRecite: Now start vocabulary recitation. Enter "quit" any time to quit.
-startRecite2: You may enter "quit" any time to quit this module, or enter "hint" before the 
+startRecite2: You may enter "quit" any time to quit this module, or enter "hint" before the pronunciation is shown to show the full list of vocabulary.
 startReciteConj: Now start conjugation recitation. Enter "quit" any time to quit.pronunciation is shown to show the full list of vocabulary.
 synonym: Synonyms
 timeZoneAlaska: Alaska (Alaska Time) UTC-09:00/UTC-08:00
@@ -122,7 +126,7 @@ tryAgain: Try again.
 warning: Warning
 word: WordSPACE
 wordsInTotal: 
-wordsInTotal2: words in total.
+wordsInTotal2: SPACEwords in total.
 wrongBook: Please re-select the book. Now available:SPACEREPLACE.
 wrongDate: Date not found. Please re-enter the date MM/DD/YYYY.
 wrongDifficultWordsInput: not in the list. Please re-enter the word, or enter "AB" to abandon.

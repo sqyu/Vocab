@@ -6,12 +6,45 @@ wordLists_path = 'Word lists'
 
 langs = ["zh-hk", "zh-cn", "ja", "en"]
 
-acronym = {"Petit Livre Rouge": "PLR", "Trois Mille": "TM", "Le Français 1": "LF1", "Hyojun Nihongo": "HJNHG"}
+acronym = {
+	"Petit Livre Rouge": "PLR",
+	"Trois Mille": "TM",
+	"Le Français 1": "LF1",
+	"Duo_de": "DE",
+	"Français":"F",
+	"IELTS": "IELTS",
+	"Hyojun Nihongo": "HJNHG"
+}
 findAcronym = {value: key for key, value in acronym.items()}
 
-listNumber = {"zh-hk": {"Petit Livre Rouge": list(range(1,43)), "Trois Mille": list(range(1,32)), "Le Français 1": list(range(1,2)), "Hyojun Nihongo": list(range(1,2))}, "zh-cn": {"Petit Livre Rouge": list(range(1,43)), "Trois Mille": list(range(1,32)), "Le Français 1": list(range(1,2))}, "ja": {"Petit Livre Rouge": [3, 5, 11, 12, 13], "Le Français 1": list(range(1,2))}, "en": {}}
+listNumber = {
+	"zh-hk": {
+		"Petit Livre Rouge": list(range(1,43)),
+		"Trois Mille": list(range(1,32)),
+		"Le Français 1": list(range(1,2)),
+		"Duo_de": range(1,2),
+		"IELTS": range(1,49),
+		"Hyojun Nihongo": list(range(1,2))
+	},
+	"zh-cn": {
+		"Petit Livre Rouge": list(range(1,43)),
+		"Trois Mille": list(range(1,32)),
+		"Le Français 1": list(range(1,2)),
+		"IELTS": range(1,49),
+	},
+	"ja": {
+		"Petit Livre Rouge": [3, 5, 11, 12, 13],
+		"Le Français 1": list(range(1,2)),
+		"Français": [2]
+	},
+	"en": {
+		"Le Français 1": range(1,2),
+		"Français": [2],
+		"Duo_de": range(1,2)
+	}
+}
 
-conjNumber = {}
+conjNumber = {"Duo_de": range(1,2), "Français": [2]}
 lang = ""
 parameters = {}
 instructions = {}

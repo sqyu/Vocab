@@ -5,6 +5,9 @@ allForRandom50Words: 「隨機REPLACE詞」模式中添加所有單詞(Y)或僅�
 antonym: 反義詞
 book1: 請選擇課本。
 book2: REPLACE1請輸入「REPLACE2」。
+bookDE: Duolingo德語
+bookF: Français
+bookIELTS: 雅思
 bookLF1: 法語1
 bookHJNHG: 標準日本語
 bookPLR: 紅寶書
@@ -20,6 +23,7 @@ chooseListNotExists: 請重新由以下中選擇一個單詞表編號。
 chooseMoreLists: 請輸入一個數字以添加另外一個單詞表，或「N」結束添加。
 chooseMoreListsNotExists: 請重新由以下中選擇一個單詞表編號，或輸入「N」結束添加。
 chooseMoreListsWrong: 請輸入一個數字，或輸入「N」結束添加。
+chooseOneList: 請選擇單詞表編號。
 chooseOneWord1: 含有
 chooseOneWord2: 的單詞：
 chooseRandom50Words: 請輸入您想要的隨機詞數。
@@ -31,13 +35,14 @@ confirmOrAbandon: 請輸入「Y」確認，或「N」放棄。
 congratulations: 恭喜！
 conjInPersonForTense: 請輸入REPLACE2人稱的REPLACE1形。
 correct: 正確！
+createDifficultWords: 開始創建難詞列表。在單詞出現後輸入「M」或「MARK」可將單詞加入難詞列表。
 date: 請依MM/DD/YYYY格式輸入日期。今日日期請輸入「T」或「TODAY」，昨日日期請輸入「Y」或「YESTERDAY」。
 dateAlreadyExists: 日期已存在。
 dateDoesNotExist: 日期不存在。
 dateNotValid: 日期輸入有誤。
 derivation: 語源・派生詞
 difficultWordList: 難詞列表：
-difficultWordsInput: 請輸入您想要記錄但未被記錄的單詞，並用空格分隔。
+difficultWordsInput: 請輸入您想要記錄但未被記錄的單詞，並用||分隔。
 enterANumber: 請輸入一個數字。
 enterAPositiveNumber: 請輸入一個正整數。
 enterYOrN: 請輸入「Y」或「N」。

@@ -5,6 +5,9 @@ allForRandom50Words: 「ランダムREPLACE語」モードにすべての単語�
 antonym: 対義語
 book1: 本を選んでください。
 book2: REPLACE1の場合は「REPLACE2」を入力してください。
+bookDE: Duolingoドイツ語
+bookF: Français
+bookIELTS: IELTS
 bookLF1: 仏語１
 bookHJNHG: 標準日本語
 bookPLR: 紅宝書
@@ -20,6 +23,7 @@ chooseListNotExists: 次のリストからもう一度一つ選んてくださ�
 chooseMoreLists: 数字を入力してもう一つのリストを追加するか、「N」を入力して追加を終了してください。
 chooseMoreListsNotExists: 次のリストからもう一度一つ選ぶか、「N」を入力して追加を終了してください。
 chooseMoreListsWrong: 数字を入力するか、「N」を入力して追加を終了してください。
+chooseOneList: リストを選んでください。
 chooseOneWord1: 
 chooseOneWord2: を含む単語：
 chooseRandom50Words: ご希望のランダム単語数を入力してください。
@@ -31,13 +35,14 @@ confirmOrAbandon: 「Y」で確認するか、「N」で破棄してください
 congratulations: 大変よくできました！
 conjInPersonForTense: REPLACE1時制REPLACE2人称の活用を入力してください。
 correct: 正解！
+createDifficultWords: 難しい単語リストの作成を始めます。単語が出たあとに「M」や「MARK」を入力することで難しい単語リストに追加できます。
 date: MM/DD/YYYYのフォーマットで日付を入力してください。今日の場合は「T」や「TODAY」を、昨日の場合は「Y」または「YESTERDAY」を入力してください。
 dateAlreadyExists: 日付はすでに存在します。
 dateDoesNotExist: 日付が見つかりません。
 dateNotValid: 日付が正しくありません。
 derivation: 語源・派生語
 difficultWordList: 難しい単語：
-difficultWordsInput: 他に記録したい単語をスペースで区切って入力してください。
+difficultWordsInput: 他に記録したい単語を||で区切って入力してください。
 enterANumber: 数字を入力してください。
 enterAPositiveNumber: 自然数を入力してください。
 enterYOrN: 「Y」または「N」を入力してください。

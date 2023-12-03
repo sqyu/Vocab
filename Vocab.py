@@ -8,12 +8,14 @@ import random
 import time
 import pytz
 import re
-
-from Help_funs import *
 import Settings
-from Vars import getInst, printInst, inpInst
 import Vars
 import Word
+
+from Conj import reciteconj, Conj
+from Help_funs import *
+from Vars import getInst, printInst, inpInst, conjNumber, listNumber
+from Writing import writeTime
 
 def chooseBook(booksToChoose = None):
 	"""
@@ -60,7 +62,7 @@ def chooseList(listsinthebook, all, firstList):
 		theList = listsinthebook[0] # Option to choose "select" or "all" not available
 		return theList, all
 	else:
-		theList = inpInst("chooseList" if firstList else "chooseMoreLists", handleQuit=False).upper() # Select list
+		theList = inpInst("chooseList" if firstList else "chooseMoreLists").upper() # Select list; QuitException handled in createDictionary()
 		while True: # If the user did not enter a number
 			if not isInt(theList):
 				if ("S" in theList): # List number + "S" to indicate that read the list of selected words only ("S" stands for "select")
@@ -141,22 +143,6 @@ def checkAllWordsInLists(wordList, book, lists): # Check if all words in the rec
 			passed = False
 	return passed
 
-def concatenateListNames(names):
-	"""
-		concatenateListNames(names):
-		Returns formated list names, e.g. "L1 & L2 & L4" or "L1 -- L3"
-		
-		Parameters
-		__________
-		names: list
-		A list of integer list numbers
-	"""
-	lists = sorted(names)
-	if lists == list(range(min(lists), max(lists) + 1)) and max(lists) - min(lists) >= 2:
-		lists = "L" + str(min(lists)) + " -- L" + str(max(lists))
-	else:
-		lists = " & ".join(["L" + str(n) for n in lists])
-	return lists
 
 def loadWords(all, book, comments, Dictionary, mode, theList, wordList):
 	"""
@@ -230,6 +216,105 @@ def loadWords(all, book, comments, Dictionary, mode, theList, wordList):
 				Dictionary[word] = Word.Word(s)
 	f.close()
 	return
+
+
+def loadConj(all, book, comments, Dictionary, mode, theList, conjList):
+	"""
+		loadConj(all, book, comments, Dictionary, mode, theList, conjList):
+		Adds Conjs to Dictionary and word strings to conjList
+		
+		Parameters
+		__________
+		all: bool
+		Whether add all words or not
+		
+		book: string, must be an available book in the language
+		The book chosen
+		
+		comments: dictionary whose keys and contents are both strings
+		All comments for words in the whole book
+		
+		Dictionary: dictionary whose keys are strings (words) and contents are of class Conj
+		The dictionary to which the conjs are to be added
+		
+		mode: 1, 2, or 3
+		Mode 1: regular; Mode 2: read from record; Mode 3: read all words
+		
+		theList: integer, within the range of listNumber[lang][book]
+		The list number
+		
+		conjList: lists of strings (words)
+		The list of words loaded
+		
+		"""
+	bookList = os.path.join(Vars.wordLists_path, book, 'Lists', str(theList) + ' conj.txt')
+	f = open(bookList) # Read Only
+	difficultWordFile = os.path.join(Vars.wordLists_path, book, 'Difficult Words', str(theList) + '.txt')
+	if mode == 2:
+		add_this_word = lambda word:word in set(conjList)
+	elif mode != 2 and not all and (not os.path.exists(difficultWordFile)): # If normal mode and difficult word lists do not exist, read all words
+		printInst("noDifficultWordList", rep=(("LIST", str(theList)), ("BOOK", getInst("book" + Vars.acronym[book]))))
+		all = True
+	elif mode != 2 and not all: # If normal mode
+		g = open(difficultWordFile)
+		difficultWords = set(re.split("\s*\|+\s*", g.readline().lower().rstrip("\n")))
+		g.close()
+		checkAllWordsInLists(difficultWords, book, [theList]) # Only need to check the difficult word list for the current list ## ??
+		add_this_word = lambda word: word in difficultWords
+	else:
+		add_this_word = lambda word: True
+	worddic = {}
+	if Vars.lang in Vars.listNumber and book in Vars.listNumber[Vars.lang] and theList in Vars.listNumber[Vars.lang][book]:
+		loadWords(True, book, {}, worddic, 3, theList, [])
+	for s in f:
+		if "**" in s:
+			try:
+				conj_obj = Conj(s)
+				if add_this_word(conj_obj.infinitive):
+					if conj_obj.infinitive in comments:
+						conj_obj.comments = comments[conj_obj.infinitive]
+					conj_obj.meanings = "\n".join(worddic[conj_obj.infinitive].meanings) if conj_obj.infinitive in worddic else ""
+					Dictionary[conj_obj.infinitive] = conj_obj
+					if mode != 2:
+						conjList.append(conj_obj.infinitive)
+			except Exception as e:
+				print("Failed to load conjugations for %s: %s." % (s, e)) ## INSTRUCTIONS PENDING
+	f.close()
+	return
+
+def read_conj(defaultAll = True):
+	book = chooseBook(conjNumber.keys())
+	firstList = True
+	if book == None:
+		return
+	while True:
+		all = defaultAll
+		try:
+			theListAndAll = chooseList(conjNumber[book], all, firstList)
+		except QuitException:
+				return
+		if theListAndAll is None:
+			break
+		theList, all = theListAndAll
+		theList = int(theList)
+		lists.append(theList)
+		alls.append(all)
+		if len(Vars.listNumber[Vars.lang][book]) == 1:
+			break
+			firstList = False
+	if isinstance(book, list):
+		for books in book:
+			comments = loadComments(books)
+			Dictionary[books] = {}
+			for theList in Vars.listNumber[Vars.lang][books]:
+				loadWords(False, books, comments, Dictionary[books], mode, theList, wordList)
+	else:
+		comments = loadComments(book)
+		for index, theList in enumerate(lists):
+			loadWords(alls[index], book, comments, Dictionary, mode, theList, wordList)
+	names = [book] + sorted(lists)
+	return (sorted(set(wordList)), names)
+
 
 def loadComments(book):
 	"""
@@ -306,7 +391,7 @@ def createDictionary(Dictionary, conj, readFromRecord = None, allLists = None, d
 	lists = []
 	alls = []
 	names = []
-	list_of_books = Vars.conjNumber if conj else Vars.listNumber[Vars.lang]
+	list_of_books = conjNumber if conj else Vars.listNumber[Vars.lang]
 	assert((readFromRecord == None) or (allLists == None))
 	if readFromRecord != None:
 		mode = 2 # Mode 2
@@ -370,134 +455,6 @@ def createDictionary(Dictionary, conj, readFromRecord = None, allLists = None, d
 				loadWords(alls[index], book, comments, Dictionary, mode, theList, wordList)
 	names = [book] + sorted(lists)
 	return (sorted(set(wordList)), names)
-
-def writeTime(begin, timeBegan = None, mode = None, names = None):
-	"""
-		writeTime(begin, timeBegan = None, mode = None, names = None):
-		Writes the learning time to record file.
-		
-		Parameters
-		__________
-		begin: bool
-		Whether it is the beginning or end of the session
-		
-		timeBegan: bool, must be None if begin == True, and must not be None if begin == False
-		The beginning time of the session
-		
-		mode: string, must be None if begin == True, and must not be None if begin == False
-		The mode (session)
-		
-		names: string
-		Book name and list of words found if "find a word" mode, book name and "random XX words" if "random 50 words" mode, "similar words to WORD" if "similar words" mode, or book name and list numbers otherwise
-	"""
-	assert((begin and timeBegan == None) or (not begin and timeBegan != None))
-	assert((begin and mode == None) or (not begin and mode != None))
-	assert((begin and names == None) or (not begin and names != None))
-	tz = pytz.timezone(Vars.parameters["TimeZone"].split(" ** ")[2])
-	timeNow = datetime.datetime.now(tz.localize(datetime.datetime.now()).tzinfo)
-	timeNowYM = timeNow.strftime("%Y-%m")
-	timeNowFULL = timeNow.strftime("%m/%d/%Y %H:%M:%S %Z")
-	if not os.path.exists(os.path.join(Vars.record_path, 'Time')):
-		os.makedirs(os.path.join(Vars.record_path, 'Time'))
-	if not os.path.exists(os.path.join(Vars.record_path, 'Time', 'Time ' + timeNowYM + '.txt')):
-		f = open(os.path.join(Vars.record_path, 'Time', 'Time ' + timeNowYM + '.txt'), 'w')
-		if begin:
-			f.write(timeNowFULL)
-			f.close()
-			return timeNowFULL
-		else:
-			f.close()
-			return
-	g = open(os.path.join(Vars.record_path, 'Time', 'Time ' + timeNowYM + '.tmp'), 'w')
-	f = open(os.path.join(Vars.record_path, 'Time', 'Time ' + timeNowYM + '.txt'), 'r')
-	try:
-		if begin:
-			freadlines = f.readlines()
-			if freadlines != []:
-				while "\n" in freadlines:
-					freadlines.pop(freadlines.index("\n"))
-				if not "\n" in freadlines[len(freadlines) - 1]:
-					freadlines[len(freadlines) - 1] += "\n"
-				g.write(''.join(freadlines))
-			g.write(timeNowFULL)
-		if not begin: # If end
-			if len(names) == 2 and isinstance(names[1], str) and "random " in names[1] and " words" in names[1] and isInt(names[1].replace("random ", "").replace(" words", "")): # Random 50 words
-				book = Vars.acronym[names[0]] + " "
-				lists = names[1]
-			elif len(names) == 1 and "similar words to " in names[0]: # Similar words
-				book = ""
-				lists = names[0]
-			elif mode != "words found: ":
-				book = Vars.acronym[names[0]] + " " # Replace the full name of the book by its Vars.acronym
-				lists = concatenateListNames(names[1:len(names)])
-			for s in f:
-				if timeBegan in s:
-					assert(not "-" in s)
-					if (mode == "words found: ") and (len(names) == 0):
-						g.write(s.rstrip("\n") + " -- " + timeNowFULL + " no words found.\n")
-					elif mode == "words found: ":
-						g.write(s.rstrip('\n') + " -- " + timeNowFULL + " words found: " + " & ".join(names) + "\n")
-					else:
-						g.write(s.rstrip('\n') + " -- " + timeNowFULL + " " + mode + book + lists + "\n")
-				else:
-					if s!= "\n":
-						g.write(s)
-		f.close()
-		g.close()
-		os.rename(os.path.join(Vars.record_path, 'Time', 'Time ' + timeNowYM + '.tmp'), os.path.join(Vars.record_path, 'Time', 'Time ' + timeNowYM + '.txt'))
-		if begin:
-			return timeNowFULL
-	except:
-		f.close()
-		g.close()
-		print("Error occurred: {0} || {1} || {2} || {3}.".format(begin, timeBegan, mode, names))
-	return
-
-def writeRecord(difficultWords, mode, names):
-	"""
-		writeRecord(difficultWords, mode, names):
-		Writes the record to the file.
-		
-		Parameters
-		__________
-		difficultWords: list
-		A list of difficult words
-		
-		mode: string, must be "learn", "recite", "view" or "reciteconj"
-		The mode
-		
-		names: string
-		"similar words to WORD" if "similar word mode", book name and "random XX words" if "random 50 words" mode, the list that consists of the name of the book followed by the list numbers otherwise
-	"""
-	assert mode in ["learn", "recite", "view", "reciteconj"]
-	tz = pytz.timezone(Vars.parameters["TimeZone"].split(" ** ")[0])
-	timeNow = datetime.datetime.now(tz.localize(datetime.datetime.now()).tzinfo)
-	if "similar words to " in names[0]:
-		pathToRecord = os.path.join(Vars.record_path, 'Others', timeNow.strftime("%Y-%m"))
-	else:
-		pathToRecord = os.path.join(Vars.record_path, names[0], timeNow.strftime("%Y-%m"))
-	if not os.path.exists(pathToRecord):
-		os.makedirs(pathToRecord)
-	if "similar words to " in names[0]:
-		lists = names[0].replace("similar words to ", "").upper()
-		fileName = pathToRecord + "/" + lists + " " + timeNow.strftime("%m-%d ") + mode
-	elif isinstance(names[1], str) and "random " in names[1] and " words" in names[1] and isInt(names[1].replace("random ", "").replace(" words", "")): # Random 50 words
-		lists = names[1]
-		fileName = pathToRecord + "/" + timeNow.strftime("%m-%d ") + lists + " " + mode
-	else:
-		lists = concatenateListNames(names[1:len(names)])
-		fileName = pathToRecord + "/" + timeNow.strftime("%m-%d ") + lists + " " + mode
-	if os.path.isfile(fileName + ".txt"):
-		i = 2
-		while os.path.isfile(fileName + " " + str(i) + ".txt"):
-			i += 1
-		fileName = fileName + " " + str(i) + ".txt"
-	else:
-		fileName = fileName + ".txt"
-	f = open(fileName, "w")
-	f.write("\n".join(difficultWords))
-	f.close()
-	return
 
 def describeList(Dictionary, wordListAndNames, learnMode, rand, record, readFromRecord = False):
 	"""
@@ -643,34 +600,6 @@ def describeList(Dictionary, wordListAndNames, learnMode, rand, record, readFrom
 		updateComments(comments, name[0])
 	return
 
-def formatList(wordList):
-	"""
-		formatList(wordList):
-		Formats a list of word into a nicer-looking string.
-		
-		Parameters
-		__________
-		wordList: list of strings
-		A word list to be formatted
-	"""
-	screenWidth = 80
-	numberOfWordList = len(wordList)
-	wordList = sorted(set(wordList))
-	if sum(map(len, wordList)) + 6 * len(wordList) + 0 <= screenWidth:
-		return "|" + "||".join(["  {0}  ".format(word) for word in wordList]) + "|\n"
-	maxNumber = (screenWidth + 0) // (min(list(map(len, wordList))) + 6)
-	minNumber = (screenWidth + 0) // (max(list(map(len, wordList))) + 6)
-	numberPerLine = minNumber
-	for i in range(minNumber, maxNumber + 1):
-		lengths = [max(map(len, [wordList[i * k + j] for k in range(0, (numberOfWordList - 1 - j) // i + 1)])) for j in range(0, i)]
-		if sum(lengths) + 6 * len(lengths) + 0 <= screenWidth:
-			numberPerLine = i
-		else:
-			break
-	lengths = [max(map(len, [wordList[numberPerLine * k + j] for k in range(0, (numberOfWordList - 1 - j) // numberPerLine + 1)])) for j in range(0, numberPerLine)]
-	listOfList = [["{0:^{1}}".format(wordList[numberPerLine * k + j], lengths[j] + 4) for k in range(0, (numberOfWordList - 1 - j) // numberPerLine + 1)] for j in range(0, numberPerLine)]
-	listOfList = "\n" + "\n\n".join(["|" + "||".join([listOfList[k][j] for k in range(0, min(numberPerLine, numberOfWordList - j * numberPerLine))]) + "|" for j in range(0, (numberOfWordList - 1) // numberPerLine + 1)]) + "|" * (numberOfWordList % numberPerLine != 0) + "\n"
-	return listOfList
 
 def randomAndRecord():
 	"""
@@ -1074,7 +1003,7 @@ def addOrCancelSchedule(action):
 	"""
 	assert action == "A" or action == "C"
 	f = open(os.path.join(Vars.record_path, 'Schedule.txt'))
-	dates = {1: range(1,32)), 2: range(1,30)), 3: range(1,32)), 4: range(1,31)), 5: range(1,32)), 6: range(1,31)), 7: range(1,32)), 8: range(1,32)), 9: range(1,31)), 10: range(1,32)), 11: range(1,31)), 12: range(1,32))}
+	dates = {1: range(1,32), 2: range(1,30), 3: range(1,32), 4: range(1,31), 5: range(1,32), 6: range(1,31), 7: range(1,32), 8: range(1,32), 9: range(1,31), 10: range(1,32), 11: range(1,31), 12: range(1,32)}
 	sch = {}
 	for s in f:
 		if len(s.split(": ")) == 2:
@@ -1256,6 +1185,7 @@ def chooseOneList(book):
 	"""
 		chooseOneList(book):
 		Chooses only one list from the book.
+		Used in creating difficult word list for one word list.
 		
 		Parameters
 		__________
@@ -1263,7 +1193,7 @@ def chooseOneList(book):
 		The book chosen.
 	"""
 	try:
-		list = inpInst("chooseList")
+		list = inpInst("chooseOneList")
 		while True: # Choose one list only, so cannot use chooseList()
 			if not isInt(list):
 				list = inpInst("enterANumber")
@@ -1320,7 +1250,7 @@ def extend(book, theList, current):
 						print()
 						if user_input.upper()[0] in ["M", ",", "N", "J", "K"] or Word.markWordorNot(user_input):
 							new.append(word)
-						elif user_input.upper() != user_input.lower():
+						else:
 							add += re.split("\s*\|+\s*", user_input.lower())
 	except QuitException:
 		return

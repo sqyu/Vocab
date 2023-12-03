@@ -1,7 +1,7 @@
 
 1
 anticipatory ** [ænˈtɪsəpəˌtɔri] ** adj. 預想的，預期的
-anticlimactic ** [ˈˌæniˌklɪˈmæktik] ** adj. 突減的
+anticlimactic ** [ˈˌæniˌklaɪˈmæktik] ** adj. 突減的
 antidote ** [ˈæntidoʊt] ** n. 解藥
 antipathy ** [ænˈtipəθi] ** n. 反感，厭惡
 antiquarianism ** [ˌænəˈkwɛriənizəm] ** n. 古物研究，好古癖
@@ -113,7 +113,7 @@ audible ** [ˈɔdəbəl] ** adj. 聽得見的
 audience ** [ˈɔdiəns] ** n. 觀眾，聽眾 %% n. 讀者
 audit ** [ˈɔdət] ** v. 旁聽 %% v. 審計，查賬
 augment ** [ɔɡˈmɛnt] ** v. 提高，增加
-auspices ** [ˈɔspəs] ** n. 支持，贊助
+auspice ** [ˈɔspəs] ** n. 支持，贊助
 auspicious ** [ɔˈspɪʃəs] ** adj. 幸運的 %% adj. 吉兆的
 austere ** [ɔˈstɪər] ** adj. 樸素的
 authentic ** [ɔˈθɛnɪk] ** adj. 真正的，真實的 %% adj. 可信的
@@ -162,7 +162,7 @@ bashfulness ** [ˈbæʃfəlnəs] ** n. 羞怯
 bask ** [bæsk] ** v. 曬太陽，取暖
 bastion ** [ˈbæstiən] ** n. 保壘，防禦工事
 beaded ** [bidɪd] ** adj. 以珠裝飾的
-befriend ** [bəˈfrɛnd] ** adj. 以朋友態度對待的
+befriend ** [bəˈfrɛnd] ** v. 以朋友態度對待
 beleaguer ** [bəˈliɡər] ** v. 圍攻 %% v. 騷擾
 belie ** [bəˈlaɪ] ** v. 掩飾 %% v. 證明為假
 believable ** [bəˈlivəbəl] ** adj. 可信的

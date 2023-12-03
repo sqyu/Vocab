@@ -1,5 +1,9 @@
-import Help_funs
-from Help_funs import isInt, QuitException, quitOrInput
+import os
+import random
+import re
+from Help_funs import *
+from Vars import getInst, printInst, inpInst
+from Writing import writeTime, writeRecord
 
 class Conj:
 	"""
@@ -31,7 +35,7 @@ class Conj:
 	def format(self, tenses=None):
 		if tenses is None: tenses = self.tenses
 		assert set(tenses).issubset(self.tenses)
-		s = [getInst("infinitive", rep=("SPACE", "")) + self.infinitive + " " + self.infinitive_IPA]
+		s = [getInst("infinitive", rep=[("SPACE", "")]) + self.infinitive + " " + self.infinitive_IPA]
 		if self.group != "0":
 			s[-1] += ", group " + self.group
 		if self.meanings:
@@ -75,7 +79,7 @@ def reciteconj(Dictionary, rnr, wordListAndNames, readFromRecord = False):
 	numberofwords = len(wordList)
 	all_tenses = unique_everseen([t for cj in Dictionary.values() for t in cj.tenses]) ## All tenses available
 	if len(all_tenses) == 0: ## No tenses available
-		print(instructions["noTense"])
+		printInst("noTense")
 		return
 	user_input = [""]
 	try:
@@ -87,8 +91,8 @@ def reciteconj(Dictionary, rnr, wordListAndNames, readFromRecord = False):
 		tenses = all_tenses
 	else:
 		tenses = list(set(filter(lambda x:any([comp_answers(subinp, x) for subinp in user_input]), all_tenses)))
-	print(instructions["startReciteConj"])
-	print(instructions["startRecite2"])
+	printInst("startReciteConj")
+	printInst("startRecite2")
 	print()
 	if rand:
 		random.shuffle(wordList)
@@ -144,100 +148,3 @@ def reciteconj(Dictionary, rnr, wordListAndNames, readFromRecord = False):
 	writeTime(begin = False, timeBegan = timeBegan, mode = "recite conjugation mode with tenses %s, " % (" & ".join(tenses)) + readFromRecord * "(from record) ", names = name)
 	return
 
-
-def loadConj(all, book, comments, Dictionary, mode, theList, conjList):
-	"""
-		loadConj(all, book, comments, Dictionary, mode, theList, conjList):
-		Adds Conjs to Dictionary and word strings to conjList
-		
-		Parameters
-		__________
-		all: bool
-		Whether add all words or not
-		
-		book: string, must be an available book in the language
-		The book chosen
-		
-		comments: dictionary whose keys and contents are both strings
-		All comments for words in the whole book
-		
-		Dictionary: dictionary whose keys are strings (words) and contents are of class Conj
-		The dictionary to which the conjs are to be added
-		
-		mode: 1, 2, or 3
-		Mode 1: regular; Mode 2: read from record; Mode 3: read all words
-		
-		theList: integer, within the range of listNumber[lang][book]
-		The list number
-		
-		conjList: lists of strings (words)
-		The list of words loaded
-		
-		"""
-	bookList = os.path.join(Vars.wordLists_path, book, 'Lists', str(theList) + ' conj.txt')
-	f = open(bookList) # Read Only
-	difficultWordFile = os.path.join(Vars.wordLists_path, book, 'Difficult Words', str(theList) + '.txt')
-	if mode == 2:
-		add_this_word = lambda word:word in set(conjList)
-	elif mode != 2 and not all and (not os.path.exists(difficultWordFile)): # If normal mode and difficult word lists do not exist, read all words
-		printInst("noDifficultWordList", rep=(("LIST", str(theList)), ("BOOK", getInst("book" + Vars.acronym[book]))))
-		all = True
-	elif mode != 2 and not all: # If normal mode
-		g = open(difficultWordFile)
-		difficultWords = set(re.split("\s*\|+\s*", g.readline().lower().rstrip("\n")))
-		g.close()
-		checkAllWordsInLists(difficultWords, book, [theList]) # Only need to check the difficult word list for the current list ## ??
-		add_this_word = lambda word: word in difficultWords
-	else:
-		add_this_word = lambda word: True
-	worddic = {}
-	if lang in listNumber and book in listNumber[lang] and theList in listNumber[lang][book]:
-		loadWords(True, book, {}, worddic, 3, theList, [])
-	for s in f:
-		if "**" in s:
-			try:
-				conj_obj = Conj(s)
-				if add_this_word(conj_obj.infinitive):
-					if conj_obj.infinitive in comments:
-						conj_obj.comments = comments[conj_obj.infinitive]
-					conj_obj.meanings = "\n".join(worddic[conj_obj.infinitive].meanings) if conj_obj.infinitive in worddic else ""
-					Dictionary[conj_obj.infinitive] = conj_obj
-					if mode != 2:
-						conjList.append(conj_obj.infinitive)
-			except Exception as e:
-				print("Failed to load conjugations for %s: %s." % (s, e)) ## INSTRUCTIONS PENDING
-	f.close()
-	return
-
-def read_conj(defaultAll = True):
-	book = chooseBook(conjNumber.keys())
-	firstList = True
-	if book == None:
-		return
-	while True:
-		all = defaultAll
-		try:
-			theListAndAll = chooseList(conjNumber[book], all, firstList)
-		except QuitException:
-				return
-		if theListAndAll is None:
-			break
-		theList, all = theListAndAll
-		theList = int(theList)
-		lists.append(theList)
-		alls.append(all)
-		if len(listNumber[lang][book]) == 1:
-			break
-			firstList = False
-	if isinstance(book, list):
-		for books in book:
-			comments = loadComments(books)
-			Dictionary[books] = {}
-			for theList in listNumber[lang][books]:
-				loadWords(False, books, comments, Dictionary[books], mode, theList, wordList)
-	else:
-		comments = loadComments(book)
-		for index, theList in enumerate(lists):
-			loadWords(alls[index], book, comments, Dictionary, mode, theList, wordList)
-	names = [book] + sorted(lists)
-	return (sorted(set(wordList)), names)

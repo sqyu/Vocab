@@ -12,7 +12,7 @@ class Word:
 		self.meanings = str.split(s[1].rstrip('\n'), " %% ")
 		self.numOfMeanings = len(self.meanings)
 		self.comments = s[2]
-		
+		 
 def printMeanings(Word_obj):
 	if Word_obj.numOfMeanings == 1:
 		print(Vars.instructions["meaning"].rstrip('\n').replace("REPLACE", "") + Word_obj.meanings[0])
