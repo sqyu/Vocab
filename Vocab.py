@@ -154,22 +154,20 @@ def addWordsFromLists(
     The lists from which all words will be loaded
     """
     for enumerateList in lists:
-        f = open(
-            os.path.join(
-                Vars.wordLists_path,
-                book,
-                "lists",
-                str(enumerateList) + " " + Vars.lang + ".txt",
+        filename = os.path.join(
+            Vars.wordLists_path,
+            book,
+            "lists",
+            str(enumerateList) + " " + Vars.lang + ".txt",
+        )
+        with open(filename) as f:
+            allWordsFromLists.extend(
+                [
+                    w
+                    for w in (s.rstrip("\n").split(" ** ")[0] for s in f.readlines())
+                    if w and not isInt(w)
+                ]
             )
-        )
-        allWordsFromLists.extend(
-            [
-                w
-                for w in (s.rstrip("\n").split(" ** ")[0] for s in f.readlines())
-                if w and not isInt(w)
-            ]
-        )
-        f.close()
     return
 
 
@@ -301,12 +299,11 @@ def loadWords(choose_all, book, comments, Dictionary, mode, theList, wordList):
         )
         choose_all = True
     elif mode != 2 and not choose_all:  # If normal mode but not reading all words
-        g = open(difficultWordFile)
-        currentWordList = re.split(
-            r"\s*\|+\s*", g.readline().lower().rstrip("\n")
-        )  # Read the difficult word list # Far more efficient to use currentWordList to store
+        with open(difficultWordFile) as g:
+            currentWordList = re.split(
+                r"\s*\|+\s*", g.readline().lower().rstrip("\n")
+            )  # Read the difficult word list # Far more efficient to use currentWordList to store
         # the difficult word list for only the current list
-        g.close()
         checkAllWordsInLists(
             currentWordList, book, [theList]
         )  # Only need to check the difficult word list for the current list
@@ -395,9 +392,10 @@ def loadConj(choose_all, book, comments, Dictionary, mode, theList, conjList):
         )
         choose_all = True
     elif mode != 2 and not choose_all:  # If normal mode
-        g = open(difficultWordFile)
-        difficultWords = set(re.split(r"\s*\|+\s*", g.readline().lower().rstrip("\n")))
-        g.close()
+        with open(difficultWordFile) as g:
+            difficultWords = set(
+                re.split(r"\s*\|+\s*", g.readline().lower().rstrip("\n"))
+            )
         checkAllWordsInLists(
             difficultWords, book, [theList]
         )  # Only need to check the difficult word list for the current list ## ??
@@ -491,12 +489,11 @@ def loadComments(book):
     """
     comments = {}
     if os.path.exists(os.path.join(Vars.wordLists_path, book, "Comments.txt")):
-        g = open(os.path.join(Vars.wordLists_path, book, "Comments.txt"))
-        for s in g:
-            if len(s.split(": ")) >= 2:
-                ss = s.split(": ")
-                comments[ss[0].lower()] = ": ".join(ss[1 : len(ss)]).rstrip("\n")
-        g.close()
+        with open(os.path.join(Vars.wordLists_path, book, "Comments.txt")) as g:
+            for s in g:
+                if len(s.split(": ")) >= 2:
+                    ss = s.split(": ")
+                    comments[ss[0].lower()] = ": ".join(ss[1 : len(ss)]).rstrip("\n")
         if not checkAllWordsInLists(
             list(comments), book, Vars.listNumber[Vars.lang][book]
         ):
@@ -528,11 +525,10 @@ def updateComments(update, book):
                     comments.pop(w)
             else:
                 comments[w] = update[w]
-        g = open(os.path.join(Vars.wordLists_path, book, "Comments 2.txt"), "w")
-        g.write(
-            "\n".join(["{0}: {1}".format(w, comments[w]) for w in sorted(comments)])
-        )
-        g.close()
+        with open(os.path.join(Vars.wordLists_path, book, "Comments 2.txt"), "w") as g:
+            g.write(
+                "\n".join(["{0}: {1}".format(w, comments[w]) for w in sorted(comments)])
+            )
         os.rename(
             os.path.join(Vars.wordLists_path, book, "Comments 2.txt"),
             os.path.join(Vars.wordLists_path, book, "Comments.txt"),
@@ -1315,11 +1311,10 @@ def readFromRecord():
             [int(s.replace("L", "")) for s in record.split(" ") if "L" in s]
         )
     record = os.path.join(path, record)
-    f = open(record)
     wordList = []
-    for word in f:
-        wordList.append(word.rstrip("\n").lower())
-    f.close()
+    with open(record) as f:
+        for word in f:
+            wordList.append(word.rstrip("\n").lower())
     wordListAndNames = [wordList, [book] + theLists]
     Dictionary = {}
     try:
@@ -1382,17 +1377,17 @@ def viewSchedule():
     timeNow = datetime.datetime.now(tz.localize(datetime.datetime.now()).tzinfo)
     found = False
     try:
-        f = open(sch)
-        for s in f:
-            if (
-                timeNow.strftime("%m").lstrip("0")
-                + "/"
-                + timeNow.strftime("%d").lstrip("0")
-                in s
-                or time.strftime("%m/%d") in s
-            ):
-                print(s.replace("SPACE", " "))
-                found = True
+        with open(sch) as f:
+            for s in f:
+                if (
+                    timeNow.strftime("%m").lstrip("0")
+                    + "/"
+                    + timeNow.strftime("%d").lstrip("0")
+                    in s
+                    or time.strftime("%m/%d") in s
+                ):
+                    print(s.replace("SPACE", " "))
+                    found = True
         if not found:
             printInst("noScheduleTodayAvailable")
     except IOError:
@@ -1413,7 +1408,6 @@ def addOrCancelSchedule(action):
     Adds a schedule if action == "A", and cancels a schedule if action == "C"
     """
     assert action == "A" or action == "C"
-    f = open(os.path.join(Vars.record_path, "Schedule.txt"))
     dates = {
         1: range(1, 32),
         2: range(1, 30),
@@ -1429,9 +1423,12 @@ def addOrCancelSchedule(action):
         12: range(1, 32),
     }
     sch = {}
-    for s in f:
-        if len(s.split(": ")) == 2:
-            sch[s.split(": ")[0]] = s.split(": ")[1].rstrip("\n")
+    old_schedule_file = os.path.join(Vars.record_path, "Schedule.txt")
+    new_schedule_file = os.path.join(Vars.record_path, "Schedule 0.txt")
+    with open(old_schedule_file) as f:
+        for s in f:
+            if len(s.split(": ")) == 2:
+                sch[s.split(": ")[0]] = s.split(": ")[1].rstrip("\n")
     try:
         user_input = inpInst("scheduleEnterDate").upper()
         while True:
@@ -1458,20 +1455,18 @@ def addOrCancelSchedule(action):
             else:
                 break
     except QuitException:
-        f.close()
         return
-    g = open(os.path.join(Vars.record_path, "Schedule 0.txt"), "w")
+
     try:
         if action == "A":
             user_input2 = inpInst("scheduleEnterTask")
             sch[user_input] = user_input2.replace(": ", ":SPACE")
-            for d in sortDate(list(sch)):
-                g.write(d + ": " + sch[d] + "\n")
-            f.close()
-            g.close()
+            with open(new_schedule_file, "w") as g:
+                for d in sortDate(list(sch)):
+                    g.write(d + ": " + sch[d] + "\n")
             os.rename(
-                os.path.join(Vars.record_path, "Schedule 0.txt"),
-                os.path.join(Vars.record_path, "Schedule.txt"),
+                new_schedule_file,
+                old_schedule_file,
             )
         if action == "C":
             cf = quitOrInput(
@@ -1486,21 +1481,17 @@ def addOrCancelSchedule(action):
                 cf = inpInst("enterYOrN").upper()
             if cf == "Y":
                 sch.pop(user_input)
-                for d in sortDate(list(sch)):
-                    g.write(d + ": " + sch[d] + "\n")
-                g.close()
-                f.close()
+                with open(new_schedule_file, "w") as g:
+                    for d in sortDate(list(sch)):
+                        g.write(d + ": " + sch[d] + "\n")
                 os.rename(
-                    os.path.join(Vars.record_path, "Schedule 0.txt"),
-                    os.path.join(Vars.record_path, "Schedule.txt"),
+                    new_schedule_file,
+                    old_schedule_file,
                 )
             else:
-                g.close()
-                f.close()
-                os.remove(os.path.join(Vars.record_path, "Schedule 0.txt"))
-    except QuitException:
-        g.close()
-        f.close()
+                os.remove(new_schedule_file)
+    except Exception as e:
+        raise e
     return
 
 
@@ -1811,9 +1802,8 @@ def chooseDifficultWordList():
         except QuitException:
             return
     if newOrExt == "N":
-        f = open(difficultWordListPath)
-        current = re.split(r"\s*\|+\s*", f.readline().lower().rstrip("\n"))
-        f.close()
+        with open(difficultWordListPath) as f:
+            current = re.split(r"\s*\|+\s*", f.readline().lower().rstrip("\n"))
     else:
         current = []
     newAndTogether = extend(book, theList, current)
@@ -1836,9 +1826,8 @@ def chooseDifficultWordList():
             os.path.join(Vars.wordLists_path, book, "Difficult Words")
         ):
             os.mkdir(os.path.join(Vars.wordLists_path, book, "Difficult Words"))
-        f = open(difficultWordListPath, "w")
-        f.write(together)
-        f.close()
+        with open(difficultWordListPath, "w") as f:
+            f.write(together)
     return
 
 

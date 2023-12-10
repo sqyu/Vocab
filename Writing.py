@@ -38,27 +38,24 @@ def writeTime(begin, timeBegan=None, mode=None, names=None):
     if not os.path.exists(
         os.path.join(Vars.record_path, "Time", "Time " + timeNowYM + ".txt")
     ):
-        f = open(
-            os.path.join(Vars.record_path, "Time", "Time " + timeNowYM + ".txt"), "w"
-        )
         if begin:
-            f.write(timeNowFULL)
-            f.close()
+            with open(
+                os.path.join(Vars.record_path, "Time", "Time " + timeNowYM + ".txt"), "w"
+            ) as f:
+                f.write(timeNowFULL)
             return timeNowFULL
-        else:
-            f.close()
-            return
+        return
     g = open(os.path.join(Vars.record_path, "Time", "Time " + timeNowYM + ".tmp"), "w")
-    f = open(os.path.join(Vars.record_path, "Time", "Time " + timeNowYM + ".txt"), "r")
+    with open(os.path.join(Vars.record_path, "Time", "Time " + timeNowYM + ".txt"), "r") as f:
+        f_lines = f.readlines()
     try:
         if begin:
-            freadlines = f.readlines()
-            if freadlines != []:
-                while "\n" in freadlines:
-                    freadlines.pop(freadlines.index("\n"))
-                if "\n" not in freadlines[len(freadlines) - 1]:
-                    freadlines[len(freadlines) - 1] += "\n"
-                g.write("".join(freadlines))
+            if f_lines:
+                while "\n" in f_lines:
+                    f_lines.pop(f_lines.index("\n"))
+                if "\n" not in f_lines[len(f_lines) - 1]:
+                    f_lines[len(f_lines) - 1] += "\n"
+                g.write("".join(f_lines))
             g.write(timeNowFULL)
         if not begin:  # If end
             if (
@@ -78,7 +75,7 @@ def writeTime(begin, timeBegan=None, mode=None, names=None):
                     Vars.acronym[names[0]] + " "
                 )  # Replace the full name of the book by its Vars.acronym
                 lists = concatenateListNames(names[1 : len(names)])
-            for s in f:
+            for s in f_lines:
                 if timeBegan in s:
                     assert "-" not in s
                     if (mode == "words found: ") and (len(names) == 0):
@@ -108,7 +105,6 @@ def writeTime(begin, timeBegan=None, mode=None, names=None):
                 else:
                     if s != "\n":
                         g.write(s)
-        f.close()
         g.close()
         os.rename(
             os.path.join(Vars.record_path, "Time", "Time " + timeNowYM + ".tmp"),
@@ -117,7 +113,6 @@ def writeTime(begin, timeBegan=None, mode=None, names=None):
         if begin:
             return timeNowFULL
     except Exception:
-        f.close()
         g.close()
         print(
             "Error occurred: {0} || {1} || {2} || {3}.".format(
@@ -179,7 +174,6 @@ def writeRecord(difficultWords, mode, names):
         fileName = fileName + " " + str(i) + ".txt"
     else:
         fileName = fileName + ".txt"
-    f = open(fileName, "w")
-    f.write("\n".join(difficultWords))
-    f.close()
+    with open(fileName, "w") as f:
+        f.write("\n".join(difficultWords))
     return
