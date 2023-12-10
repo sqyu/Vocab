@@ -1,0 +1,4 @@
+dyld: Symbol not found: __ZNKSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEE3strEv
+  Referenced from: /Users/shimizumasami/opt/anaconda3/bin/pyre.bin (which was built for Mac OS X 13.0)
+  Expected in: /usr/lib/libc++.1.dylib
+
