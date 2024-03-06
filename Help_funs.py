@@ -159,8 +159,16 @@ def unique_everseen(seq, key=lambda x: x):
     return [x for x in seq if not (key(x) in seen or seen_add(key(x)))]
 
 
-def comp_answers(inp, word):
-    return unidecode.unidecode(inp).lower() == unidecode.unidecode(word).lower()
+def uniformize(s):
+    return s.replace("’", "'")
+
+
+def comp_answers(inp, word, ignore_diacritics):
+    inp = uniformize(inp)
+    word = uniformize(word)
+    if ignore_diacritics == "Y":
+        return unidecode.unidecode(inp).lower() == unidecode.unidecode(word).lower()
+    return inp.lower() == word.lower()
 
 
 def shuffle_if_random(li, rand):
@@ -169,3 +177,64 @@ def shuffle_if_random(li, rand):
 
 def comp_conj_answers(inp, words):
     return any([comp_answers(inp, form) for form in words])
+
+
+def line_is_a_word_entry(line):
+    return not (line.isspace() or isInt(line) or line.strip().startswith("##"))
+
+
+class Font:
+    reset = "\033[0m"
+    bold = "\033[01m"
+    disable = "\033[02m"
+    underline = "\033[04m"
+    blink = "\033[05m"
+    reverse = "\033[07m"
+    invisible = "\033[08m"
+    strikethrough = "\033[09m"
+
+    class fg:
+        black = "\033[30m"
+        red = "\033[31m"
+        green = "\033[32m"
+        orange = "\033[33m"
+        blue = "\033[34m"
+        purple = "\033[35m"
+        cyan = "\033[36m"
+        lightgrey = "\033[37m"
+        darkgrey = "\033[90m"
+        lightred = "\033[91m"
+        lightgreen = "\033[92m"
+        yellow = "\033[93m"
+        lightblue = "\033[94m"
+        pink = "\033[95m"
+        lightcyan = "\033[96m"
+
+    class bg:
+        black = "\033[40m"
+        red = "\033[41m"
+        green = "\033[42m"
+        orange = "\033[43m"
+        blue = "\033[44m"
+        purple = "\033[45m"
+        cyan = "\033[46m"
+        lightgrey = "\033[47m"
+
+
+def format_text(s, attrs):
+    # format_text("my_text", "bold,underline,fg.black, bg.green")
+    if not attrs:
+        return s
+    format = ""
+    for attr in attrs.replace(" ", "").split(","):
+        if "." not in attr:
+            assert hasattr(Font, attr)
+            format += getattr(Font, attr)
+        else:
+            assert len(attr.split(".")) == 2
+            fg_bg, color = attr.split(".")
+            assert hasattr(Font, fg_bg)
+            fg_bg = getattr(Font, fg_bg)
+            assert hasattr(fg_bg, color)
+            format += getattr(fg_bg, color)
+    return format + s + Font.reset

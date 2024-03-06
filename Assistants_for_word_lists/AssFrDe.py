@@ -3,22 +3,30 @@ from bs4 import BeautifulSoup
 import glob
 import inspect
 import os
-import numpy as np
 import re
 import requests
 
-# import pattern.de, pattern.fr
+
 import unidecode
+from HelpersFr import get_conj_fr, to_pos
 from collections import OrderedDict
 from functools import reduce
 
+SOUP_PARSER = "html.parser"
+
+
+# # Functions from Help_funs.py; remember to sync # #
+def unique_everseen(seq, key=lambda x: x):
+    seen = set()
+    seen_add = seen.add
+    return [x for x in seq if not (key(x) in seen or seen_add(key(x)))]
+
+# # Functions from Help_funs.py; remember to sync # #
+
+
 pathToWordList = os.path.join(
-    "/".join(os.path.realpath(__file__).split("/")[:-1]), "Word lists"
+    "/".join(os.path.realpath(__file__).split("/")[:-1]), "../Word lists"
 )
-
-
-def input_function(prompt):
-    return input(prompt)  # To switch between python2 and python3
 
 
 def printNames():
@@ -30,31 +38,9 @@ def printNames():
     return
 
 
-def isInt(s, min=1, max=np.inf):
-    """
-    isInt(s):
-    Returns True if s can be converted to int, or False otherwise
-
-    Parameters
-    __________
-    s: string
-    """
-    try:
-        int(s)
-        return True
-    except ValueError:
-        return False
-
-
 def process_plain(li):
     return "\n1\n" + "".join([i.replace("\n", "") + " ** [] ** \n" for i in li])
     # return "\n1\n" + "".join([i[0].replace("\n","") + " ** [] ** %s\n" % (i[1] if len(i)>1 else "") for i in (s.split("\t") for s in lines)]) # Treating the
-
-
-def unique_everseen(seq, key=lambda x: x):
-    seen = set()
-    seen_add = seen.add
-    return [x for x in seq if not (key(x) in seen or seen_add(key(x)))]
 
 
 def get_de_IPA_word(word):
@@ -62,47 +48,39 @@ def get_de_IPA_word(word):
     Attempts to get the IPA of a word from de.wiktionary
     """
     try:
-        r = requests.get("https://de.wiktionary.org/wiki/" + word)
-        soup = BeautifulSoup(r.text)
-        de_head = list(
-            [
-                x
-                for x in soup.find_all("span", {"class": "mw-headline"})
-                if x.text == word + " (Deutsch)"
-            ]
-        )
-        if (
-            not de_head
-        ):  # Since strings that have multiple words will be processed independently again
+        r = requests.get(f"https://de.wiktionary.org/wiki/{word}")
+        soup = BeautifulSoup(r.text, SOUP_PARSER)
+        de_head = [
+            x
+            for x in soup.find_all("span", {"class": "mw-headline"})
+            if x.text == word + " (Deutsch)"
+        ]
+        if not de_head:
+            # Strings that have multiple words will be processed independently again
             if len(word.split(" ")) == 1:
                 print(("In finding IPA, no Deutsch found for '%s'." % word))
             return None
         elif len(de_head) > 1:
             print(("Multiple Deutsch found for %s. Returning the first." % word))
-        IPA = de_head[0].find_next("span", {"class": "ipa"}).text
-        IPA = IPA.split("\n")[0]  # e.g. for "ich"
-        if IPA == "[\u2026]":  # [...]
+        IPAs = []
+        # The first IPA element
+        next_IPA_elt = de_head[0].find_next("span", {"class": "ipa"})
+        if not next_IPA_elt:
+            return None
+        IPAs.append(next_IPA_elt.text)
+        # Keep adding if the next span elt is an IPA
+        while (
+            "class" in next_IPA_elt.find_next("span").attrs
+            and "ipa" in next_IPA_elt.find_next("span")["class"]
+        ):
+            next_IPA_elt = next_IPA_elt.find_next("span")
+            IPAs.append(next_IPA_elt.text)
+        IPA = "/".join(IPAs)
+        # Legacy for [...], not sure if will encounter again
+        if IPA == "\u2026":
             print(("No IPA given for '%s'." % word))
             return None
-        if ", " in IPA:  # If not just one IPA
-            if all(
-                [x.startswith("[") and x.endswith("]") for x in IPA.split(", ")]
-            ):  # e.g. [ˈfʀaʊ̯ən], [ˈfʀaʊ̯n̩]
-                IPA = "/".join(IPA.split(", "))
-            elif IPA.split(", ")[1].split(":")[0] in [
-                "Präteritum",
-                "Femininum",
-                "Genitiv",
-                "regional auch",
-                "auch",
-            ]:
-                IPA = IPA.split(", ")[0]
-            else:
-                print(
-                    ("Cleaning needed for %s." % word)
-                )  # e.g. [viːdɐˌzeːən], Präteritum: [ˌzaː ˈviːdɐ], Partizip II: [ˈviːdɐɡəˌzeːən]
-                IPA += "CLEAN]"
-        return IPA
+        return "[" + IPA + "]"
     except Exception as e:
         print(
             ("Unable to get IPA for '%s' due to the following error: " % word + str(e))
@@ -143,20 +121,6 @@ def get_de_IPA(string, IPA_dict={}):
     return IPA
 
 
-def to_pos(pos):
-    return {
-        "Noun": "n.",
-        "Verb": "v.",
-        "Adjective": "adj.",
-        "Adverb": "adv.",
-        "Pronoun": "pron.",
-        "Conjunction": "conj.",
-        "Determiner": "det.",
-        "Preposition": "prep.",
-        "Interjection": "interj.",
-    }.get(pos, pos)
-
-
 """
 def conjugations_de(verb):
     if verb is None:
@@ -177,7 +141,7 @@ def get_conj_de(word):
     want_imp_tenses = ["Pr\xe4sens Aktiv"]
     url = "https://de.wiktionary.org/wiki/Flexion:" + word
     r = requests.get(url)
-    soup = BeautifulSoup(r.text)
+    soup = BeautifulSoup(r.text, SOUP_PARSER)
 
     def is_blank(x):
         return len(x.strip()) == 1 and ord(x.strip()) in range(8208, 8214)
@@ -288,7 +252,7 @@ def get_conj_de(word):
 def get_inf_and_conj_de(word):
     url = "https://de.wiktionary.org/wiki/" + word
     r = requests.get(url)
-    soup = BeautifulSoup(r.text)
+    soup = BeautifulSoup(r.text, SOUP_PARSER)
     de_head = list(
         [
             x
@@ -404,9 +368,7 @@ def process_duo_de(lines, filename, IPA_dict={}):
         os.mkdir("Processed")
     for processed_file in glob.glob("Processed/*.txt"):
         with open(processed_file) as f:
-            words_processed.extend(
-                [x.split("\t")[0] for x in f.readlines()]
-            )
+            words_processed.extend([x.split("\t")[0] for x in f.readlines()])
     words_processed = set(words_processed)
     new_list = []  # Allocate memory
     verbs = []
@@ -450,186 +412,6 @@ def process_duo_de(lines, filename, IPA_dict={}):
     return "\n1\n" + "\n".join([x[0] + " ** [] ** " + x[1] for x in new_list]) + "\n"
 
 
-def get_conj_fr(word):
-    url = "https://fr.wiktionary.org/wiki/Annexe:Conjugaison_en_fran%C3%A7ais/" + word
-    r = requests.get(url)
-    if not r.ok:
-        print(("Cannot find the page for %s. Stopped." % word))
-        return word + " MISSING", []
-    soup = BeautifulSoup(r.text)
-    groupes = {"premier groupe": 1, "deuxième groupe": 2, "troisième groupe": 3}
-    try:
-        alt_word = (
-            soup.find(text=re.compile("Conjugaison de"))
-            .find_next()
-            .text.replace("\u2019", "'")
-        )
-        if word.startswith("se ") or word.startswith("s'"):
-            if alt_word == re.sub("^s'", "", re.sub("^se ", "", word)):
-                print(("%s changed to %s." % (word, alt_word)))
-                word = alt_word
-        else:
-            if alt_word in ["se " + word, "s'" + word]:
-                print(("%s changed to %s." % (word, alt_word)))
-                word = alt_word
-    except Exception:
-        pass
-    try:
-        groupe = groupes[soup.find(text=re.compile("Verbe du")).find_next().text]
-    except Exception as e:
-        print(("Error occurred when finding the groupe of %s: %s" % (word, e)))
-        groupe = 0
-
-    def process_IPA(x):
-        return "[" + x.strip().strip("\\") + "]"
-
-    conj = []
-    table = soup.find(
-        "span", {"class": "mw-headline", "id": "Modes_impersonnels"}
-    ).find_next("table")
-    rows = table.find_all("tr")
-    headers = [
-        (int(header.get("colspan", 1)), header.text.strip())
-        for header in rows[0].find_all(["th", "td"])
-    ]
-    inf_IPA = ["MISSING"]
-    if headers != [(1, "Mode"), (3, "Pr\xe9sent"), (3, "Pass\xe9")]:
-        print(("Bad header for modes impersonnels for %s: %s" % (word, headers)))
-    else:
-        try:
-            reflexive = word.startswith("se ") or word.startswith("s'")  # se souvenir
-            infs = rows[1].find_all(["th", "td"])
-            if not (
-                infs[0].text.strip() == "Infinitif"
-                and (
-                    infs[2].text.strip() == word
-                    or (
-                        reflexive
-                        and infs[2].text.strip()
-                        == re.sub("^s'", "", re.sub("^se ", "", word))
-                    )
-                )
-            ):
-                print(
-                    (
-                        "Sanity check 1 failed: infs[0]=%s, infs[2]=%s. AssertionError."
-                        % (infs[0].text.strip(), infs[2].text.strip())
-                    )
-                )
-                assert False
-            inf_IPA = process_IPA(infs[3].text)
-            aux_verb = re.sub("^s\u2019", "", infs[4].text.strip())
-            if aux_verb not in ["avoir", "être"]:
-                print(
-                    (
-                        "Auxiliary verb %s not in avoir or être. AssertionError."
-                        % aux_verb
-                    )
-                )
-                assert False
-            past_p = infs[5].text.strip()
-            past_p_IPA = process_IPA(infs[6].text)
-            conj.append(
-                "Passé: Infinitif+"
-                + "s'" * reflexive
-                + aux_verb
-                + " "
-                + past_p
-                + " ** "
-                + past_p_IPA
-            )
-            pps = rows[3].find_all(["th", "td"])
-            if pps[0].text.strip() != "Participe":
-                print(("pps[0]=%s!=Participe. AssertionError." % pps[0].text.strip()))
-                assert False
-            pres_p = pps[2].text.strip()
-            pres_p_IPA = process_IPA(pps[3].text)
-            conj.append("Participe présent: Participe+" + pres_p + " ** " + pres_p_IPA)
-        except Exception as e:
-            print(
-                (
-                    "Error occurred when handling modes impersonnels for %s: %s"
-                    % (word, e)
-                )
-            )
-
-    def is_blank(x):
-        return len(x.strip()) == 1 and ord(x.strip()) in range(8208, 8214)
-
-    imp_persons = ["tu", "nous", "vous"]
-    for indicatif in [
-        "Indicatif",
-        "Subjonctif",
-        "Conditionnel",
-        "Impératif",
-        "Impératif_2",
-    ]:
-        try:
-            table = soup.find(
-                "span", {"class": "mw-headline", "id": indicatif}
-            ).find_next("table")
-            contents = [
-                x.text.strip()
-                for x in table.find_all(["th", "td"])
-                if x.text.startswith("\n\n")
-            ]
-            for content in contents:
-                subcontents = content.split("\n\n\n")
-                tense = subcontents[0]
-                if not tense:  # CHANGE TO SELECT TENSES
-                    continue
-                forms = []
-                for ri, personcontent in enumerate(subcontents[1:]):
-                    personcontent = personcontent.replace("\n\n", "\n")
-                    personcontents = personcontent.split("\n")
-                    IPA_start = [
-                        i for i, _ in enumerate(personcontents) if _.startswith("\\")
-                    ][0]
-                    form = " ".join(
-                        [
-                            x.strip()
-                            .replace("j'", "j' ")
-                            .replace("j\u2019", "j\u2019 ")
-                            for x in personcontents[0:IPA_start]
-                        ]
-                    ).strip()  # j'ai -> j' ai
-                    # form = re.sub(u"^qu[e\u2019][ ]?", "", form) # que je/qu'il -> je/il
-                    form = form.replace("\u2019", "'")
-                    if indicatif.startswith("Impératif"):
-                        form = imp_persons[ri] + " " + form  # tu sois
-                        if indicatif == "Impératif_2":  # souviens-toi
-                            form = form.replace(" -", "-")
-                    if indicatif == "Subjonctif" and form.startswith("que "):
-                        person = " ".join(form.split(" ")[0:2])
-                        form = " ".join(form.split(" ")[2:])
-                    else:
-                        person = form.split(" ")[0]
-                        form = " ".join(form.split(" ")[1:])
-                    if not is_blank(form):
-                        form = person.strip() + "+" + form.strip()
-                        IPA = process_IPA(
-                            " ".join([x.strip() for x in personcontents[IPA_start:]])
-                        )
-                        forms.append(form + " ** " + IPA)
-                if forms:
-                    conj.append(
-                        indicatif.replace("_2", "")
-                        + " "
-                        + tense.replace(" (rare)", "")
-                        + ": "
-                        + ", ".join(forms)
-                    )  # Imperatif_2 -> Imperatif
-            if (
-                indicatif == "Impératif"
-            ):  # If imperatives are in imperatif_2 only then an error would have occurred already
-                break
-        except Exception as e:
-            print(
-                ("Error occurred when extracting %s for %s: %s" % (indicatif, word, e))
-            )
-    return word + " (%s) ** " % groupe + inf_IPA + ": " + "; ".join(conj), conj
-
-
 def choose_file(pattern, pattern_string):
     available_files = [
         f for f in os.listdir(".") if re.match(pattern, f)
@@ -647,11 +429,11 @@ def choose_file(pattern, pattern_string):
         print(("Only one file %s exists. Automatically chosen." % available_files[0]))
         filename = available_files[0]
     else:
-        filename = input_function(
+        filename = input(
             "Please enter the file name:\n%s\n" % ", ".join(sorted(available_files))
         )
         while filename not in available_files:
-            filename = input_function("Please enter a correct file number.\n")
+            filename = input("Please enter a correct file number.\n")
             if filename.upper() in ["Q", "QUIT"]:
                 return
     return filename
@@ -666,7 +448,7 @@ def main():
         ls = sorted(ls)
         r = ""
         while not any([unidecode.unidecode(r) == unidecode.unidecode(_) for _ in ls]):
-            r = input_function(
+            r = input(
                 "Please choose a book number from the following: "
                 + ", ".join(ls)
                 + "\n"
@@ -677,7 +459,7 @@ def main():
     inp = ""
     IPA_dict = {}
     while not inp.upper() in ["Q", "QUIT"]:
-        inp = input_function(
+        inp = input(
             "Please choose from the following: generate lists (G), get IPA for a generated list (I), sort lists (S), conjugate French (C), or quit (Q).\n"
         ).upper()
         if inp in ["Q", "QUIT"]:
@@ -687,7 +469,7 @@ def main():
             if filename is None:
                 print("No file found.")
                 continue
-            command = input_function(
+            command = input(
                 'Enter "S" to skip sorting, enter "O" to only make one copy.\n'
             )
             with open(filename, "r") as f:

@@ -5,11 +5,14 @@ allForRandom50Words: 「ランダムREPLACE語」モードにすべての単語�
 antonym: 対義語
 book1: 本を選んでください。
 book2: REPLACE1の場合は「REPLACE2」を入力してください。
+bookCLIC6: CLIC6
 bookDE: Duolingoドイツ語
 bookF: Français
 bookIELTS: IELTS
 bookLF1: 仏語１
+bookLFG: Le Figaro
 bookHJNHG: 標準日本語
+bookMPRB2: DELF B2 3000 Mots pour Réussir
 bookPLR: 紅宝書
 bookTM: 三千
 bye: バイバイ！
@@ -46,6 +49,7 @@ difficultWordsInput: 他に記録したい単語を||で区切って入力して
 enterANumber: 数字を入力してください。
 enterAPositiveNumber: 自然数を入力してください。
 enterYOrN: 「Y」または「N」を入力してください。
+exampleUsage: 例文：SPACE
 findAWordChooseList: 単語を検索するリストを自分で選ぶには「Y」を押してください。すべてのリストから単語を検索するにはリターンキーを押してください（デフォルト）。
 findAWordMeaningsIn: REPLACEでの意味：
 guillemetLeft: 『
@@ -67,6 +71,7 @@ notInBooks: は本REPLACEのうちにありません。
 notInList: はリストREPLACEのうちにありません。
 notInLists: はリストREPLACEのうちにありません。
 paraAllForRandom50Words: 「ランダムREPLACE語」モード
+paraIgnoreDiacritics: 発音区別符号を無視
 paraLanguage: 言語
 paraRandom: 単語の順番のランダム化
 paraRandom50Words: 「ランダムREPLACE語」モードのランダム単語数

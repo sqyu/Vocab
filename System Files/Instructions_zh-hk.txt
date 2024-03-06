@@ -5,11 +5,14 @@ allForRandom50Words: 「隨機REPLACE詞」模式中添加所有單詞(Y)或僅�
 antonym: 反義詞
 book1: 請選擇課本。
 book2: REPLACE1請輸入「REPLACE2」。
+bookCLIC6: CLIC6
 bookDE: Duolingo德語
 bookF: Français
 bookIELTS: 雅思
 bookLF1: 法語1
+bookLFG: Le Figaro
 bookHJNHG: 標準日本語
+bookMPRB2: DELF B2 3000 Mots pour Réussir
 bookPLR: 紅寶書
 bookTM: 要你命三千
 bye: 再見！
@@ -46,6 +49,7 @@ difficultWordsInput: 請輸入您想要記錄但未被記錄的單詞，並用||
 enterANumber: 請輸入一個數字。
 enterAPositiveNumber: 請輸入一個正整數。
 enterYOrN: 請輸入「Y」或「N」。
+exampleUsage: 例句：SPACE
 findAWordChooseList: 閣下可以輸入「Y」以選擇搜索單詞的列表，或鍵入回車默認搜索所有詞表。
 findAWordMeaningsIn: 在REPLACE中的意思：
 guillemetLeft: 『
@@ -67,6 +71,7 @@ notInBooks: 不在書REPLACE當中。
 notInList: 不在詞表REPLACE當中。
 notInLists: 不在詞表REPLACE當中。
 paraAllForRandom50Words: 「隨機REPLACE詞」模式
+paraIgnoreDiacritics: 無視變音符號
 paraLanguage: 語言
 paraRandom: 打亂詞表
 paraRandom50Words: 「隨機REPLACE詞」模式中隨機單詞數

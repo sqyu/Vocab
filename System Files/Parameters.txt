@@ -1,5 +1,6 @@
 AllForRandom50Words: Y
-Language: zh-hk
+IgnoreDiacritics: N
+Language: en
 Random: Y
 Random50Words: 50
 Record: Y

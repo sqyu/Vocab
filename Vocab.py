@@ -19,6 +19,7 @@ from Help_funs import (
     sortDate,
     formatList,
     comp_answers,
+    line_is_a_word_entry,
 )
 from Vars import getInst, printInst, inpInst, conjNumber
 from Writing import writeTime, writeRecord
@@ -119,9 +120,11 @@ def chooseList(listsinthebook, choose_all, firstList):
                 theList = int(theList)
                 if theList not in listsinthebook:
                     theList = inpInst(
-                        "chooseListNotExists"
-                        if firstList
-                        else "chooseMoreListsNotExists",
+                        (
+                            "chooseListNotExists"
+                            if firstList
+                            else "chooseMoreListsNotExists"
+                        ),
                         add="{0}\n".format(listsinthebook),
                         handleQuit=False,
                     ).upper()
@@ -165,7 +168,7 @@ def addWordsFromLists(
                 [
                     w
                     for w in (s.rstrip("\n").split(" ** ")[0] for s in f.readlines())
-                    if w and not isInt(w)
+                    if line_is_a_word_entry(w)
                 ]
             )
     return
@@ -930,7 +933,9 @@ def recite(Dictionary, rnr, wordListAndNames, readFromRecord=False):
             print()
             user_input = quitOrInput()
             wrongtimes = 0
-            while (not comp_answers(user_input, word)) and (
+            while (
+                not comp_answers(user_input, word, Vars.parameters["IgnoreDiacritics"])
+            ) and (
                 wrongtimes < MaxTimes
             ):  # Try again until being wrong for MaxTimes times; ignores accents
                 if user_input.upper() == "HINT":
@@ -952,14 +957,14 @@ def recite(Dictionary, rnr, wordListAndNames, readFromRecord=False):
                 print(Dictionary[word].IPA)  # Show IPA first
                 user_input = inpInst("tryAgain")
                 if not comp_answers(
-                    user_input, word
+                    user_input, word, Vars.parameters["IgnoreDiacritics"]
                 ):  # If still incorrect, show descriptions
                     Word.describeWord(
                         word, Dictionary[word], False
                     )  # Does not raise QuitException since learnMode is False
                     user_input = inpInst("tryAgain")
                 while not comp_answers(
-                    user_input, word
+                    user_input, word, Vars.parameters["IgnoreDiacritics"]
                 ):  # Enter until correct; ignores accents
                     user_input = inpInst("tryAgain")
                 printInst("markedWordSuccessfully", rep=word)
@@ -1717,15 +1722,16 @@ def extend(book, theList, current):
     all_words = []
     add = []
     i = 0
-    f = open(
+    with open(
         os.path.join(
             Vars.wordLists_path, book, "Lists", str(theList) + " " + Vars.lang + ".txt"
         )
-    )
+    ) as f:
+        lines = f.readlines()
     printInst("createDifficultWords")
     try:
-        for s in f:
-            if (s != "\n") and (not isInt(s.rstrip("\n"))):
+        for s in lines:
+            if line_is_a_word_entry(s):
                 i += 1
                 word = s.split(" ** ")[0].lower()
                 all_words.append(word)

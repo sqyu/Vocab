@@ -5,11 +5,14 @@ allForRandom50Words: Include all words (Y) or only difficult words (N) in "Rando
 antonym: Antonyms
 book1: Please select the book. 
 book2: For REPLACE1 please enter "REPLACE2".
+bookCLIC6: CLIC6
 bookDE: Duolingo German
 bookF: Français
 bookIELTS: IELTS
 bookLF1: Le Français 1
+bookLFG: Le Figaro
 bookHJNHG: Hyojun Nihongo
+bookMPRB2: DELF B2 3000 Mots pour Réussir
 bookPLR: Petit Livre Rouge
 bookTM: Trois Mille
 bye: See you!
@@ -46,6 +49,7 @@ difficultWordsInput: Please enter the words you wish to be but were not marked, 
 enterANumber: Please enter a number.
 enterAPositiveNumber: Please enter a positive number.
 enterYOrN: Enter Y or N.
+exampleUsage: Example:SPACE
 findAWordChooseList: You can enter "Y" to choose the lists in which you wish to search words. Press enter to proceed to search from all lists by default.
 findAWordMeaningsIn: Meanings in REPLACE:
 guillemetLeft: «
@@ -67,6 +71,7 @@ notInBooks: not in books REPLACE.
 notInList: not in list REPLACE.
 notInLists: not in lists REPLACE.
 paraAllForRandom50Words: "Random REPLACE Words" Mode:
+paraIgnoreDiacritics: ignore the diacritics
 paraLanguage: language
 paraRandom: shuffle the word list
 paraRandom50Words: Number of random words in "Random REPLACE Words" mode.
