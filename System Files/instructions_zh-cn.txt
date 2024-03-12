@@ -12,6 +12,7 @@ bookIELTS: 雅思
 bookLF1: 法语1
 bookLFG: Le Figaro
 bookHJNHG: 标准日本语
+bookJVC: 日语动词活用
 bookMPRB2: DELF B2 3000 Mots pour Réussir
 bookPLR: 红宝书
 bookTM: 要你命三千

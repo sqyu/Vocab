@@ -394,11 +394,12 @@ def loadConj(choose_all, book, comments, Dictionary, mode, theList, conjList):
             ),
         )
         choose_all = True
+
+        def add_this_word(word):
+            return True
     elif mode != 2 and not choose_all:  # If normal mode
         with open(difficultWordFile) as g:
-            difficultWords = set(
-                re.split(r"\s*\|+\s*", g.readline().lower().rstrip("\n"))
-            )
+            difficultWords = re.split(r"\s*\|+\s*", g.readline().lower().rstrip("\n"))
         checkAllWordsInLists(
             difficultWords, book, [theList]
         )  # Only need to check the difficult word list for the current list ## ??
@@ -496,7 +497,7 @@ def loadComments(book):
             for s in g:
                 if len(s.split(": ")) >= 2:
                     ss = s.split(": ")
-                    comments[ss[0].lower()] = ": ".join(ss[1 : len(ss)]).rstrip("\n")
+                    comments[ss[0].lower()] = ": ".join(ss[1:len(ss)]).rstrip("\n")
         if not checkAllWordsInLists(
             list(comments), book, Vars.listNumber[Vars.lang][book]
         ):
@@ -607,7 +608,7 @@ def createDictionary(
         if isinstance(book, list):  # "Similar words" mode ONLY
             assert readFromRecord[1][1] is None
         else:
-            lists = sorted(readFromRecord[1][1 : len(readFromRecord[1])])
+            lists = sorted(readFromRecord[1][1:len(readFromRecord[1])])
         checkAllWordsInLists(wordList, book, lists)
         alls = [False] * len(lists)
     if mode == 3:
@@ -954,7 +955,7 @@ def recite(Dictionary, rnr, wordListAndNames, readFromRecord=False):
                     user_input = quitOrInput()
             if wrongtimes == MaxTimes:
                 difficultWords.append(word)
-                print(Dictionary[word].IPA)  # Show IPA first
+                Word.print_pronunciation(Dictionary[word].IPA)  # Show IPA first
                 user_input = inpInst("tryAgain")
                 if not comp_answers(
                     user_input, word, Vars.parameters["IgnoreDiacritics"]
@@ -1123,12 +1124,12 @@ def findAWord():
                     tmp = ""
                     if word[0:2] == "bg" or word[0:2] == "ct" or word[0:2] == "nd":
                         tmp = word[0:2]
-                        word = word[2 : len(word)]
+                        word = word[2:len(word)]
                         for dic in dics:
                             for words in dic:
-                                if (tmp == "bg" and words[0 : len(word)] == word) or (
+                                if (tmp == "bg" and words[0:len(word)] == word) or (
                                     tmp == "nd"
-                                    and words[len(words) - len(word) : len(words)]
+                                    and words[len(words) - len(word):len(words)]
                                     == word
                                 ):
                                     wordsContaining.append(words)

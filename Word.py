@@ -1,6 +1,8 @@
 from Help_funs import quitOrInput, format_text
 from typing import List
 import Vars
+import re
+import warnings
 
 
 EMPHASIZE_DELIMITER = "*"
@@ -14,7 +16,7 @@ class Word:
 
     def __init__(self, s: List[str]):
         assert len(s) == 3 and all(isinstance(ss, str) for ss in s)
-        self.IPA = s[0]  # IPA
+        self.IPA = s[0]  # IPA or Kana (for Japanese)
         # Examples are not new meaning, but sometimes one may mistakenly add %% to it
         meanings = s[1].rstrip("\n").replace("%% [EX]", "[EX]")
         # Meanings are separated by " %% "
@@ -77,7 +79,9 @@ def formatExamples(examples: List[str]) -> str:
         # Example: on *souligne* les *mots clés* avec des astérisques
         orig = emphasize_bracketed(orig, ORIGINAL_TEXT_FORMAT, ORIGINAL_EMPHASIS_FORMAT)
         # Highlight the "~" in the original phrase
-        orig = emphasize_exact(orig, "~", ORIGINAL_TEXT_FORMAT, ORIGINAL_EMPHASIS_FORMAT)
+        orig = emphasize_exact(
+            orig, "~", ORIGINAL_TEXT_FORMAT, ORIGINAL_EMPHASIS_FORMAT
+        )
         text.append("\t" + example_prompt + format_text(orig, ORIGINAL_TEXT_FORMAT))
         if translation.strip():
             # Example: we *emphasize* the *keywords* with asterisks
@@ -152,7 +156,7 @@ def describeWord(word, Word_obj, learnMode, number=None):
         )  # word 30/150 means this word is the 30th in the list
     else:
         print(word)  # Only prints out the word without the numbers
-    print(Word_obj.IPA)  # Prints out the IPA
+    print_pronunciation(Word_obj.IPA)  # Prints out the IPA
     if learnMode:  # If prints meanings after user inputs something
         s = quitOrInput(None).upper()
         if markWordorNot(s):
@@ -166,3 +170,51 @@ def describeWord(word, Word_obj, learnMode, number=None):
     return (
         s if learnMode else ""
     )  # Return an empty string under view mode with no input
+
+
+def is_all_kana(s: str) -> bool:
+    return s and all("あ" <= c <= "ヿ" for c in s)
+
+
+def format_kana_with_accent(s: str, accent: int) -> str:
+    h_font = "bold"
+    l_font = "underline"
+    if accent == 0:
+        return format_text(s[0], l_font) + format_text(s[1:] + "‾‾", h_font)
+    if accent == 1:
+        return format_text(s[0:accent], h_font) + format_text(s[1:], l_font)
+    if accent < len(s):
+        return (
+            format_text(s[0], l_font)
+            + format_text(s[1:accent], h_font)
+            + format_text(s[accent:], l_font)
+        )
+    if accent == len(s):
+        return format_text(s[0], l_font) + format_text(s[1:], h_font) + "__"
+    raise Exception(f"Got accent = {accent} > len({s}) = {len(s)}")
+
+
+def print_pronunciation(s: str) -> None:
+    """
+    If input is Kana + a number e.g. がくせい3, format the Kana reading with the number as its accent.
+    Otherwise just print the input.
+    """
+    has_brackets = re.match(r"\[\w+\]", s)
+    if has_brackets:
+        s = s[1:-1]
+    if re.search(r"\d+$", s):
+        accent = int(re.search(r"\d+$", s).group(0))
+        word = re.sub(r"\d+$", "", s)
+        if is_all_kana(word):
+            if accent < 0 or accent > len(word):
+                warnings.warn(
+                    f"!!{s} has accent {accent} < 0 or > length of word ({len(word)})."
+                )
+            else:
+                formatted = format_kana_with_accent(word, accent)
+                if has_brackets:
+                    print("[" + formatted + "]")
+                else:
+                    print(formatted)
+            return
+    print(s)

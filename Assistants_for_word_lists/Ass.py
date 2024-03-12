@@ -916,6 +916,92 @@ def input3000():
     return
 
 
+def ja_pos_and_meaning(pos_prompt, meaning_prompt, allow_empty):
+    POS = [
+        "名",
+        "動五",
+        "動上一",
+        "動下一",
+        "動カ変",
+        "動サ変",
+        "形",
+        "形動",
+        "副",
+        "連体",
+        "接続",
+        "感動",
+        "助動",
+        "助",
+        "代",
+    ]
+    pos = input(pos_prompt + f" ({', '.join(POS)})" + "\n").strip()
+    while True:
+        if allow_empty and not pos.strip():
+            return None
+        if pos not in POS:
+            pos = input(f"輸入錯誤，詞性應在以下當中: {', '.join(POS)}\n").strip()
+            continue
+        break
+    meaning = input(meaning_prompt + "\n").strip()
+    while True:
+        if not meaning.strip():
+            meaning = input("意思不能為空\n").strip()
+            continue
+        break
+    return pos + ". " + meaning
+
+
+def HJNHG_input_helper():
+    all_entries = []
+    while True:
+        new_entry = ""
+        word = input("請輸入帶漢字日文（或DELETE刪除上一個詞）\n").strip()
+        while not word:
+            word = input("請重新輸入\n").strip()
+        if word.upper() in ["Q", "QUIT"]:
+            break
+        if word.upper() in ["DEL", "DELETE"]:
+            if not all_entries:
+                print("沒有可刪除的詞")
+            else:
+                del all_entries[-1]
+            continue
+        kana = input("請輸入かな\n").strip()
+        while True:
+            if not (kana and all("あ" <= c <= "ヿ" for c in kana)):
+                kana = input(f"{kana}為空或不全是假名，請重新輸入\n").strip()
+                continue
+            break
+        accent = input(
+            f"請輸入音調 ({','.join(map(str, range(-1, len(kana)+1)))}) (-1表示無音調)\n"
+        ).strip()
+        while accent not in map(str, range(-1, len(kana) + 1)):
+            accent = input(
+                f"{accent}不在{','.join(map(str, range(-1, len(kana)+1)))}範圍內，請重新輸入\n"
+            ).strip()
+        if accent == "-1":
+            accent = ""
+        meanings = []
+        meanings.append(
+            ja_pos_and_meaning(
+                "請輸入第一個詞性", "請輸入第一個意思", allow_empty=False
+            )
+        )
+        while True:
+            pos_meaning = ja_pos_and_meaning(
+                "你可以輸入下一個意思對應的詞性，或回車跳過",
+                "輸入下一個意思",
+                allow_empty=True,
+            )
+            if pos_meaning is None:
+                break
+            meanings.append(pos_meaning)
+        new_entry = f"{word} ** [{kana}{accent}] ** " + " %% ".join(meanings)
+        print(f"已添加以下詞條:\n{new_entry}")
+        all_entries.append(new_entry)
+    print("已退出，以下為所有詞條（請copy paste至.txt）:\n" + "\n".join(all_entries))
+
+
 # def encodeUTF16ToUTF8(directory):
 # 	f = open(directory)
 # 	g = open(directory.replace(".txt"," 0.txt"), 'w')

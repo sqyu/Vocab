@@ -12,6 +12,7 @@ bookIELTS: IELTS
 bookLF1: 仏語１
 bookLFG: Le Figaro
 bookHJNHG: 標準日本語
+bookJVC: 日本語動詞活用
 bookMPRB2: DELF B2 3000 Mots pour Réussir
 bookPLR: 紅宝書
 bookTM: 三千

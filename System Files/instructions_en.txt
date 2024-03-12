@@ -12,6 +12,7 @@ bookIELTS: IELTS
 bookLF1: Le Français 1
 bookLFG: Le Figaro
 bookHJNHG: Hyojun Nihongo
+bookJVC: Japanese verb conjugations
 bookMPRB2: DELF B2 3000 Mots pour Réussir
 bookPLR: Petit Livre Rouge
 bookTM: Trois Mille
@@ -66,10 +67,10 @@ noScheduleAvailable: No schedule available. Please add your schedule in the main
 noScheduleTodayAvailable: Schedule for today not found.
 noTense: No tenses found for conjugations. Stopped.
 noWordsToStudy: No words to study in this list. Please re-select one record.
-notInBook: not in book REPLACE.
-notInBooks: not in books REPLACE.
-notInList: not in list REPLACE.
-notInLists: not in lists REPLACE.
+notInBook: SPACEnot in book REPLACE.
+notInBooks: SPACEnot in books REPLACE.
+notInList: SPACEnot in list REPLACE.
+notInLists: SPACEnot in lists REPLACE.
 paraAllForRandom50Words: "Random REPLACE Words" Mode:
 paraIgnoreDiacritics: ignore the diacritics
 paraLanguage: language

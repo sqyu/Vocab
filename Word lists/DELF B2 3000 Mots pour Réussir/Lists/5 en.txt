@@ -2,46 +2,47 @@
 ## Exprimer le but
 afin de ** [a.fɛ̃ də] ** conj. in order to [EX] ~ faire || in order to do, *so as to* do [EX] ~ ne pas faire || *so as* not to do
 afin que ** [a.fɛ̃ kə] ** conj. (+ *SUBJONCTIF*) so that [EX] faire cuire cinq minutes ~ la sauce épaissi*sse* || cook for five minutes *so that* the sauce thickens [EX] je lui écris régulièrement ~'il ne se sent*e* pas abandonné || I write to him regularly *so that* he won't feel neglected
-dans le but de ** [dɑ̃ lɛ byt dɛ] ** conj. with the aim of, for the purpose of
-de crainte que ** [də/de kʁɛ̃t kə] ** conj. (+ *SUBJONCTIF* et souvent *NEGATION*) for fear that [EX] ~'on *ne* le *voie* || *for fear of* being seen [EX] ~'elle ne l'*apprenne* || *for fear that* she might find out [EX] (affirmative) ~'avoir à payer, il n'est pas venu || he didn't come *for fear of* having to pay
-de peur que ** [də pœʁ kə] ** conj. lest, for fear that
-en vue de ** [ɑ̃ vy də] ** conj. in order to, with the aim of
+dans le but de ** [dɑ̃ lɛ by(t) dɛ] ** conj. with the aim of, for the purpose of
+de crainte que ** [də/de kʁɛ̃t kə] ** conj. (+ *SUBJONCTIF* et souvent *NEGATION* sans "pas") for fear that [EX] ~'on *ne* le *voie* || *for fear of* being seen [EX] ~'elle *ne* l'*apprenne* || *for fear that* she might find out [EX] (affirmative) ~'avoir à payer, il n'est pas venu || he didn't come *for fear of* having to pay
+de peur ** [də pœʁ] ** conj. (~ de/~ que ... ne *SUBJONCTIF* (sans "pas")) lest, for fear that [EX] Il ne voulait pas vous en parler ~ *de* vous influencer ou *que* vous *ne* le *critiquiez* || He did not want to talk to you *for fear of* influencing you or *for fear that* you would criticize him [EX] Elle a fermé la porte à clé ~ que le chien *ne disparaisse*. || She locked the door *for fear that* the dog *would* disappear.
+en vue de ** [ɑ̃ vy də] ** conj. in order to, with the aim of doing, with a view to doing
 pour ** [puʁ] ** prep. for (meant for, intended for) (followed by a noun or pronoun) %% prep. for (in support of) %% prep. for (as a consequence for) %% prep. for (an intended destination) %% prep. to (to bring about an intended result) (followed by a verb in the infinitive) %% prep. for, to (according to)
-pour que ** [puʁ kə] ** conj. (+ subjunctive) so that, in order that
+pour que ** [puʁ kə] ** conj. (+ *SUBJONCTIF*) so that, in order that [EX] J’y vais ~ ma femme *soit* contente. || I’m going *so that* my wife will be happy.
 
 35
 ## Expliquer une cause, justifier
 à cause de ** [a koz də] ** prep. because of
 car ** [kaʁ] ** conj. as, since, because, for %% n.m. a single-decked long-distance, or privately hired, bus, a coach
 comme ** [kɔm] ** conj. as (in the capacity of) %% conj. like, as %% conj. how %% conj. because, as, since
-effectivement ** [e.fɛk.tiv.mɑ̃] ** adv. indeed %% adv. (rare) really, actually
-en effet ** [ɑ̃.n‿e.fɛ] ** adv. indeed
-en raison de ** [ɑ̃ ʁɛ.zɔ̃ də] ** prep. due to, because of
-étant donné que ** [e.tɑ̃ dɔ.ne kə] ** conj. given that, seeing that
+effectivement ** [e.fɛk.tiv.mɑ̃] ** adv. indeed [EX] le problème est ~ complexe || the problem is *indeed* complex [EX] la police est ~ intervenue trop tard || the police did *indeed* intervene too late %% adv. (rare) really, actually
+en effet ** [ɑ̃.n‿e.fɛ] ** adv. indeed [EX] soyez prudent, les routes sont ~ très 
+en raison de ** [ɑ̃ ʁɛ.zɔ̃ də] ** prep. due to, because of [EX] ~'une panne/'un désaccord/la situation || *owing to* a breakdown/a disagreement/the situation
+étant donné que ** [e.tɑ̃ dɔ.ne kə] ** conj. (+ *INDICATIF*) given that, seeing that [EX] ~ que tout le monde est d'accord || *given that* everybody agrees [EX] ~'il y a d'autres possibilités || *given that* there are other possibilities
 grâce à ** [ɡʁɑ.s‿a] ** prep. thanks to
 parce que ** [paʁs kə/paʁ.sə kə] ** conj. because
-puisque ** [pɥisk] ** conj. since, because
+puisque ** [pɥisk] ** conj. since, because [EX] ~ c'est comme ça, je m'en vais || *since* it's like that I'm going [EX] ~'il pleut je reste ici || *since* or as it's raining, I'm staying here %% conj. (exclamatory) [EX] mais ~ je te dis que c'est impossible || *but* I'm telling you it's impossible [EX] mais ~'il te dit qu'il a peur || *but* he did tell you he's frightened
 sous prétexte que ** [su pʁe.tɛkst kə] ** conj. arguing that, on the grounds that, on the pretext that
-vu que ** [vy kə] ** conj. (colloquial) given that, seeing that, since
+vu que ** [vy kə] ** conj. (colloquial, +*INDICATIF*) in view of the fact that, given that, seeing that, since
 
 38
 ## Opposer, réfuter l'argument opposé
-à l'inverse ** [a ak.sɑ̃ ɡʁav/a UNKNOWN] ** adv. conversely, by contrast
-alors que ** [a.lɔʁ kə] ** conj. while, whereas, though; expresses a sense of opposition between simultaneous events %% conj. (literary or Quebec) when, while
-au contraire ** [o kɔ̃.tʁɛʁ] ** adv. on the contrary, quite the contrary, quite the opposite; ~
-bien que ** [bjɛ̃ kə] ** conj. although %% conj. although
-cependant ** [sə.pɑ̃.dɑ̃] ** adv. meanwhile %% conj. however, nevertheless, yet, notwithstanding
-certes mais ** [sɛʁt mɛ] ** UNKNOWN
-contrairement à ** [kɔ̃.tʁɛʁ.mɑ̃ a] ** prep. unlike; as opposed to
-d'une part d'autre part ** [UNKNOWN paʁ UNKNOWN paʁ] ** UNKNOWN
-en revanche ** [ɑ̃ ʁə.vɑ̃ʃ] ** adv. however %% adv. on the other hand
+à l'inverse ** [a l‿ɛ̃.vɛʁs] ** adv. conversely, by contrast [EX] ~ de ce qui s'est passé l'an dernier || *unlike* last year [EX] ~ de ce qu'il croyait || *contrary to* what he thought
+alors que ** [a.lɔʁ kə] ** conj. while, whereas, though; expresses a sense of opposition between *simultaneous* events [EX] j'ai appris la nouvelle ~ j'étais à Rome || I heard the news *while* I was in Rome [EX] il fait chaud ici ~ dehors il gèle || it's hot in here *while* outside it's freezing
+au contraire ** [o kɔ̃.tʁɛʁ] ** adv. on the contrary, quite the contrary, quite the opposite [EX] ~, ... || on the contrary, ... [EX] ~ de tes amis || *unlike* your friends
+bien que ** [bjɛ̃ kə] ** conj. (+ *adj ou SUBJONCTIF*) although [EX] ~'il le sache || *although* he knows [EX] il joue un rôle important ~ discret || he plays an important role, *albeit* a discreet one
+cependant ** [sə.pɑ̃.dɑ̃] ** adv. meanwhile %% conj. however, nevertheless, yet, notwithstanding [EX] son histoire est incroyable et ~ elle est vraie || his/her story is incredible and *yet* it is true [EX] une ambiguïté subsiste ~ || one ambiguity remains, *however*
+certes mais ** [sɛʁt mɛ] ** conj. admittedly …, but … [EX] ce ne sera ~(1) pas facile ~(2)… || *admittedly* it won't be easy *but*… [EX] ~(1), je me suis trompé, ~(2)… || *admittedly* I made a mistake *but*…
+contrairement à ** [kɔ̃.tʁɛʁ.mɑ̃ a] ** prep. unlike; as opposed to [EX] ~ ce qu'on pourrait penser/à ce qu'il prétend || *contrary to* what one might think/to what he claims [EX] ~ une opinion répandue || contrary to* popular belief [EX] ~ qn/la France || unlike sb/France
+d'une part d'autre part ** [dyn paʁ dotʀ paʁ] ** conj. (marquant une énumération) firstly …, secondly … %% conj. (marquant une opposition) on (the) one hand … on the other hand …
+en revanche ** [ɑ̃ ʁə.vɑ̃ʃ] ** adv. on the other hand (usually positive) [EX] Ce travail ne paie pas bien ; ~, c’est très marrant || This work doesn’t pay well, *but to make up for it*, it’s really fun [EX] Il a ~ été relaxé des autres faits qui lui étaient reprochés || He was *however* acquitted of the other alleged offenses
 mais ** [mɛ] ** conj. but, although %% interj. an expression of surprise, disbelief, or frustration roughly equivalent to the English well, or sometimes yeah
-malgré ** [mal.ɡʁe] ** prep. despite, in spite of %% prep. (with a pronoun) against (one's) will, despite (one's) protest
+malgré ** [mal.ɡʁe] ** prep. despite, in spite of [EX] ~ les efforts de qn || *despite* sb's efforts [EX] elle l'a épousé ~ son âge || she married him *in spite of* his age [EX] ~ le fait que … || *in spite of/despite* the fact that … %% prep. (with a pronoun) against (one's) will, despite (one's) protest
+malgré que ** [mal.ɡʁe kə] ** conj. (criticized) even though (purists only use avoir in *SUBJONCTIF*) [EX] ~'il en *ait* || *in spite of* his wishes to the contrary 
 malgré tout ** [mal.ɡʁe tu] ** adv. still; nevertheless %% adv. (archaic) come what may; in spite of everything
 même si ** [mɛm si] ** conj. even if %% conj. although, even though
-néanmoins ** [ne.ɑ̃.mwɛ̃] ** adv. however %% adv. (conjunctive) nevertheless, nonetheless
-or ** [ɔʁ] ** n.m. gold %% n.m. (heraldry) ~ (yellow in heraldry) %% adv. (obsolete) now, presently %% conj. yet, however, now, that said (introduces the second term in a syllogism)
-pourtant ** [puʁ.tɑ̃] ** adv. however, yet
-quoique ** [kwa.kə] ** conj. though, although
-soit soit ** [swa/swat swa/swat] ** UNKNOWN
-tandis que ** [tɑ̃.di kə/tɑ̃.dis kə] ** conj. whereas, while, whilst
+néanmoins ** [ne.ɑ̃.mwɛ̃] ** adv. however %% adv. (conjunctive) nevertheless, nonetheless [EX] et ~ || but *nevertheless*
+or ** [ɔʁ] ** n.m. gold %% n.m. (heraldry) ~ (yellow in heraldry) %% conj. and yet, that said [EX] il dit avoir passé la soirée au cinéma, ~ personne ne peut le confirmer || he says he spent the evening at the cinema *and yet* nobody can confirm it [EX] tu m'as dit que tu serais à la bibliothèque, ~ tu n'y étais pas || you told me you'd be at the library *and* you weren't there %% conj. (introducing a new element) now [EX] les musées sont fermés le mardi, ~ c'était justement un mardi || museums are closed on Tuesdays, *and* it just so happened that it was a Tuesday [EX] ~, ce jour-là, il était sorti sans son parapluie || *now*, on that particular day, he went out without his umbrella
+pourtant ** [puʁ.tɑ̃] ** adv. however, yet [EX] et ~ || and *yet* [EX] c'était ~ une bonne idée || and *yet* it was a good idea
+quoique ** [kwa.kə] ** conj. (+ *rien/adj/SUBJONCTIF*) though, although [EX] nous sommes mieux ici qu'à Paris, ~ || we're better off here than in Paris, *but then (again)* [EX] ~'il *soit* malade, il travaille beaucoup || although he's sick, he's doing a lot of work [EX] ~ pauvre, elle est généreuse || *although* she's poor she is generous, she's generous although or though poor
+soit soit ** [swa swa] ** conj. either, or [EX] ~[1] du fromage, ~[2] un gâteau, ~[2] des fruits || *either* cheese, *or* a cake, *or* fruit [EX] ~[1] il *part*, ~[2] je *pars* %% conj. (~ que *SUBJONCTIF*) suggest that either or [EX] elle suggère ~[1] que vous ven*iez* chez nous, ~[2] qu'on *aille* au restaurant || she suggests that *either* you come to our place, *or (else)* we go to a restaurant %% conj. (~ que *?INDICATIF?*) either because or because [EX] il le savait, ~[1] qu'il l'avait lu dans les journaux, ~[2] qu'on le lui avait dit || he knew it, *either because* he had read it in the newspapers, *or because* someone had told him
+tandis que ** [tɑ̃.di kə/tɑ̃.dis kə] ** conj. (+ *INDICATIF*) whereas, while, whilst [EX] Je connais Samantha ~’elle connaît Eric. || I know Samantha *while* she knows Eric.

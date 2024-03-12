@@ -175,8 +175,8 @@ def shuffle_if_random(li, rand):
     return random.sample(li, len(li)) if rand else li
 
 
-def comp_conj_answers(inp, words):
-    return any([comp_answers(inp, form) for form in words])
+def comp_conj_answers(inp, words, ignore_diacritics):
+    return any([comp_answers(inp, form, ignore_diacritics) for form in words])
 
 
 def line_is_a_word_entry(line):

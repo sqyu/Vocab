@@ -40,7 +40,7 @@ rompre ** [ʁɔ̃pʁ] ** v.t. ~ un contrat %% v.t. to break (something) %% v.t. 
 signer ** [si.ɲe] ** v.t. ~ un contrat %% v.t. to sign (put a signature on) %% v. to sign (communicate using sign language)
 flamme ** [flɑm/flam] ** n.f. flame %% n.f. (figurative) talent, brilliance %% n.f. (nautical) streamer (long, narrow flag) %% n.f. veterinary lancet
 vaciller ** [va.sije] ** v.i. une flamme ~ %% v. to vacillate %% v. to flicker out (as a candle)
-fleuve ** [flœv/ˈflø.və] ** n.m. a river that flows into an ocean or sea (a river that flows into another river or body of water is called a rivière) %% n.m. (figurative) a continuous and unstoppable stream of people, things, or words %% n.m. (mythology, art) a river god, or the allegorical artistic representation of a river as an old, bearded man lying on reeds and holding or leaning on an urn from which the river's water flows
+fleuve ** [flœv] ** n.m. a river that flows into an ocean or sea (a river that flows into another river or body of water is called a rivière) %% n.m. (figurative) a continuous and unstoppable stream of people, things, or words %% n.m. (mythology, art) a river god, or the allegorical artistic representation of a river as an old, bearded man lying on reeds and holding or leaning on an urn from which the river's water flows
 gronder ** [ɡʁɔ̃.de] ** v.i. un fleuve ~ %% v.i. to rumble, roar; to growl %% v.t. to tell off, scold
 retentir ** [ʁə.tɑ̃.tiʁ] ** v.i. une explosion ~ %% v.i. to ring, to ring out %% v.i. (figurative) to have a strong effect
 bégayer ** [be.ɡe.je] ** v.i. l'histoire ~ (repeats itself) %% v. to stammer, to stutter
@@ -67,12 +67,13 @@ battage ** [ba.taʒ] ** n.m. hype, publicity
 conditionnement ** [kɔ̃.di.sjɔn.mɑ̃] ** n.m. conditioning (social conditioning training individuals to act in a society)
 couverture ** [ku.vɛʁ.tyʁ] ** n.f. blanket %% n.f. coverage %% n.f. cover, covering
 déballage ** [de.ba.laʒ] ** n.m. unpacking
-emballement ** [ɑ̃.bal.mɑ̃] ** n.m. packing up; packaging
+emballage ** [ɑ̃balaʒ] ** n.m. packaging, wrapping
+emballement ** [ɑ̃.bal.mɑ̃] ** n.m. fad (a short-lived intense and widely shared enthusiasm for something) %% n.m. outburst of anger
 relais ** [ʁə.lɛ] ** n.m. a horse (or team of horses) that transported a rider or coach etc from one staging post to another %% n.m. a hotel that is used as a stop on long journeys %% n.m. (electronics) relay (electromechanical device) %% n.m. (sports) relay race
 retentissement ** [ʁə.tɑ̃.tis.mɑ̃] ** n.m. (bruit) ringing, boom %% n.m. (figuratively) repercussion(s), impact, effect
 sirène ** [si.ʁɛn] ** n.f. (mythology) mermaid, siren %% n.f. (figuratively, by extension) siren, temptress, seducer %% n.f. siren, alarm
 tapage ** [ta.paʒ] ** n.m. noise (annoying sound)
-tintamarre ** [tɛ̃.ta.maʁ] ** n.m. ruckus; racket; a loud unpleasant noise %% n.m. fuss (faire du ~ = to make a fuss)
+tintamarre ** [tɛ̃.ta.maʁ] ** n.m. ruckus; racket; a loud unpleasant noise %% n.m. fuss [EX] faire du ~ || to make a *fuss*
 avancée ** [a.vɑ̃.se] ** n.f. (often in the plural) advance, progress
 bijou ** [bi.ʒu] ** n.m. a piece of jewelry
 bond ** [bɔ̃] ** n.m. jump, bound, leap %% n.m. bounce

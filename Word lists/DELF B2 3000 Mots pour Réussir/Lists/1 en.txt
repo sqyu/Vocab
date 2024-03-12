@@ -23,14 +23,14 @@ réexamen ** [ʁe.ɛɡ.za.mɛ̃] ** n.m. re-examination %% n.m. reconsideration 
 clamer ** [kla.me/klɑ.me] ** v. to proclaim
 réclamer ** [ʁe.klɑ.me] ** v.t. to protest %% v.t. to object %% v.t. to claim, reclaim
 fléchir ** [fle.ʃiʁ] ** v.t. to bend, to fold %% v.i. to bend, to bend over %% v.t. to flex (eg. a muscle) %% v. (figuratively, transitive) to provoke pity
-réfléchir ** [ʁe.fle.ʃiʁ] ** v.i. (or transitive with à or sur or que) to ponder, to reflect %% v.pr. to be reflected
+réfléchir ** [ʁe.fle.ʃiʁ] ** v.i. (or transitive with à or sur or que) to ponder, to reflect %% v.pr. (se ~) to be reflected
 jouir ** [ʒwiʁ] ** v. to enjoy [+ de (object)] (rights, advantages) %% v.i. to have an orgasm; to come, cum; to ejaculate
 se réjouir ** [sə ʁe.ʒwiʁ] ** v.pr. to rejoice %% v.pr. to be delighted at (~ de)
 déballer ** [de.ba.le] ** v.t. to unpack, unwrap
 emballer ** [ɑ̃.ba.le] ** v.t. to pack up; to wrap up; to parcel %% v. (colloquial) to thrill, to turn on %% v.pr. to race %% v.pr. (for a horse) to bolt %% v.pr. (colloquial) to get carried away %% v.pr. (colloquial) to get ahead of oneself, to get one's hopes up %% v.t. (colloquial) to make out with someone
 déchaîner ** [de.ʃe.ne/de.ʃɛ.ne] ** v. to unleash %% v. to arouse, rouse %% v. to cause, bring out %% v.pr. to go wild, to let rip, rage
 enchaîner ** [ɑ̃.ʃe.ne/ɑ̃.ʃɛ.ne] ** v. to chain, to shackle %% v. (figurative) to subjugate, to enslave %% v. to put together (in a sequence), to concatenate
-déménager ** [de.me.na.ʒe] ** v.t. to move (an object from a place to another) %% v.i. to move house, to leave a house %% v.i. (slang) to kick ass, to kick butt, to rock, to rule (to be awesome)
+déménager ** [de.me.na.ʒe] ** v.t. to move (an object from a place to another) %% v.i. to move house, to leave a house [EX] ~ de Paris || to *move* from Paris [EX] ~ à Oxford || to *move* to Oxford %% v.i. (slang) to kick ass, to kick butt, to rock, to rule (to be awesome)
 emménager ** [ɑ̃.me.na.ʒe] ** v. to move in (to a new home)
 emporter ** [ɑ̃.pɔʁ.te] ** v. to take %% v. to win %% v. to take away, to blow away, to carry away %% v. to take away %% v.pr. (s'emporter) to get angry; to lose one's temper; to flare up
 s'enfuir ** [s‿ɑ̃.fɥiʁ] ** v.pr. to flee; to run away
@@ -66,7 +66,7 @@ sécuriser ** [se.ky.ʁi.ze] ** v. to secure (make (an area) safer) %% v. to put
 blanchir ** [blɑ̃.ʃiʁ] ** v. to launder, wash %% v. to make white; to whiten %% v. to grow or become white %% v. to blanch or bleach %% v. (money) to launder %% v. to whitewash (to cover over errors or bad actions)
 noircir ** [nwaʁ.siʁ] ** v.t. to blacken (make black), to make dirty %% v.i. to go black, to get dirty %% v.pr. (se ~) (sky) to darken; (weather) to become threatening %% v.pr. to get drunk
 pâlir ** [pɑ.liʁ] ** v. to pale; to fade (lose color) %% v. to fade (lose glory or power)
-épaissir ** [e.pɛ.siʁ] ** v. to thicken, get/make thicker
+épaissir ** [e.pɛ.siʁ] ** v.pr. (sauce/mist) to thicken, get/make thicker %% v.pr. (mystery) to deepen
 épais ** [e.pɛ] ** a. thick %% a. (Quebec, informal) stupid, thick %% adv. thickly; densely
 s'épaissir ** [e.pɛ.siʁ] ** v. to thicken, get/make thicker
 
@@ -112,7 +112,7 @@ précarité ** [pʁe.ka.ʁi.te] ** n.f. precarity, existence without financial o
 pâle ** [pɑl/pal] ** a. pale (light in color) %% a. pale (lacking brightness) %% a. pale (dull)
 pâleur ** [pa.lœʁ] ** n.f. pallor; paleness
 dosage ** [dɔ.zaʒ] ** n.m. dosage (measured amount of a medication)
-doseur ** [do.zœʁ] ** n.m. measure %% n.m. dosing
+doseur ** [do.zœʁ] ** a. measuring [EX] verre ~ || *measuring* glass %% n.m. measuring glass
 blanchissage ** [blɑ̃.ʃi.saʒ] ** n.m. laundering, laundry, washing %% n.m. (ice hockey) shutout
 blanchiment ** [blɑ̃.ʃi.mɑ̃] ** n.m. bleaching %% n.m. laundering (especially of money) %% n.m. blanking
 agir ** [a.ʒiʁ] ** v.i. to act %% v.i. to act, to do (something) %% v.i. to act, behave %% v.i. (followed by sur) to act on %% v. (law, followed by contre) prosecute, sue %% v. (impersonal, reflexive, followed by de) to be, be all about, be a question of
@@ -121,7 +121,7 @@ agissement ** [a.ʒis.mɑ̃] ** n.m. (derogatory, usually in the plural) doing, 
 29
 abattre ** [a.batʁ] ** v. to butcher; to slaughter for meat %% v. to shoot dead %% v. to cut down (a tree) %% v. to destroy or demolish (a wall) %% v.pr. to fall down, especially of tall things, such as trees %% v. (takes a reflexive pronoun) to descend upon with violence or furor %% v. (takes a reflexive pronoun, of lightning) to strike
 abattage ** [a.ba.taʒ] ** n.m. slaughter or butchering for meat %% n.m. felling or cutting down of (trees) %% n.m. destruction, demolition of (a wall)
-abattement ** [a.bat.mɑ̃] ** n.m. a diminution of physical or moral strength; dejection; exhaustion; despondency %% n.m. (finance or law) a type of allowance or tax deduction %% n.m. (business, rare) a discount %% n.m. Obsolete form of abattage.
+abattement ** [a.bat.mɑ̃] ** n.m. a diminution of physical or moral strength; dejection; exhaustion; despondency %% n.m. (finance or law) a type of allowance or tax deduction %% n.m. (business, rare) a discount
 abatteur ** [a.ba.tœʁ] ** n.m. someone who fells; who knocks something down %% n.m. a boaster
 abattoir ** [a.ba.twaʁ] ** n.m. slaughterhouse
 

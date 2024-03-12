@@ -8,7 +8,7 @@ from Help_funs import (
     quitOrInput,
     QuitException,
 )
-from Vars import getInst, printInst, inpInst
+import Vars
 from Writing import writeTime, writeRecord
 
 
@@ -69,7 +69,7 @@ class Conj:
             tenses = self.tenses
         assert set(tenses).issubset(self.tenses)
         s = [
-            getInst("infinitive", rep=[("SPACE", "")])
+            Vars.getInst("infinitive")
             + self.infinitive
             + " "
             + self.infinitive_IPA
@@ -92,7 +92,7 @@ class Conj:
                 )
             )
         if self.comments:
-            s.append(getInst("comments") + self.comments)
+            s.append(Vars.getInst("comments") + self.comments)
         s = ("\n" + "*" * 40 + "\n").join(s)
         return s
 
@@ -134,18 +134,21 @@ def reciteconj(Dictionary, rnr, wordListAndNames, readFromRecord=False):
         [t for cj in Dictionary.values() for t in cj.tenses]
     )  # All tenses available
     if len(all_tenses) == 0:  # No tenses available
-        printInst("noTense")
+        Vars.printInst("noTense")
         return
     user_input = [""]
     try:
         while not all(
             [
-                any(comp_answers(subinp, x) for x in all_tenses + ["A", "ALL"])
+                any(
+                    comp_answers(subinp, x, Vars.parameters["IgnoreDiacritics"])
+                    for x in all_tenses + ["A", "ALL"]
+                )
                 for subinp in user_input
             ]
         ):
             user_input = (
-                inpInst("chooseTense", rep="(" + ", ".join(all_tenses) + ")")
+                Vars.inpInst("chooseTense", rep="(" + ", ".join(all_tenses) + ")")
                 .replace(", ", ",")
                 .split(",")
             )
@@ -157,13 +160,18 @@ def reciteconj(Dictionary, rnr, wordListAndNames, readFromRecord=False):
         tenses = list(
             set(
                 filter(
-                    lambda x: any([comp_answers(subinp, x) for subinp in user_input]),
+                    lambda x: any(
+                        [
+                            comp_answers(subinp, x, Vars.parameters["IgnoreDiacritics"])
+                            for subinp in user_input
+                        ]
+                    ),
                     all_tenses,
                 )
             )
         )
-    printInst("startReciteConj")
-    printInst("startRecite2")
+    Vars.printInst("startReciteConj")
+    Vars.printInst("startRecite2")
     print()
     if rand:
         random.shuffle(wordList)
@@ -181,24 +189,28 @@ def reciteconj(Dictionary, rnr, wordListAndNames, readFromRecord=False):
                     person = re.sub(
                         "^j'", "je", re.sub("^qu'", "", re.sub(r"^que\s", "", person))
                     )
-                    user_input = inpInst(
+                    user_input = Vars.inpInst(
                         "conjInPersonForTense",
                         rep=(("REPLACE1", tense), ("REPLACE2", person)),
                     )
                     wrongtimes = 0
-                    while (not comp_conj_answers(user_input, forms)) and (
+                    while (
+                        not comp_conj_answers(
+                            user_input, forms, Vars.parameters["IgnoreDiacritics"]
+                        )
+                    ) and (
                         wrongtimes < MaxTimes
                     ):  # Try again until being wrong for MaxTimes times
                         wrongtimes += 1
-                        printInst("tryAgain")
+                        Vars.printInst("tryAgain")
                         if wrongtimes < MaxTimes:
                             user_input = quitOrInput()
                     if wrongtimes == MaxTimes:
                         difficultWords.append(word)
                         print(" %% ".join(IPA))  # Show IPA first
-                        user_input = inpInst("tryAgain")
+                        user_input = Vars.inpInst("tryAgain")
                         if not comp_conj_answers(
-                            user_input, forms
+                            user_input, forms, Vars.parameters["IgnoreDiacritics"]
                         ):  # If still incorrect, show descriptions
                             print(con.format([]))
                             print(
@@ -211,31 +223,31 @@ def reciteconj(Dictionary, rnr, wordListAndNames, readFromRecord=False):
                                     ]
                                 )
                             )
-                            user_input = inpInst("tryAgain")
+                            user_input = Vars.inpInst("tryAgain")
                         while not comp_conj_answers(
-                            user_input, forms
+                            user_input, forms, Vars.parameters["IgnoreDiacritics"]
                         ):  # Enter until correct
-                            user_input = inpInst("tryAgain")
-                    printInst("correct")
+                            user_input = Vars.inpInst("tryAgain")
+                    Vars.printInst("correct")
     except QuitException:
         quit = True
     if difficultWords:  # If there is any difficult word
         difficultWords = sorted(set(difficultWords))
         print(
-            getInst("difficultWordList"),
+            Vars.getInst("difficultWordList"),
             ", ".join(difficultWords)
             + ", "
-            + getInst("wordsInTotal")
+            + Vars.getInst("wordsInTotal")
             + str(len(difficultWords))
-            + getInst("wordsInTotal2"),
+            + Vars.getInst("wordsInTotal2"),
         )
         if not quit:
             try:
-                _ = inpInst("reviewRecite")
+                _ = Vars.inpInst("reviewRecite")
                 lenDifficultWords = len(difficultWords)
                 for index, word in enumerate(difficultWords):
                     print(
-                        getInst("word", rep=[("SPACE", "")])
+                        Vars.getInst("word")
                         + "\n"
                         + "%d/%d" % (index + 1, lenDifficultWords)
                     )
@@ -244,7 +256,7 @@ def reciteconj(Dictionary, rnr, wordListAndNames, readFromRecord=False):
             except QuitException:
                 pass
     elif not quit:
-        printInst("congratulations")
+        Vars.printInst("congratulations")
     if record and not quit:
         writeRecord(difficultWords, "reciteconj", name)
     writeTime(

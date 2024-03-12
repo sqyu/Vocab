@@ -17,6 +17,7 @@ acronym = {
     "CLIC6": "CLIC6",
     "Le Figaro": "LFG",
     "DELF B2 3000 Mots pour Réussir": "MPRB2",
+    "Japanese verb conjugations": "JVC",
 }
 findAcronym = {value: key for key, value in acronym.items()}
 
@@ -28,6 +29,7 @@ listNumber = {
         "Duo_de": range(1, 2),
         "IELTS": range(1, 49),
         "Hyojun Nihongo": list(range(1, 2)),
+        "Japanese verb conjugations": [1],
     },
     "zh-cn": {
         "Petit Livre Rouge": list(range(1, 43)),
@@ -39,6 +41,7 @@ listNumber = {
         "Petit Livre Rouge": [3, 5, 11, 12, 13],
         "Le Français 1": list(range(1, 2)),
         "Français": [2],
+        "Japanese verb conjugations": [1],
     },
     "en": {
         "Le Français 1": range(1, 2),
@@ -46,11 +49,12 @@ listNumber = {
         "Duo_de": range(1, 2),
         "CLIC6": range(1, 3),
         "Le Figaro": range(1, 2),
-        "DELF B2 3000 Mots pour Réussir": range(1, 8)
+        "DELF B2 3000 Mots pour Réussir": range(1, 8),
+        "Japanese verb conjugations": [1],
     },
 }
 
-conjNumber = {"Duo_de": range(1, 2), "Français": [2]}
+conjNumber = {"Duo_de": range(1, 2), "Français": [2], "Hyojun Nihongo": [1]}
 lang = ""
 parameters = {}
 instructions = {}
