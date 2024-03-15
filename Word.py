@@ -156,7 +156,7 @@ def describeWord(word, Word_obj, learnMode, number=None):
         )  # word 30/150 means this word is the 30th in the list
     else:
         print(word)  # Only prints out the word without the numbers
-    print_pronunciation(Word_obj.IPA)  # Prints out the IPA
+    print(get_pronunciation(Word_obj.IPA))  # Prints out the IPA
     if learnMode:  # If prints meanings after user inputs something
         s = quitOrInput(None).upper()
         if markWordorNot(s):
@@ -194,7 +194,7 @@ def format_kana_with_accent(s: str, accent: int) -> str:
     raise Exception(f"Got accent = {accent} > len({s}) = {len(s)}")
 
 
-def print_pronunciation(s: str) -> None:
+def get_pronunciation(s: str) -> str:
     """
     If input is Kana + a number e.g. がくせい3, format the Kana reading with the number as its accent.
     Otherwise just print the input.
@@ -213,8 +213,7 @@ def print_pronunciation(s: str) -> None:
             else:
                 formatted = format_kana_with_accent(word, accent)
                 if has_brackets:
-                    print("[" + formatted + "]")
+                    return "[" + formatted + "]"
                 else:
-                    print(formatted)
-            return
-    print(s)
+                    return formatted
+    return s
