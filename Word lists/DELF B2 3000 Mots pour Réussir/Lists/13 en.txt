@@ -17,7 +17,7 @@ antibiotique ** [ɑ̃.ti.bjɔ.tik] ** n.m. antibiotic %% a. antibiotic
 antiseptique ** [ɑ̃.ti.sɛp.tik] ** n.m. antiseptic (substance that inhibits the growth of microorganisms) %% a. antiseptic (capable of preventing microbial infection)
 asthme ** [asm] ** n.m. asthma
 attraper une maladie ** [a.tʁa.pe yn ma.la.di] ** v.t. to get sick
-tomber malade ** [tɔ̃.be ma.lad] ** v. to get stick
+tomber malade ** [tɔ̃.be ma.lad] ** v. to get sick
 attraper froid ** [a.tʁa.pe fʁwa] ** v. to catch a cold
 prendre froid ** [pʁɑ̃dʁ fʁwa] ** v. to catch a cold
 ausculter ** [os.kyl.te] ** v. to sound, to examine with a stethoscope, to examine a patient by listening to sounds from (the heart, lungs, or other organs)
@@ -46,6 +46,7 @@ avoir des hauts et des bas ** [a.vwaʁ de o e/ɛt de bɑ/ba] ** v.t. to have ups
 avoir des poignées d'amour ** [a.vwaʁ de pwa.ɲe damuʁ] ** v.t. to have love handles
 poignée ** [pwa.ɲe] ** n.f. handful, fistful [EX] à or par ~s || in *handfuls* [EX] une ~ de gens || a *handful* of people %% n.f. handful (a small number) %% n.f. handle
 poignée de main ** [pwa.ɲe d(ə) mɛ̃] ** n.f. handshake [EX] échanger une ~ || to *shake hands*
+avoir du mal à ** [a.vwaʁ dy mal] ** v.t. (~ faire) to find it difficult to (do)
 avoir du mal à s'endormir ** [a.vwaʁ dy mal a s‿ɑ̃.dɔʁ.miʁ] ** v.t. to have trouble falling asleep
 avoir envie de vomir ** [a.vwaʁ ɑ̃.vi də vɔ.miʁ/vo.miʁ] ** v.t. to want to vomit
 avoir la crève ** [a.vwaʁ la kʁɛv] ** v.t. to have a bad cold
@@ -54,7 +55,7 @@ avoir la nausée ** [a.vwaʁ la no.ze] ** v.t. to feel sick, to be nauseous
 avoir la tête qui tourne ** [a.vwaʁ la tɛt ki tuʁn] ** v. (informal) to be dizzy; to be light-headed
 
 69
-avoir le hoquet ** [a.vwaʁ lə ɔ.kɛ] ** v.t. to have the hiccups
+avoir le hoquet ** [a.vwaʁ lə ɔ.kɛ] ** v.t. to have hiccups
 avoir mal à la tête ** [a.vwaʁ mal a la tɛt] ** v.t. to have a headache
 avoir mal au crâne ** [a.vwaʁ mal o kʁɑn] ** v.t. to have a splitting headache
 avoir le nez qui coule ** [a.vwaʁ lə ne ki kul] ** v.t. to have a runny nose

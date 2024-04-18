@@ -14,8 +14,8 @@ reconnu ** [ʁə.kɔ.ny] ** a. recognized [EX] pays ~ depuis 1990 || country tha
 recrutement ** [ʁə.kʁyt.mɑ̃] ** n.m. recruitment
 recruter ** [ʁə.kʁy.te] ** v. to recruit
 rémunération ** [ʁe.my.ne.ʁa.sjɔ̃] ** n.f. pay; remuneration
-rendre compte de ** [ʁɑ̃.dʁə kɔ̃t] ** v. (~ qch *à* qn) to give an account (explain/report) of sth to sb %% v. (~ qch *à* qn) to account for sth to sb
-se rendre compte ** [sə ʁɑ̃.dʁə kɔ̃t] ** v. (~ *de/que*) to realize [EX] il ne s'est pas ~(passé) du mal qu'il avait fait || he didn't *realize* the harm he had done [EX] tout cela s'est passé si vite que je ne me ~(passé) de rien || it all happened so quickly that I didn't *realize* what was going on [EX] tu ne te ~pas~ que c'est dangereux! || don't you *realize* how dangerous it is?
+rendre compte de ** [ʁɑ̃.dʁə kɔ̃t] ** v.t. (~ qch *à* qn) to give an account (explain/report) of sth to sb %% v. (~ qch *à* qn) to account for sth to sb
+se rendre compte ** [sə ʁɑ̃.dʁə kɔ̃t] ** v.pr. (~ *de/que*) to realize [EX] il ne s'est pas ~(passé) du mal qu'il avait fait || he didn't *realize* the harm he had done [EX] tout cela s'est passé si vite que je ne me ~(passé) de rien || it all happened so quickly that I didn't *realize* what was going on [EX] tu ne te ~pas~ que c'est dangereux! || don't you *realize* how dangerous it is?
 renforcer ** [ʁɑ̃.fɔʁ.se] ** v.t. to reinforce, strengthen
 repérer ** [ʁə.pe.ʁe] ** v. to spot, to detect, to pick out [EX] ~ les lieux || to *check out* a place [EX] si tu ne veux pas te faire ~ || if you don't want to get *noticed* or to attract attention [EX] se faire ~ par la police || to be *spotted* by the police %% v. to locate %% v. to mark 
 se repérer ** [səʁə.pe.ʁe] ** v.pr. (informal) to get one's bearings, to find out where one is or what one should do next [EX] je n'arrive pas à me ~ dans cette théorie || I can't *make head or tail* of this theory [EX] je n'arrive pas à me ~ dans tous ces documents/mensonges || I don't *know where I am* with all these documents/lies %% v.pr. [erreur, qualité] to stand out [EX] ça se ~ facilement || it stands out clearly, it's *easy to pick out* or to spot
@@ -81,7 +81,7 @@ travail à temps partiel ** [tʁa.vaj a tɑ̃ paʁ.sjɛl] ** n.m. part time work
 travail au noir ** [tʁa.vaj o nwaʁ] ** n.m. illegal work
 travail clandestin ** [tʁa.vaj klɑ̃.dɛs.tɛ̃] ** n.m. unreported employment, illicit work
 travail scolaire ** [tʁa.vaj skɔ.lɛʁ] ** n.m. schoolwork
-travailler à son compte ** [tʁa.va.je a sɔ̃ kɔ̃t] ** v.t. to work for his own
+travailler à son compte ** [tʁa.va.je a sɔ̃ kɔ̃t] ** v.t. to work for his own, to be self-employed
 tricher ** [tʁi.ʃe] ** v.i. to cheat  [EX] ~ aux cartes/à un examen || to *cheat* at cards/in an exam [EX] ~ avec les chiffres || to *cheat* with figures %% v.i. to lie about sth [EX] ~ sur son âge || to *lie* about one's age [EX] ~ sur la qualité d'un produit || to *cut corners* on product quality 
 tromper ** [tʁɔ̃.pe] ** v.t. to deceive, to mislead [EX] être ~é par qn || to be *deceived* by sb [EX] ~ l'opinion publique/les électeurs || to *mislead* the public/the voters %% v.t. to be unfaithful to, to deceive, to cheat on [EX] il la ~ || he's *unfaithful* to her [EX] un mari ~é || a *deceived* husband
 se tromper ** [sə tʁɔ̃.pe] ** v.t. (~ *dans*) to be mistaken [EX] ~ dans son choix || to *be mistaken* in one's choice, to make the wrong choice [EX] ~ sur qn || to *be wrong* about sb [EX] je me suis ~é sur leurs intentions || I *misunderstood* their intentions [EX] si je ne me ~ || if I'm not *mistaken* %% v.pr. to make a mistake [EX] tu t'es ~é, il n'y a pas de trait d'union || you've *made a mistake*, there's no hyphen [EX] ~ de dix euros || to be ten euros *off* 

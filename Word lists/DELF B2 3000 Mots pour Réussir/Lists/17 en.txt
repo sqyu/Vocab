@@ -1,0 +1,44 @@
+76
+sédatif ** [se.da.tif] ** a. sedative %% n.m. sedative
+sein ** [sɛ̃] ** n.m. breast [EX] ça me ferait mal aux ~s (de faire) || (informal) it would make me feel sick (to do) %% n.m. womb %% n.m. bosom [EX] au ~ de || within
+silhouette ** [si.lwɛt/si.lu.ɛt] ** n.f. silhouette
+sirop ** [si.ʁo] ** n.m. syrup
+soigner ** [swa.ɲe] ** v. to treat; to nurse %% v. to look after, to take care of
+sommeil ** [sɔ.mɛj] ** n.m. sleep
+somnifère ** [sɔm.ni.fɛʁ] ** a. soporific, hypnotic, provoking sleep %% n.m. sleeping pill
+sophrologie ** [sɔ.fʁɔ.lɔ.ʒi] ** n.f. sophrology, relaxation therapy
+souffrir ** [su.fʁiʁ] ** v.i. to suffer %% v.t. (~ qch *de* qn) to endure, to put up with 
+soulagement ** [su.laʒ.mɑ̃] ** n.m. relief [EX] ce fut un immense ~ || it was an enormous relief [EX] au ~ de qn || to sb's relief [EX] à mon grand ~ || to my great relief [EX] au ~ général || to everyone's relief
+soulager ** [su.la.ʒe] ** v.t. to relieve, soothe
+se soulager ** [sə su.la.ʒe] ** v.pr. to relieve oneself
+sourcil ** [suʁ.sil/suʁ.si] ** n.m. eyebrow
+sourd ** [suʁ] ** a. deaf [EX] être ~ d'une oreille || to be deaf in one ear %% a. (~ à) deaf [EX] être ~ aux supplications/prières de qn || to be deaf to sb's pleas/entreaties [EX] être ~ à la pitié || to feel no pity %% a. muffled (sound) %% a. (phonetics) unvoiced, voiceless %% n.m. deaf person
+suivre ** [sɥivʁ] ** v. to follow (literal sense) %% v. to follow; to get (figurative sense; to understand what someone is saying) %% v. to take (a course or a class)
+suppositoire ** [sy.po.zi.twaʁ] ** n.m. suppository, a dosage form used to deliver medications by insertion into a body orifice (any opening in the body)
+surveillant ** [syʁ.vɛ.jɑ̃] ** n.m. (school) supervisor, proctor %% prison guard [EX] ~ de baignade || lifeguard
+symptôme ** [sɛ̃p.tom] ** n.m. symptom
+taciturne ** [ta.si.tyʁn] ** a. taciturn
+taire ** [tɛʁ] ** v.t. not to reveal; to hush up %% v.t. to keep sth to oneself [EX] faire ~ || to make [sb] be quiet, to silence
+se taire ** [sə tɛʁ] ** v.pr. to be silent, to say nothing, to be silent [EX] ~ *sur* qch || to *keep quiet* about sth %% v.pr. to stop talking, to fall silent [EX] ~-toi! || be quiet!
+thérapeute ** [te.ʁa.pøt] ** n.m. therapist
+tisane ** [ti.zan] ** n.f. herbal tea
+tomber dans les pommes ** [tɔ̃.be dɑ̃ le pɔm] ** v. (informal) to pass out, to black out, to keel over, to faint
+tomber malade ** [tɔ̃.be ma.lad] ** v. to fall ill, to take sick
+tousser ** [tu.se] ** v.i. to cough
+traitement ** [tʁɛt.mɑ̃/tʁɛ.tə.mɑ̃] ** n.m. treatment %% n.m. handling %% n.m. (computing) processing
+traiter ** [tʁe.te/tʁɛ.te] ** v.t. to treat %% v.t. to deal with
+transfusion ** [tʁɑ̃s.fy.zjɔ̃] ** n.f. (medicine) blood transfusion [EX] faire une ~ à qn || to give sb a transfusion
+sanguin ** [sɑ̃.ɡɛ̃] ** a. blood %% a. impulsive %% n.m. impulsive person
+transfusion sanguine ** [tʁɑ̃s.fy.zjɔ̃ sɑ̃.ɡin] ** n.f. blood transfusion
+tumeur ** [ty.mœʁ] ** n.f. tumor
+veine ** [vɛn] ** n.f. vein %% n.f. inspiration %% n.f. (informal) luck [EX] il a de la ~ || (en général) he's lucky; (cette fois) he's in luck [EX] il n'a pas de ~ || (en général) he's unlucky; (cette fois) he's out of luck [EX] pas de ~! || hard luck! [EX] ne pas avoir de ~ avec qn/qch || to have no luck with sb/sth
+
+77
+ventre ** [vɑ̃tʁ] ** n.m. belly, tummy, stomach %% n.m. (physics) antinode
+vertèbre ** [vɛʁ.tɛbʁ] ** n.f. vertebra
+vertige ** [vɛʁ.tiʒ] ** n.m. dizziness, giddiness [EX] avoir le ~ || to feel dizzy, to suffer from dizziness (habituellement) [EX] être pris de ~ || to become dizzy
+visage ** [vi.zaʒ] ** n.m. face (of a human)
+vitamine ** [vi.ta.min] ** n.f. vitamin
+vomir ** [vɔ.miʁ/vo.miʁ] ** v. to vomit
+vomissement ** [vɔ.mis.mɑ̃] ** n.m. sick; vomit (act of vomiting)
+voûté ** [vu.te] ** a. [personne] stooping (having head and shoulders habitually bent forwards) %% a. [dos] bent [EX] il est ~/il a le dos ~ || he has a *stoop*

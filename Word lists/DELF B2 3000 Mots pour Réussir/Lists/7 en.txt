@@ -1,45 +1,45 @@
 36
 ## Connecteurs temporels
-à l'époque ** [a l‿e.pɔk] ** adv. at the time, back then
-à l'origine ** [a l‿ɔ.ʁi.ʒin] ** adv. originally
-à partir de ** [a paʁ.tiʁ də] ** prep. starting at, beginning in, from  […]  onward %% prep. Starting from (there), supposing (that)
+à l'époque ** [a l‿e.pɔk] ** adv. at the time, back then [EX] ~ où || *at the time* when
+à l'origine ** [a l‿ɔ.ʁi.ʒin] ** adv. originally [EX] ~ du conflit il y a un problème frontalier || the conflict *has its origins in* a border dispute 
+à partir de ** [a paʁ.tiʁ də] ** prep. starting at, beginning in, from  … onward [EX] ~'ici/du feu rouge/d(u) carrefour || *from* here/the traffic lights/the crossroads [EX] ~ maintenant || *from* now on  [EX] ~(u) moment où || (temporal) as soon as; (conditional) as long as [EX] c'est possible ~(u) moment où tu résides dans le pays || it's possible *as long as* you are resident in the country [EX] ~ 2000 euros || *from* 2,000 euros [EX] faire une étude ~ statistiques || to *base* a study on statistics
 aujourd'hui ** [o.ʒuʁ.d‿ɥi/o.ʒuʁ.dɥi] ** adv. today %% adv. nowadays
-auparavant ** [o.pa.ʁa.vɑ̃] ** adv. beforehand, previously [from 15th century]
-autrefois ** [o.tʁə.fwa] ** adv. (literary) previously; formerly (at a past time), erstwhile
-avant ** [a.vɑ̃] ** adv. beforehand; earlier %% prep. before (in time) %% prep. before (in space), in front of, ahead of %% n.m. front %% n.m. (sports) forward
-depuis ** [də.pɥi] ** prep. since %% prep. since, ever since %% prep. (regarding time) for ~ %% prep. (regarding time) for the last ~, over the past ~ %% prep. from %% adv. (informal) ever since, since then
-dès que ** [dɛ kə/de kə] ** conj. once, as soon as
+auparavant ** [o.pa.ʁa.vɑ̃] ** adv. beforehand, previously
+autrefois ** [o.tʁə.fwa] ** adv. in the past; before, formerly [EX] ~ c'était possible || it *used to* be possible [EX] c'est là que je travaillais ~ || that's where I *used to* work
+avant ** [a.vɑ̃] ** adv. beforehand; earlier [EX] que faisait-il ~ || what was he doing *before*? [EX] tu n'aurais pas pu le dire ~? || couldn't you have said so *before(hand)*? %% prep. before (in time) %% prep. before (in space), in front of, ahead of %% n.m. front %% n.m. (sports) forward
+depuis ** [də.pɥi] ** adv. since [EX] je ne les ai pas revus ~ || I haven't seen them *since* [EX] il est parti il y a deux ans, ~ je n'ai plus de nouvelles || he left two years ago, *since then* I haven't had any news %% prep. since, ever since [EX] ~ 9 heures du matin || *since* 9am [EX] elle *fait* de la danse ~ l'âge de six ans || she has been dancing *since* she was six years old %% prep. (regarding time) for ~ [EX] ~ lors || *since then* [EX] ~ peu || recently %% prep. (regarding time) for the last ~, over the past ~ [EX] ~ deux heures/dix ans/trois siècles || *for* two hours/ten years/three centuries %% prep. from %% adv. (informal) ever since, since then
+dès que ** [dɛ kə/de kə] ** conj. once, as soon as [EX] ~ possible || *as soon as* possible [EX] ~'il m'a vue, il m'a souri || *as soon as* he saw me, he smiled at me
 désormais ** [de.zɔʁ.mɛ] ** adv. henceforth, from now on
-pendant ** [pɑ̃.dɑ̃] ** a. hanging %% n.m. stone that dangles on earrings %% n.m. match, counterpart %% prep. during, throughout, for the duration of %% part. present participle of pendre
+pendant ** [pɑ̃.dɑ̃] ** prep. during, throughout, for the duration of [EX] ~ un instant || *for* a moment [EX] ~ longtemps || *for* a long time %% a. hanging %% n.m. stone that dangles on earrings %% n.m. match, counterpart
 toujours ** [tu.ʒuʁ] ** adv. always %% adv. still
-tout de suite ** [tu də sɥit/tu.d‿sɥit/tu.t‿sɥit] ** adv. (idiomatic) immediately, right away %% adv. (obsolete) without interruption
+tout de suite ** [tu də sɥit/tu.d‿sɥit/tu.t‿sɥit] ** adv. at once, straight away [EX] ce n'est pas pour ~ || there's no rush; it's going to take some time
 
 37
 ## Expliquer les conséquences
-ainsi ** [ɛ̃.si] ** adv. in this way, thus
-au point que ** [o pwɛ̃ kə] ** UNKNOWN
+au point que ** [o pwɛ̃ kə] ** prep. (+*INDICATIF*)  to the extent that [EX] douloureux/endommagé à (un) tel/~ … || so painful/badly damaged *that* … [EX] la situation s'est aggravée ~'ils ont dû appeler la police || the situation became *so* bad *that* the police had to be called in
 aussi ** [o.si] ** adv. too, also, as well %% adv. as (used for equal comparisons) %% conj. therefore
-c'est pourquoi ** [sɛ puʁ.kwa] ** adv. that is why, this is why, which is why, for this reason, therefore
-c'est pour cela que ** [s‿ɛ/s‿e puʁ sə.la kə] ** UNKNOWN
-de façon que ** [də fa.sɔ̃ kə] ** conj. in order to, so that
-de sorte que ** [də sɔʁt kə] ** conj. (with indicative) so much so that, in such a way that %% conj. (with subjunctive) so as to, in order to
-donc ** [dɔ̃k/dɔ̃] ** adv. therefore, consequently; thus
-en conséquence ** [ɑ̃ kɔ̃.se.kɑ̃s] ** adv. consequently, as a result, hence, therefore, thus %% adv. accordingly
-et finalement ** [e/ɛt fi.nal.mɑ̃] ** UNKNOWN
+c'est pourquoi ** [sɛ puʁ.kwa] ** adv. that is why, which is why, for this reason [EX] il semble que vous n'avez pas reçu ma première lettre, ~ je vous adresse ci-joint une photocopie || it appears that you didn't receive my first letter, *so* I enclose a photocopy
+c'est pour cela que ** [s‿ɛ/s‿e puʁ sə.la kə] ** that's why
+de façon que ** [də fa.sɔ̃ kə] ** conj. (+*SUBJONCTIF*) in order to, so that [EX] ~'on *puisse* arriver à l'heure || *so that* we can arrive on time
+de sorte que ** [də sɔʁt kə] ** conj. (+*INDICATIF*) so much so that, in such a way that; with the result that [EX] la toile *est* peinte ~ … || the canvas is painted *in such a way that* … [EX] ~ je *n'ai* pas pu venir || *with the result that* I couldn't come %% conj. (+*SUBJONCTIF*) so as to, in order to [EX] ~ je *puisse* venir || *so that* I might come
+en conséquence ** [ɑ̃ kɔ̃.se.kɑ̃s] ** adv. consequently, as a result, hence, therefore, thus %% adv. accordingly [EX] agir ~ || to act *accordingly*
+et finalement ** [e/ɛt fi.nal.mɑ̃] ** adv. and finally
 par conséquent ** [paʁ kɔ̃.se.kɑ̃] ** adv. consequently, as a result, thus
-pour toutes ces raisons ** [puʁ tut se/sɛ/ˈθes ʁɛ.zɔ̃] ** UNKNOWN
-si bien que ** [si bjɛ̃ kə] ** conj. so much so that
-si que ** [si kə] ** UNKNOWN
-tellement que ** [tɛl.mɑ̃ kə] ** UNKNOWN
-tout compte fait ** [tu kɔ̃t fɛ] ** adv. all in all, all things considered %% adv. then again, on second thought
-voilà pourquoi ** [vwa.la puʁ.kwa] ** UNKNOWN
+pour toutes ces raisons ** [puʁ tut se ʁɛ.zɔ̃] ** for all these reasons
+si bien que ** [si bjɛ̃ kə] ** conj. (+*INDICATIF*) so much so that [EX] J'étais trop en retard sur la route, ~ j'ai pris une nuit d’hôtel || 	I was running very late, *so much so that* I stayed the night in a hotel
+si... que... ** [si kə] ** adv. so ... that
+tellement... que... ** [tɛl.mɑ̃ kə] ** adv. (+*SUBJONCTIF*) so much that [EX] ce n'est pas ~ je sois fatigué mais… || it's not *so much that* I'm tired but… [EX] ~[1] drôle/faim/vite ~[2] … || *so* funny/hungry/fast *that* …
+it's not so much that I'm tired but…
+tout compte fait ** [tu kɔ̃t fɛ] ** adv. all in all, all things considered [EX] ~, c'est lui qui avait raison || *when all is said and done*, HE was right %% adv. then again, on second thought
+voilà pourquoi ** [vwa.la puʁ.kwa] ** adv. (et ~) that's why
 
 ## Indiquer une condition, une hypothèse
-à condition que ** [a kɔ̃.di.sjɔ̃ kə] ** conj. provided that; on the condition that
-au cas où ** [o/aw kɑ u] ** conj. in case (+ conditional or subjunctive) %% adv. just in case
-en admettant que ** [ɑ̃/ɛn ad.mɛ.tɑ̃ kə] ** UNKNOWN
-en cas de ** [ɑ̃ ka də] ** prep. in case of, in the event of
-pourvu que ** [puʁ.vy kə] ** conj. let's hope (that) %% conj. provided (that), as long as
-si ** [si] ** conj. if, whether %% conj. if (assuming that) %% conj. even if %% conj. although, while %% interj. yes (used to contradict a negative statement) %% adv. so, such (inten~fier) %% adv. (~ + adjective/adverb + que …) however (to whatever extent or degree) %% n.m. (mu~c) ~, the note 'B'
+à condition que ** [a kɔ̃.di.sjɔ̃ kə] ** conj. provided that; on the condition that [EX] je le ferai mais ~ tu m'aides || I'll do it provided (that) you help me
+sous condition que ** [su kɔ̃.di.sjɔ̃ kə] ** conj. on condition that …
+au cas où ** [o kɑ.z‿u/o ka u] ** conj. in case (+*CONDITIONNEL* ou *SUBJONCTIF*) [EX] ~ il viendrait/déciderait || *in case* he comes_decides %% adv. just in case [EX] prends ta voiture, ~ || take your car, *just in case*
+en admettant que ** [ɑ̃ ad.mɛ.tɑ̃ kə] ** conj. (+*SUBJONCTIF*) accepting that [EX] tout ~'ils ne *l'aient* pas fait exprès || whilst *accepting that* they didn't do it deliberately %% conj. (+*SUBJONCTIF*) supposing that [EX] même ~ ce *soit*/tu *puisses* || even *supposing (that)* it is/(that) you can
+en cas de ** [ɑ̃ ka də] ** prep. in case of, in the event of [EX] ~ panne/'urgence/besoin || *in case of* breakdown/emergency/if necessary [EX] ~ décès/'invalidité/'accident || *in the event of* death/of disability/of an accident
+pourvu que ** [puʁ.vy kə] ** conj. (+*SUBJONCTIF*) let's hope (that) [EX] ~'il *fasse* beau dimanche! || *let's hope* it'll be fine on Sunday %% conj. (+*SUBJONCTIF*) provided (that), as long as [EX] Le chien ne vous fera rien ~ vous le *laissiez* tranquille. || The dog won’t do anything to you *provided that* you leave him alone.
+si ** [si] ** conj. if, whether %% conj. if (assuming that) %% conj. even if %% conj. although, while %% interj. yes (used to contradict a negative statement) %% adv. (~ + adjective/adverb + que …) however (to whatever extent or degree)
 
 

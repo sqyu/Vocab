@@ -1,0 +1,55 @@
+122
+accélérateur
+accélérer
+accident
+aéroport
+aire
+aire de repos # rest area
+aller et retour # outward and return
+aller simple # one way
+amende
+arrêt
+arrivée
+attente
+atterrir
+autopartage # car-sharing
+autoroute
+bagages
+bateau
+billet
+camion
+cargo
+casque
+chauffeur
+
+123
+chemin
+circulation
+compartiment
+composter
+conducteur
+conduire
+consigne
+covoiturage # car-sharing, carpooling
+croisement
+croisière
+décoller
+départ
+dépasser
+descendre
+desservir # serve (a city)
+détour
+déviation
+distributeur de tickets
+écraser
+embarquer
+équipage
+équipement
+équiper
+essence
+auto-stop
+faire de l'auto-stop # to hitchhike
+faire le plein # to fill up
+ferry
+
+

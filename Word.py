@@ -73,7 +73,12 @@ def formatExamples(examples: List[str]) -> str:
     for example in examples:
         example = example.strip()
         if "||" in example:
-            orig, translation = example.split("||")
+            example_split = example.split("||")
+            if len(example_split) > 2:
+                warnings.warn(f"Example in wrong format (with more than 1 || ): {example}")
+            elif len(example_split) == 1:
+                warnings.warn(f"Example has || but with empty translation: {example}")
+            orig, translation = example_split[0:2]
         else:
             orig, translation = example, ""
         # Example: on *souligne* les *mots clés* avec des astérisques
@@ -211,9 +216,7 @@ def get_pronunciation(s: str) -> str:
                     f"!!{s} has accent {accent} < 0 or > length of word ({len(word)})."
                 )
             else:
-                formatted = format_kana_with_accent(word, accent)
-                if has_brackets:
-                    return "[" + formatted + "]"
-                else:
-                    return formatted
+                s = format_kana_with_accent(word, accent)
+    if has_brackets:
+        return "[" + s + "]"
     return s

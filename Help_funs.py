@@ -160,7 +160,7 @@ def unique_everseen(seq, key=lambda x: x):
 
 
 def uniformize(s):
-    return s.replace("’", "'")
+    return " ".join(s.replace("’", "'").replace("...", "").replace("-", "").strip().split())
 
 
 def comp_answers(inp, word, ignore_diacritics):

@@ -955,7 +955,7 @@ def recite(Dictionary, rnr, wordListAndNames, readFromRecord=False):
                     user_input = quitOrInput()
             if wrongtimes == MaxTimes:
                 difficultWords.append(word)
-                Word.print_pronunciation(Dictionary[word].IPA)  # Show IPA first
+                print(Word.get_pronunciation(Dictionary[word].IPA))  # Show IPA first
                 user_input = inpInst("tryAgain")
                 if not comp_answers(
                     user_input, word, Vars.parameters["IgnoreDiacritics"]

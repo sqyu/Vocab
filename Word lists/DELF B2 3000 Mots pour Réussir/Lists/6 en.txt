@@ -8,12 +8,12 @@ I decided to leave, *firstly* because of the weather and then...
 d'un côté... de l'autre... ** [dœ̃ ko.te də l‿otʁ] ** adv. on the one hand; on the other hand
 dans l'ensemble ** [dɑ̃ l‿ɑ̃.sɑ̃bl] ** adv. altogether, for the most part, on the whole, by and large, in the main [EX] Je suis ~ satisfait de mon travail. || I am *generally* satisfied with my work. [EX] ~, la conférence était intéressante. || *On the whole*, the conference was interesting.
 deuxièmement ** [dø.zjɛm.mɑ̃] ** adv. secondly
-donc ** [dɔ̃k/dɔ̃] ** adv. therefore, consequently; thus
+donc ** [dɔ̃k] ** adv. therefore, consequently; thus
 en bref ** [ɑ̃ bʁɛf] ** adv. in short, in brief, in a nutshell
 en conclusion ** [ɑ̃ kɔ̃.kly.zjɔ̃] ** adv. in conclusion; in summary
 en définitive ** [ɑ̃ de.fi.ni.tiv] ** adv. ultimately, in the end, eventually; at the end of the day, after all is said and done
 en dernier lieu ** [ɑ̃ dɛʁ.nje ljø] ** adv. lastly
-en fin de compte ** [ɑ̃ fɛ̃ də kɔ̃t] ** adv. (pour conclure) ultimately, at the end of the day, when all is said and done
+en fin de compte ** [ɑ̃ fɛ̃ də kɔ̃t] ** adv. (pour conclure) ultimately, at the end of the day, when all is said and done [EX] ~, c'est lui qui avait raison || *when all is said and done*, HE was right
 en premier lieu ** [ɑ̃ pʁə.mje ljø] ** adv. first of all, firstly, first, first and foremost
 en résumé ** [ɑ̃ ʁe.zy.me] ** adv. in a nutshell, to sum up, in brief
 en second lieu ** [ɑ̃ sə.ɡɔ̃ ljø] ** adv. secondly, second
@@ -26,7 +26,7 @@ pour commencer ** [puʁ kɔ.mɑ̃.se] ** adv. for starters, first of all, firstl
 pour conclure ** [puʁ kɔ̃.klyʁ] ** adv. in conclusion [EX] ‘voilà,’ dit-il ~ || ‘that's all,’ he concluded
 pour continuer ** [puʁ kɔ̃.ti.nɥe] ** adv. furthermore
 pour finir ** [puʁ fi.niʁ] ** adv. finally [EX] ~, je dirai que … || *in conclusion* I'll say that … %% adv. eventually, after all
-pour résumer ** [puʁ ʁe.zy.me] ** adv. adv. in summary, in conclusion %% in brief
+pour résumer ** [puʁ ʁe.zy.me] ** adv. in summary, in conclusion %% in brief
 premièrement ** [pʁə.mjɛʁ.mɑ̃] ** adv. firstly; in the first place
 puis ** [pɥi] ** adv. then; after; next %% conj. and %% n.f. gust (of wind) %% interj. Puss! Puss! (call to cat) %% prep. since; after (with respect to time) %% n.m. well (man-made hole from which water is drawn) %% n.m. well (place from which water is drawn)
 somme toute ** [sɔm tut] ** adv. in conclusion, in sum, in short

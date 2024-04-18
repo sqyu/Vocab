@@ -21,6 +21,7 @@ POS_EN = {
     "Preposition": "prep.",
     "Interjection": "interj.",
     "Participle": "part.",
+    "Proverb": "prov.",
 }
 
 
@@ -84,8 +85,19 @@ def get_fr_IPA_word(word):
     """
     Attempts to get the IPA of a word from fr.wiktionary
     """
+    SIMPLE_IPAS = {
+        "à": "a", "de": "də", "au": "o", "des": "de", "les": "le", "en": "ɑ̃",
+        "se": "sə", "que": "kə", "un": "œ̃", "une": "yn", "le": "lə", "la": "la"
+    } 
+    if word in SIMPLE_IPAS:
+        return SIMPLE_IPAS[word]
     if word in fr_IPA_dict:
         return fr_IPA_dict[word]
+    if not " " in word:  # If a single word
+        if word.startswith("d'"):
+            return "d" + get_fr_IPA_word(word[2:])
+        if word.startswith("l'"):
+            return "l" + get_fr_IPA_word(word[2:])
     IPAs = []
     try:
         r = requests.get(f"https://fr.wiktionary.org/wiki/{word}")
@@ -202,6 +214,13 @@ def get_en_french_meanings(word: str) -> str:
 
 
 def create_fr_IPA_and_en_meaning(word: str) -> str:
+    word_split = re.split("#+\s*", word, maxsplit=1)
+    if len(word_split) == 2:
+        word, comment = word_split
+        comment = " # " + comment
+    else:
+        comment = ""
+    word = word.strip()
     ipa = get_fr_IPA_word(word)
     # If a phrase without IPA result, try each word in the phrase
     if not ipa and len(word.split()) > 1:
@@ -212,13 +231,13 @@ def create_fr_IPA_and_en_meaning(word: str) -> str:
     IPA = "[" + " ".join([ipa or UNKNOWN for ipa in ipas]) + "]"
     meaning = get_en_french_meanings(word) or UNKNOWN
     meaning = meaning.replace(word, "~")
-    return word + " ** " + IPA + " ** " + meaning
+    return word + comment + " ** " + IPA + " ** " + meaning
 
 
 def generate_fr_en_list(filename, lang="en") -> None:
     if lang != "en":
         raise ValueError("Only en supported for now.")
-    new_filename = filename.replace(".txt", " en.txt")
+    new_filename = filename.replace(".txt", " en TO CLEAN.txt")
     with open(filename) as f:
         with open(new_filename, "w") as g:
             f_lines = f.readlines()

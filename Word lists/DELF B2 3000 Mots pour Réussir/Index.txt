@@ -1,7 +1,14 @@
-1: Enrichir son vocabulaire sans effort avec les préfixes et suffixes, et la nominalisation
-2: Les cooccurrences
-3: Other new words in P32-44
-4: Connecteurs logiques (P34 Ajouter une idée qui peut renforcer la précédente)
-5: Connecteurs logiques (P34-35 Exprimer le but, P35 Expliquer une cause, justifier, P38 Opposer, réfuter, l'argument opposé)
-6: Connecteurs logiques (P35-36 Chronologie, ordre des arguments dans le discours)
-7: Connecteurs logiques (P36 Connecteurs temporels, P37 Expliquer les conséquences, Indiquer une condition, une hypothèse)
+1 (116): Enrichir son vocabulaire sans effort avec les préfixes et suffixes, et la nominalisation
+2 (92): Les cooccurrences
+3 (28): Other new words in P32-44
+4 (33): Connecteurs logiques (P34 Ajouter une idée qui peut renforcer la précédente)
+5 (40): Connecteurs logiques (P34-35 Exprimer le but, P35 Expliquer une cause, justifier, P38 Opposer, réfuter, l'argument opposé)
+6 (30): Connecteurs logiques (P35-36 Chronologie, ordre des arguments dans le discours)
+7 (35): Connecteurs logiques (P36 Connecteurs temporels, P37 Expliquer les conséquences, Indiquer une condition, une hypothèse)
+8-12 (69+65+63+62+89): L'éducation, le travail (P45-56, P56-67 duplicate)
+13-17 (70+88+63+60+41): La santé (P67-77)
+18 (77): La culture (P77-79)
+19-24 (58+66+68+59+70+74): La consommation (P80-92)
+25-26 (58+78): La famille, les relations personnelles (P93-97)
+27-29 (55+63+65): L'environnement (P98-103)
+30-38 (59+59+64+63+54+66+61+59+52): Les nouvelles technologies, Internet et les médias (P104-121)

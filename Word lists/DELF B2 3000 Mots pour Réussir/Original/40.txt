@@ -1,0 +1,54 @@
+124
+feu rouge
+freiner
+gare
+gare routière
+garer
+se garer
+guichet
+guide
+heures de pointe
+horaire
+itinéraire
+mécanicien
+métro
+moteur
+passager
+permis de conduire
+phare
+poids lourd # n.m. heavy-weight, heavy truck
+port
+quai
+raccourci
+rail
+ralentir
+renseignement
+retard
+roue
+rouler
+
+125
+route
+rue
+sauvetage
+se déplacer
+séjour
+souvenir
+station-service
+terminus
+titre de transport # ticket
+transports collectifs # n.m.pl. public transportation
+transports en commun # n.m.pl. public transportation
+usager
+valise
+véhicule
+victime
+virage
+voie
+vol
+volant
+voler
+voyageur
+VTT
+wagon
+wagon-restaurant # dining car

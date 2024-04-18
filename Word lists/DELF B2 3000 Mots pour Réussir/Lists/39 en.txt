@@ -1,0 +1,55 @@
+122
+accélérateur ** [ak.se.le.ʁa.tœʁ] ** a. accelerating %% n.m. accelerator [EX] câble d'~ || accelerator cable [EX] appuyer sur l'~ || to step on the accelerator [EX] coup d'~ || touch on the accelerator [EX] donner un *coup* d'~ à qch || (figurative) to give sth a *boost*, to speed up sth [EX] *jouer un rôle* d'~ || (figurative) to act as a *catalyst*
+accélérer ** [ak.se.le.ʁe] ** v.t. to speed up [EX] ~ le pas or l'allure || to quicken one's step or pace %% v.i. to accelerate %% v.i. to get a move on
+s'accélérer ** [sak.se.le.ʁe] ** v.pr. to quicken [EX] les événements ~ || the pace of events is quickening %% v.pr. (phenomenon, tendance) to accelerate
+accident ** [ak.si.dɑ̃] ** n.m. accident
+aéroport ** [a.e.ʁo.pɔʁ] ** n.m. airport
+aire ** [ɛʁ] ** n.f. sphere [EX] ~ économique/culturelle || economic/cultural sphere [EX] étendre son ~ d'activité || to extend one's sphere of activity %% n.f. area
+aire de repos ** [ɛʁ də ʁə.po] ** n.f. rest area
+aller et retour ** [a.le e ʁə.tuʁ] ** a./n.m. outward and return [EX] billet ~ || round trip (ticket)
+aller simple ** [a.le sɛ̃pl] ** n.m. a one-way trip %% n.m. a one-way ticket
+arrêt ** [a.ʁɛ] ** n.m. stopping, checking, arrest (in development, growth, machinery etc.) %% n.m. stop (place) %% n.m. (law) judgment, ruling %% n.m. safety catch, stop button %% n.m. (field hockey or ice hockey) stop, save
+arrivée ** [a.ʁi.ve] ** n.f. arrival
+atterrir ** [a.tɛ.ʁiʁ] ** v.i. to land [EX] ~ en catastrophe/sur le ventre || to make a crash landing/a belly landing %% v.i. (informal) to land up [EX] ~ sur le bureau de qn || to land up on sb's desk %% v.i. to recover [EX] ~(impératif)! || wake up!
+autopartage ** [o.tɔ.paʁ.taʒ/o.to.paʁ.taʒ] ** n.m. car-sharing
+autoroute ** [o.to.ʁut] ** n.f. freeway [EX] ~ de dégagement/liaison || freeway [EX] ~ à péage || toll motorway [EX] ~ urbaine || urban motorway %% n.f. (computing) highway [EX] ~ de l'information || information (super)highway
+bateau ** [ba.to] ** n.m. boat, ship %% n.m. boat neck %% n.m. (informal) joke [EX] monter un ~ à qn || to take sb for a ride [EX] mener qn en ~ || to take sb in %% n.m. dropped curb (in front of an entrance)
+camion ** [ka.mjɔ̃] ** n.m. truck (US)
+cargo ** [kaʁ.ɡo] ** n.m. cargo boat [EX] ~ mixte || passenger-cargo ship
+casque ** [kask] ** n.m. crash helmet, cycle helmet %% n.m. headphones %% n.m. hairdryer
+chauffeur ** [ʃo.fœʁ] ** n.m. driver [EX] ~ de camion/poids lourd || truck driver [EX] ~ de car || bus driver [EX] ~ de taxi || taxi driver %% n.m. stoker, (railways) fireman
+
+123
+chemin ** [ʃə.mɛ̃] ** n.m. country load, lane %% n.m. way [EX] indiquer le/demander son or le ~ à qn || to tell/to ask sb the way [EX] se tromper de ~ || to go the wrong way [EX] sur le ~ du retour/ de l'école || on the way back/to school
+circulation ** [siʁ.ky.la.sjɔ̃] ** n.f. traffic [EX] ~ aérienne/ferroviaire/maritime/routière || air/rail/maritime/road traffic [EX] rue interdite à la ~ || street closed to traffic %% n.f. circulation [EX] être en ~ || to be in circulation; (boat) to be in operation; (train) to be running [EX] la mise en ~ de || the circulation of [produit]
+compartiment ** [kɔ̃.paʁ.ti.mɑ̃] ** n.m. compartment
+composter ** [kɔ̃.pɔs.te] ** v.t. to stamp or punch (a ticket) %% v.t. to compost [déchets]
+conducteur ** [kɔ̃dyktœʁ] ** a. conductive [EX] un matériau peu ~ || a poor conductor %% n.m./n.f. driver [EX] être bon/mauvais ~ || to be a good/bad driver [EX] sans ~ |¥ driverless %% n.m. (physics) conductor
+conduire ** [kɔ̃.dɥiʁ] ** v.t. (~ à) to take; to drive %% v.t. to lead to [EX] un bus vous ~a à l'hôtel || a bus will take you to the hotel [EX] le chemin ~ à l'église || the path leads to the church %% v.t. to lead to [EX] ~ à qch || to lead to sth [EX] ~ qn à faire || to lead sb to do [EX] ~ à améliorer qch/à fermer qch || to lead to improvements in sth/to the closing of sth %% v.t. to conduct
+se conduire ** [sə kɔ̃.dɥiʁ] ** v.pr. to behave [EX] il ne sait pas ~ en société || he doesn't know how to behave in company [EX] ~ bien/mal || to behave well/badly (avec or envers qn toward, towards British sb) [EX] ~ comme un enfant/imbécile || to behave like a child/fool
+consigne ** [kɔ̃.siɲ] ** n.f. orders, instructions [EX] donner ~ de faire || to give orders to do [EX] avoir pour ~ de faire || to have orders to do [EX] appliquer or respecter la ~ || to comply with orders [EX] suivre des ~s || to follow orders %% n.f. bottle deposit %% n.f. baggage checkroom [EX] mettre/laisser/déposer qch à la/en ~ || to check sth (in)
+covoiturage ** [kɔ.vwa.ty.ʁaʒ] ** n.m. carpooling
+croisement ** [kʁwaz.mɑ̃] ** n.m. crossroads, crossing, junction [EX] au ~ des routes || where the roads cross %% n.m. passing [EX] le ~ de deux trains || two trains passing one another %% n.m. (~ *avec*) crossbreeding [EX] obtenu par des ~s répétés || obtained by repeated crossbreeding or hybridization [EX] faire des ~s (d'espèces) || to crossbreed species [EX] faire un ~ entre A et B || to cross A with B
+croisière ** [kʁwa.zjɛʁ] ** n.f. cruise [EX] faire une/partir en ~ || to go/to set off on a cruise [EX] régime de ~ || (literal) cruising speed [EX] en régime de ~, nous produirons 10 tonnes par moi || (informal, figurative) once we're up and running we'll produce 10 tons a month [EX] mon rythme/régime de ~ est de 10 pages par jour || once I've got into my stride, I can do 10 pages a day
+décoller ** [de.kɔ.le] ** v.t. to take off, to peel off, to remove [EX] ~ une étiquette en la laissant tremper || to soak a label off [EX] affiche à moitié ~ée || peeling poster %% v.i. to take off (i.e. a plane) %% v.i. (informal) to lose weight %% v.i. (informal) to get high (on drugs)
+se décoller ** [sə de.kɔ.le] ** v.pr. to come off, to detach [EX] ~ facilement || to come off easily [EX] c'est en train de ~ || it's coming off
+départ ** [de.paʁ] ** n.m. departure, start %% n.m. (~ *vers* to) exodus %% n.m. resignation
+dépasser ** [de.pɑ.se/de.pa.se] ** v.t. to pass [EX] il a ~é le tracteur dans un virage || he passed the tractor on a bend [EX] se faire ~ || to be passed %% v.t. to exceed [EX] leur dette ~ le million de dollars || their debt exceeds the million dollar mark [EX] elle le ~ de cinq centimètres/d'une tête || she's five centimetres/a head taller than him [EX] ~ qch en hauteur/largeur || to be taller/wider than sth [EX] ~ qch en taille/importance || to be larger/more important than sth %% v.t. to be ahead of, to surpass %% v.i. to jut out, to stick out [EX] il y a un clou qui ~ dans le parquet || there's a nail sticking out of the floor %% v.i. to show [EX] ton jupon ~ || your slip is showing
+se dépasser ** [sə de.pɑ.se/de.pa.se] ** v.pr. to surpass oneself %% v.pr. to overtake each other [EX] les concurrents ~(impératif) à tour de rôle || the competitors kept overtaking each other
+descendre ** [de.sɑ̃dʁ/dɛ.sɑ̃dʁ] ** v.i. to go down %% v.i. (transitive) to descend %% v.t. to put down; disparage %% v.t. (slang) to kill (someone) %% v.i. to stay (in a hotel or other temporary lodging)
+desservir ** [de.sɛʁ.viʁ/dɛ.sɛʁ.viʁ] ** v.t. (transport) v.t. to serve [EX] ~ une ville || to serve a city [EX] quartier bien/mal ~(passé) || well-/badly-served district %% v.t. to lead to [chambre, étage] [EX] l'ascenseur ne ~ pas le premier étage || the elevator does not stop at the second floor %% v.t. to serve [EX] l'hôpital ~ la moitié du pays || the hospital serves half of the country %% v.t. to clear [table] %% v.i. to clear the table
+détour ** [de.tuʁ] ** n.m. detour [EX] faire un ~ par Oxford || to make a detour via Oxford [EX] ça vaut le ~ || it's worth the trip %% n.m. roundabout means, circumlocution [EX] user de ~s pour dire qch || to say sth in a roundabout way [EX] être sans ~s || to be straight and to the point; to be plain-speaking %% n.m. bend [EX] les ~s d'une route/rivière || the bends in a road/river
+déviation ** [de.vja.sjɔ̃] ** n.f. detour [EX] mettre en place une ~ || to set up a diversion %% n.f. (~ *par rapport à* from) departure [EX] ~ par rapport à la norme || departure from the norm
+distributeur de tickets ** [dis.tʁi.by.tœʁ də ti.kɛ] ** n.m. ticket machine
+écraser ** [e.kʁa.ze] ** v.t/ to squash, to crush, to run over [EX] se faire ~ || to get run over [EX] il a failli se faire ~ || he nearly got run over [EX] il est mort ~é par un rocher || he was crushed to death by a rock %% v.t. (Cooking) to mash [EX] de la banane ~ée || mashed banana %% v.t. (~ *contre*) to press (e.g. accelerator) %% v.t. to overwhelm, to overcome [EX] ~ qn de travail/responsabilités || to overwhelm sb with work/responsibilities [EX] ~ les entreprises d'impôts || to overburden firms with taxation
+s'écraser ** [se.kʁa.ze] ** v.pr. (car, train) to crash, (motorist) to have a crash [EX] ~ contre un mur/arbre || to crash into a wall/tree [EX] ~ (au sol) || [avion, hélicoptère] to crash (to the ground) %% v.pr. to get squashed [EX] ~ au sol || (ornaments) to fall and break %% v.pr. (informal) to shut up [EX] ~(-toi)! || shut up! %% v.pr. to keep one's head down [EX] ~ devant qn || to keep one's head down when sb is around
+embarquer ** [ɑ̃.baʁ.ke] ** v. to load, to take (passengers) on board [EX] valise ~e dans la soute || suitcase loaded into the hold [EX] matériel ~ à bord d'un avion/sous-marin || equipment loaded on to a plane/submarine [EX] l'équipage sera ~ demain || the crew will go aboard tomorrow %% v.t. (informal) to take (object, document), to pick up (criminal) [EX] si tu ne veux plus de ta radio, je l'~ || if you don't want your radio any more, I'll have it [EX] allez, viens, je t'~! || you come with me! [EX] n'~ pas mon briquet! || don't take my lighter! [EX] ~ qn dans sa voiture || to get sb into one's car %% v.i. (~ pour) to board, to sail [EX] à quelle heure ~-tu? || what time do you board? [EX] quel jour ~-tu? || when do you sail? [EX] ~ *à bord d'*un yacht/avion || to board a yacht/plane
+équipage ** [e.ki.paʒ] ** n.m. crew (of a boat) %% n.m. hunt %% n.m. horse and carriage
+équipement ** [e.kip.mɑ̃] ** n.m. equipment, kit, gear %% n.m. facilities [EX] ~ portuaire || port facilities [EX] ~s scolaires/sociaux/sportifs || school/social/sports facilities %% n.m. equipping, kitting out
+équiper ** [e.ki.pe] ** v.t. to equip, to provide, to fit out
+s'équiper ** [se.ki.pe] ** v.pr. to equip oneself [EX] ~ *de/en* qch || ... with sth [EX] ~ *pour* qch || ... for sth [EX] ~ *pour* faire || ... to do
+essence ** [e.sɑ̃s/ɛ.sɑ̃s] ** n.f. gasoline %% n.f. essential oil %% n.f. tree species [EX] ~ rares || rare tree species %% n.f. par ~ || in essence
+auto-stop ** [o.tos.tɔp] ** n.m. hitchhiking [EX] aller à Paris *en* ~ || to hitchhike to Paris [EX] prendre qn *en* ~ || to pick up a hitchhiker
+faire de l'auto-stop ** [fɛʁ də lo.tos.tɔp] ** v.t. to hitchhike
+faire le plein ** [fɛʁ lə plɛ̃] ** v.t. (~ *de*) (literal) to fill up (with e.g. water, gas) [EX] s'arrêter pour ~ || to stop to fill up %% v.t. (~ *de*) (figurative) to get a lot of
+ferry ** [fe.ʁi] ** n.m. ferry (boat)

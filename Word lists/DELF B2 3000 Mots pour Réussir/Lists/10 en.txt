@@ -40,7 +40,7 @@ finance ** [fi.nɑ̃s] ** n.f. finance [EX] c'est un homme de ~ || he's a *finan
 flexibilité ** [flɛk.si.bi.li.te] ** n.f. flexibility; flexibleness
 flexible ** [flɛk.sibl/flek.sibl] ** a. flexible
 fondateur ** [fɔ̃.da.tœʁ] ** n.m. founder
-formation ** [fɔʁ.ma.sjɔ̃] ** n.f. education; training [EX] ~ militaire || military *training* [EX] il est ingénieur de ~ || he's an engineer by *training* [EX] il a reçu une *formation* d'ingénieur || he was *trained* as an engineer %% n.f. training course %% n.f. formation, forming, development %% n.f. puberty
+formation ** [fɔʁ.ma.sjɔ̃] ** n.f. education; training [EX] ~ militaire || military *training* [EX] il est ingénieur de ~ || he's an engineer by *training* [EX] il a reçu une ~ d'ingénieur || he was *trained* as an engineer %% n.f. training course %% n.f. formation, forming, development %% n.f. puberty
 formation continue ** [fɔʁ.ma.sjɔ̃ kɔ̃.ti.ny] ** n.f. adult continuing education
 formation en alternance ** [fɔʁ.ma.sjɔ̃ ɑ̃/ɛn al.tɛʁ.nɑ̃s] ** n.f. sandwich course, work-study training, a course involving practical work experience in addition to academic study
 frais professionnels ** [fʁɛ pʁɔ.fɛ.sjɔ.nɛl] ** n.f. professional expenses
@@ -55,7 +55,7 @@ horaires de travail ** [ɔ.ʁɛʁ də tʁa.vaj] ** n.m. working hours
 imparfait ** [ɛ̃.paʁ.fɛ] ** a. imperfect, flawed %% a. unaccomplished, incomplete
 import-export ** [ɛ̃.pɔ.ʁɛks.pɔʁ] ** n.m. international trade
 importation ** [ɛ̃.pɔʁ.ta.sjɔ̃] ** n.f. importation, import [EX] ~s de luxe || luxury *imports*
-importer ** [ɛ̃.pɔʁ.te] ** v.t. to import %% v. (que *SUBJONCTIF*) to matter, to be relevant, important [EX] cela ~ peu ~~ it doesn't much *matter* [EX] ce qui ~ c'est qu'elle *comprenne* || what *matters* is that she (should) understand [EX] peu ~ or qu'importe qu'elle ne *comprenne* pas || it doesn't *matter* if she doesn't understand [EX] peu ~! || never *mind*! [EX] n'~ || it doesn't *matter*
+importer ** [ɛ̃.pɔʁ.te] ** v.t. to import %% v. (que *SUBJONCTIF*) to matter, to be relevant, important [EX] cela ~ peu || it doesn't much *matter* [EX] ce qui ~ c'est qu'elle *comprenne* || what *matters* is that she (should) understand [EX] peu ~ or qu'importe qu'elle ne *comprenne* pas || it doesn't *matter* if she doesn't understand [EX] peu ~! || never *mind*! [EX] n'~ || it doesn't *matter*
 imposer ** [ɛ̃.po.ze] ** v. (*à*/que) to impose [EX] ~ ses amis à ses parents || to *impose* one's friends on one's parents [EX] ~ que || to *rule* that [EX] on leur a ~(passé) de faire || they were *obliged/forced* to do %% v. to tax (a person, a product), or to impose (a tax) %% v.pr. to triumph, to win %% v.pr. to establish oneself, to make a name for oneself %% v.pr. to be required, to be called for
 en imposer ** [ɑ̃.n‿ɛ̃.po.ze] ** v.t. to be impressive [EX] elle ~ || she's impressive
 s'imposer ** [sɛ̃.po.ze] ** v.pr. (à) to be obvious [EX] une visite au Louvre ~ || a visit to the Louvre *is a must* [EX] ~ comme évident || to be *obvious* %% v.pr. to impose [sth] on oneself [EX] ~ un sacrifice/des efforts démesurés || to *force oneself* to make a sacrifice/a huge effort

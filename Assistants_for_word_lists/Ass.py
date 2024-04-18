@@ -1503,3 +1503,31 @@ def pr(i):  # proofread
         except Exception:
             print("Nothing to print.\n")
     return
+
+
+def format_example():
+    # Format example phrases from Mac dictionary
+    import pyperclip
+    previous_word = ""
+    while True:
+        word = input("Enter the word:\n").strip()
+        if word.strip() == "^":
+            word = previous_word
+        exs = []
+        while True:
+            original = input("Enter example in original language:\n").strip("▸").strip()
+            if not original:
+                break
+            translated = input("Enter translated example:\n").strip()
+            if not translated:
+                break
+            exs.append("[EX] " + original.replace(word, "~") + " || " + translated + " ")
+        for ex in exs:
+            if "~" not in ex:
+                print("\033[41m\033[05mThis sentence does NOT have a ~!!!!\033[0m")
+                print(ex.split(" || ")[0].replace("[EX] ", ""))
+        exs = "".join(exs).strip()
+        pyperclip.copy(" " + exs)
+        print("\n" + exs + "\n")
+        previous_word = word
+    return

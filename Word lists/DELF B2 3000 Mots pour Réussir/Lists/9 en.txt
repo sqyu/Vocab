@@ -1,6 +1,6 @@
 48
 copier-coller ** [kɔ.pje.kɔ.le] ** v. to copy and paste %% n.m. copy-paste
-cotiser ** [kɔ.ti.ze] ** v.i. (à, pour) to pay one's contributions (dues, pension) [EX] cette année, je n'ai pas ~ || I haven't *paid my contributions* this year [EX] ~ *à* une caisse de retraite || to *pay* one's superannuation contribution %% v.i. (à) to pay one's subscription, to subscribe [EX] j'ai décidé de ne plus ~ || I've decided to stop *paying my subscription*
+cotiser ** [kɔ.ti.ze] ** v.i. (à, pour) to pay one's contributions (dues, pension) [EX] cette année, je n'ai pas ~é || I haven't *paid my contributions* this year [EX] ~ *à* une caisse de retraite || to *pay* one's superannuation contribution %% v.i. (à) to pay one's subscription, to subscribe [EX] j'ai décidé de ne plus ~ || I've decided to stop *paying my subscription*
 coupe budgétaire ** [kup byd.ʒe.tɛʁ] ** n.f. budget cut
 craindre ** [kʁɛ̃dʁ] ** v.t. to fear %% v.i. (slang) to suck [EX] ça ~! || that's bad!
 se craindre ** [sə kʁɛ̃dʁ] ** v.pr. to be afraid of each other
@@ -37,7 +37,7 @@ développement ** [de.və.lɔp.mɑ̃/dɛv.lɔp.mɑ̃] ** n.m. development
 
 49
 développer ** [dɛv.lɔ.pe/de.və.lɔ.pe] ** v. to develop %% v. to deploy, unfold %% v. (computing) to code (an application)
-devenir ** [dəv.niʁ/də.və.niʁ] ** n.m. future %% v. to become
+devenir ** [dəv.niʁ/də.və.niʁ] ** n.m. future [EX] le ~ des minorités/d'une alliance || the *future* of the minorities/of an alliance %% v. to become
 difficulté ** [di.fi.kyl.te] ** n.f. difficulty
 diffuser une annonce ** [di.fy.ze yn a.nɔ̃s] ** v.t. broadcast an announcement
 diminuer ** [di.mi.nɥe] ** v. to diminish %% v. to decrease
