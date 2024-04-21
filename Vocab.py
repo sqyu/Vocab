@@ -23,6 +23,18 @@ from Help_funs import (
 )
 from Vars import getInst, printInst, inpInst, conjNumber
 from Writing import writeTime, writeRecord
+from enum import Enum, auto
+from typing import List, Optional
+
+
+class LoadMode(Enum):
+    DIFFICULT = auto()
+    RECORD = auto()
+    ALL = auto()
+
+
+def split_words(s):
+    return re.split(r"\s*\|+\s*", s.strip())
 
 
 def chooseBook(booksToChoose=None):
@@ -271,74 +283,62 @@ def loadWords(choose_all, book, comments, Dictionary, mode, theList, wordList):
     Dictionary: dictionary whose keys are strings (words) and contents are of class Word
     The dictionary to which the words are to be added
 
-    mode: 1, 2, or 3
-    Mode 1: regular; Mode 2: read from record; Mode 3: read all words
+    mode: Enum LoadMode
+    Mode DIFFICULT: regular; Mode RECORD: read from record; Mode ALL: read all words
 
     theList: integer, within the range of Vars.listNumber[Vars.lang][book]
     The list number
 
     wordList: lists of strings (words)
-    The list of words loaded
+    The list of words already loaded
 
     """
     bookList = os.path.join(
         Vars.wordLists_path, book, "Lists", str(theList) + " " + Vars.lang + ".txt"
     )  # Directory of word list
-    f = open(bookList)  # Read Only
-    difficultWordFile = os.path.join(
-        Vars.wordLists_path, book, "Difficult Words", str(theList) + ".txt"
-    )
-    if mode == 2:
-        currentWordList = wordList
-    elif (
-        mode != 2 and not choose_all and (not os.path.exists(difficultWordFile))
-    ):  # If normal mode and difficult word lists do not exist, read all words
-        printInst(
-            "noDifficultWordList",
-            rep=(
-                ("LIST", str(theList)),
-                ("BOOK", getInst("book" + Vars.acronym[book])),
-            ),
-        )
-        choose_all = True
-    elif mode != 2 and not choose_all:  # If normal mode but not reading all words
-        with open(difficultWordFile) as g:
-            currentWordList = re.split(
-                r"\s*\|+\s*", g.readline().lower().rstrip("\n")
-            )  # Read the difficult word list # Far more efficient to use currentWordList to store
-        # the difficult word list for only the current list
-        checkAllWordsInLists(
-            currentWordList, book, [theList]
-        )  # Only need to check the difficult word list for the current list
-        wordList += currentWordList
-    f.readline()  # Skip the newline right after the wordlist
-    if choose_all:
+    words_to_read: Optional[List[str]] = None
+    if mode == LoadMode.RECORD:
+        words_to_read = wordList
+    elif mode == LoadMode.DIFFICULT:
+        if not choose_all:
+            difficultWordFile = os.path.join(
+                Vars.wordLists_path, book, "Difficult Words", str(theList) + ".txt"
+            )
+            # If normal mode and difficult word lists do not exist, read all words
+            if not os.path.exists(difficultWordFile):
+                printInst(
+                    "noDifficultWordList",
+                    rep=(
+                        ("LIST", str(theList)),
+                        ("BOOK", getInst("book" + Vars.acronym[book])),
+                    ),
+                )
+            else:
+                # Read the difficult word list
+                with open(difficultWordFile) as g:
+                    words_to_read = split_words(g.readline().lower())
+    new_words = []
+    with open(bookList) as f:
         for s in f:
-            s = s.split(" ** ")
-            if len(s) == 3:
-                word = s[0].lower()
-                s.pop(0)
-                if word in comments:
-                    s.append(comments[word])
-                else:
-                    s.append("")
-                Dictionary[word] = Word.Word(s)
-                wordList.append(word)
-    else:
-        for s in f:
-            s = s.split(" ** ")
-            if s[0].lower() in currentWordList:
-                if len(s) != 3:
-                    print(s)
-                    assert ()
-                word = s[0].lower()
-                s.pop(0)
-                if word in comments:
-                    s.append(comments[word])
-                else:
-                    s.append("")
-                Dictionary[word] = Word.Word(s)
-    f.close()
+            if line_is_a_word_entry(s):
+                s = s.split(" ** ")
+                if len(s) == 3:
+                    word = s[0].lower()
+                    if words_to_read is None or word in words_to_read:
+                        new_words.append(word)
+                        Dictionary[word] = Word.Word(s[1:] + [comments.get(word, "")])
+    # The wordlist is fixed for reading from record mode
+    if mode != LoadMode.RECORD:
+        wordList += new_words
+    # Check if some words in the difficult word list does not exist in this list
+    if mode == LoadMode.DIFFICULT and words_to_read is not None:
+        for word in set(words_to_read) - set(new_words):
+            printInst(
+                "warning",
+                add=": "
+                + word
+                + getInst("notInList").replace("REPLACE", str(theList)),
+            )
     return
 
 
@@ -378,13 +378,13 @@ def loadConj(choose_all, book, comments, Dictionary, mode, theList, conjList):
     difficultWordFile = os.path.join(
         Vars.wordLists_path, book, "Difficult Words", str(theList) + ".txt"
     )
-    if mode == 2:
+    if mode == LoadMode.RECORD:
 
         def add_this_word(word):
             return word in set(conjList)
 
     elif (
-        mode != 2 and not choose_all and (not os.path.exists(difficultWordFile))
+        mode != LoadMode.RECORD and not choose_all and (not os.path.exists(difficultWordFile))
     ):  # If normal mode and difficult word lists do not exist, read all words
         printInst(
             "noDifficultWordList",
@@ -397,9 +397,10 @@ def loadConj(choose_all, book, comments, Dictionary, mode, theList, conjList):
 
         def add_this_word(word):
             return True
-    elif mode != 2 and not choose_all:  # If normal mode
+
+    elif mode != LoadMode.RECORD and not choose_all:  # If normal mode
         with open(difficultWordFile) as g:
-            difficultWords = re.split(r"\s*\|+\s*", g.readline().lower().rstrip("\n"))
+            difficultWords = split_words(g.readline().lower())
         checkAllWordsInLists(
             difficultWords, book, [theList]
         )  # Only need to check the difficult word list for the current list ## ??
@@ -418,7 +419,7 @@ def loadConj(choose_all, book, comments, Dictionary, mode, theList, conjList):
         and book in Vars.listNumber[Vars.lang]
         and theList in Vars.listNumber[Vars.lang][book]
     ):
-        loadWords(True, book, {}, worddic, 3, theList, [])
+        loadWords(True, book, {}, worddic, LoadMode.ALL, theList, [])
     for s in f:
         if "**" in s:
             try:
@@ -432,7 +433,7 @@ def loadConj(choose_all, book, comments, Dictionary, mode, theList, conjList):
                         else ""
                     )
                     Dictionary[conj_obj.infinitive] = conj_obj
-                    if mode != 2:
+                    if mode != LoadMode.RECORD:
                         conjList.append(conj_obj.infinitive)
             except Exception as e:
                 print(
@@ -497,7 +498,7 @@ def loadComments(book):
             for s in g:
                 if len(s.split(": ")) >= 2:
                     ss = s.split(": ")
-                    comments[ss[0].lower()] = ": ".join(ss[1:len(ss)]).rstrip("\n")
+                    comments[ss[0].lower()] = ": ".join(ss[1 : len(ss)]).rstrip("\n")
         if not checkAllWordsInLists(
             list(comments), book, Vars.listNumber[Vars.lang][book]
         ):
@@ -572,12 +573,12 @@ def createDictionary(
     list_of_books = conjNumber if conj else Vars.listNumber[Vars.lang]
     assert (readFromRecord is None) or (allLists is None)
     if readFromRecord is not None:
-        mode = 2  # Mode 2
+        mode = LoadMode.RECORD
     elif allLists is not None:
-        mode = 3  # Mode 3
+        mode = LoadMode.ALL
     else:
-        mode = 1  # Mode 1
-    if mode == 1:
+        mode = LoadMode.DIFFICULT
+    if mode == LoadMode.DIFFICULT:
         if conj:
             book = chooseBook(conjNumber.keys())
         else:
@@ -600,18 +601,18 @@ def createDictionary(
             if len(Vars.listNumber[Vars.lang][book]) == 1:
                 break
             firstList = False
-    if mode == 2:
+    if mode == LoadMode.RECORD:
         wordList = readFromRecord[0]
         # currentWordList = wordList  # To comply with currentWordList used for efficiency for
-        #  (mode != 2 and not choose_all)
+        #  (mode != LoadMode.RECORD and not choose_all)
         book = readFromRecord[1][0]
         if isinstance(book, list):  # "Similar words" mode ONLY
             assert readFromRecord[1][1] is None
         else:
-            lists = sorted(readFromRecord[1][1:len(readFromRecord[1])])
+            lists = sorted(readFromRecord[1][1 : len(readFromRecord[1])])
         checkAllWordsInLists(wordList, book, lists)
         alls = [False] * len(lists)
-    if mode == 3:
+    if mode == LoadMode.ALL:
         assert allLists in Vars.availableBooks
         book = allLists
         lists = sorted(map(int, list_of_books[book]))
@@ -717,7 +718,7 @@ def describeList(
                         )
                         print()
                 else:
-                    for w in re.split(r"\s*\|+\s*", s.lower()):
+                    for w in split_words(s.lower()):
                         if w != "":
                             if w in wordList:
                                 difficultWords.append(w)
@@ -751,9 +752,7 @@ def describeList(
                     difficultWords.append(word)
                     printInst("markedWordSuccessfully", rep=word)
                 elif s != "":  # If s is not empty, mark words in s
-                    for w in re.split(
-                        r"\s*\|+\s*", s
-                    ):  # Split s by | and add each word if they exist;
+                    for w in split_words(s):  # Split s by | and add each word if they exist;
                         #  already changed to lower case in describeWord()
                         if w in wordList:
                             difficultWords.append(w)
@@ -780,9 +779,7 @@ def describeList(
         except QuitException:  # Ignore
             difficultWordsInput = ""
         if difficultWordsInput != "":
-            difficultWordsInput = re.split(
-                r"\s*\|+\s*", difficultWordsInput
-            )  # Split words by |
+            difficultWordsInput = split_words(difficultWordsInput)  # Split words by |
             abandoned = []
             for wi, word in enumerate(difficultWordsInput):
                 while word not in wordList:
@@ -1124,12 +1121,12 @@ def findAWord():
                     tmp = ""
                     if word[0:2] == "bg" or word[0:2] == "ct" or word[0:2] == "nd":
                         tmp = word[0:2]
-                        word = word[2:len(word)]
+                        word = word[2 : len(word)]
                         for dic in dics:
                             for words in dic:
-                                if (tmp == "bg" and words[0:len(word)] == word) or (
+                                if (tmp == "bg" and words[0 : len(word)] == word) or (
                                     tmp == "nd"
-                                    and words[len(words) - len(word):len(words)]
+                                    and words[len(words) - len(word) : len(words)]
                                     == word
                                 ):
                                     wordsContaining.append(words)
@@ -1610,13 +1607,13 @@ def similarWords():
             else:
                 found = []
                 if word == "random" or word == "r":
-                    words = [re.split(r"\s*\|+\s*", s)[0] for s in f if "|" in s]
+                    words = [split_words(s)[0] for s in f if "|" in s]
                     random.shuffle(words)
                     random.shuffle(words)
                     word = words[0]
                     f.seek(0)
                 for s in f:
-                    words = re.split(r"\s*\|+\s*", s.rstrip("\n").lower())
+                    words = split_words(s.lower())
                     if word in words:
                         found += words
                 if found == []:
@@ -1758,11 +1755,11 @@ def extend(book, theList, current):
                         ] or Word.markWordorNot(user_input):
                             new.append(word)
                         else:
-                            add += re.split(r"\s*\|+\s*", user_input.lower())
+                            add += split_words(user_input.lower())
     except QuitException:
         return
     try:
-        add2 = re.split(r"\s*\|+\s*", inpInst("difficultWordsInput").lower())
+        add2 = split_words(inpInst("difficultWordsInput").lower())
         if add2 != [""]:
             add += add2
     except QuitException:
@@ -1810,7 +1807,7 @@ def chooseDifficultWordList():
             return
     if newOrExt == "N":
         with open(difficultWordListPath) as f:
-            current = re.split(r"\s*\|+\s*", f.readline().lower().rstrip("\n"))
+            current = split_words(f.readline().lower())
     else:
         current = []
     newAndTogether = extend(book, theList, current)

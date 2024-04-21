@@ -47,7 +47,7 @@ listNumber = {
         "Duo_de": list(range(1, 2)),
         "CLIC6": list(range(1, 3)),
         "Le Figaro": list(range(1, 2)),
-        "DELF B2 3000 Mots pour Réussir": list(range(1, 39)),
+        "DELF B2 3000 Mots pour Réussir": list(range(1, 48)),
     },
 }
 

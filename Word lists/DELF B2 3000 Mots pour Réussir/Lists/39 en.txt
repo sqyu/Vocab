@@ -14,7 +14,7 @@ atterrir ** [a.tɛ.ʁiʁ] ** v.i. to land [EX] ~ en catastrophe/sur le ventre ||
 autopartage ** [o.tɔ.paʁ.taʒ/o.to.paʁ.taʒ] ** n.m. car-sharing
 autoroute ** [o.to.ʁut] ** n.f. freeway [EX] ~ de dégagement/liaison || freeway [EX] ~ à péage || toll motorway [EX] ~ urbaine || urban motorway %% n.f. (computing) highway [EX] ~ de l'information || information (super)highway
 bateau ** [ba.to] ** n.m. boat, ship %% n.m. boat neck %% n.m. (informal) joke [EX] monter un ~ à qn || to take sb for a ride [EX] mener qn en ~ || to take sb in %% n.m. dropped curb (in front of an entrance)
-camion ** [ka.mjɔ̃] ** n.m. truck (US)
+camion ** [ka.mjɔ̃] ** n.m. truck
 cargo ** [kaʁ.ɡo] ** n.m. cargo boat [EX] ~ mixte || passenger-cargo ship
 casque ** [kask] ** n.m. crash helmet, cycle helmet %% n.m. headphones %% n.m. hairdryer
 chauffeur ** [ʃo.fœʁ] ** n.m. driver [EX] ~ de camion/poids lourd || truck driver [EX] ~ de car || bus driver [EX] ~ de taxi || taxi driver %% n.m. stoker, (railways) fireman
@@ -26,7 +26,7 @@ compartiment ** [kɔ̃.paʁ.ti.mɑ̃] ** n.m. compartment
 composter ** [kɔ̃.pɔs.te] ** v.t. to stamp or punch (a ticket) %% v.t. to compost [déchets]
 conducteur ** [kɔ̃dyktœʁ] ** a. conductive [EX] un matériau peu ~ || a poor conductor %% n.m./n.f. driver [EX] être bon/mauvais ~ || to be a good/bad driver [EX] sans ~ |¥ driverless %% n.m. (physics) conductor
 conduire ** [kɔ̃.dɥiʁ] ** v.t. (~ à) to take; to drive %% v.t. to lead to [EX] un bus vous ~a à l'hôtel || a bus will take you to the hotel [EX] le chemin ~ à l'église || the path leads to the church %% v.t. to lead to [EX] ~ à qch || to lead to sth [EX] ~ qn à faire || to lead sb to do [EX] ~ à améliorer qch/à fermer qch || to lead to improvements in sth/to the closing of sth %% v.t. to conduct
-se conduire ** [sə kɔ̃.dɥiʁ] ** v.pr. to behave [EX] il ne sait pas ~ en société || he doesn't know how to behave in company [EX] ~ bien/mal || to behave well/badly (avec or envers qn toward, towards British sb) [EX] ~ comme un enfant/imbécile || to behave like a child/fool
+se conduire ** [sə kɔ̃.dɥiʁ] ** v.pr. to behave [EX] il ne sait pas ~ en société || he doesn't know how to *behave* in company [EX] ~ bien/mal || to *behave* well/badly (avec or envers qn toward sb) [EX] ~ comme un enfant/imbécile || to *behave* like a child/fool
 consigne ** [kɔ̃.siɲ] ** n.f. orders, instructions [EX] donner ~ de faire || to give orders to do [EX] avoir pour ~ de faire || to have orders to do [EX] appliquer or respecter la ~ || to comply with orders [EX] suivre des ~s || to follow orders %% n.f. bottle deposit %% n.f. baggage checkroom [EX] mettre/laisser/déposer qch à la/en ~ || to check sth (in)
 covoiturage ** [kɔ.vwa.ty.ʁaʒ] ** n.m. carpooling
 croisement ** [kʁwaz.mɑ̃] ** n.m. crossroads, crossing, junction [EX] au ~ des routes || where the roads cross %% n.m. passing [EX] le ~ de deux trains || two trains passing one another %% n.m. (~ *avec*) crossbreeding [EX] obtenu par des ~s répétés || obtained by repeated crossbreeding or hybridization [EX] faire des ~s (d'espèces) || to crossbreed species [EX] faire un ~ entre A et B || to cross A with B
@@ -48,7 +48,7 @@ embarquer ** [ɑ̃.baʁ.ke] ** v. to load, to take (passengers) on board [EX] va
 équipement ** [e.kip.mɑ̃] ** n.m. equipment, kit, gear %% n.m. facilities [EX] ~ portuaire || port facilities [EX] ~s scolaires/sociaux/sportifs || school/social/sports facilities %% n.m. equipping, kitting out
 équiper ** [e.ki.pe] ** v.t. to equip, to provide, to fit out
 s'équiper ** [se.ki.pe] ** v.pr. to equip oneself [EX] ~ *de/en* qch || ... with sth [EX] ~ *pour* qch || ... for sth [EX] ~ *pour* faire || ... to do
-essence ** [e.sɑ̃s/ɛ.sɑ̃s] ** n.f. gasoline %% n.f. essential oil %% n.f. tree species [EX] ~ rares || rare tree species %% n.f. par ~ || in essence
+essence ** [e.sɑ̃s/ɛ.sɑ̃s] ** n.f. gasoline %% n.f. essential oil %% n.f. tree species [EX] ~ rares || rare tree species %% n.f. essence [EX] par ~ || in essence
 auto-stop ** [o.tos.tɔp] ** n.m. hitchhiking [EX] aller à Paris *en* ~ || to hitchhike to Paris [EX] prendre qn *en* ~ || to pick up a hitchhiker
 faire de l'auto-stop ** [fɛʁ də lo.tos.tɔp] ** v.t. to hitchhike
 faire le plein ** [fɛʁ lə plɛ̃] ** v.t. (~ *de*) (literal) to fill up (with e.g. water, gas) [EX] s'arrêter pour ~ || to stop to fill up %% v.t. (~ *de*) (figurative) to get a lot of

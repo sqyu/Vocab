@@ -29,27 +29,28 @@ roue ** [ʁu] ** n.f. a wheel
 rouler ** [ʁu.le] ** v.t. to roll %% v.t. to wheel %% v.t. to roll up %% v.t. (phonetics) to roll one's ‘r’s %% v.i. to roll %% v.i. [train, bus, voiture, bicyclette] to go [EX] ma voiture ne ~ plus || my car won't go
 
 125
-route ** [ʁut] ** n.f. road (sometimes ~ like "Route 66") %% n.f. ~, way, path
-rue ** [ʁy] ** n.f. street, road %% n.f. ~ (the plant)
-sauvetage ** [sov.taʒ] ** n.m. rescue (act of rescuing someone or something) %% n.m. saving (act of saving) %% n.m. (sports) save %% n.m. salvage
-se déplacer ** [sə de.pla.se] ** v.t. to move %% v.pr. (~) to go around, to move about %% v.pr. (~) to come over, to go over to, to make a house call, as to travel to perform some work
-séjour ** [se.ʒuʁ] ** n.m. stay, visit, sojourn %% n.m. living room
-souvenir ** [su.və.niʁ] ** v. (takes a reflexive pronoun, transitive with de) to remember %% n.m. memory (mental picture) %% n.m. ~
+route ** [ʁut] ** n.f. road, highway
+rue ** [ʁy] ** n.f. street, road
+sauvetage ** [sov.taʒ] ** n.m. rescue [EX] équipe de ~ || rescue team [EX] plan/tentatives de ~ || rescue plan/attempts
+déplacer ** [de.pla.se] ** v.t. (~ *de*) to move, to dislodge [EX] ~ ses vacances || to change the dates of one's vacation %% v.t. to shift
+se déplacer ** [sə de.pla.se] ** v.pr. to move %% v.pr. to be moved [EX] ~ avec difficulté || to be difficult to move %% v.pr. to get about, to travel [EX] ~ en fauteuil roulant || to be in a wheelchair [EX] ~ en voiture/à bicyclette || to get about by car/by bike %% v.pr. to go, to come [EX] il ne s'est même pas ~é || he didn't even bother to come
+séjour ** [se.ʒuʁ] ** n.m. stay [EX] ~ de trois semaines || three-week stay [EX] j'ai fait un ~ à l'hôpital || I had a stay in the hospital %% n.m. reception, living room
+souvenir ** [su.və.niʁ] ** n.m. memory [EX] garder un bon/mauvais ~ de qch || to have happy/bad memories of sth [EX] ce n'est plus qu'un mauvais ~ || it's just a bad memory [EX] perdre le ~ de qch || to forget sth [EX] au ~ de || at the memory of %% n.m. souvenir
 station-service ** [sta.sjɔ̃.sɛʁ.vis] ** n.f. gas station, service station
-terminus ** [tɛʁ.mi.nys] ** n.m. (transport) ~
-titre de transport # ticket ** [titʁ də tʁɑ̃s.pɔʁ] ** n.m. ticket, transport ticket
-transports collectifs # n.m.pl. public transportation ** [tʁɑ̃s.pɔʁ kɔ.lɛk.tif] ** UNKNOWN
-transports en commun # n.m.pl. public transportation ** [tʁɑ̃s.pɔ.ʁ‿ɑ̃ kɔ.mœ̃] ** n.m. plural of transport en commun
-usager ** [y.za.ʒe] ** n.m. user
-valise ** [va.liz] ** n.f. case, suitcase
-véhicule ** [ve.i.kyl] ** n.m. vehicle %% n.m. (Buddhism) vehicle; yana
-victime ** [vik.tim] ** n.f. victim
-virage ** [vi.ʁaʒ] ** n.m. bend, turn, curve %% n.m. change, shift (in orientation) %% n.m. (skiing) turn %% n.m. change in colour
-voie ** [vwa] ** n.f. way, track %% n.f. lane (of a highway) %% n.f. (figuratively) calling, path in life
-vol ** [vɔl] ** n.m. flight %% n.m. stealing, theft, robbery
-volant ** [vɔ.lɑ̃] ** part. present participle of voler %% n.m. steering wheel %% n.m. (technical) flywheel %% n.m. flounce %% n.m. (badminton) shuttlecock, birdie
-voler ** [vɔ.le] ** v.i. to fly (through the air) %% v.t. to fly (an aircraft) %% v. (falconry, transitive) to pursue flying %% v.i. to scarper, flee %% v.t. to steal, rob
-voyageur ** [vwa.ja.ʒœʁ] ** n.m. traveller %% a. nomadic, wandering
-vtt ** [UNKNOWN] ** UNKNOWN
-wagon ** [va.ɡɔ̃/wa.ɡɔ̃] ** n.m. railway carriage
-wagon-restaurant # dining car ** [va.ɡɔ̃.ʁɛs.tɔ.ʁɑ̃/wa.ɡɔ̃.ʁɛs.tɔ.ʁɑ̃] ** n.m. dining car
+terminus ** [tɛʁ.mi.nys] ** n.m. (transport) terminus [EX] ‘~ du train, tout le monde descend’ || ‘all change please, the train terminates here’
+titre de transport ** [titʁ də tʁɑ̃s.pɔʁ] ** n.m. ticket, transport ticket
+transports collectifs ** [tʁɑ̃s.pɔʁ kɔ.lɛk.tif] ** n.m.pl. public transportation
+transports en commun ** [tʁɑ̃s.pɔ.ʁ‿ɑ̃ kɔ.mœ̃] ** n.m.pl. public transportation
+usager ** [y.za.ʒe] ** n.m. user [EX] ~ de la route || road-user [EX] ~ des transports en commun || user of public transport
+valise ** [va.liz] ** n.f. case, suitcase [EX] faire/défaire ses ~ || to pack/unpack
+véhicule ** [ve.i.kyl] ** n.m. vehicle
+victime ** [vik.tim] ** n.f. (~ *de*) victim, casualty [EX] le cyclone a fait de nombreuses ~s || the cyclone claimed many victims or casualties [EX] les ~s des accidents de la route || road accident victims, road casualties [EX] arrête de jouer les ~s || (ironic) stop playing the victim
+virage ** [vi.ʁaʒ] ** n.m. bend, curve [EX] ~ dangereux || dangerous bend %% n.m. change of direction (in orientation) [EX] parti qui amorce un ~ à droite || party which takes a turn to the right %% n.m. toning
+voie ** [vwa] ** n.f. way [EX] la ~ de la paix/modernisation/sagesse || the way to peace/modernization/wisdom [EX] être sur la ~ d'un accord || to be on the way to an agreement [EX] montrer la ~ à qn || to show sb the way %% n.f. channels [EX] par la ~ diplomatique || through diplomatic channels [EX] par ~ de presse || through the press [EX] par ~ de mer || by sea [EX] par la ~ des airs || by air %% n.f. lane, road, street [EX] route à trois ~s || three-lane road [EX] ~ réservée aux autobus || bus lane %% n.f. track, platform (railway)
+vol ** [vɔl] ** n.m. flight %% n.m. stealing, theft, robbery [EX] commettre un ~ || to commit a theft or robbery [EX] c'est du ~ (manifeste)! || it's daylight robbery!
+volant ** [vɔ.lɑ̃] ** a. flying [EX] le personnel ~ || the flying staff %% n.m. steering wheel [EX] être au ~ || to be at the wheel [EX] prendre le ~ || to take the wheel %% n.m. margin, reserve [EX] ~ de sécurité || safety margin, reserve fund
+voler ** [vɔ.le] ** v.i. (~ *à* qn from sb) to steal [EX] on lui a ~é sa voiture, il s'est fait ~er sa voiture || he's had his car stolen [EX] il s'est fait ~er la victoire || (figurative) he's been robbed of his victory [EX] tu ne l'as pas ~é! || (figurative) it serves you right, you asked for it! %% v.t. to rob [EX] ~ le client || to cheat/rob the customer %% v.i. to fly [EX] ~ au vent || to blow in the wind [cheveux, jupe]
+voyageur ** [vwa.ja.ʒœʁ] ** n.m. traveller, passenger %% a. nomadic, wandering
+vtt ** [ve.te.te] ** n.m. mountain bike
+wagon ** [va.ɡɔ̃] ** n.m. railway carriage
+wagon-restaurant ** [va.ɡɔ̃.ʁɛs.tɔ.ʁɑ̃] ** n.m. dining car
