@@ -5,7 +5,7 @@ s'exiler ** [sɛɡ.zi.le] ** v.pr. to go into exile [EX] il s'est ~é à Jersey 
 expatrier ** [ɛks.pa.tʁi.je] ** v.t. to expatriate, deport, to transfer abroad
 s'expatrier ** [sɛks.pa.tʁi.je] ** v.pr. (~ *en/à*) to emigrate
 famille recomposée ** [fa.mij ʁə.kɔ̃.po.ze] ** n.f. reconstituted family, blended family (a stepfamily in which both new mates have one or more living kids from prior partners)
-fêtes de fin d'année ** [fɛt də fɛ̃ d‿a.ne] ** n.f. Christmas and New Year, year-end celebrations, Christmastide, Yuletide, holidays
+fêtes de fin d'année ** [fɛt də fɛ̃ d‿a.ne] ** n.f.pl. Christmas and New Year, year-end celebrations, Christmastide, Yuletide, holidays
 fiancé ** [fi.jɑ̃.se/fjɑ̃.se] ** a. engaged %% n.m. fiancé
 filière ** [fi.ljɛʁ] ** n.f. course of study %% n.f. field, chain
 foyer ** [fwa.je] ** n.m. home [EX] quitter/regagner le ~ conjugal || to leave/return to the conjugal home [EX] rester au ~ || to stay at homme %% n.m. household %% n.m. (~ de/pour) hostel [EX] un ~ de travailleurs/d'étudiants || a worker's/students' hostel %% n.m. club [EX] ~ pour personnes âgées || senior citizens' *club* %% n.m. hearth %% n.m. (physics) focus
@@ -21,7 +21,7 @@ s'inscrire ** [ɛ̃s.kʁiʁ] ** v.pr. to register, to matriculate [EX] ~ à l'un
 instituteur ** [ɛ̃s.ti.ty.tœʁ] ** n.m. primary school teacher, nursery school teacher
 intégration ** [ɛ̃.te.ɡʁa.sjɔ̃] ** n.f. (~ *à*, *dans*) integration [EX] ~ sociale || integration into society %% n.f. (informal) entrance [EX] il fête son ~ à Harvard || (informal) he's celebrating getting into Harvard
 s'intégrer ** [ɛ̃.te.ɡʁe] ** v.pr. (~ *à*, *dans*) to integrate, to fit in
-s'intéresser ** [s‿ɛ̃.te.ʁɛ.se] ** (~ *à*) to be interested in, to take an interest in
+s'intéresser ** [s‿ɛ̃.te.ʁɛ.se] ** v.pr. (~ *à*) to be interested in, to take an interest in
 interruption volontaire de grossesse ** [ɛ̃.tɛ.ʁyp.sjɔ̃ vɔ.lɔ̃.tɛʁ də ɡʁo.sɛs] ** n.f. termination of pregnancy, abortion
 issu ** [i.sy] ** a. (~ *de*) from, originating from [EX] être ~ de || to come from, to result from [EX] il est ~ d'un milieu modeste || he comes from a modest background
 issue ** [i.sy] ** n.f. exit [EX] sans ~ || no exit %% n.f. (~ *à*) solution, way out %% n.f. outcome [EX] ~ tragique d'une affaire || tragic outcome of a case
@@ -31,8 +31,8 @@ lien ** [ljɛ̃] ** n.m. bond, strap %% n.m. connection, link %% n.m. link, tie
 lycée ** [li.se] ** n.m. a public secondary school
 
 96
-lycéen ** [li.se.ɛ̃] ** n.m. secondary school student %% a. secondary school [EX] vie ~ || secondary school life
-lycéenne ** [li.se.ɛn] ** n.f. secondary school girl
+lycéen ** [li.se.ɛ̃] ** n.m. *high school* student (ages *15-18*) %% a. high school [EX] vie ~ || secondary school life
+lycéenne ** [li.se.ɛn] ** n.f. *high school* girl
 mariage ** [ma.ʁjaʒ] ** n.m. marriage %% n.m. wedding %% n.m. union
 matrimonial ** [mat.ʁi.mɔ.njal] ** a. marriage [EX] agence ~ || marriage bureau
 maturité ** [ma.ty.ʁi.te] ** n.f. maturity

@@ -2,7 +2,7 @@
 adolescent ** [a.dɔ.le.sɑ̃/a.dɔ.lɛ.sɑ̃] ** a. adolescent %% n.m. adolescent
 adolescence ** [a.dɔ.lɛ.sɑ̃s] ** n.f. adolescence, teenage years, teenagehood
 âge adulte ** [ɑ.ʒ‿a.dylt] ** n.m. majority, legal adulthood (age from which one is considered an adult)
-allocations familiales ** [a.lɔ.ka.sjɔ̃ fa.mi.ljal] ** n.f. family allowances, child benefits
+allocations familiales ** [a.lɔ.ka.sjɔ̃ fa.mi.ljal] ** n.f.pl. family allowances, child benefits
 anniversaire ** [a.ni.vɛʁ.sɛʁ] ** n.m. birthday %% n.m. anniversary
 attentif ** [a.tɑ̃.tif] ** a. attentive [EX] *être* ~ *à* || to pay attention to [EX] il est plus ~ aux détails || he pays a lot of attention to detail %% a. careful (cautious) [EX] un examen plus ~ du dossier || a closer look of the file
 autorité ** [o.tɔ.ʁi.te] ** n.f. authority (the power to enforce rules or give orders) %% n.f. authority (entity with power)
@@ -19,7 +19,7 @@ célibataire ** [se.li.ba.tɛʁ] ** a. single %% n.m. bachelor, single man/woman
 cohabitation ** [kɔ.a.bi.ta.sjɔ̃] ** n.f. living with somebody [EX] la ~ avec la belle-famille
 cohabiter ** [kɔ.a.bi.te] ** v.i. (~ *avec*) to cohabit, to live together, to share a house
 collège ** [kɔ.lɛʒ] ** n.m. junior high school %% n.m. (electoral) college
-collégien ** [kɔ.le.ʒjɛ̃] ** n.m. schoolboy/ schoolgirl [EX] se faire avoir comme un ~ || to be completely taken in
+collégien ** [kɔ.le.ʒjɛ̃] ** n.m. schoolboy/ schoolgirl under *secondary education* (ages *11-15*) [EX] se faire avoir comme un ~ || to be completely taken in
 compagne ** [kɔ̃.paɲ] ** n.f. female companion [EX] ~ de toujours || lifelong companion [EX] ~ de voyage || travelling companion
 compagnon ** [kɔ̃.pa.ɲɔ̃] ** n.m. companion %% n.m. lifelong partner, significant other %% n.m. friend, buddy, pal [EX] ~ de route || fellow traveller [EX] ~ de voyage || travelling companion
 compréhensible ** [kɔ̃.pʁe.ɑ̃.sibl] ** a. comprehensible; understandable
@@ -40,7 +40,7 @@ deuil ** [dœj] ** n.m. bereavement [EX] être frappé par un ~ || to be bereave
 dialogue interculturel ** [dja.lɔɡ ɛ̃.tɛʁ.kyl.ty.ʁɛl] ** n.m. intercultural dialogue
 difficulté ** [di.fi.kyl.te] ** n.f. difficulty
 diplôme ** [di.plom] ** n.m. degree (academic award) %% n.m. diploma
-doué ** [dwe/du.e] ** a. (~ *en/pour*) talented; gifted [EX] être ~ pour les chiffres || to have a good head for figures [EX] il n'est pas très ~ pour la finance || he hasn't got much of a flair for finance %% a. (~ *de*) endowed/gifted with [EX] il est ~ d'une bonne mémoire || he's endowed with a good memory
+doué ** [dwe/du.e] ** a. (~ *en/pour*) talented; gifted [EX] être ~ *pour* les chiffres || to have a good head for figures [EX] il n'est pas très ~ *pour* la finance || he hasn't got much of a flair for finance %% a. (~ *de*) endowed/gifted with [EX] il est ~ *d'*une bonne mémoire || he's endowed with a good memory
 échec ** [e.ʃɛk] ** n.m. (~ *à*) failure [EX] après trois ~s || after three unsuccessful attempts [EX] ~ personnel/commercial/scolaire || personal/commercial/academic failure [EX] malgré les ~s du début || despite the initial setbacks [EX] subir un ~ || to fail; to suffer a setback (temporarily) %% n.m. (chess) checkmate
 échouer à un examen ** [e.ʃwe a œ̃ ɛɡ.za.mɛ̃/eɡ.za.mɛ̃] ** v.t. to fail an exam
 écolier ** [e.kɔ.lje] ** n.m. schoolchild, schoolboy/schoolgirl
